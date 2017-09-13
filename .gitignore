@@ -62,3 +62,4 @@ build
 !docs/build
 dist
 .DS_Store
+__coverage__
