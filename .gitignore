@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+.vscode
+build
+!docs/build
+dist
+.DS_Store
