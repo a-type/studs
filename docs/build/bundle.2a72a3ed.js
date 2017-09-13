@@ -47129,7 +47129,7 @@ object-assign
         return Object.freeze(
           Object.defineProperties(e, { raw: { value: Object.freeze(t) } }),
         );
-      })(['\n  ', '\n'], ['\n  ', '\n']),
+      })(['', ';'], ['', ';']),
       o = _interopRequireDefault(n(0)),
       i = _interopRequireDefault(n(21)),
       a = _interopRequireDefault(n(37)),
