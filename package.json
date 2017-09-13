@@ -1,6 +1,6 @@
 {
   "name": "styled-library-themer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A theme integration library built on top of styled-components targeting shared component library use cases",
   "main": "index.js",
   "scripts": {
