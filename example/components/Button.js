@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '../theme';
+import { spreadStyles } from '../../src';
 
 const select = theme
   .register('button', theme => ({
@@ -11,12 +12,7 @@ const select = theme
   }))
   .createSelector();
 
-const ButtonImpl = theme.connect(styled.button`
-  color: ${select('color')};
-  background: ${select('background')};
-  border-radius: ${select('borderRadius')};
-  padding: ${select('padding')};
-`);
+const ButtonImpl = theme.connect(styled.button`${spreadStyles(select)};`);
 
 export const Button = ({ children, ...rest }) => (
   <ButtonImpl {...rest}>{children}</ButtonImpl>
