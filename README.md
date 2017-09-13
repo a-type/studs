@@ -1,4 +1,4 @@
-## styled-library-themer
+## [styled-library-themer](https://github.com/a-type/styled-library-themer/)
 > A theme integration library built on top of styled-components targeting shared component library use cases
 
 `styled-library-themer` integrates and extends `styled-components` to provide a seamless theme and user-customization experience for component libraries. By replacing your 'dumb' theme object with a smart one and exposing powerful utilities to your library's consumers, we can:
