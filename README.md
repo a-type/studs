@@ -17,7 +17,7 @@ To begin, create your theme with your shared style values. These global values c
 
 ```javascript static
 // theme.js
-import Theme from 'styled-library-themer`;
+import Theme from 'styled-library-themer';
 
 const globals = {
   colors: {
