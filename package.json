@@ -1,0 +1,59 @@
+{
+  "name": "styled-library-themer",
+  "version": "0.1.0",
+  "description": "A theme generation library built on top of styled-components targeting shared component library use cases",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config jestConfig.json --coverage",
+    "styleguide": "styleguidist server",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --trailing-comma all --write \"{src,__tests__}/**/*.js\"",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-type/styled-library-themer.git"
+  },
+  "keywords": [
+    "styled-components",
+    "library",
+    "theme"
+  ],
+  "author": "Grant Forrest <gaforres@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-type/styled-library-themer/issues"
+  },
+  "homepage": "https://github.com/a-type/styled-library-themer#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-styled-components": "^1.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^0.11.2",
+    "husky": "^0.14.3",
+    "jest": "^21.0.2",
+    "lint-staged": "^4.1.3",
+    "postcss-loader": "^2.0.6",
+    "prettier": "^1.6.1",
+    "react-docgen": "^2.18.0",
+    "react-styleguidist": "^6.0.24",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.6"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "automock": false,
+  "coverageDirectory": "./__coverage__",
+  "collectCoverageFrom": [
+    "src/**/*.js"
+  ],
+  "testRegex": "./__tests__/.*\\.test\\.jsx?$"
+}

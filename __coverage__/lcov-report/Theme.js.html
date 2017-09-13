@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Theme.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> Theme.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.58% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.11% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.54% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.38% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/32</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash';
+import connectTheme from './connectTheme';
+import { asVariant } from './VariantProvider';
+&nbsp;
+export default class Theme {
+  connect = connectTheme;
+  variant = asVariant;
+&nbsp;
+  _compiled = null;
+&nbsp;
+  constructor(namespace, base, overrides = {}, components = {}) {
+    this.namespace = namespace;
+    this.globals = _.defaultsDeep(overrides, base);
+    this.registeredComponents = components;
+  }
+&nbsp;
+  normalizeThemeConfig = (themeConfig) =&gt;
+    _.isFunction(themeConfig)
+    ? (globalTheme) =&gt; themeConfig(globalTheme[this.namespace])
+    : <span class="fstat-no" title="function not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >themeConfig;</span></span>
+&nbsp;
+  /**
+   * Registers a component's style configuration into the theme.
+   *
+   * @memberof Theme
+   */
+  register = (componentName, defaultTheme) =&gt; {
+    // registering components at render time is not allowed; all components
+    // should be registered in the top-level scope before compiling the theme.
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this._compiled) {
+<span class="cstat-no" title="statement not covered" >      throw new Error(</span>
+        `Cannot register component ${componentName}; you must register all components before calling theme.compile`,
+      );
+    }
+&nbsp;
+    const defaultThemeConfig = this.normalizeThemeConfig(defaultTheme);
+    this.registeredComponents[componentName] = { default: defaultThemeConfig };
+&nbsp;
+    // convenience chaining to remove need to pass componentName again
+    // for defining variants and creating selectors from an initial definition
+    const chain = {
+      addVariant: <span class="fstat-no" title="function not covered" >(v</span>ariantName, variantConfiguration) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.registerVariant(componentName, variantName, variantConfiguration);</span>
+<span class="cstat-no" title="statement not covered" >        return chain;</span>
+      },
+      createSelector: _.partial(this.createSelector, componentName),
+    };
+&nbsp;
+    return chain;
+  };
+&nbsp;
+  /**
+   * Registers a variant of a component's style configurations. The variant
+   * config is additive to the default config; you can just provide the values
+   * you want to override from your registered default.
+   *
+   * @memberof Theme
+   */
+  registerVariant = <span class="fstat-no" title="function not covered" >(c</span>omponentName, variantName, variantConfiguration) =&gt; {
+    // registering variants at render time is not allowed; all components
+    // should be registered in the top-level scope before compiling the theme.
+<span class="cstat-no" title="statement not covered" >    if (this._compiled) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(</span>
+        `Cannot register variant ${variantName} for ${componentName}; you must register all variants before calling theme.compile`,
+      );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!this.registeredComponents[componentName] &amp;&amp; this.registeredComponents[componentName].default) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(`Cannot register a variant for ${componentName} before the default has been registered`);</span>
+    }
+&nbsp;
+    const defaultThemeConfig = <span class="cstat-no" title="statement not covered" >this.registeredComponents[componentName].default;</span>
+    // variant has defaults based on the provided default configuration
+<span class="cstat-no" title="statement not covered" >    this.registeredComponents[componentName][variantName] = <span class="fstat-no" title="function not covered" >(t</span>hemeValues) =&gt; <span class="cstat-no" title="statement not covered" >_.defaultsDeep(</span></span>
+      this.normalizeThemeConfig(variantConfiguration)(themeValues),
+      defaultThemeConfig(themeValues),
+    );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Creates a value selector which can be used to easily select a component's
+   * theme values within a styled-components definition.
+   *
+   * ```
+   * const selector = theme.createSelector('button');
+   * const Button = styled.button`
+   *   color: ${selector('color')};
+   * `;
+   * ```
+   *
+   * @memberof Theme
+   */
+  createSelector = (componentName) =&gt;
+    (value) =&gt;
+      ({ theme, variant = <span class="branch-0 cbranch-no" title="branch not covered" >'default' </span>}) =&gt; {
+        const computedValues = (
+          theme[this.namespace].components[componentName][variant] ||
+<span class="branch-1 cbranch-no" title="branch not covered" >          theme[this.namespace].components[componentName].default</span>
+        )(theme);
+&nbsp;
+        if (value) {
+          return computedValues[value];
+        }
+&nbsp;
+        // empty value string returns the whole set
+        return computedValues;
+      };
+&nbsp;
+  /**
+   * Compiles all component theme definitions registered by the library into
+   * a theme object ready to be passed to styled-components' ThemeProvider.
+   *
+   * @memberof Theme
+   */
+  compile = () =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this._compiled) {
+<span class="cstat-no" title="statement not covered" >      return this._compiled;</span>
+    }
+&nbsp;
+    this._compiled = {
+      [this.namespace]: {
+        ...this.globals,
+        components: this.registeredComponents,
+      }
+    };
+&nbsp;
+    return this._compiled;
+  };
+&nbsp;
+  /**
+   * Creates a new theme with a basis on a provided theme. Intended to be used
+   * by library consumers to alter global theme variables.
+   *
+   * @memberof Theme
+   */
+  extend = <span class="fstat-no" title="function not covered" >(n</span>amespace, extensions) =&gt;
+<span class="cstat-no" title="statement not covered" >    new Theme(namespace, this.globals, extensions, this.registeredComponents);</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Sep 13 2017 15:34:40 GMT-0400 (Eastern Daylight Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
