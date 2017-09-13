@@ -11,7 +11,8 @@
     "build:cleanDocs": "rimraf docs",
     "build:dist": "babel --copy-files --out-dir dist src",
     "build:styleguide": "styleguidist build",
-    "build": "run-s build:*"
+    "build": "run-s build:*",
+    "prepublish": "npm run build"
   },
   "lint-staged": {
     "*.js": [
