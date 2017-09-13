@@ -731,7 +731,7 @@ object-assign
           _ = function hyphenateStyleName(e) {
             return v(e).replace(b, '-ms-');
           },
-          C = function objToCss(e, t) {
+          x = function objToCss(e, t) {
             var n = Object.keys(e)
               .map(function(t) {
                 return a()(e[t]) ? objToCss(e[t], t) : _(t) + ': ' + e[t] + ';';
@@ -739,7 +739,7 @@ object-assign
               .join(' ');
             return t ? t + ' {\n  ' + n + '\n}' : n;
           },
-          x = function flatten(e, t) {
+          C = function flatten(e, t) {
             return e.reduce(function(e, n) {
               return void 0 === n || null === n || !1 === n || '' === n
                 ? e
@@ -749,7 +749,7 @@ object-assign
                     ? [].concat(e, ['.' + n.styledComponentId])
                     : 'function' == typeof n
                       ? t ? e.concat.apply(e, flatten([n(t)], t)) : e.concat(n)
-                      : e.concat(a()(n) ? C(n) : n.toString());
+                      : e.concat(a()(n) ? x(n) : n.toString());
             }, []);
           },
           E = new u.a({
@@ -788,7 +788,7 @@ object-assign
               r++
             )
               n[r - 1] = arguments[r];
-            return x(O(e, n));
+            return C(O(e, n));
           },
           T = /^[^\S\n]*?\/\* sc-component-id:\s+(\S+)\s+\*\//gm,
           D = function(e) {
@@ -2180,7 +2180,7 @@ object-assign
                 ComponentStyle
               );
             })();
-          })(A, x, w),
+          })(A, C, w),
           me = (function(e) {
             return function constructWithOptions(t, n) {
               var r =
@@ -2356,7 +2356,7 @@ object-assign
                 b = void 0;
               void 0 !== r && (b = J(l));
               var _ = new e(void 0 === g ? s : g.concat(s), v),
-                C = (function(e) {
+                x = (function(e) {
                   function StyledComponent() {
                     return (
                       P(this, StyledComponent),
@@ -2396,17 +2396,17 @@ object-assign
                   );
                 })(m);
               return (
-                (C.contextTypes = ((u = {}),
+                (x.contextTypes = ((u = {}),
                 (u[ie] = f.a.func),
                 (u[W] = f.a.instanceOf(H)),
                 u)),
-                (C.displayName = l),
-                (C.styledComponentId = v),
-                (C.attrs = y),
-                (C.componentStyle = _),
-                (C.warnTooManyClasses = b),
-                (C.target = n),
-                C
+                (x.displayName = l),
+                (x.styledComponentId = v),
+                (x.attrs = y),
+                (x.componentStyle = _),
+                (x.warnTooManyClasses = b),
+                (x.target = n),
+                x
               );
             };
           })(de, me),
@@ -5090,7 +5090,7 @@ object-assign
             B === y ||
             B === h ||
             B === _ ||
-            B === C ||
+            B === x ||
             B === d ||
             B === E ||
             (Z && B === Z)
@@ -5128,7 +5128,7 @@ object-assign
                         a ||
                           ((W = n ? D : I),
                           t.attribute
-                            ? (B = at(Q)) === x
+                            ? (B = at(Q)) === C
                               ? (U(W, J), (z = null))
                               : u(B) ? (z = null) : U(W, J)
                             : U(W, J))),
@@ -5206,8 +5206,8 @@ object-assign
       v = 'x',
       b = 'X',
       _ = ' ',
-      C = '<',
-      x = '=',
+      x = '<',
+      C = '=',
       E = '',
       w = '\t',
       k = {
@@ -6360,12 +6360,12 @@ object-assign
             }
         } else if ('object' === l) {
           var _ = '',
-            C = String(e);
+            x = String(e);
           r(
             '31',
-            '[object Object]' === C
+            '[object Object]' === x
               ? 'object with keys {' + Object.keys(e).join(', ') + '}'
-              : C,
+              : x,
             _,
           );
         }
@@ -6806,7 +6806,7 @@ object-assign
       return e ? (e.nodeType === w ? e.documentElement : e.firstChild) : null;
     }
     function internalGetID(e) {
-      return (e.getAttribute && e.getAttribute(C)) || '';
+      return (e.getAttribute && e.getAttribute(x)) || '';
     }
     function mountComponentIntoNode(e, t, n, r, o) {
       var i;
@@ -6875,8 +6875,8 @@ object-assign
       v = n(130),
       b = (n(2), n(48)),
       _ = n(75),
-      C = (n(3), i.ID_ATTRIBUTE_NAME),
-      x = i.ROOT_ATTRIBUTE_NAME,
+      x = (n(3), i.ID_ATTRIBUTE_NAME),
+      C = i.ROOT_ATTRIBUTE_NAME,
       E = 1,
       w = 9,
       k = 11,
@@ -6955,13 +6955,13 @@ object-assign
           g = d && !!internalGetID(d),
           v = hasNonRootReactChild(n),
           b = g && !c && !v,
-          C = R._renderNewRootComponent(
+          x = R._renderNewRootComponent(
             s,
             n,
             b,
             i,
           )._renderedComponent.getPublicInstance();
-        return o && o.call(C), C;
+        return o && o.call(x), x;
       },
       render: function(e, t, n) {
         return R._renderSubtreeIntoContainer(null, e, t, n);
@@ -6970,7 +6970,7 @@ object-assign
         isValidContainer(e) || r('40');
         var t = getTopLevelWrapperInContainer(e);
         if (!t) {
-          hasNonRootReactChild(e), 1 === e.nodeType && e.hasAttribute(x);
+          hasNonRootReactChild(e), 1 === e.nodeType && e.hasAttribute(C);
           return !1;
         }
         return (
@@ -9566,15 +9566,15 @@ object-assign
             v = 0,
             b = 0,
             _ = 0,
-            C = 0,
             x = 0,
+            C = 0,
             w = 0,
             W = 0,
             de = 0,
             me = 0,
             be = 0,
-            Ce = 0,
             xe = 0,
+            Ce = 0,
             Pe = o.length,
             Ie = Pe - 1,
             je = '',
@@ -9620,21 +9620,21 @@ object-assign
             switch (y) {
               case T:
                 for (
-                  f = (Le = Le.trim()).charCodeAt(0), C = 1, xe = ++de;
+                  f = (Le = Le.trim()).charCodeAt(0), x = 1, Ce = ++de;
                   de < Pe;
 
                 ) {
                   switch ((y = o.charCodeAt(de))) {
                     case T:
-                      C++;
+                      x++;
                       break;
                     case R:
-                      C--;
+                      x--;
                   }
-                  if (0 === C) break;
+                  if (0 === x) break;
                   de++;
                 }
-                switch (((Ne = o.substring(xe, de)),
+                switch (((Ne = o.substring(Ce, de)),
                 f === Q && (f = (Le = Le.replace(t, '').trim()).charCodeAt(0)),
                 f)) {
                   case F:
@@ -9650,16 +9650,16 @@ object-assign
                     }
                     if (
                       ((Ne = compile(r, a, Ne, g)),
-                      (xe = Ne.length),
-                      ye > 0 && 0 === xe && (xe = Le.length),
+                      (Ce = Ne.length),
+                      ye > 0 && 0 === Ce && (Ce = Le.length),
                       _e > 0 &&
-                        ((a = select(ve, Le, Ce)),
-                        (s = proxy(Se, Ne, a, r, le, ce, xe, g)),
+                        ((a = select(ve, Le, xe)),
+                        (s = proxy(Se, Ne, a, r, le, ce, Ce, g)),
                         (Le = a.join('')),
                         void 0 !== s &&
-                          0 === (xe = (Ne = s.trim()).length) &&
+                          0 === (Ce = (Ne = s.trim()).length) &&
                           ((g = 0), (Ne = ''))),
-                      xe > 0)
+                      Ce > 0)
                     )
                       switch (g) {
                         case re:
@@ -9682,14 +9682,14 @@ object-assign
                     else Ne = '';
                     break;
                   default:
-                    Ne = compile(r, select(r, Le, Ce), Ne, i);
+                    Ne = compile(r, select(r, Le, xe), Ne, i);
                 }
                 (Fe += Ne),
-                  (x = 0),
+                  (C = 0),
                   (be = 0),
                   (W = 0),
                   (me = 0),
-                  (Ce = 0),
+                  (xe = 0),
                   (w = 0),
                   (Le = ''),
                   (Ne = ''),
@@ -9699,15 +9699,15 @@ object-assign
               case O:
                 if (
                   ((Le = (me > 0 ? Le.replace(n, '') : Le).trim()),
-                  (xe = Le.length) > 1)
+                  (Ce = Le.length) > 1)
                 )
                   switch ((0 === W &&
                     ((f = Le.charCodeAt(0)) === q || (f > 96 && f < 123)) &&
-                    (xe = (Le = Le.replace(' ', ':')).length),
+                    (Ce = (Le = Le.replace(' ', ':')).length),
                   _e > 0 &&
                     void 0 !==
                       (s = proxy(we, Le, r, e, le, ce, Me.length, i)) &&
-                    0 === (xe = (Le = s.trim()).length) &&
+                    0 === (Ce = (Le = s.trim()).length) &&
                     (Le = '\0\0'),
                   (f = Le.charCodeAt(0)),
                   (g = Le.charCodeAt(1)),
@@ -9719,14 +9719,14 @@ object-assign
                       Be += Le + o.charAt(de);
                       break;
                     default:
-                      if (Le.charCodeAt(xe - 1) === H) break;
+                      if (Le.charCodeAt(Ce - 1) === H) break;
                       Me += property(Le, f, g, Le.charCodeAt(2));
                   }
-                (x = 0),
+                (C = 0),
                   (be = 0),
                   (W = 0),
                   (me = 0),
-                  (Ce = 0),
+                  (xe = 0),
                   (Le = ''),
                   (y = o.charCodeAt(++de));
             }
@@ -9794,7 +9794,7 @@ object-assign
                 case U:
                   p + c + u === 0 &&
                     fe > 0 &&
-                    ((Ce = 1), (me = 1), (je = '\f' + je));
+                    ((xe = 1), (me = 1), (je = '\f' + je));
                   break;
                 case 108:
                   if (p + c + u + pe === 0 && W > 0)
@@ -9828,12 +9828,12 @@ object-assign
                   break;
                 case D:
                   if (p + c + u === 0) {
-                    if (0 === x)
+                    if (0 === C)
                       switch (2 * v + 3 * b) {
                         case 533:
                           break;
                         default:
-                          (C = 0), (x = 1);
+                          (x = 0), (C = 1);
                       }
                     l++;
                   }
@@ -9867,7 +9867,7 @@ object-assign
                     case X:
                     case P:
                     case D:
-                      if (0 === x) {
+                      if (0 === C) {
                         switch (v) {
                           case M:
                           case B:
@@ -9882,10 +9882,10 @@ object-assign
                       } else
                         switch (y) {
                           case D:
-                            x = ++C;
+                            C = ++x;
                             break;
                           case P:
-                            0 == (x = --C) && ((me = 1), (je += '\0'));
+                            0 == (C = --x) && ((me = 1), (je += '\0'));
                         }
                       break;
                     case B:
@@ -9902,7 +9902,7 @@ object-assign
                         case N:
                           break;
                         default:
-                          0 === x && ((me = 1), (je += '\0'));
+                          0 === C && ((me = 1), (je += '\0'));
                       }
                   }
                 (Le += je), y !== B && (_ = y);
@@ -9911,19 +9911,19 @@ object-assign
           (b = v), (v = y), de++;
         }
         if (
-          ((xe = Me.length),
+          ((Ce = Me.length),
           ye > 0 &&
-            0 === xe &&
+            0 === Ce &&
             0 === Fe.length &&
             (0 === r[0].length) == !1 &&
             (i !== ne || (1 === r.length && (fe > 0 ? Te : De) === r[0])) &&
-            (xe = r.join(',').length + 2),
-          xe > 0)
+            (Ce = r.join(',').length + 2),
+          Ce > 0)
         ) {
           if (
             ((a = 0 === fe && i !== te ? isolate(r) : r),
             _e > 0 &&
-              void 0 !== (s = proxy(ke, Me, a, e, le, ce, xe, i)) &&
+              void 0 !== (s = proxy(ke, Me, a, e, le, ce, Ce, i)) &&
               0 === (Me = s).length)
           )
             return Be + Me + Fe;
@@ -10002,7 +10002,7 @@ object-assign
         else if (he > 0)
           switch (l) {
             case 969:
-              c = k + c.replace(x, k + '$1') + c;
+              c = k + c.replace(C, k + '$1') + c;
               break;
             case 951:
               c = k + c + c;
@@ -10105,13 +10105,13 @@ object-assign
               (u = s.indexOf('-') + 1),
               s.charCodeAt(0) + s.charCodeAt(u))) {
                 case 226:
-                  s = c.replace(C, 'tb');
+                  s = c.replace(x, 'tb');
                   break;
                 case 232:
-                  s = c.replace(C, 'tb-rl');
+                  s = c.replace(x, 'tb-rl');
                   break;
                 case 220:
-                  s = c.replace(C, 'lr');
+                  s = c.replace(x, 'lr');
                   break;
                 default:
                   return c;
@@ -10341,13 +10341,13 @@ object-assign
         var o,
           i = [De];
         _e > 0 &&
-          void 0 !== (o = proxy(xe, t, i, i, le, ce, 0, 0)) &&
+          void 0 !== (o = proxy(Ce, t, i, i, le, ce, 0, 0)) &&
           'string' == typeof o &&
           (t = o);
         var a = compile(ve, i, t, 0);
         return (
           _e > 0 &&
-            void 0 !== (o = proxy(Ce, a, i, i, le, ce, a.length, 0)) &&
+            void 0 !== (o = proxy(xe, a, i, i, le, ce, a.length, 0)) &&
             'string' != typeof (a = o) &&
             (r = 0),
           (Re = ''),
@@ -10379,8 +10379,8 @@ object-assign
         v = /(\{[^{]+?);(?=\})/g,
         b = /\s{2,}/g,
         _ = /([^\(])(:+) */g,
-        C = /[svh]\w+-[tblr]{2}/,
-        x = /([\w-]+t\()/g,
+        x = /[svh]\w+-[tblr]{2}/,
+        C = /([\w-]+t\()/g,
         E = /\(\s*([^]*?)\s*\)/g,
         w = /([^]*?);/g,
         k = '-webkit-',
@@ -10433,8 +10433,8 @@ object-assign
         ve = [],
         be = [],
         _e = 0,
-        Ce = -2,
-        xe = -1,
+        xe = -2,
+        Ce = -1,
         Ee = 0,
         we = 1,
         ke = 2,
@@ -10658,12 +10658,12 @@ object-assign
             }
         } else if ('object' === l) {
           var _ = '',
-            C = String(e);
+            x = String(e);
           r(
             '31',
-            '[object Object]' === C
+            '[object Object]' === x
               ? 'object with keys {' + Object.keys(e).join(', ') + '}'
-              : C,
+              : x,
             _,
           );
         }
@@ -11915,7 +11915,7 @@ object-assign
           try {
             return e(t);
           } catch (e) {
-            return (C.error = e), C;
+            return (x.error = e), x;
           }
         }
         function invokeCallback(e, t, n, r) {
@@ -11926,7 +11926,7 @@ object-assign
             u = void 0;
           if (o) {
             if (
-              ((i = tryCatch(n, r)) === C
+              ((i = tryCatch(n, r)) === x
                 ? ((u = !0), (a = i.error), (i.error = null))
                 : (s = !0),
               t === i)
@@ -11955,10 +11955,10 @@ object-assign
           }
         }
         function nextId() {
-          return x++;
+          return C++;
         }
         function makePromise(e) {
-          (e[g] = x++),
+          (e[g] = C++),
             (e._state = void 0),
             (e._result = void 0),
             (e._subscribers = []);
@@ -12074,8 +12074,8 @@ object-assign
           v = 1,
           b = 2,
           _ = new ErrorObject(),
-          C = new ErrorObject(),
-          x = 0;
+          x = new ErrorObject(),
+          C = 0;
         return (
           (Enumerator$1.prototype._enumerate = function(e) {
             for (var t = 0; this._state === y && t < e.length; t++)
@@ -12244,18 +12244,18 @@ object-assign
       v = n(273),
       b = n(279),
       _ = n(280),
-      C = n(281),
-      x = !1;
+      x = n(281),
+      C = !1;
     e.exports = {
       inject: function inject() {
-        x ||
-          ((x = !0),
+        C ||
+          ((C = !0),
           y.EventEmitter.injectReactEventListener(g),
           y.EventPluginHub.injectEventPluginOrder(a),
           y.EventPluginUtils.injectComponentTree(p),
           y.EventPluginUtils.injectTreeTraversal(h),
           y.EventPluginHub.injectEventPluginsByName({
-            SimpleEventPlugin: C,
+            SimpleEventPlugin: x,
             EnterLeaveEventPlugin: s,
             ChangeEventPlugin: i,
             SelectEventPlugin: _,
@@ -13251,7 +13251,7 @@ object-assign
           r('62', getDeclarationErrorAddendum(e)));
     }
     function enqueuePutListener(e, t, n, r) {
-      if (!(r instanceof C)) {
+      if (!(r instanceof x)) {
         var o = e._hostContainerInfo,
           i = o._node && o._node.nodeType === P ? o._node : o._ownerDocument;
         A(t, i),
@@ -13371,8 +13371,8 @@ object-assign
       v = n(129),
       b = n(256),
       _ = (n(12), n(257)),
-      C = n(264),
-      x = (n(9), n(49)),
+      x = n(264),
+      C = (n(9), n(49)),
       E = (n(2), n(67), n(74), n(122)),
       w = (n(78), n(3), d),
       k = p.deleteListener,
@@ -13506,15 +13506,15 @@ object-assign
               (this._flags |= w.hasCachedChildNodes),
               this._hostParent || l.setAttributeForRoot(f),
               this._updateDOMProperties(null, o, e);
-            var C = s(f);
-            this._createInitialChildren(e, o, r, C), (p = C);
+            var x = s(f);
+            this._createInitialChildren(e, o, r, x), (p = x);
           } else {
-            var x = this._createOpenTagMarkupAndPutListeners(e, o),
+            var C = this._createOpenTagMarkupAndPutListeners(e, o),
               E = this._createContentMarkup(e, o, r);
             p =
               !E && j[this._tag]
-                ? x + '/>'
-                : x + '>' + E + '</' + this._currentElement.type + '>';
+                ? C + '/>'
+                : C + '>' + E + '</' + this._currentElement.type + '>';
           }
           switch (this._tag) {
             case 'input':
@@ -13569,7 +13569,7 @@ object-assign
             var i = R[typeof t.children] ? t.children : null,
               a = null != i ? null : t.children;
             null != i
-              ? (r = x(i))
+              ? (r = C(i))
               : null != a && (r = this.mountChildren(a, e, n).join(''));
           }
           return L[this._tag] && '\n' === r.charAt(0) ? '\n' + r : r;
@@ -15817,7 +15817,7 @@ object-assign
       v = n(9),
       b = n(79),
       _ = (n(2), {}),
-      C = {};
+      x = {};
     [
       'abort',
       'animationEnd',
@@ -15889,13 +15889,13 @@ object-assign
           phasedRegistrationNames: { bubbled: n, captured: n + 'Capture' },
           dependencies: [r],
         };
-      (_[e] = o), (C[r] = o);
+      (_[e] = o), (x[r] = o);
     });
-    var x = {},
+    var C = {},
       E = {
         eventTypes: _,
         extractEvents: function(e, t, n, o) {
-          var a = C[e];
+          var a = x[e];
           if (!a) return null;
           var v;
           switch (e) {
@@ -15993,13 +15993,13 @@ object-assign
           if ('onClick' === t && !isInteractive(e._tag)) {
             var r = getDictionaryKey(e),
               i = a.getNodeFromInstance(e);
-            x[r] || (x[r] = o.listen(i, 'click', v));
+            C[r] || (C[r] = o.listen(i, 'click', v));
           }
         },
         willDeleteListener: function(e, t) {
           if ('onClick' === t && !isInteractive(e._tag)) {
             var n = getDictionaryKey(e);
-            x[n].remove(), delete x[n];
+            C[n].remove(), delete C[n];
           }
         },
       };
@@ -16890,32 +16890,32 @@ object-assign
       m = n(89),
       g = n(349);
     e.exports = function baseMergeDeep(e, t, n, y, v, b, _) {
-      var C = e[n],
-        x = t[n],
-        E = _.get(x);
+      var x = e[n],
+        C = t[n],
+        E = _.get(C);
       if (E) r(e, n, E);
       else {
-        var w = b ? b(C, x, n + '', e, t, _) : void 0,
+        var w = b ? b(x, C, n + '', e, t, _) : void 0,
           k = void 0 === w;
         if (k) {
-          var S = c(x),
-            A = !S && p(x),
-            O = !S && !A && m(x);
-          (w = x),
+          var S = c(C),
+            A = !S && p(C),
+            O = !S && !A && m(C);
+          (w = C),
             S || A || O
-              ? c(C)
-                ? (w = C)
-                : l(C)
-                  ? (w = a(C))
+              ? c(x)
+                ? (w = x)
+                : l(x)
+                  ? (w = a(x))
                   : A
-                    ? ((k = !1), (w = o(x, !0)))
-                    : O ? ((k = !1), (w = i(x, !0))) : (w = [])
-              : d(x) || u(x)
-                ? ((w = C),
-                  u(C) ? (w = g(C)) : (!h(C) || (y && f(C))) && (w = s(x)))
+                    ? ((k = !1), (w = o(C, !0)))
+                    : O ? ((k = !1), (w = i(C, !0))) : (w = [])
+              : d(C) || u(C)
+                ? ((w = x),
+                  u(x) ? (w = g(x)) : (!h(x) || (y && f(x))) && (w = s(C)))
                 : (k = !1);
         }
-        k && (_.set(x, w), v(w, x, y, b, _), _.delete(x)), r(e, n, w);
+        k && (_.set(C, w), v(w, C, y, b, _), _.delete(C)), r(e, n, w);
       }
     };
   },
@@ -20679,7 +20679,7 @@ object-assign
         throw new Error(
           'markdown-to-jsx: the first argument must be\n                         a string',
         );
-      if ('[object Object]' !== C.call(n))
+      if ('[object Object]' !== x.call(n))
         throw new Error(
           'markdown-to-jsx: options.overrides (second argument property) must be\n                         undefined or an object literal with shape:\n                         {\n                            htmltagname: {\n                                component: string|ReactComponent(optional),\n                                props: object(optional)\n                            }\n                         }',
         );
@@ -20844,14 +20844,14 @@ object-assign
         tabindex: 'tabIndex',
         usemap: 'useMap',
       },
-      C = Object.prototype.toString,
-      x = function Component(e) {
+      x = Object.prototype.toString,
+      C = function Component(e) {
         var t = e.children,
           n = e.options;
         _objectWithoutProperties(e, ['children', 'options']);
         return compiler(t, n);
       };
-    x.propTypes = { children: a.a.string.isRequired, options: a.a.object };
+    C.propTypes = { children: a.a.string.isRequired, options: a.a.object };
   },
   function(e, t, n) {
     (function(t) {
@@ -20949,7 +20949,7 @@ object-assign
           : null === e;
       }
       function isMasked(e) {
-        return !!x && x in e;
+        return !!C && C in e;
       }
       function toKey(e) {
         if ('string' == typeof e || isSymbol(e)) return e;
@@ -21019,9 +21019,9 @@ object-assign
         v = Array.prototype,
         b = Function.prototype,
         _ = Object.prototype,
-        C = y['__core-js_shared__'],
-        x = (function() {
-          var e = /[^.]+$/.exec((C && C.keys && C.keys.IE_PROTO) || '');
+        x = y['__core-js_shared__'],
+        C = (function() {
+          var e = /[^.]+$/.exec((x && x.keys && x.keys.IE_PROTO) || '');
           return e ? 'Symbol(src)_1.' + e : '';
         })(),
         E = b.toString,
@@ -24771,9 +24771,9 @@ object-assign
         v,
         b,
         _,
-        C,
-        x = this,
-        E = x.options,
+        x,
+        C = this,
+        E = C.options,
         w = t.length + 1,
         k = 0,
         S = '';
@@ -24794,10 +24794,10 @@ object-assign
             if (!(h = t.charAt(k)) || h === o) {
               if (n) return !0;
               for (
-                (C = e.now()).column += S.length,
-                  C.offset += S.length,
+                (x = e.now()).column += S.length,
+                  x.offset += S.length,
                   S += d,
-                  d = x.decode.raw(x.unescape(d), C),
+                  d = C.decode.raw(C.unescape(d), x),
                   m && (S += m),
                   m = '',
                   v = '',
@@ -24870,9 +24870,9 @@ object-assign
           v = this,
           b = v.offset,
           _ = v.blockTokenizers,
-          C = v.interruptBlockquote,
-          x = e.now(),
-          E = x.line,
+          x = v.interruptBlockquote,
+          C = e.now(),
+          E = C.line,
           w = t.length,
           k = [],
           S = [],
@@ -24901,7 +24901,7 @@ object-assign
             O = m;
             break;
           }
-          if (!g && ((p = t.slice(O)), o(C, _, v, [e, p, !0]))) break;
+          if (!g && ((p = t.slice(O)), o(x, _, v, [e, p, !0]))) break;
           (d = m === O ? h : t.slice(m, f)),
             A.push(O - m),
             k.push(d),
@@ -24912,7 +24912,7 @@ object-assign
           (b[E] = (b[E] || 0) + A[O]), E++;
         return (
           (y = v.enterBlock()),
-          (S = v.tokenizeBlock(S.join(i), x)),
+          (S = v.tokenizeBlock(S.join(i), C)),
           y(),
           c({ type: 'blockquote', children: S })
         );
@@ -25053,7 +25053,7 @@ object-assign
       }
       var r = e.offset,
         o = n.line;
-      return (t = t.replace(_, replacer)), (o = n.line), t.replace(C, replacer);
+      return (t = t.replace(_, replacer)), (o = n.line), t.replace(x, replacer);
     }
     function normalListItem(e, t, n) {
       var r,
@@ -25101,7 +25101,7 @@ object-assign
           v,
           b,
           _,
-          C,
+          x,
           k,
           S,
           A,
@@ -25137,7 +25137,7 @@ object-assign
         H++;
       }
       if (!(G >= g)) {
-        if (((m = t.charAt(H)), (o = q ? w : E), !0 === x[m]))
+        if (((m = t.charAt(H)), (o = q ? w : E), !0 === C[m]))
           (y = m), (s = !1);
         else {
           for (s = !0, a = ''; H < K && ((m = t.charAt(H)), i(m)); )
@@ -25169,26 +25169,26 @@ object-assign
               (G >= g && (B = !0),
               P && G >= P.indent && (B = !0),
               (m = t.charAt(H)),
-              (C = null),
+              (x = null),
               !B)
             ) {
-              if (!0 === x[m]) (C = m), H++, G++;
+              if (!0 === C[m]) (x = m), H++, G++;
               else {
                 for (a = ''; H < K && ((m = t.charAt(H)), i(m)); )
                   (a += m), H++;
                 (m = t.charAt(H)),
                   H++,
-                  a && !0 === o[m] && ((C = m), (G += a.length + 1));
+                  a && !0 === o[m] && ((x = m), (G += a.length + 1));
               }
-              if (C)
+              if (x)
                 if ((m = t.charAt(H)) === d) (G += g - G % g), H++;
                 else if (m === f) {
                   for (F = H + g; H < F && t.charAt(H) === f; ) H++, G++;
                   H === F && t.charAt(H) === f && ((H -= g - 1), (G -= g - 1));
-                } else m !== h && '' !== m && (C = null);
+                } else m !== h && '' !== m && (x = null);
             }
-            if (C) {
-              if (!W && y !== C) break;
+            if (x) {
+              if (!W && y !== x) break;
               _ = !0;
             } else
               q || B || t.charAt(b) !== f
@@ -25199,7 +25199,7 @@ object-assign
             if (
               ((S = t.slice(b, v)),
               (k = b === H ? S : t.slice(H, v)),
-              (C === c || C === l || C === p) &&
+              (x === c || x === l || x === p) &&
                 V.thematicBreak.call(U, e, S, !0))
             )
               break;
@@ -25259,9 +25259,9 @@ object-assign
       v = /^\[([ \t]|x|X)][ \t]/,
       b = /^([ \t]*)([*+-]|\d+[.)])( {1,4}(?! )| |\t|$|(?=\n))([^\n]*)/,
       _ = /^([ \t]*)([*+-]|\d+[.)])([ \t]+)/,
-      C = /^( {1,4}|\t)?/gm,
-      x = {};
-    (x[c] = !0), (x['+'] = !0), (x[p] = !0);
+      x = /^( {1,4}|\t)?/gm,
+      C = {};
+    (C[c] = !0), (C['+'] = !0), (C[p] = !0);
     var E = {};
     E['.'] = !0;
     var w = {};
@@ -25438,8 +25438,8 @@ object-assign
         v,
         b,
         _,
-        C,
         x,
+        C,
         E,
         w,
         k,
@@ -25448,43 +25448,43 @@ object-assign
       if (S.options.footnotes) {
         for (
           d = 0, m = t.length, g = '', y = e.now(), v = y.line;
-          d < m && ((x = t.charAt(d)), r(x));
+          d < m && ((C = t.charAt(d)), r(C));
 
         )
-          (g += x), d++;
+          (g += C), d++;
         if (t.charAt(d) === c && t.charAt(d + 1) === p) {
           for (
             d = (g += c + p).length, _ = '';
-            d < m && (x = t.charAt(d)) !== l;
+            d < m && (C = t.charAt(d)) !== l;
 
           )
-            x === i && ((_ += x), d++, (x = t.charAt(d))), (_ += x), d++;
+            C === i && ((_ += C), d++, (C = t.charAt(d))), (_ += C), d++;
           if (_ && t.charAt(d) === l && t.charAt(d + 1) === f) {
             if (n) return !0;
             for (
               E = o(_), d = (g += _ + l + f).length;
-              d < m && ((x = t.charAt(d)) === s || x === u);
+              d < m && ((C = t.charAt(d)) === s || C === u);
 
             )
-              (g += x), d++;
+              (g += C), d++;
             for (
               y.column += g.length,
                 y.offset += g.length,
                 _ = '',
                 b = '',
-                C = '';
+                x = '';
               d < m;
 
             ) {
-              if ((x = t.charAt(d)) === a) {
-                for (C = x, d++; d < m && (x = t.charAt(d)) === a; )
-                  (C += x), d++;
-                for (_ += C, C = ''; d < m && (x = t.charAt(d)) === u; )
-                  (C += x), d++;
-                if (0 === C.length) break;
-                _ += C;
+              if ((C = t.charAt(d)) === a) {
+                for (x = C, d++; d < m && (C = t.charAt(d)) === a; )
+                  (x += C), d++;
+                for (_ += x, x = ''; d < m && (C = t.charAt(d)) === u; )
+                  (x += C), d++;
+                if (0 === x.length) break;
+                _ += x;
               }
-              _ && ((b += _), (_ = '')), (b += x), d++;
+              _ && ((b += _), (_ = '')), (b += C), d++;
             }
             return (
               (g += b),
@@ -25531,8 +25531,8 @@ object-assign
           v,
           b,
           _,
-          C,
           x,
+          C,
           E,
           w = this,
           k = w.options.commonmark,
@@ -25548,7 +25548,7 @@ object-assign
           b === s && ((v += b), S++, (b = t.charAt(S))), (v += b), S++;
         if (v && t.charAt(S) === f && t.charAt(S + 1) === m) {
           for (
-            C = v, S = (O += v + f + m).length, v = '';
+            x = v, S = (O += v + f + m).length, v = '';
             S < A && ((b = t.charAt(S)) === c || b === l || b === u);
 
           )
@@ -25570,7 +25570,7 @@ object-assign
           }
           if (v) {
             for (
-              x = v, v = '';
+              C = v, v = '';
               S < A && ((b = t.charAt(S)) === c || b === l || b === u);
 
             )
@@ -25602,14 +25602,14 @@ object-assign
               ? void 0
               : !!n ||
                 ((r = e(r).test().end),
-                (x = w.decode.raw(w.unescape(x), r)),
+                (C = w.decode.raw(w.unescape(C), r)),
                 E &&
                   ((y = e(y).test().end), (E = w.decode.raw(w.unescape(E), y))),
                 e(O)({
                   type: 'definition',
-                  identifier: o(C),
+                  identifier: o(x),
                   title: E || null,
-                  url: x,
+                  url: C,
                 }));
           }
         }
@@ -25648,8 +25648,8 @@ object-assign
       var v,
         b,
         _,
-        C,
         x,
+        C,
         E,
         w,
         k,
@@ -25684,7 +25684,7 @@ object-assign
           w.push(t.slice(v, B)), L++, (v = B + 1);
         }
         for (
-          C = w.join(l),
+          x = w.join(l),
             v = 0,
             E = (b = w.splice(1, 1)[0] || []).length,
             L--,
@@ -25708,15 +25708,15 @@ object-assign
           for (
             j = -1,
               M = [],
-              F = e(C).reset({ type: 'table', align: O, children: M });
+              F = e(x).reset({ type: 'table', align: O, children: M });
             ++j < L;
 
           ) {
             for (
               N = w[j],
-                x = { type: 'tableRow', children: [] },
+                C = { type: 'tableRow', children: [] },
                 j && e(l),
-                e(N).reset(x, F),
+                e(N).reset(C, F),
                 E = N.length + 1,
                 v = 0,
                 k = '',
@@ -25737,16 +25737,16 @@ object-assign
                     }
                     (!R && !S) ||
                       T ||
-                      ((C = R),
+                      ((x = R),
                       k.length > 1 &&
                         (S
-                          ? ((C += k.slice(0, k.length - 1)),
+                          ? ((x += k.slice(0, k.length - 1)),
                             (k = k.charAt(k.length - 1)))
-                          : ((C += k), (k = ''))),
+                          : ((x += k), (k = ''))),
                       (I = e.now()),
-                      e(C)(
+                      e(x)(
                         { type: 'tableCell', children: W.tokenizeInline(R, I) },
-                        x,
+                        C,
                       )),
                       e(k + S),
                       (k = ''),
@@ -25802,19 +25802,19 @@ object-assign
           v = y.commonmark,
           b = y.gfm,
           _ = g.blockTokenizers,
-          C = g.interruptParagraph,
-          x = t.indexOf(s),
+          x = g.interruptParagraph,
+          C = t.indexOf(s),
           E = t.length;
-        x < E;
+        C < E;
 
       ) {
-        if (-1 === x) {
-          x = E;
+        if (-1 === C) {
+          C = E;
           break;
         }
-        if (t.charAt(x + 1) === s) break;
+        if (t.charAt(C + 1) === s) break;
         if (v) {
-          for (d = 0, p = x + 1; p < E; ) {
+          for (d = 0, p = C + 1; p < E; ) {
             if ((h = t.charAt(p)) === u) {
               d = l;
               break;
@@ -25823,25 +25823,25 @@ object-assign
             d++, p++;
           }
           if (d >= l) {
-            x = t.indexOf(s, x + 1);
+            C = t.indexOf(s, C + 1);
             continue;
           }
         }
-        if (((f = t.slice(x + 1)), a(C, _, g, [e, f, !0]))) break;
+        if (((f = t.slice(C + 1)), a(x, _, g, [e, f, !0]))) break;
         if (
           _.list.call(g, e, f, !0) &&
           (g.inList || v || (b && !o(r.left(f).charAt(0))))
         )
           break;
         if (
-          ((p = x), -1 !== (x = t.indexOf(s, x + 1)) && '' === r(t.slice(p, x)))
+          ((p = C), -1 !== (C = t.indexOf(s, C + 1)) && '' === r(t.slice(p, C)))
         ) {
-          x = p;
+          C = p;
           break;
         }
       }
       return (
-        (f = t.slice(0, x)),
+        (f = t.slice(0, C)),
         '' === r(f)
           ? (e(f), null)
           : !!n ||
@@ -25883,7 +25883,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     function autoLink(e, t, n) {
-      var i, f, h, d, m, g, y, v, b, _, C, x;
+      var i, f, h, d, m, g, y, v, b, _, x, C;
       if (t.charAt(0) === a) {
         for (
           i = this,
@@ -25928,12 +25928,12 @@ object-assign
                 (v.slice(0, p).toLowerCase() === l
                   ? ((_ = _.substr(p)), (b.column += p), (b.offset += p))
                   : (v = l + v)),
-              (C = i.inlineTokenizers.escape),
+              (x = i.inlineTokenizers.escape),
               (i.inlineTokenizers.escape = null),
-              (x = i.enterLink()),
+              (C = i.enterLink()),
               (_ = i.tokenizeInline(_, b)),
-              (i.inlineTokenizers.escape = C),
-              x(),
+              (i.inlineTokenizers.escape = x),
+              C(),
               e(f)({ type: 'link', title: null, url: o(v), children: _ }))
             );
         }
@@ -25960,22 +25960,22 @@ object-assign
         v,
         b,
         _,
-        C,
         x,
+        C,
         E,
         w,
         k,
         S = this;
       if (S.options.gfm) {
-        for (i = '', y = -1, C = d; ++y < C; )
+        for (i = '', y = -1, x = d; ++y < x; )
           if (((b = h[y]), (_ = t.slice(0, b.length)).toLowerCase() === b)) {
             i = _;
             break;
           }
         if (i) {
           for (
-            y = i.length, C = t.length, x = '', E = 0;
-            y < C &&
+            y = i.length, x = t.length, C = '', E = 0;
+            y < x &&
             ((g = t.charAt(y)), !o(g) && g !== l) &&
             (('.' !== g &&
               ',' !== g &&
@@ -25989,10 +25989,10 @@ object-assign
             ((g !== u && g !== a) || E++, (g !== c && g !== s) || !(--E < 0));
 
           )
-            (x += g), y++;
-          if (x) {
-            if (((i += x), (m = i), b === f)) {
-              if (-1 === (v = x.indexOf(p)) || v === C - 1) return;
+            (C += g), y++;
+          if (C) {
+            if (((i += C), (m = i), b === f)) {
+              if (-1 === (v = C.indexOf(p)) || v === x - 1) return;
               m = m.substr(f.length);
             }
             return (
@@ -26071,8 +26071,8 @@ object-assign
         v,
         b,
         _,
-        C,
         x,
+        C,
         E,
         w,
         k,
@@ -26129,7 +26129,7 @@ object-assign
           for (w = R, L += R + _, N++; N < S && ((M = t.charAt(N)), r(M)); )
             (L += M), N++;
           if (
-            ((M = t.charAt(N)), (x = B ? m : d), (R = ''), (v = L), M === p)
+            ((M = t.charAt(N)), (C = B ? m : d), (R = ''), (v = L), M === p)
           ) {
             for (N++, v += p; N < S && (M = t.charAt(N)) !== f; ) {
               if (B && '\n' === M) return;
@@ -26140,7 +26140,7 @@ object-assign
           } else {
             for (
               M = null, _ = '';
-              N < S && ((M = t.charAt(N)), !_ || !i.call(x, M));
+              N < S && ((M = t.charAt(N)), !_ || !i.call(C, M));
 
             ) {
               if (r(M)) {
@@ -26162,8 +26162,8 @@ object-assign
             (T = R), (N = (L += R).length);
           }
           for (R = ''; N < S && ((M = t.charAt(N)), r(M)); ) (R += M), N++;
-          if (((M = t.charAt(N)), (L += R), R && i.call(x, M)))
-            if ((N++, (L += M), (R = ''), (k = x[M]), (b = L), B)) {
+          if (((M = t.charAt(N)), (L += R), R && i.call(C, M)))
+            if ((N++, (L += M), (R = ''), (k = C[M]), (b = L), B)) {
               for (; N < S && (M = t.charAt(N)) !== k; )
                 M === a && ((R += a), (M = t.charAt(++N))), N++, (R += M);
               if ((M = t.charAt(N)) !== k) return;
@@ -26172,13 +26172,13 @@ object-assign
             } else
               for (_ = ''; N < S; ) {
                 if ((M = t.charAt(N)) === k)
-                  C && ((R += k + _), (_ = '')), (C = !0);
-                else if (C) {
+                  x && ((R += k + _), (_ = '')), (x = !0);
+                else if (x) {
                   if (M === l) {
                     (L += R + k + _), (A = R);
                     break;
                   }
-                  r(M) ? (_ += M) : ((R += k + _ + M), (_ = ''), (C = !1));
+                  r(M) ? (_ += M) : ((R += k + _ + M), (_ = ''), (x = !1));
                 } else R += M;
                 N++;
               }
@@ -26226,8 +26226,8 @@ object-assign
         v,
         b,
         _,
-        C,
         x,
+        C,
         E = this,
         w = t.charAt(0),
         k = 0,
@@ -26245,14 +26245,14 @@ object-assign
               R === a &&
               t.charAt(k) === f &&
               ((O += f), k++, (R = u)),
-            x = 0;
+            C = 0;
           k < S;
 
         ) {
-          if ((w = t.charAt(k)) === d) (C = !0), x++;
+          if ((w = t.charAt(k)) === d) (x = !0), C++;
           else if (w === m) {
-            if (!x) break;
-            x--;
+            if (!C) break;
+            C--;
           }
           w === h && ((_ += h), (w = t.charAt(++k))), (_ += w), k++;
         }
@@ -26275,7 +26275,7 @@ object-assign
             if (!o) return;
             g = o;
           }
-          if (T === p || !C)
+          if (T === p || !x)
             return (
               (A = O + A),
               R === a && E.inLink
@@ -26693,11 +26693,11 @@ object-assign
     e.exports = function baseIsEqualDeep(e, t, n, g, y, v) {
       var b = u(e),
         _ = u(t),
-        C = b ? h : s(e),
-        x = _ ? h : s(t),
-        E = (C = C == f ? d : C) == d,
-        w = (x = x == f ? d : x) == d,
-        k = C == x;
+        x = b ? h : s(e),
+        C = _ ? h : s(t),
+        E = (x = x == f ? d : x) == d,
+        w = (C = C == f ? d : C) == d,
+        k = x == C;
       if (k && c(e)) {
         if (!c(t)) return !1;
         (b = !0), (E = !1);
@@ -26705,7 +26705,7 @@ object-assign
       if (k && !E)
         return (
           v || (v = new r()),
-          b || l(e) ? o(e, t, n, g, y, v) : i(e, t, C, n, g, y, v)
+          b || l(e) ? o(e, t, n, g, y, v) : i(e, t, x, n, g, y, v)
         );
       if (!(n & p)) {
         var S = E && m.call(e, '__wrapped__'),
@@ -26774,12 +26774,12 @@ object-assign
       v = '[object String]',
       b = '[object Symbol]',
       _ = '[object ArrayBuffer]',
-      C = '[object DataView]',
-      x = r ? r.prototype : void 0,
-      E = x ? x.valueOf : void 0;
-    e.exports = function equalByTag(e, t, n, r, x, w, k) {
+      x = '[object DataView]',
+      C = r ? r.prototype : void 0,
+      E = C ? C.valueOf : void 0;
+    e.exports = function equalByTag(e, t, n, r, C, w, k) {
       switch (n) {
-        case C:
+        case x:
           if (e.byteLength != t.byteLength || e.byteOffset != t.byteOffset)
             return !1;
           (e = e.buffer), (t = t.buffer);
@@ -26802,7 +26802,7 @@ object-assign
           var O = k.get(e);
           if (O) return O == t;
           (r |= l), k.set(e, t);
-          var R = a(S(e), S(t), r, x, w, k);
+          var R = a(S(e), S(t), r, C, w, k);
           return k.delete(e), R;
         case b:
           if (E) return E.call(e) == E.call(t);
@@ -26863,15 +26863,15 @@ object-assign
       }
       if (m && !g) {
         var _ = e.constructor,
-          C = t.constructor;
-        _ != C &&
+          x = t.constructor;
+        _ != x &&
           'constructor' in e &&
           'constructor' in t &&
           !(
             'function' == typeof _ &&
             _ instanceof _ &&
-            'function' == typeof C &&
-            C instanceof C
+            'function' == typeof x &&
+            x instanceof x
           ) &&
           (m = !1);
       }
@@ -30801,7 +30801,7 @@ object-assign
             );
           })(d),
           _ = /(?:For(?:In|Of)?|While)Statement/,
-          C = (function(e) {
+          x = (function(e) {
             function BreakStatement() {
               e.apply(this, arguments);
             }
@@ -30829,7 +30829,7 @@ object-assign
               BreakStatement
             );
           })(d),
-          x = (function(e) {
+          C = (function(e) {
             function CallExpression() {
               e.apply(this, arguments);
             }
@@ -31017,8 +31017,8 @@ object-assign
                       (f += b);
                   }
                   var _,
-                    C,
-                    x = this.findScope(!1),
+                    x,
+                    C = this.findScope(!1),
                     w = [],
                     k = [];
                   if (
@@ -31032,7 +31032,7 @@ object-assign
                           s = 'method' !== e.kind,
                           c = e.key.name;
                         (E[c] || e.value.body.scope.references[c]) &&
-                          (c = x.createIdentifier(c));
+                          (c = C.createIdentifier(c));
                         var p = !1;
                         if (
                           (e.computed ||
@@ -31047,12 +31047,12 @@ object-assign
                           t.remove(e.start, e.key.start),
                             e.static
                               ? (~k.indexOf(e.key.name) || k.push(e.key.name),
-                                C ||
-                                  (C = x.createIdentifier('staticAccessors')),
-                                (o = '' + C))
+                                x ||
+                                  (x = C.createIdentifier('staticAccessors')),
+                                (o = '' + x))
                               : (~w.indexOf(e.key.name) || w.push(e.key.name),
                                 _ ||
-                                  (_ = x.createIdentifier(
+                                  (_ = C.createIdentifier(
                                     'prototypeAccessors',
                                   )),
                                 (o = '' + _));
@@ -31112,7 +31112,7 @@ object-assign
                       k.length &&
                         (S.push(
                           'var ' +
-                            C +
+                            x +
                             ' = { ' +
                             k
                               .map(function(e) {
@@ -31122,7 +31122,7 @@ object-assign
                             ' };',
                         ),
                         A.push(
-                          'Object.defineProperties( ' + a + ', ' + C + ' );',
+                          'Object.defineProperties( ' + a + ', ' + x + ' );',
                         )),
                       p && (f += '\n\n' + u),
                       (f += S.join('\n' + u)),
@@ -32125,7 +32125,7 @@ object-assign
                   }
                   return e;
                 },
-                C = function(e, t, n) {
+                x = function(e, t, n) {
                   if (n < t) throw Error(u.rangeOrder);
                   for (var r, o, i = 0; i < e.length; ) {
                     if (((r = e[i]), (o = e[i + 1] - 1), r > n)) return e;
@@ -32142,7 +32142,7 @@ object-assign
                   }
                   return e;
                 },
-                x = function(e, t) {
+                C = function(e, t) {
                   var n,
                     r,
                     o = 0,
@@ -32165,14 +32165,14 @@ object-assign
                 E = function(e, t) {
                   for (var n, r, o = 0, i = e.slice(), a = t.length; o < a; )
                     (i =
-                      (n = t[o]) == (r = t[o + 1] - 1) ? x(i, n) : k(i, n, r)),
+                      (n = t[o]) == (r = t[o + 1] - 1) ? C(i, n) : k(i, n, r)),
                       (o += 2);
                   return i;
                 },
                 w = function(e, t) {
                   for (var n, r, o = 0, i = e.slice(), a = t.length; o < a; )
                     (i =
-                      (n = t[o]) == (r = t[o + 1] - 1) ? _(i, n) : C(i, n, r)),
+                      (n = t[o]) == (r = t[o + 1] - 1) ? _(i, n) : x(i, n, r)),
                       (o += 2);
                   return i;
                 },
@@ -32397,7 +32397,7 @@ object-assign
                         i && r[0] == i[0] && r[1] == i[1];
 
                       )
-                        (u = R(a) ? x(u, a[0]) : k(u, a[0], a[1] - 1)),
+                        (u = R(a) ? C(u, a[0]) : k(u, a[0], a[1] - 1)),
                           (r = (t = e[++l])[0]),
                           (o = t[1]),
                           (i = (n = e[l + 1]) && n[0]),
@@ -32422,7 +32422,7 @@ object-assign
                       i == c &&
                         a == l &&
                         (R(s[0])
-                          ? (r[0] = x(r[0], s[0][0]))
+                          ? (r[0] = C(r[0], s[0][0]))
                           : (r[0] = k(r[0], s[0][0], s[0][1] - 1)),
                         e.splice(n, 1),
                         --n);
@@ -32517,7 +32517,7 @@ object-assign
                               t.add(e);
                             }),
                             t)
-                          : ((t.data = x(t.data, m(e) ? e : M(e))), t));
+                          : ((t.data = C(t.data, m(e) ? e : M(e))), t));
                 },
                 remove: function(e) {
                   var t = this;
@@ -32543,7 +32543,7 @@ object-assign
                   var n = this,
                     r = m(e) ? e : M(e),
                     o = m(t) ? t : M(t);
-                  return (n.data = C(n.data, r, o)), n;
+                  return (n.data = x(n.data, r, o)), n;
                 },
                 intersection: function(e) {
                   var t = this,
@@ -33896,8 +33896,8 @@ object-assign
             ArrowFunctionExpression: g,
             AssignmentExpression: v,
             BinaryExpression: b,
-            BreakStatement: C,
-            CallExpression: x,
+            BreakStatement: x,
+            CallExpression: C,
             ClassBody: w,
             ClassDeclaration: k,
             ClassExpression: S,
@@ -34118,12 +34118,12 @@ object-assign
                     var b = this.findScope(!1).findDeclaration(g);
                     b && (g = b.name);
                     var _ = o,
-                      C = this.end;
+                      x = this.end;
                     if (m);
                     else {
                       g = this.findScope(!0).createIdentifier('obj');
-                      var x = this.findNearest(/(?:Statement|Declaration)$/);
-                      t.insertLeft(x.end, '\n' + v + 'var ' + g + ';'),
+                      var C = this.findNearest(/(?:Statement|Declaration)$/);
+                      t.insertLeft(C.end, '\n' + v + 'var ' + g + ';'),
                         t.insertRight(this.start, '( ' + g + ' = ');
                     }
                     for (
@@ -34144,7 +34144,7 @@ object-assign
                           ((T += 1),
                           A.value.start > T && t.remove(T, A.value.start),
                           t.insertLeft(T, ' = '),
-                          t.move(O, A.end, C),
+                          t.move(O, A.end, x),
                           S < w - 1 && !k)
                         ) {
                           for (T = A.end; ',' !== t.original[T]; ) T += 1;
@@ -35250,7 +35250,7 @@ object-assign
       }
       function getOptions(e) {
         var t = {};
-        for (var n in C) t[n] = e && has(e, n) ? e[n] : C[n];
+        for (var n in x) t[n] = e && has(e, n) ? e[n] : x[n];
         if (
           (null == t.allowReserved && (t.allowReserved = t.ecmaVersion < 5),
           isArray(t.onToken))
@@ -35992,7 +35992,7 @@ object-assign
             (this.end = n),
             null !== e.sourceFile && (this.source = e.sourceFile);
         },
-        C = {
+        x = {
           ecmaVersion: 6,
           sourceType: 'script',
           onInsertedSemicolon: null,
@@ -36011,7 +36011,7 @@ object-assign
           preserveParens: !1,
           plugins: {},
         },
-        x = {},
+        C = {},
         E = function Parser(e, n, o) {
           (this.options = e = getOptions(e)),
             (this.sourceFile = e.sourceFile),
@@ -36064,7 +36064,7 @@ object-assign
         (E.prototype.loadPlugins = function loadPlugins(e) {
           var t = this;
           for (var n in e) {
-            var r = x[n];
+            var r = C[n];
             if (!r) throw new Error("Plugin '" + n + "' not found");
             r(t, e[n]);
           }
@@ -38359,8 +38359,8 @@ object-assign
           return new E(t, e);
         }),
         (e.Parser = E),
-        (e.plugins = x),
-        (e.defaultOptions = C),
+        (e.plugins = C),
+        (e.defaultOptions = x),
         (e.Position = b),
         (e.SourceLocation = _),
         (e.getLineInfo = getLineInfo),
@@ -39858,8 +39858,8 @@ object-assign
           v = 2,
           b = 4,
           _ = 8,
-          C = 16,
-          x = 32,
+          x = 16,
+          C = 32,
           E = 64,
           w = 128,
           k = 256,
@@ -39882,9 +39882,9 @@ object-assign
             ['bind', y],
             ['bindKey', v],
             ['curry', _],
-            ['curryRight', C],
+            ['curryRight', x],
             ['flip', S],
-            ['partial', x],
+            ['partial', C],
             ['partialRight', E],
             ['rearg', k],
           ],
@@ -39922,10 +39922,10 @@ object-assign
           ve = '[object Uint32Array]',
           be = /\b__p \+= '';/g,
           _e = /\b(__p \+=) '' \+/g,
-          Ce = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
-          xe = /&(?:amp|lt|gt|quot|#39);/g,
+          xe = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
+          Ce = /&(?:amp|lt|gt|quot|#39);/g,
           Ee = /[&<>"']/g,
-          we = RegExp(xe.source),
+          we = RegExp(Ce.source),
           ke = RegExp(Ee.source),
           Se = /<%-([\s\S]+?)%>/g,
           Ae = /<%([\s\S]+?)%>/g,
@@ -40047,14 +40047,14 @@ object-assign
             'parseInt',
             'setTimeout',
           ],
-          Ct = -1,
-          xt = {};
-        (xt[le] = xt[pe] = xt[fe] = xt[he] = xt[de] = xt[me] = xt[ge] = xt[
+          xt = -1,
+          Ct = {};
+        (Ct[le] = Ct[pe] = Ct[fe] = Ct[he] = Ct[de] = Ct[me] = Ct[ge] = Ct[
           ye
-        ] = xt[ve] = !0),
-          (xt[q] = xt[W] = xt[ue] = xt[z] = xt[ce] = xt[H] = xt[$] = xt[G] = xt[
+        ] = Ct[ve] = !0),
+          (Ct[q] = Ct[W] = Ct[ue] = Ct[z] = Ct[ce] = Ct[H] = Ct[$] = Ct[G] = Ct[
             X
-          ] = xt[J] = xt[Z] = xt[te] = xt[ne] = xt[re] = xt[ae] = !1);
+          ] = Ct[J] = Ct[Z] = Ct[te] = Ct[ne] = Ct[re] = Ct[ae] = !1);
         var Et = {};
         (Et[q] = Et[W] = Et[ue] = Et[ce] = Et[z] = Et[H] = Et[le] = Et[pe] = Et[
           fe
@@ -41456,7 +41456,7 @@ object-assign
                   s =
                     l &&
                     isLaziable(l[0]) &&
-                    l[1] == (w | _ | x | k) &&
+                    l[1] == (w | _ | C | k) &&
                     !l[4].length &&
                     1 == l[9]
                       ? s[getFuncName(l[0])].apply(s, l[3])
@@ -41478,14 +41478,14 @@ object-assign
                   y[v] = arguments[v];
                 if (m)
                   var _ = getHolder(wrapper),
-                    C = countHolders(y, _);
+                    x = countHolders(y, _);
                 if (
                   (o && (y = composeArgs(y, o, a, m)),
                   s && (y = composeArgsRight(y, s, u, m)),
-                  (i -= C),
+                  (i -= x),
                   m && i < p)
                 ) {
-                  var x = replaceHolders(y, _);
+                  var C = replaceHolders(y, _);
                   return createRecurry(
                     e,
                     n,
@@ -41493,7 +41493,7 @@ object-assign
                     wrapper.placeholder,
                     r,
                     y,
-                    x,
+                    C,
                     c,
                     l,
                     p - i,
@@ -41515,7 +41515,7 @@ object-assign
               var f = n & w,
                 h = n & y,
                 d = n & v,
-                m = n & (_ | C),
+                m = n & (_ | x),
                 g = n & S,
                 b = d ? i : createCtor(e);
               return wrapper;
@@ -41609,13 +41609,13 @@ object-assign
                 h = p ? i : s,
                 d = p ? a : i,
                 m = p ? i : a;
-              (t |= p ? x : E), (t &= ~(p ? E : x)) & b || (t &= ~(y | v));
+              (t |= p ? C : E), (t &= ~(p ? E : C)) & b || (t &= ~(y | v));
               var g = [e, t, o, d, f, m, h, u, c, l],
-                C = n.apply(i, g);
+                x = n.apply(i, g);
               return (
-                isLaziable(e) && qn(C, g),
-                (C.placeholder = r),
-                setWrapToString(C, e, t)
+                isLaziable(e) && qn(x, g),
+                (x.placeholder = r),
+                setWrapToString(x, e, t)
               );
             }
             function createRound(e) {
@@ -41650,7 +41650,7 @@ object-assign
               if (!l && 'function' != typeof e) throw new nt(u);
               var p = r ? r.length : 0;
               if (
-                (p || ((t &= ~(x | E)), (r = o = i)),
+                (p || ((t &= ~(C | E)), (r = o = i)),
                 (s = s === i ? s : rn(toInteger(s), 0)),
                 (c = c === i ? c : toInteger(c)),
                 (p -= o ? o.length : 0),
@@ -41671,14 +41671,14 @@ object-assign
                 (o = m[4]),
                 !(c = m[9] =
                   m[9] === i ? (l ? 0 : e.length) : rn(m[9] - p, 0)) &&
-                  t & (_ | C) &&
-                  (t &= ~(_ | C)),
+                  t & (_ | x) &&
+                  (t &= ~(_ | x)),
                 t && t != y)
               )
                 g =
-                  t == _ || t == C
+                  t == _ || t == x
                     ? createCurry(e, t, c)
-                    : (t != x && t != (y | x)) || o.length
+                    : (t != C && t != (y | C)) || o.length
                       ? createHybrid.apply(i, m)
                       : createPartial(e, t, n, r);
               else var g = createBind(e, t, n);
@@ -42279,7 +42279,7 @@ object-assign
               return (r.placeholder = curry.placeholder), r;
             }
             function curryRight(e, t, n) {
-              var r = createWrap(e, C, i, i, i, i, i, (t = n ? i : t));
+              var r = createWrap(e, x, i, i, i, i, i, (t = n ? i : t));
               return (r.placeholder = curryRight.placeholder), r;
             }
             function debounce(e, t, n) {
@@ -42665,8 +42665,8 @@ object-assign
               vn = toSource(ln),
               bn = toSource(pn),
               _n = toSource(fn),
-              Cn = toSource(hn),
-              xn = toSource(dn),
+              xn = toSource(hn),
+              Cn = toSource(dn),
               En = vt ? vt.prototype : i,
               wn = En ? En.valueOf : i,
               kn = En ? En.toString : i,
@@ -42873,9 +42873,9 @@ object-assign
                       return X;
                     case _n:
                       return '[object Promise]';
-                    case Cn:
-                      return ne;
                     case xn:
+                      return ne;
+                    case Cn:
                       return ae;
                   }
                 return t;
@@ -43090,7 +43090,7 @@ object-assign
                 var r = y;
                 if (n.length) {
                   var o = replaceHolders(n, getHolder(vr));
-                  r |= x;
+                  r |= C;
                 }
                 return createWrap(e, r, t, n, o);
               }),
@@ -43098,18 +43098,18 @@ object-assign
                 var r = y | v;
                 if (n.length) {
                   var o = replaceHolders(n, getHolder(br));
-                  r |= x;
+                  r |= C;
                 }
                 return createWrap(t, r, e, n, o);
               }),
               _r = baseRest(function(e, t) {
                 return baseDelay(e, 1, t);
               }),
-              Cr = baseRest(function(e, t, n) {
+              xr = baseRest(function(e, t, n) {
                 return baseDelay(e, toNumber(t) || 0, n);
               });
             memoize.Cache = MapCache;
-            var xr = In(function(e, t) {
+            var Cr = In(function(e, t) {
                 var n = (t =
                   1 == t.length && Rr(t[0])
                     ? arrayMap(t[0], baseUnary(getIteratee()))
@@ -43123,7 +43123,7 @@ object-assign
               }),
               Er = baseRest(function(e, t) {
                 var n = replaceHolders(t, getHolder(Er));
-                return createWrap(e, x, i, t, n);
+                return createWrap(e, C, i, t, n);
               }),
               wr = baseRest(function(e, t) {
                 var n = replaceHolders(t, getHolder(wr));
@@ -43182,7 +43182,7 @@ object-assign
                     return (
                       isObjectLike(e) &&
                       isLength(e.length) &&
-                      !!xt[baseGetTag(e)]
+                      !!Ct[baseGetTag(e)]
                     );
                   },
               Mr = createRelationalOperation(baseLt),
@@ -43291,10 +43291,10 @@ object-assign
               vo = createOver(arraySome),
               bo = createRange(),
               _o = createRange(!0),
-              Co = createMathOperation(function(e, t) {
+              xo = createMathOperation(function(e, t) {
                 return e + t;
               }, 0),
-              xo = createRound('ceil'),
+              Co = createRound('ceil'),
               Eo = createMathOperation(function(e, t) {
                 return e / t;
               }, 1),
@@ -43393,7 +43393,7 @@ object-assign
               (lodash.defaults = zr),
               (lodash.defaultsDeep = Hr),
               (lodash.defer = _r),
-              (lodash.delay = Cr),
+              (lodash.delay = xr),
               (lodash.difference = Hn),
               (lodash.differenceBy = Kn),
               (lodash.differenceWith = $n),
@@ -43547,7 +43547,7 @@ object-assign
                     baseOrderBy(e, t, n));
               }),
               (lodash.over = go),
-              (lodash.overArgs = xr),
+              (lodash.overArgs = Cr),
               (lodash.overEvery = yo),
               (lodash.overSome = vo),
               (lodash.partial = Er),
@@ -43789,11 +43789,11 @@ object-assign
               (lodash.extend = Ur),
               (lodash.extendWith = qr),
               mixin(lodash, lodash),
-              (lodash.add = Co),
+              (lodash.add = xo),
               (lodash.attempt = co),
               (lodash.camelCase = to),
               (lodash.capitalize = capitalize),
-              (lodash.ceil = xo),
+              (lodash.ceil = Co),
               (lodash.clamp = function clamp(e, t, n) {
                 return (
                   n === i && ((n = t), (t = i)),
@@ -44237,7 +44237,7 @@ object-assign
                     '//# sourceURL=' +
                     ('sourceURL' in t
                       ? t.sourceURL
-                      : 'lodash.templateSources[' + ++Ct + ']') +
+                      : 'lodash.templateSources[' + ++xt + ']') +
                     '\n';
                 e.replace(d, function(t, n, r, o, i, u) {
                   return (
@@ -44257,7 +44257,7 @@ object-assign
                 g || (h = 'with (obj) {\n' + h + '\n}\n'),
                   (h = (s ? h.replace(be, '') : h)
                     .replace(_e, '$1')
-                    .replace(Ce, '$1;')),
+                    .replace(xe, '$1;')),
                   (h =
                     'function(' +
                     (g || 'obj') +
@@ -44369,7 +44369,7 @@ object-assign
                 return c + r;
               }),
               (lodash.unescape = function unescape(e) {
-                return (e = toString(e)) && we.test(e) ? e.replace(xe, $t) : e;
+                return (e = toString(e)) && we.test(e) ? e.replace(Ce, $t) : e;
               }),
               (lodash.uniqueId = function uniqueId(e) {
                 var t = ++ct;
@@ -45010,20 +45010,20 @@ object-assign
                   v = y.description,
                   b = y.examples,
                   _ = void 0 === b ? [] : b,
-                  C = y.tags,
-                  x = void 0 === C ? {} : C;
+                  x = y.tags,
+                  C = void 0 === x ? {} : x;
                 return a
                   ? o.a.createElement(f.a, {
                       name: a,
                       slug: h,
                       pathLine: m,
-                      docs: o.a.createElement(c.a, x),
+                      docs: o.a.createElement(c.a, C),
                       description: v && o.a.createElement(l.a, { text: v }),
                       heading: o.a.createElement(
                         u.a,
                         {
                           id: h,
-                          deprecated: !!x.deprecated,
+                          deprecated: !!C.deprecated,
                           slotName: 'componentToolbar',
                           slotProps: d({}, r, { isolated: t }),
                           depth: i,
@@ -45580,7 +45580,7 @@ object-assign
       {
         type: 'markdown',
         content:
-          '## styled-library-themer\n\n> A theme integration library built on top of styled-components targeting shared component library use cases\n\n`styled-library-themer` integrates and extends `styled-components` to provide a seamless theme and user-customization experience for component libraries. By replacing your \'dumb\' theme object with a smart one and exposing powerful utilities to your library\'s consumers, we can:\n\n-   Co-locate component styling properties with our component code while still providing them through the `styled-components` root theme.\n-   Namespace our theme out-of-the-box without extra complications.\n-   Easily whip up arbitrary variants of components.\n-   Utilize shared theme values throughout all our component styles without having to import them everywhere.\n-   Generate simplified selector functions for our component style values-- no more `${({ theme }) => theme.button.color}`, now we have `${select(\'color\')}`!\n-   Expose the ability for our library consumers to create customized variants of our components by overriding our defined style properties for specific use cases.\n-   Let our library consumers override our theme\'s global shared values to alter colors, fonts, etc with precision and ease.\n\n`styled-library-themer` doesn\'t override or modify `styled-components` in any way, it leverages the manner in which `styled-components` was designed to be extensible and flexible by building abstractions on top of it. So it\'s simple to integrate into your existing library!\n\nTo begin, create your theme with your shared style values. These global values can be reused by all your components.\n\n```javascript\n// theme.js\nimport Theme from \'styled-library-themer`;\n\nconst globals = {\n  colors: {\n    primary: \'#133337\',\n    secondary: \'#4ac9e2\',\n  },\n  fonts: {\n    main: \'"Open Sans", Helvetica, Arial, sans-serif\',\n  },\n};\n\nconst theme = new Theme(\'myLibraryNamespace\', globals);\nexport default theme;\n```\n\nNow, when you define a new component in your library, register its desired configurable style properties:\n\n```javascript\n<span class="hljs-comment">// Button.js</span>\n<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'./theme\'</span>;\n<span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-components\'</span>;\n\n<span class="hljs-comment">// `values` is the `globals` you defined when creating the theme</span>\ntheme.register(<span class="hljs-string">\'button\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: values.colors.secondary,\n  <span class="hljs-attr">background</span>: values.colors.primary,\n  <span class="hljs-attr">fontFamily</span>: values.fonts.main,\n  <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">\'4px\'</span>,\n  <span class="hljs-attr">padding</span>: <span class="hljs-string">\'4px 8px\'</span>,\n}));\n\n<span class="hljs-comment">// button is now registered, but we can also add a variant config</span>\ntheme.registerVariant(<span class="hljs-string">\'button\'</span>, <span class="hljs-string">\'secondary\'</span>, (values) =&gt; ({\n  <span class="hljs-comment">// variants are recursively merged with defaults, so just define what you need</span>\n  color: <span class="hljs-string">\'white\'</span>,\n  <span class="hljs-attr">background</span>: values.colors.secondary,\n}));\n\n<span class="hljs-comment">// after registering our button, we can create a selector to retrieve</span>\n<span class="hljs-comment">// the configurable values we defined</span>\n<span class="hljs-keyword">const</span> select = theme.createSelector(<span class="hljs-string">\'button\'</span>);\n\n<span class="hljs-comment">// now we can define our component styles</span>\n<span class="hljs-keyword">const</span> Button = theme.connect(styled.button<span class="hljs-string">`\n  color: <span class="hljs-subst">${select(<span class="hljs-string">\'color\'</span>)}</span>;\n  background: <span class="hljs-subst">${select(<span class="hljs-string">\'background\'</span>)}</span>;\n  font-family: <span class="hljs-subst">${select(<span class="hljs-string">\'fontFamily\'</span>)}</span>;\n  border-radius: <span class="hljs-subst">${select(<span class="hljs-string">\'borderRadius\'</span>)}</span>;\n  padding: <span class="hljs-subst">${select(<span class="hljs-string">\'padding\'</span>)}</span>;\n`</span>);\n\n<span class="hljs-comment">// we can also define a variant</span>\nButton.Secondary = theme.variant(<span class="hljs-string">\'secondary\'</span>)(Button);\n\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Button;\n```\n\nTo recap, we created a set of configurable values for our component and defined some default values for them. We also created a variant of that configuration with some values overrided. Then we just applied the values to our `styled-component` definition and whipped up a sub-component which uses our variant to export as well.\n\nOf course, it takes a bit more planning and effort to define all your configurable values ahead of time (but really, not _that_ much more). But as a library provider, this gives you a lot of benefit for your users. You can now document your configurable style values for your component in your library documentation, and just like that, your users can easily customize their own variant using the exact same methods you did.\n\nYou don\'t always have to write all that code, though. `Theme` provides some chaining to do common sets of tasks more easily and avoid repeating the component name:\n\n```javascript\n<span class="hljs-comment">// Button.js</span>\n<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'./theme\'</span>;\n<span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-components\'</span>;\n\n<span class="hljs-keyword">const</span> select = theme.register(<span class="hljs-string">\'button\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: values.colors.secondary,\n  <span class="hljs-attr">background</span>: values.colors.primary,\n  <span class="hljs-attr">fontFamily</span>: values.fonts.main,\n  <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">\'4px\'</span>,\n  <span class="hljs-attr">padding</span>: <span class="hljs-string">\'4px 8px\'</span>,\n})).addVariant(<span class="hljs-string">\'secondary\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: <span class="hljs-string">\'white\'</span>,\n  <span class="hljs-attr">background</span>: values.colors.secondary,\n})).createSelector();\n\n<span class="hljs-keyword">const</span> Button = theme.connect(styled.button<span class="hljs-string">`\n  color: <span class="hljs-subst">${select(<span class="hljs-string">\'color\'</span>)}</span>;\n  background: <span class="hljs-subst">${select(<span class="hljs-string">\'background\'</span>)}</span>;\n  font-family: <span class="hljs-subst">${select(<span class="hljs-string">\'fontFamily\'</span>)}</span>;\n  border-radius: <span class="hljs-subst">${select(<span class="hljs-string">\'borderRadius\'</span>)}</span>;\n  padding: <span class="hljs-subst">${select(<span class="hljs-string">\'padding\'</span>)}</span>;\n`</span>);\n\nButton.Secondary = theme.variant(<span class="hljs-string">\'secondary\'</span>)(Button);\n\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Button;\n```\n\n... a bit more succinct!\n\nWhen a user wants to utilize your library, they will provide the theme. You should create a customized `ThemeProvider` and export it from your library to make things simple.\n\n```javascript\n<span class="hljs-comment">/* import ... */</span>\n<span class="hljs-keyword">import</span> { createThemeProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'./theme\'</span>;\n\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MyLibraryThemeProvider = createThemeProvider(theme);\n```\n\nThe reason this is critical when using `styled-library-themer` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.\n\nRather than explain all this to your library users, just tell them to use your custom `ThemeProvider`!',
+          '## [styled-library-themer](https://github.com/a-type/styled-library-themer/)\n\n> A theme integration library built on top of styled-components targeting shared component library use cases\n\n`styled-library-themer` integrates and extends `styled-components` to provide a seamless theme and user-customization experience for component libraries. By replacing your \'dumb\' theme object with a smart one and exposing powerful utilities to your library\'s consumers, we can:\n\n-   Co-locate component styling properties with our component code while still providing them through the `styled-components` root theme.\n-   Namespace our theme out-of-the-box without extra complications.\n-   Easily whip up arbitrary variants of components.\n-   Utilize shared theme values throughout all our component styles without having to import them everywhere.\n-   Generate simplified selector functions for our component style values-- no more `${({ theme }) => theme.button.color}`, now we have `${select(\'color\')}`!\n-   Expose the ability for our library consumers to create customized variants of our components by overriding our defined style properties for specific use cases.\n-   Let our library consumers override our theme\'s global shared values to alter colors, fonts, etc with precision and ease.\n\n`styled-library-themer` doesn\'t override or modify `styled-components` in any way, it leverages the manner in which `styled-components` was designed to be extensible and flexible by building abstractions on top of it. So it\'s simple to integrate into your existing library!\n\nTo begin, create your theme with your shared style values. These global values can be reused by all your components.\n\n```javascript\n<span class="hljs-comment">// theme.js</span>\n<span class="hljs-keyword">import</span> Theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n\n<span class="hljs-keyword">const</span> globals = {\n  <span class="hljs-attr">colors</span>: {\n    <span class="hljs-attr">primary</span>: <span class="hljs-string">\'#133337\'</span>,\n    <span class="hljs-attr">secondary</span>: <span class="hljs-string">\'#4ac9e2\'</span>,\n  },\n  <span class="hljs-attr">fonts</span>: {\n    <span class="hljs-attr">main</span>: <span class="hljs-string">\'"Open Sans", Helvetica, Arial, sans-serif\'</span>,\n  },\n};\n\n<span class="hljs-keyword">const</span> theme = <span class="hljs-keyword">new</span> Theme(<span class="hljs-string">\'myLibraryNamespace\'</span>, globals);\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> theme;\n```\n\nNow, when you define a new component in your library, register its desired configurable style properties:\n\n```javascript\n<span class="hljs-comment">// Button.js</span>\n<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'./theme\'</span>;\n<span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-components\'</span>;\n\n<span class="hljs-comment">// `values` is the `globals` you defined when creating the theme</span>\ntheme.register(<span class="hljs-string">\'button\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: values.colors.secondary,\n  <span class="hljs-attr">background</span>: values.colors.primary,\n  <span class="hljs-attr">fontFamily</span>: values.fonts.main,\n  <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">\'4px\'</span>,\n  <span class="hljs-attr">padding</span>: <span class="hljs-string">\'4px 8px\'</span>,\n}));\n\n<span class="hljs-comment">// button is now registered, but we can also add a variant config</span>\ntheme.registerVariant(<span class="hljs-string">\'button\'</span>, <span class="hljs-string">\'secondary\'</span>, (values) =&gt; ({\n  <span class="hljs-comment">// variants are recursively merged with defaults, so just define what you need</span>\n  color: <span class="hljs-string">\'white\'</span>,\n  <span class="hljs-attr">background</span>: values.colors.secondary,\n}));\n\n<span class="hljs-comment">// after registering our button, we can create a selector to retrieve</span>\n<span class="hljs-comment">// the configurable values we defined</span>\n<span class="hljs-keyword">const</span> select = theme.createSelector(<span class="hljs-string">\'button\'</span>);\n\n<span class="hljs-comment">// now we can define our component styles</span>\n<span class="hljs-keyword">const</span> Button = theme.connect(styled.button<span class="hljs-string">`\n  color: <span class="hljs-subst">${select(<span class="hljs-string">\'color\'</span>)}</span>;\n  background: <span class="hljs-subst">${select(<span class="hljs-string">\'background\'</span>)}</span>;\n  font-family: <span class="hljs-subst">${select(<span class="hljs-string">\'fontFamily\'</span>)}</span>;\n  border-radius: <span class="hljs-subst">${select(<span class="hljs-string">\'borderRadius\'</span>)}</span>;\n  padding: <span class="hljs-subst">${select(<span class="hljs-string">\'padding\'</span>)}</span>;\n`</span>);\n\n<span class="hljs-comment">// we can also define a variant</span>\nButton.Secondary = theme.variant(<span class="hljs-string">\'secondary\'</span>)(Button);\n\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Button;\n```\n\nTo recap, we created a set of configurable values for our component and defined some default values for them. We also created a variant of that configuration with some values overrided. Then we just applied the values to our `styled-component` definition and whipped up a sub-component which uses our variant to export as well.\n\nOf course, it takes a bit more planning and effort to define all your configurable values ahead of time (but really, not _that_ much more). But as a library provider, this gives you a lot of benefit for your users. You can now document your configurable style values for your component in your library documentation, and just like that, your users can easily customize their own variant using the exact same methods you did.\n\nYou don\'t always have to write all that code, though. `Theme` provides some chaining to do common sets of tasks more easily and avoid repeating the component name:\n\n```javascript\n<span class="hljs-comment">// Button.js</span>\n<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'./theme\'</span>;\n<span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-components\'</span>;\n\n<span class="hljs-keyword">const</span> select = theme.register(<span class="hljs-string">\'button\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: values.colors.secondary,\n  <span class="hljs-attr">background</span>: values.colors.primary,\n  <span class="hljs-attr">fontFamily</span>: values.fonts.main,\n  <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">\'4px\'</span>,\n  <span class="hljs-attr">padding</span>: <span class="hljs-string">\'4px 8px\'</span>,\n})).addVariant(<span class="hljs-string">\'secondary\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: <span class="hljs-string">\'white\'</span>,\n  <span class="hljs-attr">background</span>: values.colors.secondary,\n})).createSelector();\n\n<span class="hljs-keyword">const</span> Button = theme.connect(styled.button<span class="hljs-string">`\n  color: <span class="hljs-subst">${select(<span class="hljs-string">\'color\'</span>)}</span>;\n  background: <span class="hljs-subst">${select(<span class="hljs-string">\'background\'</span>)}</span>;\n  font-family: <span class="hljs-subst">${select(<span class="hljs-string">\'fontFamily\'</span>)}</span>;\n  border-radius: <span class="hljs-subst">${select(<span class="hljs-string">\'borderRadius\'</span>)}</span>;\n  padding: <span class="hljs-subst">${select(<span class="hljs-string">\'padding\'</span>)}</span>;\n`</span>);\n\nButton.Secondary = theme.variant(<span class="hljs-string">\'secondary\'</span>)(Button);\n\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Button;\n```\n\n... a bit more succinct!\n\nWhen a user wants to utilize your library, they will provide the theme. You should create a customized `ThemeProvider` and export it from your library to make things simple.\n\n```javascript\n<span class="hljs-comment">/* import ... */</span>\n<span class="hljs-keyword">import</span> { createThemeProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">\'./theme\'</span>;\n\n<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MyLibraryThemeProvider = createThemeProvider(theme);\n```\n\nThe reason this is critical when using `styled-library-themer` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.\n\nRather than explain all this to your library users, just tell them to use your custom `ThemeProvider`!',
       },
     ];
   },
@@ -45598,7 +45598,11 @@ object-assign
       o = n(43).bind(null, r),
       i = n(44).bind(null, "var React = require('react');", o);
     e.exports = [
-      { type: 'markdown', content: '_Primary_' },
+      {
+        type: 'markdown',
+        content:
+          '[View source](https://github.com/a-type/styled-library-themer/blob/master/example/components/Anchor.js)\n\n_Primary_',
+      },
       {
         type: 'code',
         content: '<Anchor>Primary</Anchor>',
@@ -45760,7 +45764,11 @@ object-assign
       o = n(43).bind(null, r),
       i = n(44).bind(null, "var React = require('react');", o);
     e.exports = [
-      { type: 'markdown', content: '_Default_' },
+      {
+        type: 'markdown',
+        content:
+          '[View source](https://github.com/a-type/styled-library-themer/blob/master/example/components/Box.js)\n\n_Default_',
+      },
       { type: 'code', content: '<Box />', settings: {}, evalInContext: i },
       { type: 'markdown', content: '_Inverted_' },
       {
@@ -45847,6 +45855,11 @@ object-assign
       o = n(43).bind(null, r),
       i = n(44).bind(null, "var React = require('react');", o);
     e.exports = [
+      {
+        type: 'markdown',
+        content:
+          '[View source](https://github.com/a-type/styled-library-themer/blob/master/example/components/Button.js)',
+      },
       {
         type: 'code',
         content: '<Button>Example</Button>',
@@ -45980,7 +45993,11 @@ object-assign
       o = n(43).bind(null, r),
       i = n(44).bind(null, "var React = require('react');", o);
     e.exports = [
-      { type: 'markdown', content: '_Default_' },
+      {
+        type: 'markdown',
+        content:
+          '[View source](https://github.com/a-type/styled-library-themer/blob/master/example/components/Nested.js)\n\n_Default_',
+      },
       { type: 'code', content: '<Nested />', settings: {}, evalInContext: i },
       { type: 'markdown', content: '_Inverted_' },
       {
