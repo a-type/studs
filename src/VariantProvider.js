@@ -1,7 +1,7 @@
 import React from 'react';
 import { CONTEXT_KEY, contextType } from './connectTheme';
 
-class VariantProvider extends React.Component {
+export default class VariantProvider extends React.Component {
   static childContextTypes = {
     [CONTEXT_KEY]: contextType,
   };

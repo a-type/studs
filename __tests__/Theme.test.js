@@ -25,16 +25,17 @@ describe('the Theme class', () => {
         components: {},
       },
     });
+
+    // compilation is memoized
+    expect(theme.compile()).toBe(theme.compile());
   });
 
   const registerButton = () =>
-    theme
-      .register('button', values => ({
-        color: values.colors.primary,
-        fontSize: '16px',
-        font: values.fonts.main,
-      }))
-      .createSelector();
+    theme.register('button', values => ({
+      color: values.colors.primary,
+      fontSize: '16px',
+      font: values.fonts.main,
+    }));
 
   test('registers a component', () => {
     registerButton();
@@ -43,8 +44,23 @@ describe('the Theme class', () => {
     expect(compiled[namespace].components.button.default).toBeDefined();
   });
 
+  test('registers a component with a plain object', () => {
+    theme.register('button', { color: 'red' });
+
+    const compiled = theme.compile();
+    expect(compiled[namespace].components.button.default).toBeDefined();
+    expect(compiled[namespace].components.button.default()).toEqual({
+      color: 'red',
+    });
+  });
+
+  test('rejects registration after compilation', () => {
+    theme.compile();
+    expect(registerButton).toThrow(/Cannot register component button/);
+  });
+
   test('can select a value for a component', () => {
-    const selector = registerButton();
+    const selector = registerButton().createSelector();
     const compiled = theme.compile();
 
     expect(selector('color')({ theme: compiled, variant: 'default' })).toEqual(
@@ -52,14 +68,96 @@ describe('the Theme class', () => {
     );
   });
 
+  test('can select a value for a component without a variant', () => {
+    const selector = registerButton().createSelector();
+    const compiled = theme.compile();
+
+    expect(selector('color')({ theme: compiled })).toEqual(
+      globals.colors.primary,
+    );
+  });
+
+  test('can select a value for a component with an unknown variant', () => {
+    const selector = registerButton().createSelector();
+    const compiled = theme.compile();
+
+    expect(selector('color')({ theme: compiled, variant: 'foo' })).toEqual(
+      globals.colors.primary,
+    );
+  });
+
   test('can select all values for a component', () => {
-    const selector = registerButton();
+    const selector = registerButton().createSelector();
     const compiled = theme.compile();
 
     expect(selector()({ theme: compiled, variant: 'default' })).toEqual({
       color: globals.colors.primary,
       fontSize: '16px',
       font: globals.fonts.main,
+    });
+  });
+
+  test('registers a variant', () => {
+    const selector = registerButton()
+      .addVariant('secondary', values => ({
+        color: values.colors.secondary,
+      }))
+      .createSelector();
+    const compiled = theme.compile();
+
+    expect(compiled[namespace].components.button.secondary).toBeDefined();
+  });
+
+  test('rejects variant registration after compilation', () => {
+    registerButton();
+    theme.compile();
+    expect(() => {
+      theme.registerVariant('button', 'secondary', () => ({}));
+    }).toThrow(/Cannot register variant secondary for button/);
+  });
+
+  test('rejects variant registration before component registration', () => {
+    expect(() => {
+      theme.registerVariant('button', 'secondary', () => ({}));
+    }).toThrow(/Cannot register variant secondary for button/);
+  });
+
+  test('can select from a variant', () => {
+    const selector = registerButton()
+      .addVariant('secondary', values => ({
+        color: values.colors.secondary,
+      }))
+      .createSelector();
+    const compiled = theme.compile();
+
+    expect(
+      selector('color')({ theme: compiled, variant: 'secondary' }),
+    ).toEqual(globals.colors.secondary);
+    expect(
+      selector('fontSize')({ theme: compiled, variant: 'secondary' }),
+    ).toEqual('16px');
+    expect(selector('color')({ theme: compiled, variant: 'default' })).toEqual(
+      globals.colors.primary,
+    );
+  });
+
+  test('is extensible', () => {
+    const customTheme = theme.extend('customTheme', {
+      colors: { primary: 'red' },
+    });
+    const compiled = customTheme.compile();
+
+    expect(compiled).toEqual({
+      customTheme: {
+        colors: {
+          primary: 'red',
+          secondary: '#4ac9e2',
+        },
+        fonts: {
+          main: 'sans-serif',
+        },
+        components: {},
+      },
     });
   });
 });

@@ -65,12 +65,9 @@ export default class Theme {
       );
     }
 
-    if (
-      !this.registeredComponents[componentName] &&
-      this.registeredComponents[componentName].default
-    ) {
+    if (!this.registeredComponents[componentName]) {
       throw new Error(
-        `Cannot register a variant for ${componentName} before the default has been registered`,
+        `Cannot register variant ${variantName} for ${componentName} before the default has been registered`,
       );
     }
 

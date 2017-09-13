@@ -35,6 +35,8 @@
   },
   "homepage": "https://github.com/a-type/styled-library-themer#readme",
   "dependencies": {
+    "change-case": "^3.0.1",
+    "known-css-properties": "^0.3.0",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

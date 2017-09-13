@@ -9089,7 +9089,8 @@ object-assign
           VariantProvider
         );
       })();
-    a.childContextTypes = _defineProperty({}, i.CONTEXT_KEY, i.contextType);
+    (a.childContextTypes = _defineProperty({}, i.CONTEXT_KEY, i.contextType)),
+      (t.default = a);
     t.asVariant = function asVariant() {
       var e =
         arguments.length > 0 && void 0 !== arguments[0]
@@ -39514,9 +39515,11 @@ object-assign
                   t +
                   '; you must register all variants before calling theme.compile',
               );
-            if (!e.registeredComponents[t] && e.registeredComponents[t].default)
+            if (!e.registeredComponents[t])
               throw new Error(
-                'Cannot register a variant for ' +
+                'Cannot register variant ' +
+                  n +
+                  ' for ' +
                   t +
                   ' before the default has been registered',
               );
