@@ -13,6 +13,8 @@
 
 `styled-library-themer` doesn't override or modify `styled-components` in any way, it leverages the manner in which `styled-components` was designed to be extensible and flexible by building abstractions on top of it. So it's simple to integrate into your existing library!
 
+### Creating a Theme
+
 To begin, create your theme with your shared style values. These global values can be reused by all your components.
 
 ```javascript static
@@ -32,6 +34,8 @@ const globals = {
 const theme = new Theme('myLibraryNamespace', globals);
 export default theme;
 ```
+
+### Defining a Component
 
 Now, when you define a new component in your library, register its desired configurable style properties:
 
@@ -112,6 +116,8 @@ export default Button;
 
 ... a bit more succinct!
 
+### Creating a ThemeProvider
+
 When a user wants to utilize your library, they will provide the theme. You should create a customized `ThemeProvider` and export it from your library to make things simple.
 
 ```javascript static
@@ -125,3 +131,40 @@ export const MyLibraryThemeProvider = createThemeProvider(theme);
 The reason this is critical when using `styled-library-themer` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.
 
 Rather than explain all this to your library users, just tell them to use your custom `ThemeProvider`!
+
+### User Customization
+
+As mentioned earlier, your library consumers can easily create their own variants on your components:
+
+```javascript static
+import { theme, Button } from 'your-library';
+
+theme.registerVariant('button', 'custom', () => ({
+  color: 'pink',
+}));
+
+const CustomButton = theme.variant('custom')(Button);
+```
+
+These variants, just like yours, will override the default values, but otherwise behave the same.
+
+Users can also extend your theme and provide their own values for globals, like colors or fonts:
+
+```javascript static
+import { theme } from 'your-library';
+
+const customTheme = theme.extend('customTheme', {
+  colors: {
+    primary: 'pink',
+  },
+  fonts: {
+    main: '"Times New Roman", serif',
+  },
+});
+```
+
+The extended theme keeps all your component style definitions and default global values that the user didn't override.
+
+### See it in Action
+
+The [documentation](https://a-type.github.io/styled-library-themer/#example-components) includes a small example styleguide rendered by `react-styleguidist` which demonstrates variants, user variants, and the interaction between nested variants.
