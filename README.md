@@ -1,10 +1,19 @@
 ## [styled-library-themer](https://github.com/a-type/styled-library-themer/)
-> A theme integration library built on top of styled-components targeting shared component library use cases
+
+> _Simplify your styling, and make your library more adaptable!_
+
+`styled-library-themer` is a theme framework for component libraries which allows a library creator to expose advanced theme and component customization tools to users while organizing and standardizing their library's internal styling pattern.
+
+Defining a component's look-and-feel is easier with `styled-library-themer` than with plain `styled-components`: you can co-locate your component's style properties and use named value shorthands instead of digging through the passed `theme` prop for the thing you need. No more `${({ theme }) => ...}`.
+
+And with the same tools you use to organize your styling and variations on components internally, you can also allow your users to make customizations to fit their needs.
+
+### Features
 
 `styled-library-themer` integrates and extends `styled-components` to provide a seamless theme and user-customization experience for component libraries. By replacing your 'dumb' theme object with a smart one and exposing powerful utilities to your library's consumers, we can:
 
 * Co-locate component styling properties with our component code while still providing them through the `styled-components` root theme.
-* Namespace our theme out-of-the-box without extra complications.
+* [Namespace our theme](https://github.com/styled-components/styled-components-experimentation/blob/master/component-libraries/shared-component-libraries.md#namespace-your-theme-and-export-a-custom-themeprovider) out-of-the-box without extra complications.
 * Easily whip up arbitrary variants of components.
 * Utilize shared theme values throughout all our component styles without having to import them everywhere.
 * Generate simplified selector functions for our component style values-- no more `${({ theme }) => theme.button.color}`, now we have `${select('color')}`!
