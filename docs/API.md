@@ -18,9 +18,9 @@ const theme = new Theme('myTheme', {
 });
 ```
 
-The constructor takes three parameter, though only two will probably be useful in most cases.
+The constructor takes three parameters, though only two will probably be useful in most cases.
 
-*`namespace: String` (_required_)*
+*`namespace: String` (required)*
 
 A namespace to prevent collisions between your theme and any other themes used by library consumers in their apps. You don't need to store or reference this namespace after defining it (unless you're implementing advanced functionality in your component styling, perhaps).
 
@@ -44,11 +44,11 @@ theme.register('anchor', { color: 'blue' });
 
 `register` adds a component's default styling to your theme. Before you define a component in your library, register all the configurable style properties it will use internally.
 
-*`componentName: String` (_required_)*
+*`componentName: String` (required)*
 
 A unique name for the component.
 
-*`defaultStyling : Function|Object` (_required_)*
+*`defaultStyling : Function|Object` (required)*
 
 If a function, it will be called with the global values you supplied when creating the theme. A function should return an object, where keys are style value names and values are CSS property values.
 
@@ -68,15 +68,15 @@ The return value of `register` is a chaining helper.
 
 `registerVariant` adds a variant style definition to a component. Variants are a named set of overrides to the default styling values. Common variants are things like 'small', 'secondary', or 'dark'.
 
-*`componentName: String` (_required_)*
+*`componentName: String` (required)*
 
 The name of the component to register a variant for. This component must already be registered in the theme.
 
-*`variantName: String` (_required_)*
+*`variantName: String` (required)*
 
 A name for the variant. Overriding existing variants is currently allowed. You can also override the default variant by passing `'default'`. Overriding is not guaranteed to be supported in the future; it depends on whether this feature causes more problems than it solves.
 
-*`variantStyling: Function|Object` (_required_)*
+*`variantStyling: Function|Object` (required)*
 
 Similar to the `defaultStyling` parameter of `theme.register`. This can be a function to compute style values, or an object to define them.
 
@@ -121,7 +121,7 @@ Compiling a theme finalizes all component registrations and variants and prevent
 
 `theme.compile()` is memoized; subsequent calls will return a cached version of the precompiled output. You can (and should) pass `theme.compile()` directly to a `styled-components` `ThemeProvider`.
 
-#### `theme.extend(newNamespace: String, overrides: Object)`
+#### `theme.extend(overrides: Object)`
 
 Creates a clone of a theme with overridden global values. The `overrides` parameter will be recursively merged with the base theme's global values. All component and variant definitions will be persisted during the copy.
 

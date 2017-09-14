@@ -158,7 +158,6 @@ export default class Theme {
       },
     };
 
-    console.log(this._compiled);
     return this._compiled;
   };
 
@@ -168,9 +167,9 @@ export default class Theme {
    *
    * @memberof Theme
    */
-  extend = (namespace, overrides) =>
+  extend = overrides =>
     new Theme(
-      namespace,
+      this.namespace,
       _.defaultsDeep(overrides, this.globals),
       this.registeredComponents,
     );
