@@ -1,5 +1,5 @@
 import Theme, {
-  connectTheme,
+  connectVariants,
   VariantProvider,
   asVariant,
   createThemeProvider,
@@ -10,8 +10,8 @@ describe('the library index', () => {
     expect(Theme).toBeDefined();
   });
 
-  test('defines connectTheme', () => {
-    expect(connectTheme).toBeDefined();
+  test('defines connectVariants', () => {
+    expect(connectVariants).toBeDefined();
   });
 
   test('defines VariantProvider', () => {

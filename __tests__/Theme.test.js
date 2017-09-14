@@ -18,6 +18,10 @@ describe('the Theme class', () => {
     theme = new Theme(namespace, globals);
   });
 
+  test('rejects construction without namespace', () => {
+    expect(() => new Theme()).toThrow('namespace is required');
+  });
+
   test('compiles global values', () => {
     expect(theme.compile()).toEqual({
       [namespace]: {
@@ -28,6 +32,14 @@ describe('the Theme class', () => {
 
     // compilation is memoized
     expect(theme.compile()).toBe(theme.compile());
+  });
+
+  test('works with no globals', () => {
+    expect(new Theme('noglobals').compile()).toEqual({
+      noglobals: {
+        components: {},
+      },
+    });
   });
 
   const registerButton = () =>
@@ -42,6 +54,11 @@ describe('the Theme class', () => {
 
     const compiled = theme.compile();
     expect(compiled[namespace].components.button.default).toBeDefined();
+    expect(compiled[namespace].components.button.default).toEqual({
+      color: globals.colors.primary,
+      fontSize: '16px',
+      font: globals.fonts.main,
+    });
   });
 
   test('registers a component with a plain object', () => {
@@ -49,7 +66,7 @@ describe('the Theme class', () => {
 
     const compiled = theme.compile();
     expect(compiled[namespace].components.button.default).toBeDefined();
-    expect(compiled[namespace].components.button.default()).toEqual({
+    expect(compiled[namespace].components.button.default).toEqual({
       color: 'red',
     });
   });
@@ -106,6 +123,9 @@ describe('the Theme class', () => {
     const compiled = theme.compile();
 
     expect(compiled[namespace].components.button.secondary).toBeDefined();
+    expect(compiled[namespace].components.button.secondary).toEqual({
+      color: globals.colors.secondary,
+    });
   });
 
   test('rejects variant registration after compilation', () => {
@@ -138,6 +158,30 @@ describe('the Theme class', () => {
     ).toEqual('16px');
     expect(selector('color')({ theme: compiled, variant: 'default' })).toEqual(
       globals.colors.primary,
+    );
+  });
+
+  test('can select from multiple variants', () => {
+    const selector = registerButton()
+      .addVariant('secondary', values => ({
+        color: values.colors.secondary,
+        font: 'Helvetica',
+      }))
+      .addVariant('tertiary', values => ({
+        color: 'red',
+      }))
+      .createSelector();
+    const compiled = theme.compile();
+    const variant = ['tertiary', 'secondary'];
+
+    expect(selector('color')({ theme: compiled, variant })).toEqual('red');
+    expect(selector('font')({ theme: compiled, variant })).toEqual('Helvetica');
+    expect(selector('fontSize')({ theme: compiled, variant })).toEqual('16px');
+  });
+
+  test('cannot create a selector for a nonexistent component', () => {
+    expect(() => theme.createSelector('foo')).toThrow(
+      /no component registered/,
     );
   });
 

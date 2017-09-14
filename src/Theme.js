@@ -1,22 +1,25 @@
 import _ from 'lodash';
-import connectTheme from './connectTheme';
+import connectVariants from './connectVariants';
 import { asVariant } from './VariantProvider';
 
 export default class Theme {
-  connect = connectTheme;
+  connect = connectVariants;
   variant = asVariant;
 
   _compiled = null;
 
-  constructor(namespace, base, overrides = {}, components = {}) {
+  constructor(namespace, globals = {}, components = {}) {
+    if (!namespace) {
+      throw new Error('namespace is required');
+    }
     this.namespace = namespace;
-    this.globals = _.defaultsDeep(overrides, base);
+    this.globals = globals;
     this.registeredComponents = components;
   }
 
   normalizeThemeConfig = themeConfig =>
     _.isFunction(themeConfig)
-      ? globalTheme => themeConfig(globalTheme[this.namespace])
+      ? globalValues => themeConfig(globalValues)
       : () => themeConfig;
 
   /**
@@ -24,7 +27,7 @@ export default class Theme {
    *
    * @memberof Theme
    */
-  register = (componentName, defaultTheme) => {
+  register = (componentName, defaultStyling) => {
     // registering components at render time is not allowed; all components
     // should be registered in the top-level scope before compiling the theme.
     if (this._compiled) {
@@ -33,14 +36,14 @@ export default class Theme {
       );
     }
 
-    const defaultThemeConfig = this.normalizeThemeConfig(defaultTheme);
-    this.registeredComponents[componentName] = { default: defaultThemeConfig };
+    const defaultStyleConfig = this.normalizeThemeConfig(defaultStyling);
+    this.registeredComponents[componentName] = { default: defaultStyleConfig };
 
     // convenience chaining to remove need to pass componentName again
     // for defining variants and creating selectors from an initial definition
     const chain = {
-      addVariant: (variantName, variantConfiguration) => {
-        this.registerVariant(componentName, variantName, variantConfiguration);
+      addVariant: (variantName, variantStyling) => {
+        this.registerVariant(componentName, variantName, variantStyling);
         return chain;
       },
       createSelector: _.partial(this.createSelector, componentName),
@@ -56,7 +59,7 @@ export default class Theme {
    *
    * @memberof Theme
    */
-  registerVariant = (componentName, variantName, variantConfiguration) => {
+  registerVariant = (componentName, variantName, variantStyling) => {
     // registering variants at render time is not allowed; all components
     // should be registered in the top-level scope before compiling the theme.
     if (this._compiled) {
@@ -71,13 +74,8 @@ export default class Theme {
       );
     }
 
-    const defaultThemeConfig = this.registeredComponents[componentName].default;
-    // variant has defaults based on the provided default configuration
     this.registeredComponents[componentName][variantName] = themeValues =>
-      _.defaultsDeep(
-        this.normalizeThemeConfig(variantConfiguration)(themeValues),
-        defaultThemeConfig(themeValues),
-      );
+      this.normalizeThemeConfig(variantStyling)(themeValues);
 
     return this;
   };
@@ -95,20 +93,32 @@ export default class Theme {
    *
    * @memberof Theme
    */
-  createSelector = componentName => value => ({
-    theme,
-    variant = 'default',
-  }) => {
-    const computedValues = (theme[this.namespace].components[componentName][
-      variant
-    ] || theme[this.namespace].components[componentName].default)(theme);
-
-    if (value) {
-      return computedValues[value];
+  createSelector = componentName => {
+    if (!this.registeredComponents[componentName]) {
+      throw new Error(
+        `Cannot create selector for ${componentName}; no component registered by that name.`,
+      );
     }
 
-    // empty value string returns the whole set
-    return computedValues;
+    // using function keyword here since my syntax highlighting is confused
+    return valueName =>
+      function({ theme, variant = 'default' }) {
+        const variantList = _.isArray(variant)
+          ? [...variant, 'default']
+          : [variant, 'default'];
+        const styles = variantList.map(
+          variantName =>
+            theme[this.namespace].components[componentName][variantName] || {},
+        );
+        const computedValues = _.defaultsDeep(...styles);
+
+        if (valueName) {
+          return _.get(computedValues, valueName);
+        }
+
+        // empty valueName string returns the whole set
+        return computedValues;
+      }.bind(this);
   };
 
   /**
@@ -122,13 +132,33 @@ export default class Theme {
       return this._compiled;
     }
 
+    const compileVariants = componentRegistration =>
+      Object.keys(componentRegistration).reduce(
+        (variants, variantName) => ({
+          ...variants,
+          [variantName]: componentRegistration[variantName](this.globals),
+        }),
+        {},
+      );
+
+    const compiledComponents = Object.keys(this.registeredComponents).reduce(
+      (components, componentName) => ({
+        ...components,
+        [componentName]: compileVariants(
+          this.registeredComponents[componentName],
+        ),
+      }),
+      {},
+    );
+
     this._compiled = {
       [this.namespace]: {
         ...this.globals,
-        components: this.registeredComponents,
+        components: compiledComponents,
       },
     };
 
+    console.log(this._compiled);
     return this._compiled;
   };
 
@@ -138,6 +168,10 @@ export default class Theme {
    *
    * @memberof Theme
    */
-  extend = (namespace, extensions) =>
-    new Theme(namespace, this.globals, extensions, this.registeredComponents);
+  extend = (namespace, overrides) =>
+    new Theme(
+      namespace,
+      _.defaultsDeep(overrides, this.globals),
+      this.registeredComponents,
+    );
 }

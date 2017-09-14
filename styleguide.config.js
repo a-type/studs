@@ -8,6 +8,10 @@ module.exports = {
       content: 'README.md',
     },
     {
+      name: 'API Reference',
+      content: 'docs/API.md',
+    },
+    {
       name: 'Example Components',
       components: 'example/components/**/*.js',
     },

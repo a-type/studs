@@ -8,7 +8,6 @@
     "styleguide": "styleguidist server",
     "precommit": "lint-staged",
     "build:clean": "rimraf dist",
-    "build:cleanDocs": "rimraf docs",
     "build:dist": "babel --copy-files --out-dir dist src",
     "build:styleguide": "styleguidist build",
     "build": "run-s build:*",

@@ -47,7 +47,7 @@
         'build/' +
         ({}[e] || e) +
         '.' +
-        { 0: '33ce5890' }[e] +
+        { 0: '72d37e75' }[e] +
         '.js');
     var a = setTimeout(onScriptComplete, 12e4);
     return (i.onerror = i.onload = onScriptComplete), o.appendChild(i), n;
@@ -630,7 +630,7 @@ object-assign
     })();
   },
   function(e, t, n) {
-    var r = n(45),
+    var r = n(47),
       o = n(581),
       i = n(582),
       a = n(583);
@@ -778,18 +778,18 @@ object-assign
             compress: !1,
             semicolon: !0,
           }),
-          x = function stringifyRules(e, t, n) {
+          w = function stringifyRules(e, t, n) {
             var r = e.join('').replace(/^\s*\/\/.*$/gm, ''),
               o = t && n ? n + ' ' + t + ' { ' + r + ' }' : r;
             return A(n || !t ? '' : t, o);
           },
-          w = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
-          k = w.length,
+          x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
+          k = x.length,
           S = function generateAlphabeticName(e) {
             var t = '',
               n = void 0;
-            for (n = e; n > k; n = Math.floor(n / k)) t = w[n % k] + t;
-            return w[n % k] + t;
+            for (n = e; n > k; n = Math.floor(n / k)) t = x[n % k] + t;
+            return x[n % k] + t;
           },
           D = function(e, t) {
             return t.reduce(
@@ -808,12 +808,12 @@ object-assign
               n[r - 1] = arguments[r];
             return _(D(e, n));
           },
-          R = /^[^\S\n]*?\/\* sc-component-id:\s+(\S+)\s+\*\//gm,
-          T = function(e) {
+          T = /^[^\S\n]*?\/\* sc-component-id:\s+(\S+)\s+\*\//gm,
+          R = function(e) {
             var t = '' + (e || ''),
               n = [];
             return (
-              t.replace(R, function(e, t, r) {
+              t.replace(T, function(e, t, r) {
                 return n.push({ componentId: t, matchIndex: r }), e;
               }),
               n.map(function(e, r) {
@@ -831,7 +831,7 @@ object-assign
             if (!(e instanceof t))
               throw new TypeError('Cannot call a class as a function');
           },
-          F = (function() {
+          j = (function() {
             function defineProperties(e, t) {
               for (var n = 0; n < t.length; n++) {
                 var r = t[n];
@@ -849,7 +849,7 @@ object-assign
               );
             };
           })(),
-          j =
+          F =
             Object.assign ||
             function(e) {
               for (var t = 1; t < arguments.length; t++) {
@@ -904,7 +904,7 @@ object-assign
                 (this.el = e),
                 (this.isLocal = t),
                 (this.ready = !1);
-              var r = T(n);
+              var r = R(n);
               (this.size = r.length),
                 (this.components = r.reduce(function(e, t) {
                   return (e[t.componentId] = t), e;
@@ -1132,16 +1132,16 @@ object-assign
                   e.tags.map(function(e) {
                     return e.clone();
                   }),
-                  j({}, e.names),
+                  F({}, e.names),
                 );
                 return (
-                  (t.hashes = j({}, e.hashes)),
-                  (t.deferredInjections = j({}, e.deferredInjections)),
+                  (t.hashes = F({}, e.hashes)),
+                  (t.deferredInjections = F({}, e.deferredInjections)),
                   V.push(t),
                   t
                 );
               }),
-              F(StyleSheet, null, [
+              j(StyleSheet, null, [
                 {
                   key: 'instance',
                   get: function get$$1() {
@@ -1239,7 +1239,7 @@ object-assign
                     (r.nonce = e.__webpack_nonce__),
                   l.a.createElement(
                     'style',
-                    j({ key: t, type: 'text/css' }, r, {
+                    F({ key: t, type: 'text/css' }, r, {
                       dangerouslySetInnerHTML: {
                         __html: this.concatenateCSS(),
                       },
@@ -1257,7 +1257,7 @@ object-assign
                     t,
                     n,
                   ) {
-                    return (t[n] = j({}, e.components[n])), t;
+                    return (t[n] = F({}, e.components[n])), t;
                   }, {})),
                   t
                 );
@@ -1913,7 +1913,7 @@ object-assign
               }),
               (ThemeProvider.prototype.getChildContext = function getChildContext() {
                 var e;
-                return j(
+                return F(
                   {},
                   this.context,
                   ((e = {}), (e[ie] = this.broadcast.subscribe), e),
@@ -1942,7 +1942,7 @@ object-assign
                   throw new Error(
                     '[ThemeProvider] Please make your theme prop a plain object',
                   );
-                return j({}, this.outerTheme, t);
+                return F({}, this.outerTheme, t);
               }),
               (ThemeProvider.prototype.render = function render() {
                 return this.props.children
@@ -2149,7 +2149,7 @@ object-assign
                       n = this.state.theme;
                     return l.a.createElement(
                       e,
-                      j({ theme: n }, this.props, {
+                      F({ theme: n }, this.props, {
                         innerRef: r ? t : void 0,
                         ref: r ? void 0 : t,
                       }),
@@ -2198,7 +2198,7 @@ object-assign
                 ComponentStyle
               );
             })();
-          })(S, _, x),
+          })(S, _, w),
           me = (function(e) {
             return function constructWithOptions(t, n) {
               var r =
@@ -2220,13 +2220,13 @@ object-assign
               };
               return (
                 (o.withConfig = function(e) {
-                  return constructWithOptions(t, n, j({}, r, e));
+                  return constructWithOptions(t, n, F({}, r, e));
                 }),
                 (o.attrs = function(e) {
                   return constructWithOptions(
                     t,
                     n,
-                    j({}, r, { attrs: j({}, r.attrs || {}, e) }),
+                    F({}, r, { attrs: F({}, r.attrs || {}, e) }),
                   );
                 }),
                 o
@@ -2270,14 +2270,14 @@ object-assign
                     t,
                   ) {
                     var n = this.constructor.attrs,
-                      r = j({}, t, { theme: e });
+                      r = F({}, t, { theme: e });
                     return void 0 === n
                       ? r
                       : ((this.attrs = Object.keys(n).reduce(function(e, t) {
                           var o = n[t];
                           return (e[t] = 'function' == typeof o ? o(r) : o), e;
                         }, {})),
-                        j({}, r, this.attrs));
+                        F({}, r, this.attrs));
                   }),
                   (BaseStyledComponent.prototype.generateAndInjectStyles = function generateAndInjectStyles(
                     e,
@@ -2336,7 +2336,7 @@ object-assign
                       s = [this.props.className, o, this.attrs.className, n]
                         .filter(Boolean)
                         .join(' '),
-                      u = j({}, this.attrs, { className: s });
+                      u = F({}, this.attrs, { className: s });
                     isStyledComponent(i) ? (u.innerRef = t) : (u.ref = t);
                     var l = Object.keys(this.props).reduce(function(t, n) {
                       return (
@@ -2387,13 +2387,13 @@ object-assign
                       var t = a.componentId,
                         n = B(a, ['componentId']),
                         r = t && t + '-' + (isTag(e) ? e : getComponentName(e)),
-                        o = j({}, n, {
+                        o = F({}, n, {
                           componentId: r,
                           ParentComponent: StyledComponent,
                         });
                       return createStyledComponent(e, o, s);
                     }),
-                    F(StyledComponent, null, [
+                    j(StyledComponent, null, [
                       {
                         key: 'extend',
                         get: function get$$1() {
@@ -2401,7 +2401,7 @@ object-assign
                             r = a.componentId,
                             o = B(a, ['rules', 'componentId']),
                             i = void 0 === e ? s : e.concat(s),
-                            u = j({}, o, {
+                            u = F({}, o, {
                               rules: i,
                               parentComponentId: r,
                               ParentComponent: StyledComponent,
@@ -2445,7 +2445,7 @@ object-assign
               var p = t(s, l, '@keyframes');
               return H.instance.inject('sc-keyframes-' + l, !0, p, u, l), l;
             };
-          })(S, x, O),
+          })(S, w, O),
           ve = (function(e, t) {
             return function injectGlobal(n) {
               for (
@@ -2459,7 +2459,7 @@ object-assign
               H.instance.hasInjectedComponent(s) ||
                 H.instance.inject(s, !1, e(a));
             };
-          })(x, O),
+          })(w, O),
           be = (function(e, t) {
             var n = function styled(n) {
               return t(e, n);
@@ -3039,6 +3039,30 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
+    e.exports = function requireInRuntime(e, t) {
+      if (!(t in e))
+        throw new Error(
+          'require() statements can be added only by editing a Markdown example file: require("' +
+            t +
+            '")',
+        );
+      return e[t];
+    };
+  },
+  function(e, t, n) {
+    'use strict';
+    e.exports = function evalInContext(e, t, n) {
+      return new Function(
+        'require',
+        'state',
+        'setState',
+        '__setInitialState',
+        e + n,
+      ).bind(null, t);
+    };
+  },
+  function(e, t, n) {
+    'use strict';
     e.exports = function reactProdInvariant(e) {
       for (
         var t = arguments.length - 1,
@@ -3096,7 +3120,7 @@ object-assign
         e.dispatchConfig.registrationName &&
         accumulateDispatches(e._targetInst, null, e);
     }
-    var r = n(40),
+    var r = n(42),
       o = n(67),
       i = n(121),
       a = n(122),
@@ -3319,30 +3343,6 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    e.exports = function requireInRuntime(e, t) {
-      if (!(t in e))
-        throw new Error(
-          'require() statements can be added only by editing a Markdown example file: require("' +
-            t +
-            '")',
-        );
-      return e[t];
-    };
-  },
-  function(e, t, n) {
-    'use strict';
-    e.exports = function evalInContext(e, t, n) {
-      return new Function(
-        'require',
-        'state',
-        'setState',
-        '__setInitialState',
-        e + n,
-      ).bind(null, t);
-    };
-  },
-  function(e, t, n) {
-    'use strict';
     var r = {};
     e.exports = r;
   },
@@ -3426,7 +3426,7 @@ object-assign
     function SyntheticMouseEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(41),
+    var r = n(43),
       o = n(128),
       i = {
         screenX: null,
@@ -3745,7 +3745,7 @@ object-assign
       (e.exports = ListCache);
   },
   function(e, t, n) {
-    var r = n(43);
+    var r = n(45);
     e.exports = function assocIndexOf(e, t) {
       for (var n = e.length; n--; ) if (r(e[n][0], t)) return n;
       return -1;
@@ -4748,7 +4748,7 @@ object-assign
       return n;
     }
     var r = n(4),
-      o = (n(17), n(42)),
+      o = (n(17), n(44)),
       i = (n(12), n(13)),
       a = (n(2),
       n(3),
@@ -5100,7 +5100,7 @@ object-assign
       var n,
         a,
         s,
-        w,
+        x,
         N,
         M,
         U,
@@ -5145,11 +5145,11 @@ object-assign
         ++le < ce;
 
       )
-        if ((w === y && (fe = ue[pe] || 1), (w = at(le)) !== d))
-          w === y && (he++, pe++, (fe = 0)), w ? ((de += w), fe++) : flush();
+        if ((x === y && (fe = ue[pe] || 1), (x = at(le)) !== d))
+          x === y && (he++, pe++, (fe = 0)), x ? ((de += x), fe++) : flush();
         else {
           if (
-            (M = at(le + 1)) === x ||
+            (M = at(le + 1)) === w ||
             M === y ||
             M === h ||
             M === E ||
@@ -5158,7 +5158,7 @@ object-assign
             M === A ||
             (Z && M === Z)
           ) {
-            (de += w), fe++;
+            (de += x), fe++;
             continue;
           }
           for (
@@ -5172,7 +5172,7 @@ object-assign
               n = A,
               V = A,
               s = A,
-              G = R[$],
+              G = T[$],
               Q--;
             ++Q < ce && ((M = at(Q)), G(M));
 
@@ -5189,7 +5189,7 @@ object-assign
                       : (n !== s &&
                           ((X = 1 + (Q = H + n.length) - H), (a = !1)),
                         a ||
-                          ((z = n ? T : F),
+                          ((z = n ? R : j),
                           t.attribute
                             ? (M = at(Q)) === _
                               ? (U(z, X), (V = null))
@@ -5207,7 +5207,7 @@ object-assign
                             ((W += l(((N -= 65536) >>> 10) | 55296)),
                             (N = 56320 | (1023 & N))),
                           (N = W + l(N))))
-                : $ !== k && U(j, X)),
+                : $ !== k && U(F, X)),
             N
               ? (flush(),
                 (Y = now()),
@@ -5249,7 +5249,7 @@ object-assign
         r,
         o = {};
       t || (t = {});
-      for (r in w) (n = t[r]), (o[r] = null === n || void 0 === n ? w[r] : n);
+      for (r in x) (n = t[r]), (o[r] = null === n || void 0 === n ? x[r] : n);
       return (
         (o.position.indent || o.position.start) &&
           ((o.indent = o.position.indent || []),
@@ -5272,8 +5272,8 @@ object-assign
       C = '<',
       _ = '=',
       A = '',
-      x = '\t',
-      w = {
+      w = '\t',
+      x = {
         warning: null,
         reference: null,
         text: null,
@@ -5290,12 +5290,12 @@ object-assign
       D = 'decimal',
       O = {};
     (O[S] = 16), (O[D] = 10);
-    var R = {};
-    (R[k] = u), (R[D] = a), (R[S] = s);
-    var T = 1,
+    var T = {};
+    (T[k] = u), (T[D] = a), (T[S] = s);
+    var R = 1,
       P = 2,
-      F = 3,
-      j = 4,
+      j = 3,
+      F = 4,
       I = 5,
       B = 6,
       L = 7,
@@ -5303,10 +5303,10 @@ object-assign
       M = ' must be terminated by a semicolon',
       U = ' cannot be empty',
       q = {};
-    (q[T] = 'Named character references' + M),
+    (q[R] = 'Named character references' + M),
       (q[P] = N + M),
-      (q[F] = 'Named character references' + U),
-      (q[j] = N + U),
+      (q[j] = 'Named character references' + U),
+      (q[F] = N + U),
       (q[I] = 'Named character references must be known'),
       (q[B] = N + ' cannot be disallowed'),
       (q[L] = N + ' cannot be outside the permissible Unicode range');
@@ -5664,7 +5664,7 @@ object-assign
         (this.updater = n || i);
     }
     function ComponentDummy() {}
-    var r = n(38),
+    var r = n(40),
       o = n(6),
       i = n(114),
       a = (n(115), n(48));
@@ -6522,7 +6522,7 @@ object-assign
       s,
       u,
       c,
-      l = n(38),
+      l = n(40),
       p = n(17);
     n(2), n(3);
     if (
@@ -6874,7 +6874,7 @@ object-assign
       return e.length === t.length ? -1 : n;
     }
     function getReactRootElementInContainer(e) {
-      return e ? (e.nodeType === x ? e.documentElement : e.firstChild) : null;
+      return e ? (e.nodeType === w ? e.documentElement : e.firstChild) : null;
     }
     function internalGetID(e) {
       return (e.getAttribute && e.getAttribute(C)) || '';
@@ -6900,7 +6900,7 @@ object-assign
     }
     function unmountComponentFromNode(e, t, n) {
       for (
-        d.unmountComponent(e, n), t.nodeType === x && (t = t.documentElement);
+        d.unmountComponent(e, n), t.nodeType === w && (t = t.documentElement);
         t.lastChild;
 
       )
@@ -6916,7 +6916,7 @@ object-assign
     function isValidContainer(e) {
       return !(
         !e ||
-        (e.nodeType !== A && e.nodeType !== x && e.nodeType !== w)
+        (e.nodeType !== A && e.nodeType !== w && e.nodeType !== x)
       );
     }
     function getHostRootInstanceInContainer(e) {
@@ -6937,7 +6937,7 @@ object-assign
       c = n(298),
       l = n(299),
       p = n(125),
-      f = n(42),
+      f = n(44),
       h = (n(12), n(300)),
       d = n(32),
       m = n(80),
@@ -6949,8 +6949,8 @@ object-assign
       C = (n(3), i.ID_ATTRIBUTE_NAME),
       _ = i.ROOT_ATTRIBUTE_NAME,
       A = 1,
-      x = 9,
-      w = 11,
+      w = 9,
+      x = 11,
       k = {},
       S = 1,
       D = function() {
@@ -7065,9 +7065,9 @@ object-assign
               p.substring(f - 20, f + 20) +
               '\n (server) ' +
               l.substring(f - 20, f + 20);
-          t.nodeType === x && r('42', d);
+          t.nodeType === w && r('42', d);
         }
-        if ((t.nodeType === x && r('43'), a.useCreateElement)) {
+        if ((t.nodeType === w && r('43'), a.useCreateElement)) {
           for (; t.lastChild; ) t.removeChild(t.lastChild);
           o.insertTreeBefore(t, e, null);
         } else b(t, e), u.precacheNode(n, t.firstChild);
@@ -7108,7 +7108,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(59),
-      o = n(43);
+      o = n(45);
     e.exports = function assignMergeValue(e, t, n) {
       ((void 0 === n || o(e[t], n)) && (void 0 !== n || t in e)) || r(e, t, n);
     };
@@ -9065,9 +9065,9 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
-      (t.spreadStyles = t.createThemeProvider = t.asVariant = t.VariantProvider = t.connectTheme = void 0);
+      (t.spreadStyles = t.createThemeProvider = t.asVariant = t.VariantProvider = t.connectVariants = void 0);
     var r = n(110);
-    Object.defineProperty(t, 'connectTheme', {
+    Object.defineProperty(t, 'connectVariants', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(r).default;
@@ -9105,6 +9105,9 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
+    function _interopRequireDefault(e) {
+      return e && e.__esModule ? e : { default: e };
+    }
     function _defineProperty(e, t, n) {
       return (
         t in e
@@ -9167,11 +9170,10 @@ object-assign
           );
         };
       })(),
-      o = (function _interopRequireDefault(e) {
-        return e && e.__esModule ? e : { default: e };
-      })(n(0)),
-      i = n(110),
-      a = (function(e) {
+      o = _interopRequireDefault(n(0)),
+      i = _interopRequireDefault(n(1)),
+      a = n(110),
+      s = (function(e) {
         function VariantProvider() {
           return (
             _classCallCheck(this, VariantProvider),
@@ -9189,7 +9191,7 @@ object-assign
             {
               key: 'getChildContext',
               value: function getChildContext() {
-                return _defineProperty({}, i.CONTEXT_KEY, {
+                return _defineProperty({}, a.CONTEXT_KEY, {
                   variant: this.props.variant,
                 });
               },
@@ -9204,8 +9206,14 @@ object-assign
           VariantProvider
         );
       })();
-    (a.childContextTypes = _defineProperty({}, i.CONTEXT_KEY, i.contextType)),
-      (t.default = a);
+    (s.propTypes = {
+      variant: i.default.oneOfType([
+        i.default.string,
+        i.default.arrayOf(i.default.string),
+      ]),
+    }),
+      (s.childContextTypes = _defineProperty({}, a.CONTEXT_KEY, a.contextType)),
+      (t.default = s);
     t.asVariant = function asVariant() {
       var e =
         arguments.length > 0 && void 0 !== arguments[0]
@@ -9214,7 +9222,7 @@ object-assign
       return function(t) {
         return function(n) {
           return o.default.createElement(
-            a,
+            s,
             { variant: e },
             o.default.createElement(t, n),
           );
@@ -9703,7 +9711,7 @@ object-assign
             E = 0,
             C = 0,
             _ = 0,
-            x = 0,
+            w = 0,
             z = 0,
             de = 0,
             me = 0,
@@ -9711,8 +9719,8 @@ object-assign
             Ce = 0,
             _e = 0,
             Pe = o.length,
-            Fe = Pe - 1,
-            je = '',
+            je = Pe - 1,
+            Fe = '',
             Ie = '',
             Be = '',
             Le = '',
@@ -9723,7 +9731,7 @@ object-assign
         ) {
           if (((y = o.charCodeAt(de)), c + p + l + u === 0)) {
             if (
-              de === Fe &&
+              de === je &&
               (me > 0 && (Ie = Ie.replace(n, '')), Ie.trim().length > 0)
             ) {
               switch (y) {
@@ -9740,7 +9748,7 @@ object-assign
             }
             if (1 === be)
               switch (y) {
-                case R:
+                case T:
                 case V:
                   be = 0;
                   break;
@@ -9753,14 +9761,14 @@ object-assign
                   de--, (y = D);
               }
             switch (y) {
-              case R:
+              case T:
                 for (
                   f = (Ie = Ie.trim()).charCodeAt(0), C = 1, _e = ++de;
                   de < Pe;
 
                 ) {
                   switch ((y = o.charCodeAt(de))) {
-                    case R:
+                    case T:
                       C++;
                       break;
                     case O:
@@ -9809,7 +9817,7 @@ object-assign
                             '{' +
                             Be +
                             '}'),
-                            (Be = '@' + (he > 0 ? w + Be + '@' + Be : Be));
+                            (Be = '@' + (he > 0 ? x + Be + '@' + Be : Be));
                           break;
                         default:
                           Be = Ie + Be;
@@ -9825,7 +9833,7 @@ object-assign
                   (z = 0),
                   (me = 0),
                   (Ce = 0),
-                  (x = 0),
+                  (w = 0),
                   (Ie = ''),
                   (Be = ''),
                   (y = o.charCodeAt(++de));
@@ -9841,7 +9849,7 @@ object-assign
                     (_e = (Ie = Ie.replace(' ', ':')).length),
                   Ee > 0 &&
                     void 0 !==
-                      (s = proxy(xe, Ie, r, e, le, ce, Le.length, i)) &&
+                      (s = proxy(we, Ie, r, e, le, ce, Le.length, i)) &&
                     0 === (_e = (Ie = s.trim()).length) &&
                     (Ie = '\0\0'),
                   (f = Ie.charCodeAt(0)),
@@ -9884,7 +9892,7 @@ object-assign
                   case H:
                   case V:
                   case D:
-                  case R:
+                  case T:
                   case O:
                     break;
                   default:
@@ -9902,7 +9910,7 @@ object-assign
                 break;
               }
             default:
-              switch ((ce++, (je = o.charAt(de)), y)) {
+              switch ((ce++, (Fe = o.charAt(de)), y)) {
                 case L:
                 case M:
                   if (p + u === 0)
@@ -9911,25 +9919,25 @@ object-assign
                       case H:
                       case L:
                       case M:
-                        je = '';
+                        Fe = '';
                         break;
                       default:
-                        y !== M && (je = ' ');
+                        y !== M && (Fe = ' ');
                     }
                   break;
                 case Q:
-                  je = '\\0';
+                  Fe = '\\0';
                   break;
                 case Z:
-                  je = '\\f';
+                  Fe = '\\f';
                   break;
                 case ee:
-                  je = '\\v';
+                  Fe = '\\v';
                   break;
                 case U:
                   p + c + u === 0 &&
                     fe > 0 &&
-                    ((Ce = 1), (me = 1), (je = '\f' + je));
+                    ((Ce = 1), (me = 1), (Fe = '\f' + Fe));
                   break;
                 case 108:
                   if (p + c + u + pe === 0 && z > 0)
@@ -9944,24 +9952,24 @@ object-assign
                   p + c + u === 0 && (z = de);
                   break;
                 case V:
-                  c + l + p + u === 0 && ((me = 1), (je += '\r'));
+                  c + l + p + u === 0 && ((me = 1), (Fe += '\r'));
                   break;
                 case $:
                 case K:
                   0 === c &&
                     ((p = p === y ? 0 : 0 === p ? y : p),
-                    de === Fe && (Fe++, Pe++));
-                  break;
-                case F:
-                  p + c + l === 0 && u++;
+                    de === je && (je++, Pe++));
                   break;
                 case j:
+                  p + c + l === 0 && u++;
+                  break;
+                case F:
                   p + c + l === 0 && u--;
                   break;
                 case P:
-                  p + c + u === 0 && (de === Fe && (Fe++, Pe++), l--);
+                  p + c + u === 0 && (de === je && (je++, Pe++), l--);
                   break;
-                case T:
+                case R:
                   if (p + c + u === 0) {
                     if (0 === _)
                       switch (2 * v + 3 * b) {
@@ -9974,7 +9982,7 @@ object-assign
                   }
                   break;
                 case N:
-                  c + l + p + u + z + x === 0 && (x = 1);
+                  c + l + p + u + z + w === 0 && (w = 1);
                   break;
                 case W:
                 case G:
@@ -9990,43 +9998,43 @@ object-assign
                       }
                       break;
                     case W:
-                      y === G && v === W && ((je = ''), (c = 0));
+                      y === G && v === W && ((Fe = ''), (c = 0));
                   }
               }
               if (0 === c) {
-                if (fe + p + u + x === 0 && i !== te && y !== D)
+                if (fe + p + u + w === 0 && i !== te && y !== D)
                   switch (y) {
                     case V:
                     case X:
                     case Y:
                     case J:
                     case P:
-                    case T:
+                    case R:
                       if (0 === _) {
                         switch (v) {
                           case L:
                           case M:
                           case I:
                           case B:
-                            je += '\0';
+                            Fe += '\0';
                             break;
                           default:
-                            je = '\0' + je + (y === V ? '' : '\0');
+                            Fe = '\0' + Fe + (y === V ? '' : '\0');
                         }
                         me = 1;
                       } else
                         switch (y) {
-                          case T:
+                          case R:
                             _ = ++C;
                             break;
                           case P:
-                            0 == (_ = --C) && ((me = 1), (je += '\0'));
+                            0 == (_ = --C) && ((me = 1), (Fe += '\0'));
                         }
                       break;
                     case M:
                       switch (v) {
                         case Q:
-                        case R:
+                        case T:
                         case O:
                         case D:
                         case V:
@@ -10037,10 +10045,10 @@ object-assign
                         case B:
                           break;
                         default:
-                          0 === _ && ((me = 1), (je += '\0'));
+                          0 === _ && ((me = 1), (Fe += '\0'));
                       }
                   }
-                (Ie += je), y !== M && (E = y);
+                (Ie += Fe), y !== M && (E = y);
               }
           }
           (b = v), (v = y), de++;
@@ -10051,14 +10059,14 @@ object-assign
             0 === _e &&
             0 === Ne.length &&
             (0 === r[0].length) == !1 &&
-            (i !== ne || (1 === r.length && (fe > 0 ? Re : Te) === r[0])) &&
+            (i !== ne || (1 === r.length && (fe > 0 ? Te : Re) === r[0])) &&
             (_e = r.join(',').length + 2),
           _e > 0)
         ) {
           if (
             ((a = 0 === fe && i !== te ? isolate(r) : r),
             Ee > 0 &&
-              void 0 !== (s = proxy(we, Le, a, e, le, ce, _e, i)) &&
+              void 0 !== (s = proxy(xe, Le, a, e, le, ce, _e, i)) &&
               0 === (Le = s).length)
           )
             return Me + Le + Ne;
@@ -10069,7 +10077,7 @@ object-assign
                 break;
               case oe:
                 Le =
-                  Le.replace(d, '::' + w + 'input-$1') +
+                  Le.replace(d, '::' + x + 'input-$1') +
                   Le.replace(d, '::' + k + '$1') +
                   Le.replace(d, ':' + S + 'input-$1') +
                   Le;
@@ -10114,7 +10122,7 @@ object-assign
             switch (o.charCodeAt(1)) {
               case 103:
                 if (de > 0 && fe > 0)
-                  return o.replace(p, '$1').replace(l, '$1' + Te);
+                  return o.replace(p, '$1').replace(l, '$1' + Re);
                 break;
               default:
                 return e.trim() + o;
@@ -10137,36 +10145,36 @@ object-assign
         else if (he > 0)
           switch (l) {
             case 969:
-              c = w + c.replace(_, w + '$1') + c;
+              c = x + c.replace(_, x + '$1') + c;
               break;
             case 951:
-              c = w + c + c;
+              c = x + c + c;
               break;
             case 963:
-              110 === c.charCodeAt(5) && (c = w + c + c);
+              110 === c.charCodeAt(5) && (c = x + c + c);
               break;
             case 978:
-              c = w + c + k + c + c;
+              c = x + c + k + c + c;
               break;
             case 1019:
             case 983:
-              c = w + c + k + c + S + c + c;
+              c = x + c + k + c + S + c + c;
               break;
             case 883:
-              c.charCodeAt(8) === q && (c = w + c + c);
+              c.charCodeAt(8) === q && (c = x + c + c);
               break;
             case 932:
-              c = w + c + S + c + c;
+              c = x + c + S + c + c;
               break;
             case 964:
-              c = w + c + S + 'flex-' + c + c;
+              c = x + c + S + 'flex-' + c + c;
               break;
             case 1023:
               (s = c
                 .substring(c.indexOf(':', 15))
                 .replace('flex-', '')
                 .replace('space-between', 'justify')),
-                (c = w + 'box-pack' + s + w + c + S + 'flex-pack' + s + c);
+                (c = x + 'box-pack' + s + x + c + S + 'flex-pack' + s + c);
               break;
             case 1017:
               if (-1 === c.indexOf('sticky', 9)) break;
@@ -10179,14 +10187,14 @@ object-assign
                 case 203:
                   if (s.charCodeAt(8) < 111) break;
                 case 115:
-                  c = c.replace(s, w + s) + ';' + c;
+                  c = c.replace(s, x + s) + ';' + c;
                   break;
                 case 207:
                 case 102:
                   c =
-                    c.replace(s, w + (l > 102 ? 'inline-' : '') + 'box') +
+                    c.replace(s, x + (l > 102 ? 'inline-' : '') + 'box') +
                     ';' +
-                    c.replace(s, w + s) +
+                    c.replace(s, x + s) +
                     ';' +
                     c.replace(s, S + s + 'box') +
                     ';' +
@@ -10199,14 +10207,14 @@ object-assign
                 switch (c.charCodeAt(6)) {
                   case 105:
                     (s = c.replace('-items', '')),
-                      (c = w + c + w + 'box-' + s + S + 'flex-' + s + c);
+                      (c = x + c + x + 'box-' + s + S + 'flex-' + s + c);
                     break;
                   case 115:
-                    c = w + c + S + 'flex-item-' + c.replace('-self', '') + c;
+                    c = x + c + S + 'flex-item-' + c.replace('-self', '') + c;
                     break;
                   default:
                     c =
-                      w +
+                      x +
                       c +
                       S +
                       'flex-line-pack' +
@@ -10216,24 +10224,24 @@ object-assign
               break;
             case 1005:
               o.test(c) &&
-                (c = c.replace(r, ':' + w) + c.replace(r, ':' + k) + c);
+                (c = c.replace(r, ':' + x) + c.replace(r, ':' + k) + c);
               break;
             case 953:
               (u = c.indexOf('-content', 9)) > 0 &&
                 ((s = c.substring(u - 3)),
-                (c = 'width:' + w + s + 'width:' + k + s + 'width:' + s));
+                (c = 'width:' + x + s + 'width:' + k + s + 'width:' + s));
               break;
             case 1015:
               if (e.charCodeAt(9) !== q) break;
             case 962:
-              (c = w + c + (102 === c.charCodeAt(5) ? S + c : '') + c),
+              (c = x + c + (102 === c.charCodeAt(5) ? S + c : '') + c),
                 n + a === 211 &&
                   105 === c.charCodeAt(13) &&
                   c.indexOf('transform', 10) > 0 &&
                   (c =
                     c
                       .substring(0, c.indexOf(';', 27) + 1)
-                      .replace(i, '$1' + w + '$2') + c);
+                      .replace(i, '$1' + x + '$2') + c);
               break;
             case 1e3:
               switch (((s = c.substring(13).trim()),
@@ -10251,14 +10259,14 @@ object-assign
                 default:
                   return c;
               }
-              c = w + c + S + s + c;
+              c = x + c + S + s + c;
           }
         return c;
       }
       function supports(e, t) {
         var n = property(t, t.charCodeAt(0), t.charCodeAt(1), t.charCodeAt(2));
         return n !== t + ';'
-          ? n.replace(x, 'or($1)').substring(2)
+          ? n.replace(w, 'or($1)').substring(2)
           : '(' + t + ')';
       }
       function animation(e) {
@@ -10316,7 +10324,7 @@ object-assign
             i += (0 === c ? '' : ',') + p.join(' ');
           }
         else i += 110 === e.charCodeAt(10) ? o + (1 === De ? Oe : '') : o;
-        return (i = r + i + ';'), he > 0 ? w + i + i : i;
+        return (i = r + i + ';'), he > 0 ? x + i + i : i;
       }
       function isolate(e) {
         for (var t, r, o = 0, i = e.length, a = Array(i); o < i; ++o) {
@@ -10344,23 +10352,23 @@ object-assign
                   case Y:
                   case J:
                   case M:
-                  case T:
+                  case R:
                     break;
                   default:
                     t = ' ';
                 }
               switch (h) {
                 case U:
-                  r = t + Re;
+                  r = t + Te;
                 case X:
                 case Y:
                 case J:
                 case M:
                 case P:
-                case T:
+                case R:
                   break;
-                case F:
-                  r = t + r + Re;
+                case j:
+                  r = t + r + Te;
                   break;
                 case H:
                   switch (2 * r.charCodeAt(1) + 3 * r.charCodeAt(2)) {
@@ -10370,7 +10378,7 @@ object-assign
                         break;
                       }
                     default:
-                      (l < 1 || s[l - 1].length < 1) && (r = t + Re + r);
+                      (l < 1 || s[l - 1].length < 1) && (r = t + Te + r);
                   }
                   break;
                 case V:
@@ -10378,8 +10386,8 @@ object-assign
                 default:
                   r =
                     p > 1 && r.indexOf(':') > 0
-                      ? t + r.replace(E, '$1' + Re + '$2')
-                      : t + r + Re;
+                      ? t + r.replace(E, '$1' + Te + '$2')
+                      : t + r + Te;
               }
               c += r;
             }
@@ -10470,11 +10478,11 @@ object-assign
         var n = e,
           r = n.charCodeAt(0);
         r < 33 && (r = (n = n.trim()).charCodeAt(0)),
-          De > 0 && (Oe = n.replace(f, r === F ? '' : '-')),
+          De > 0 && (Oe = n.replace(f, r === j ? '' : '-')),
           (r = 1),
-          1 === fe ? (Te = n) : (Re = n);
+          1 === fe ? (Re = n) : (Te = n);
         var o,
-          i = [Te];
+          i = [Re];
         Ee > 0 &&
           void 0 !== (o = proxy(_e, t, i, i, le, ce, 0, 0)) &&
           'string' == typeof o &&
@@ -10486,8 +10494,8 @@ object-assign
             'string' != typeof (a = o) &&
             (r = 0),
           (Oe = ''),
-          (Te = ''),
           (Re = ''),
+          (Te = ''),
           (pe = 0),
           (le = 1),
           (ce = 1),
@@ -10517,17 +10525,17 @@ object-assign
         C = /[svh]\w+-[tblr]{2}/,
         _ = /([\w-]+t\()/g,
         A = /\(\s*([^]*?)\s*\)/g,
-        x = /([^]*?);/g,
-        w = '-webkit-',
+        w = /([^]*?);/g,
+        x = '-webkit-',
         k = '-moz-',
         S = '-ms-',
         D = 59,
         O = 125,
-        R = 123,
-        T = 40,
+        T = 123,
+        R = 40,
         P = 41,
-        F = 91,
-        j = 93,
+        j = 91,
+        F = 93,
         I = 10,
         B = 13,
         L = 9,
@@ -10571,14 +10579,14 @@ object-assign
         Ce = -2,
         _e = -1,
         Ae = 0,
-        xe = 1,
-        we = 2,
+        we = 1,
+        xe = 2,
         ke = 3,
         Se = 0,
         De = 1,
         Oe = '',
-        Re = '',
-        Te = '';
+        Te = '',
+        Re = '';
       return (
         (stylis.use = use), (stylis.set = set), void 0 !== e && set(e), stylis
       );
@@ -10683,7 +10691,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(38),
+    var r = n(40),
       o = (n(2),
       function(e) {
         var t = this;
@@ -10805,7 +10813,7 @@ object-assign
       }
       return f;
     }
-    var r = n(38),
+    var r = n(40),
       o = (n(17), n(116)),
       i = n(208),
       a = (n(2), n(209)),
@@ -11593,7 +11601,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(38),
+    var r = n(40),
       o = n(30);
     n(2);
     e.exports = function onlyChild(e) {
@@ -12575,7 +12583,7 @@ object-assign
       var a = s.getPooled(g.beforeInput, t, n, o);
       return (a.data = i), r.accumulateTwoPhaseDispatches(a), a;
     }
-    var r = n(39),
+    var r = n(41),
       o = n(8),
       i = n(233),
       a = n(234),
@@ -12812,8 +12820,8 @@ object-assign
         }
       }
     }
-    var r = n(40),
-      o = n(39),
+    var r = n(42),
+      o = n(41),
       i = n(8),
       a = n(7),
       s = n(13),
@@ -12955,7 +12963,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(39),
+    var r = n(41),
       o = n(7),
       i = n(50),
       a = {
@@ -13379,7 +13387,7 @@ object-assign
         null != t.dangerouslySetInnerHTML &&
           (null != t.children && r('60'),
           ('object' == typeof t.dangerouslySetInnerHTML &&
-            R in t.dangerouslySetInnerHTML) ||
+            T in t.dangerouslySetInnerHTML) ||
             r('61')),
         null != t.style &&
           'object' != typeof t.style &&
@@ -13432,9 +13440,9 @@ object-assign
         case 'video':
         case 'audio':
           e._wrapperState.listeners = [];
-          for (var n in F)
-            F.hasOwnProperty(n) &&
-              e._wrapperState.listeners.push(h.trapBubbledEvent(n, F[n], t));
+          for (var n in j)
+            j.hasOwnProperty(n) &&
+              e._wrapperState.listeners.push(h.trapBubbledEvent(n, j[n], t));
           break;
         case 'source':
           e._wrapperState.listeners = [
@@ -13496,7 +13504,7 @@ object-assign
       u = n(73),
       c = n(31),
       l = n(132),
-      p = n(40),
+      p = n(42),
       f = n(66),
       h = n(53),
       d = n(120),
@@ -13509,20 +13517,20 @@ object-assign
       C = n(271),
       _ = (n(9), n(52)),
       A = (n(2), n(70), n(77), n(126)),
-      x = (n(81), n(3), d),
-      w = p.deleteListener,
+      w = (n(81), n(3), d),
+      x = p.deleteListener,
       k = m.getNodeFromInstance,
       S = h.listenTo,
       D = f.registrationNameModules,
       O = { string: !0, number: !0 },
-      R = '__html',
-      T = {
+      T = '__html',
+      R = {
         children: null,
         dangerouslySetInnerHTML: null,
         suppressContentEditableWarning: null,
       },
       P = 11,
-      F = {
+      j = {
         topAbort: 'abort',
         topCanPlay: 'canplay',
         topCanPlayThrough: 'canplaythrough',
@@ -13547,7 +13555,7 @@ object-assign
         topVolumeChange: 'volumechange',
         topWaiting: 'waiting',
       },
-      j = {
+      F = {
         area: !0,
         base: !0,
         br: !0,
@@ -13565,7 +13573,7 @@ object-assign
         wbr: !0,
       },
       I = { listing: !0, pre: !0, textarea: !0 },
-      B = o({ menuitem: !0 }, j),
+      B = o({ menuitem: !0 }, F),
       L = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/,
       N = {},
       M = {}.hasOwnProperty,
@@ -13638,7 +13646,7 @@ object-assign
                   : h.createElement(this._currentElement.type);
             else f = h.createElementNS(a, this._currentElement.type);
             m.precacheNode(this, f),
-              (this._flags |= x.hasCachedChildNodes),
+              (this._flags |= w.hasCachedChildNodes),
               this._hostParent || l.setAttributeForRoot(f),
               this._updateDOMProperties(null, o, e);
             var C = s(f);
@@ -13647,7 +13655,7 @@ object-assign
             var _ = this._createOpenTagMarkupAndPutListeners(e, o),
               A = this._createContentMarkup(e, o, r);
             p =
-              !A && j[this._tag]
+              !A && F[this._tag]
                 ? _ + '/>'
                 : _ + '>' + A + '</' + this._currentElement.type + '>';
           }
@@ -13685,7 +13693,7 @@ object-assign
                     (i = a.createMarkupForStyles(i, this)));
                   var s = null;
                   null != this._tag && isCustomComponent(this._tag, t)
-                    ? T.hasOwnProperty(r) ||
+                    ? R.hasOwnProperty(r) ||
                       (s = l.createMarkupForCustomAttribute(r, i))
                     : (s = l.createMarkupForProperty(r, i)),
                     s && (n += ' ' + s);
@@ -13769,9 +13777,9 @@ object-assign
                 this._previousStyleCopy = null;
               } else
                 D.hasOwnProperty(r)
-                  ? e[r] && w(this, r)
+                  ? e[r] && x(this, r)
                   : isCustomComponent(this._tag, e)
-                    ? T.hasOwnProperty(r) ||
+                    ? R.hasOwnProperty(r) ||
                       l.deleteValueForAttribute(k(this), r)
                     : (c.properties[r] || c.isCustomAttribute(r)) &&
                       l.deleteValueForProperty(k(this), r);
@@ -13799,9 +13807,9 @@ object-assign
                       ((s = s || {})[i] = p[i]);
                 } else s = p;
               else if (D.hasOwnProperty(r))
-                p ? enqueuePutListener(this, r, p, n) : f && w(this, r);
+                p ? enqueuePutListener(this, r, p, n) : f && x(this, r);
               else if (isCustomComponent(this._tag, t))
-                T.hasOwnProperty(r) || l.setValueForAttribute(k(this), r, p);
+                R.hasOwnProperty(r) || l.setValueForAttribute(k(this), r, p);
               else if (c.properties[r] || c.isCustomAttribute(r)) {
                 var h = k(this);
                 null != p
@@ -13996,7 +14004,7 @@ object-assign
     function runEventQueueInBatch(e) {
       r.enqueueEvents(e), r.processEventQueue(!1);
     }
-    var r = n(40),
+    var r = n(42),
       o = {
         handleTopLevel: function(e, t, n, o) {
           runEventQueueInBatch(r.extractEvents(e, t, n, o));
@@ -14354,7 +14362,7 @@ object-assign
     }
     var r = n(4),
       o = n(76),
-      i = (n(42), n(12), n(17), n(32)),
+      i = (n(44), n(12), n(17), n(32)),
       a = n(265),
       s = (n(9), n(270)),
       u = (n(2),
@@ -14548,7 +14556,7 @@ object-assign
       a = n(76),
       s = n(17),
       u = n(68),
-      c = n(42),
+      c = n(44),
       l = (n(12), n(135)),
       p = n(32),
       f = n(48),
@@ -15311,7 +15319,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(31),
-      o = n(40),
+      o = n(42),
       i = n(67),
       a = n(76),
       s = n(136),
@@ -15856,7 +15864,7 @@ object-assign
       }
       return null;
     }
-    var r = n(39),
+    var r = n(41),
       o = n(8),
       i = n(7),
       a = n(141),
@@ -15936,7 +15944,7 @@ object-assign
     }
     var r = n(4),
       o = n(140),
-      i = n(39),
+      i = n(41),
       a = n(7),
       s = n(289),
       u = n(290),
@@ -15947,7 +15955,7 @@ object-assign
       h = n(294),
       d = n(295),
       m = n(296),
-      g = n(41),
+      g = n(43),
       y = n(297),
       v = n(9),
       b = n(82),
@@ -16169,7 +16177,7 @@ object-assign
     function SyntheticFocusEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(41),
+    var r = n(43),
       o = { relatedTarget: null };
     r.augmentClass(SyntheticFocusEvent, o), (e.exports = SyntheticFocusEvent);
   },
@@ -16178,7 +16186,7 @@ object-assign
     function SyntheticKeyboardEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(41),
+    var r = n(43),
       o = n(82),
       i = {
         key: n(293),
@@ -16288,7 +16296,7 @@ object-assign
     function SyntheticTouchEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(41),
+    var r = n(43),
       o = {
         touches: null,
         targetTouches: null,
@@ -16401,7 +16409,7 @@ object-assign
     'use strict';
     var r = n(4),
       o = (n(17), n(7)),
-      i = n(42),
+      i = n(44),
       a = n(144);
     n(2), n(3);
     e.exports = function findDOMNode(e) {
@@ -16512,7 +16520,7 @@ object-assign
                 var e = this;
                 n
                   .e(0)
-                  .then(n.bind(null, 632))
+                  .then(n.bind(null, 633))
                   .then(function(t) {
                     e.setState({ editor: t.default });
                   });
@@ -17030,27 +17038,27 @@ object-assign
         A = E.get(_);
       if (A) r(e, n, A);
       else {
-        var x = b ? b(C, _, n + '', e, t, E) : void 0,
-          w = void 0 === x;
-        if (w) {
+        var w = b ? b(C, _, n + '', e, t, E) : void 0,
+          x = void 0 === w;
+        if (x) {
           var k = c(_),
             S = !k && p(_),
             D = !k && !S && m(_);
-          (x = _),
+          (w = _),
             k || S || D
               ? c(C)
-                ? (x = C)
+                ? (w = C)
                 : l(C)
-                  ? (x = a(C))
+                  ? (w = a(C))
                   : S
-                    ? ((w = !1), (x = o(_, !0)))
-                    : D ? ((w = !1), (x = i(_, !0))) : (x = [])
+                    ? ((x = !1), (w = o(_, !0)))
+                    : D ? ((x = !1), (w = i(_, !0))) : (w = [])
               : d(_) || u(_)
-                ? ((x = C),
-                  u(C) ? (x = g(C)) : (!h(C) || (y && f(C))) && (x = s(_)))
-                : (w = !1);
+                ? ((w = C),
+                  u(C) ? (w = g(C)) : (!h(C) || (y && f(C))) && (w = s(_)))
+                : (x = !1);
         }
-        w && (E.set(_, x), v(x, _, y, b, E), E.delete(_)), r(e, n, x);
+        x && (E.set(_, w), v(w, _, y, b, E), E.delete(_)), r(e, n, w);
       }
     };
   },
@@ -17221,7 +17229,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(59),
-      o = n(43),
+      o = n(45),
       i = Object.prototype.hasOwnProperty;
     e.exports = function assignValue(e, t, n) {
       var a = e[t];
@@ -17367,7 +17375,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(43),
+    var r = n(45),
       o = n(34),
       i = n(93),
       a = n(14);
@@ -21051,7 +21059,7 @@ object-assign
         return '0' == t && 1 / e == -o ? '-0' : t;
       }
       function castPath(e) {
-        return j(e) ? e : F(e);
+        return F(e) ? e : j(e);
       }
       function getMapData(e, t) {
         var n = e.__data__;
@@ -21064,7 +21072,7 @@ object-assign
         return baseIsNative(n) ? n : void 0;
       }
       function isKey(e, t) {
-        if (j(e)) return !1;
+        if (F(e)) return !1;
         var n = typeof e;
         return (
           !(
@@ -21119,7 +21127,7 @@ object-assign
         return e === t || (e !== e && t !== t);
       }
       function isFunction(e) {
-        var t = isObject(e) ? w.call(e) : '';
+        var t = isObject(e) ? x.call(e) : '';
         return t == i || t == a;
       }
       function isObject(e) {
@@ -21130,7 +21138,7 @@ object-assign
         return !!e && 'object' == typeof e;
       }
       function isSymbol(e) {
-        return 'symbol' == typeof e || (isObjectLike(e) && w.call(e) == s);
+        return 'symbol' == typeof e || (isObjectLike(e) && x.call(e) == s);
       }
       function toString(e) {
         return null == e ? '' : baseToString(e);
@@ -21160,11 +21168,11 @@ object-assign
           return e ? 'Symbol(src)_1.' + e : '';
         })(),
         A = b.toString,
-        x = E.hasOwnProperty,
-        w = E.toString,
+        w = E.hasOwnProperty,
+        x = E.toString,
         k = RegExp(
           '^' +
-            A.call(x)
+            A.call(w)
               .replace(f, '\\$&')
               .replace(
                 /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
@@ -21175,29 +21183,29 @@ object-assign
         S = y.Symbol,
         D = v.splice,
         O = getNative(y, 'Map'),
-        R = getNative(Object, 'create'),
-        T = S ? S.prototype : void 0,
-        P = T ? T.toString : void 0;
+        T = getNative(Object, 'create'),
+        R = S ? S.prototype : void 0,
+        P = R ? R.toString : void 0;
       (Hash.prototype.clear = function hashClear() {
-        this.__data__ = R ? R(null) : {};
+        this.__data__ = T ? T(null) : {};
       }),
         (Hash.prototype.delete = function hashDelete(e) {
           return this.has(e) && delete this.__data__[e];
         }),
         (Hash.prototype.get = function hashGet(e) {
           var t = this.__data__;
-          if (R) {
+          if (T) {
             var n = t[e];
             return n === r ? void 0 : n;
           }
-          return x.call(t, e) ? t[e] : void 0;
+          return w.call(t, e) ? t[e] : void 0;
         }),
         (Hash.prototype.has = function hashHas(e) {
           var t = this.__data__;
-          return R ? void 0 !== t[e] : x.call(t, e);
+          return T ? void 0 !== t[e] : w.call(t, e);
         }),
         (Hash.prototype.set = function hashSet(e, t) {
-          return (this.__data__[e] = R && void 0 === t ? r : t), this;
+          return (this.__data__[e] = T && void 0 === t ? r : t), this;
         }),
         (ListCache.prototype.clear = function listCacheClear() {
           this.__data__ = [];
@@ -21239,7 +21247,7 @@ object-assign
         (MapCache.prototype.set = function mapCacheSet(e, t) {
           return getMapData(this, e).set(e, t), this;
         });
-      var F = memoize(function(e) {
+      var j = memoize(function(e) {
         e = toString(e);
         var t = [];
         return (
@@ -21251,7 +21259,7 @@ object-assign
         );
       });
       memoize.Cache = MapCache;
-      var j = Array.isArray;
+      var F = Array.isArray;
       e.exports = function get(e, t, n) {
         var r = null == e ? void 0 : baseGet(e, t);
         return void 0 === r ? n : r;
@@ -21840,7 +21848,7 @@ object-assign
         (this.Parser = t);
     }
     var r = n(427),
-      o = n(44),
+      o = n(46),
       i = n(429);
     (e.exports = parse), (parse.Parser = i);
   },
@@ -21853,7 +21861,7 @@ object-assign
  * @fileoverview Create a custom constructor which can be modified
  *   without affecting the original class.
  */;
-    var r = n(44),
+    var r = n(46),
       o = n(428);
     e.exports = function unherit(e) {
       function From(t) {
@@ -21915,7 +21923,7 @@ object-assign
       for (t in e) n.push(t);
       return n;
     }
-    var r = n(44),
+    var r = n(46),
       o = n(430),
       i = n(431),
       a = n(432),
@@ -24624,7 +24632,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(44),
+    var r = n(46),
       o = n(441),
       i = n(168);
     e.exports = function setOptions(e) {
@@ -24769,7 +24777,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(44),
+    var r = n(46),
       o = n(444);
     e.exports = function parse() {
       var e,
@@ -24909,24 +24917,24 @@ object-assign
         C,
         _ = this,
         A = _.options,
-        x = t.length + 1,
-        w = 0,
+        w = t.length + 1,
+        x = 0,
         k = '';
       if (A.gfm) {
-        for (; w < x && ((h = t.charAt(w)) === a || h === i); ) (k += h), w++;
-        if (((E = w), (h = t.charAt(w)) === s || h === u)) {
-          for (w++, f = h, p = 1, k += h; w < x && (h = t.charAt(w)) === f; )
-            (k += h), p++, w++;
+        for (; x < w && ((h = t.charAt(x)) === a || h === i); ) (k += h), x++;
+        if (((E = x), (h = t.charAt(x)) === s || h === u)) {
+          for (x++, f = h, p = 1, k += h; x < w && (h = t.charAt(x)) === f; )
+            (k += h), p++, x++;
           if (!(p < c)) {
-            for (; w < x && ((h = t.charAt(w)) === a || h === i); )
-              (k += h), w++;
+            for (; x < w && ((h = t.charAt(x)) === a || h === i); )
+              (k += h), x++;
             for (
               d = '', m = '';
-              w < x && (h = t.charAt(w)) !== o && h !== s && h !== u;
+              x < w && (h = t.charAt(x)) !== o && h !== s && h !== u;
 
             )
-              h === a || h === i ? (m += h) : ((d += m + h), (m = '')), w++;
-            if (!(h = t.charAt(w)) || h === o) {
+              h === a || h === i ? (m += h) : ((d += m + h), (m = '')), x++;
+            if (!(h = t.charAt(x)) || h === o) {
               if (n) return !0;
               for (
                 (C = e.now()).column += k.length,
@@ -24939,11 +24947,11 @@ object-assign
                   b = '',
                   g = '',
                   y = '';
-                w < x;
+                x < w;
 
               )
                 if (
-                  ((h = t.charAt(w)),
+                  ((h = t.charAt(x)),
                   (g += v),
                   (y += b),
                   (v = ''),
@@ -24951,25 +24959,25 @@ object-assign
                   h === o)
                 ) {
                   for (
-                    g ? ((v += h), (b += h)) : (k += h), m = '', w++;
-                    w < x && (h = t.charAt(w)) === a;
+                    g ? ((v += h), (b += h)) : (k += h), m = '', x++;
+                    x < w && (h = t.charAt(x)) === a;
 
                   )
-                    (m += h), w++;
+                    (m += h), x++;
                   if (((v += m), (b += m.slice(E)), !(m.length >= l))) {
-                    for (m = ''; w < x && (h = t.charAt(w)) === f; )
-                      (m += h), w++;
+                    for (m = ''; x < w && (h = t.charAt(x)) === f; )
+                      (m += h), x++;
                     if (((v += m), (b += m), !(m.length < p))) {
                       for (
                         m = '';
-                        w < x && ((h = t.charAt(w)) === a || h === i);
+                        x < w && ((h = t.charAt(x)) === a || h === i);
 
                       )
-                        (v += h), (b += h), w++;
+                        (v += h), (b += h), x++;
                       if (!h || h === o) break;
                     }
                   }
-                } else (g += h), (b += h), w++;
+                } else (g += h), (b += h), x++;
               return (
                 (k += g + v),
                 e(k)({ type: 'code', lang: d || null, value: r(y) })
@@ -25008,21 +25016,21 @@ object-assign
           C = v.interruptBlockquote,
           _ = e.now(),
           A = _.line,
-          x = t.length,
-          w = [],
+          w = t.length,
+          x = [],
           k = [],
           S = [],
           D = 0;
-        D < x && ((l = t.charAt(D)) === s || l === a);
+        D < w && ((l = t.charAt(D)) === s || l === a);
 
       )
         D++;
       if (t.charAt(D) === u) {
         if (n) return !0;
-        for (D = 0; D < x; ) {
+        for (D = 0; D < w; ) {
           for (
-            m = D, g = !1, -1 === (f = t.indexOf(i, D)) && (f = x);
-            D < x && ((l = t.charAt(D)) === s || l === a);
+            m = D, g = !1, -1 === (f = t.indexOf(i, D)) && (f = w);
+            D < w && ((l = t.charAt(D)) === s || l === a);
 
           )
             D++;
@@ -25039,11 +25047,11 @@ object-assign
           if (!g && ((p = t.slice(D)), o(C, E, v, [e, p, !0]))) break;
           (d = m === D ? h : t.slice(m, f)),
             S.push(D - m),
-            w.push(d),
+            x.push(d),
             k.push(h),
             (D = f + 1);
         }
-        for (D = -1, x = S.length, c = e(w.join(i)); ++D < x; )
+        for (D = -1, w = S.length, c = e(x.join(i)); ++D < w; )
           (b[A] = (b[A] || 0) + S[D]), A++;
         return (
           (y = v.enterBlock()),
@@ -25237,16 +25245,16 @@ object-assign
           b,
           E,
           C,
-          w,
+          x,
           k,
           S,
           D,
           O,
-          R,
           T,
+          R,
           P,
-          F,
           j,
+          F,
           I,
           B,
           L,
@@ -25272,7 +25280,7 @@ object-assign
         H++;
       }
       if (!(G >= g)) {
-        if (((m = t.charAt(H)), (o = q ? x : A), !0 === _[m]))
+        if (((m = t.charAt(H)), (o = q ? w : A), !0 === _[m]))
           (y = m), (s = !1);
         else {
           for (s = !0, a = ''; H < K && ((m = t.charAt(H)), i(m)); )
@@ -25282,7 +25290,7 @@ object-assign
         }
         if ((m = t.charAt(++H)) === f || m === d) {
           if (n) return !0;
-          for (H = 0, O = [], R = [], T = []; H < K; ) {
+          for (H = 0, O = [], T = [], R = []; H < K; ) {
             for (
               b = H,
                 E = !1,
@@ -25333,39 +25341,39 @@ object-assign
                 (H = b);
             if (
               ((k = t.slice(b, v)),
-              (w = b === H ? k : t.slice(H, v)),
+              (x = b === H ? k : t.slice(H, v)),
               (C === c || C === l || C === p) &&
                 W.thematicBreak.call(U, e, k, !0))
             )
               break;
-            if (((S = D), (D = !r(w).length), M && P))
-              (P.value = P.value.concat(T, k)), (R = R.concat(T, k)), (T = []);
+            if (((S = D), (D = !r(x).length), M && P))
+              (P.value = P.value.concat(R, k)), (T = T.concat(R, k)), (R = []);
             else if (E)
-              0 !== T.length && (P.value.push(''), (P.trail = T.concat())),
+              0 !== R.length && (P.value.push(''), (P.trail = R.concat())),
                 (P = { value: [k], indent: G, trail: [] }),
                 O.push(P),
-                (R = R.concat(T, k)),
-                (T = []);
+                (T = T.concat(R, k)),
+                (R = []);
             else if (D) {
               if (S) break;
-              T.push(k);
+              R.push(k);
             } else {
               if (S) break;
               if (u(V, W, U, [e, k, !0])) break;
-              (P.value = P.value.concat(T, k)), (R = R.concat(T, k)), (T = []);
+              (P.value = P.value.concat(R, k)), (T = T.concat(R, k)), (R = []);
             }
             H = v + 1;
           }
           for (
-            B = e(R.join(h)).reset({
+            B = e(T.join(h)).reset({
               type: 'list',
               ordered: s,
               start: $,
               loose: null,
               children: [],
             }),
-              F = U.enterList(),
-              j = U.enterBlock(),
+              j = U.enterList(),
+              F = U.enterBlock(),
               I = !1,
               H = -1,
               K = O.length;
@@ -25378,7 +25386,7 @@ object-assign
               (P = O[H].trail.join(h)),
               H !== K - 1 && (P += h),
               e(P);
-          return F(), j(), (B.loose = I), B;
+          return j(), F(), (B.loose = I), B;
         }
       }
     };
@@ -25399,8 +25407,8 @@ object-assign
     (_[c] = !0), (_['+'] = !0), (_[p] = !0);
     var A = {};
     A['.'] = !0;
-    var x = {};
-    (x['.'] = !0), (x[')'] = !0);
+    var w = {};
+    (w['.'] = !0), (w[')'] = !0);
   },
   function(e, t, n) {
     'use strict';
@@ -25576,8 +25584,8 @@ object-assign
         C,
         _,
         A,
-        x,
         w,
+        x,
         k = this,
         S = k.offset;
       if (k.options.footnotes) {
@@ -25626,11 +25634,11 @@ object-assign
               (b = b.replace(h, function(e) {
                 return (S[v] = (S[v] || 0) + e.length), v++, '';
               })),
-              (x = e(g)),
-              (w = k.enterBlock()),
+              (w = e(g)),
+              (x = k.enterBlock()),
               (b = k.tokenizeBlock(b, y)),
-              w(),
-              x({ type: 'footnoteDefinition', identifier: A, children: b })
+              x(),
+              w({ type: 'footnoteDefinition', identifier: A, children: b })
             );
           }
         }
@@ -25669,8 +25677,8 @@ object-assign
           C,
           _,
           A,
-          x = this,
-          w = x.options.commonmark,
+          w = this,
+          x = w.options.commonmark,
           k = 0,
           S = t.length,
           D = '';
@@ -25694,7 +25702,7 @@ object-assign
             if ((b = t.charAt(k)) === isEnclosedURLCharacter.delimiter)
               (D += g + v + b), k++;
             else {
-              if (w) return;
+              if (x) return;
               (k -= v.length + 1), (v = '');
             }
           }
@@ -25737,9 +25745,9 @@ object-assign
               ? void 0
               : !!n ||
                 ((r = e(r).test().end),
-                (_ = x.decode.raw(x.unescape(_), r)),
+                (_ = w.decode.raw(w.unescape(_), r)),
                 A &&
-                  ((y = e(y).test().end), (A = x.decode.raw(x.unescape(A), y))),
+                  ((y = e(y).test().end), (A = w.decode.raw(w.unescape(A), y))),
                 e(D)({
                   type: 'definition',
                   identifier: o(C),
@@ -25786,17 +25794,17 @@ object-assign
         C,
         _,
         A,
-        x,
         w,
+        x,
         k,
         S,
         D,
         O,
-        R,
         T,
+        R,
         P,
-        F,
         j,
+        F,
         I,
         B,
         L,
@@ -25806,7 +25814,7 @@ object-assign
         q,
         z = this;
       if (z.options.gfm) {
-        for (v = 0, I = 0, A = t.length + 1, x = []; v < A; ) {
+        for (v = 0, I = 0, A = t.length + 1, w = []; v < A; ) {
           if (
             ((M = t.indexOf(l, v)),
             (U = t.indexOf(s, v + 1)),
@@ -25816,12 +25824,12 @@ object-assign
             if (I < h) return;
             break;
           }
-          x.push(t.slice(v, M)), I++, (v = M + 1);
+          w.push(t.slice(v, M)), I++, (v = M + 1);
         }
         for (
-          C = x.join(l),
+          C = w.join(l),
             v = 0,
-            A = (b = x.splice(1, 1)[0] || []).length,
+            A = (b = w.splice(1, 1)[0] || []).length,
             I--,
             E = !1,
             D = [];
@@ -25841,64 +25849,64 @@ object-assign
         if ((!1 !== E && D.push(E), !(D.length < f))) {
           if (n) return !0;
           for (
-            j = -1,
+            F = -1,
               L = [],
               N = e(C).reset({ type: 'table', align: D, children: L });
-            ++j < I;
+            ++F < I;
 
           ) {
             for (
-              B = x[j],
+              B = w[F],
                 _ = { type: 'tableRow', children: [] },
-                j && e(l),
+                F && e(l),
                 e(B).reset(_, N),
                 A = B.length + 1,
                 v = 0,
-                w = '',
+                x = '',
                 O = '',
-                R = !0,
-                T = null,
+                T = !0,
+                R = null,
                 P = null;
               v < A;
 
             )
               if ((k = B.charAt(v)) !== p && k !== c) {
                 if ('' === k || k === s)
-                  if (R) e(k);
+                  if (T) e(k);
                   else {
                     if (k && P) {
-                      (w += k), v++;
+                      (x += k), v++;
                       continue;
                     }
                     (!O && !k) ||
-                      R ||
+                      T ||
                       ((C = O),
-                      w.length > 1 &&
+                      x.length > 1 &&
                         (k
-                          ? ((C += w.slice(0, w.length - 1)),
-                            (w = w.charAt(w.length - 1)))
-                          : ((C += w), (w = ''))),
-                      (F = e.now()),
+                          ? ((C += x.slice(0, x.length - 1)),
+                            (x = x.charAt(x.length - 1)))
+                          : ((C += x), (x = ''))),
+                      (j = e.now()),
                       e(C)(
-                        { type: 'tableCell', children: z.tokenizeInline(O, F) },
+                        { type: 'tableCell', children: z.tokenizeInline(O, j) },
                         _,
                       )),
-                      e(w + k),
-                      (w = ''),
+                      e(x + k),
+                      (x = ''),
                       (O = '');
                   }
                 else if (
-                  (w && ((O += w), (w = '')),
+                  (x && ((O += x), (x = '')),
                   (O += k),
                   k === o && v !== A - 2 && ((O += B.charAt(v + 1)), v++),
                   k === i)
                 ) {
-                  for (T = 1; B.charAt(v + 1) === k; ) (O += k), v++, T++;
-                  P ? T >= P && (P = 0) : (P = T);
+                  for (R = 1; B.charAt(v + 1) === k; ) (O += k), v++, R++;
+                  P ? R >= P && (P = 0) : (P = R);
                 }
-                (R = !1), v++;
-              } else O ? (w += k) : e(k), v++;
-            j || e(l + b);
+                (T = !1), v++;
+              } else O ? (x += k) : e(k), v++;
+            F || e(l + b);
           }
           return N;
         }
@@ -26098,8 +26106,8 @@ object-assign
         C,
         _,
         A,
-        x,
         w,
+        x,
         k = this;
       if (k.options.gfm) {
         for (i = '', y = -1, C = d; ++y < C; )
@@ -26120,7 +26128,7 @@ object-assign
               "'" !== g &&
               ')' !== g &&
               ']' !== g) ||
-              ((x = t.charAt(y + 1)) && !o(x))) &&
+              ((w = t.charAt(y + 1)) && !o(w))) &&
             ((g !== u && g !== a) || A++, (g !== c && g !== s) || !(--A < 0));
 
           )
@@ -26132,9 +26140,9 @@ object-assign
             }
             return (
               !!n ||
-              ((w = k.enterLink()),
+              ((x = k.enterLink()),
               (m = k.tokenizeInline(m, e.now())),
-              w(),
+              x(),
               e(i)({ type: 'link', title: null, url: r(i), children: m }))
             );
           }
@@ -26209,26 +26217,26 @@ object-assign
         C,
         _,
         A,
-        x,
         w,
+        x,
         k,
         S,
         D,
         O,
-        R,
         T,
+        R,
         P,
-        F,
-        j = this,
+        j,
+        F = this,
         I = '',
         B = 0,
         L = t.charAt(0),
-        N = j.options.pedantic,
-        M = j.options.commonmark,
-        U = j.options.gfm;
+        N = F.options.pedantic,
+        M = F.options.commonmark,
+        U = F.options.gfm;
       if (
         ('!' === L && ((A = !0), (I = L), (L = t.charAt(++B))),
-        L === s && (A || !j.inLink))
+        L === s && (A || !F.inLink))
       ) {
         for (
           I += L,
@@ -26236,8 +26244,8 @@ object-assign
             B++,
             k = t.length,
             D = 0,
-            (T = e.now()).column += B,
-            T.offset += B;
+            (R = e.now()).column += B,
+            R.offset += B;
           B < k;
 
         ) {
@@ -26261,7 +26269,7 @@ object-assign
           (O += E), (E = ''), B++;
         }
         if (o) {
-          for (x = O, I += O + E, B++; B < k && ((L = t.charAt(B)), r(L)); )
+          for (w = O, I += O + E, B++; B < k && ((L = t.charAt(B)), r(L)); )
             (I += L), B++;
           if (
             ((L = t.charAt(B)), (_ = M ? m : d), (O = ''), (v = I), L === p)
@@ -26271,7 +26279,7 @@ object-assign
               (O += L), B++;
             }
             if (t.charAt(B) !== f) return;
-            (I += p + O + f), (R = O), B++;
+            (I += p + O + f), (T = O), B++;
           } else {
             for (
               L = null, E = '';
@@ -26294,26 +26302,26 @@ object-assign
               }
               B++;
             }
-            (R = O), (B = (I += O).length);
+            (T = O), (B = (I += O).length);
           }
           for (O = ''; B < k && ((L = t.charAt(B)), r(L)); ) (O += L), B++;
           if (((L = t.charAt(B)), (I += O), O && i.call(_, L)))
-            if ((B++, (I += L), (O = ''), (w = _[L]), (b = I), M)) {
-              for (; B < k && (L = t.charAt(B)) !== w; )
+            if ((B++, (I += L), (O = ''), (x = _[L]), (b = I), M)) {
+              for (; B < k && (L = t.charAt(B)) !== x; )
                 L === a && ((O += a), (L = t.charAt(++B))), B++, (O += L);
-              if ((L = t.charAt(B)) !== w) return;
+              if ((L = t.charAt(B)) !== x) return;
               for (S = O, I += O + L, B++; B < k && ((L = t.charAt(B)), r(L)); )
                 (I += L), B++;
             } else
               for (E = ''; B < k; ) {
-                if ((L = t.charAt(B)) === w)
-                  C && ((O += w + E), (E = '')), (C = !0);
+                if ((L = t.charAt(B)) === x)
+                  C && ((O += x + E), (E = '')), (C = !0);
                 else if (C) {
                   if (L === l) {
-                    (I += O + w + E), (S = O);
+                    (I += O + x + E), (S = O);
                     break;
                   }
-                  r(L) ? (E += L) : ((O += w + E + L), (E = ''), (C = !1));
+                  r(L) ? (E += L) : ((O += x + E + L), (E = ''), (C = !1));
                 } else O += L;
                 B++;
               }
@@ -26321,16 +26329,16 @@ object-assign
             return (
               !!n ||
               ((I += l),
-              (R = j.decode.raw(j.unescape(R), e(v).test().end)),
+              (T = F.decode.raw(F.unescape(T), e(v).test().end)),
               S &&
-                ((b = e(b).test().end), (S = j.decode.raw(j.unescape(S), b))),
-              (F = { type: A ? 'image' : 'link', title: S || null, url: R }),
+                ((b = e(b).test().end), (S = F.decode.raw(F.unescape(S), b))),
+              (j = { type: A ? 'image' : 'link', title: S || null, url: T }),
               A
-                ? (F.alt = j.decode.raw(j.unescape(x), T) || null)
-                : ((P = j.enterLink()),
-                  (F.children = j.tokenizeInline(x, T)),
+                ? (j.alt = F.decode.raw(F.unescape(w), R) || null)
+                : ((P = F.enterLink()),
+                  (j.children = F.tokenizeInline(w, R)),
                   P()),
-              e(I)(F))
+              e(I)(j))
             );
         }
       }
@@ -26364,45 +26372,45 @@ object-assign
         C,
         _,
         A = this,
-        x = t.charAt(0),
-        w = 0,
+        w = t.charAt(0),
+        x = 0,
         k = t.length,
         S = '',
         D = '',
         O = a,
-        R = c;
-      if (('!' === x && ((O = s), (D = x), (x = t.charAt(++w))), x === d)) {
+        T = c;
+      if (('!' === w && ((O = s), (D = w), (w = t.charAt(++x))), w === d)) {
         for (
-          w++,
-            D += x,
+          x++,
+            D += w,
             E = '',
             A.options.footnotes &&
               O === a &&
-              t.charAt(w) === f &&
-              ((D += f), w++, (O = u)),
+              t.charAt(x) === f &&
+              ((D += f), x++, (O = u)),
             _ = 0;
-          w < k;
+          x < k;
 
         ) {
-          if ((x = t.charAt(w)) === d) (C = !0), _++;
-          else if (x === m) {
+          if ((w = t.charAt(x)) === d) (C = !0), _++;
+          else if (w === m) {
             if (!_) break;
             _--;
           }
-          x === h && ((E += h), (x = t.charAt(++w))), (E += x), w++;
+          w === h && ((E += h), (w = t.charAt(++x))), (E += w), x++;
         }
-        if (((S = E), (o = E), (x = t.charAt(w)) === m)) {
-          for (w++, S += x, E = ''; w < k && ((x = t.charAt(w)), r(x)); )
-            (E += x), w++;
-          if (((x = t.charAt(w)), O !== u && x === d)) {
+        if (((S = E), (o = E), (w = t.charAt(x)) === m)) {
+          for (x++, S += w, E = ''; x < k && ((w = t.charAt(x)), r(w)); )
+            (E += w), x++;
+          if (((w = t.charAt(x)), O !== u && w === d)) {
             for (
-              g = '', E += x, w++;
-              w < k && (x = t.charAt(w)) !== d && x !== m;
+              g = '', E += w, x++;
+              x < k && (w = t.charAt(x)) !== d && w !== m;
 
             )
-              x === h && ((g += h), (x = t.charAt(++w))), (g += x), w++;
-            (x = t.charAt(w)) === m
-              ? ((R = g ? p : l), (E += g + x), w++)
+              w === h && ((g += h), (w = t.charAt(++x))), (g += w), x++;
+            (w = t.charAt(x)) === m
+              ? ((T = g ? p : l), (E += g + w), x++)
               : (g = ''),
               (S += E),
               (E = '');
@@ -26410,7 +26418,7 @@ object-assign
             if (!o) return;
             g = o;
           }
-          if (R === p || !C)
+          if (T === p || !C)
             return (
               (S = D + S),
               O === a && A.inLink
@@ -26424,9 +26432,9 @@ object-assign
                     : ((y = e.now()),
                       (y.column += D.length),
                       (y.offset += D.length),
-                      (g = R === p ? g : o),
+                      (g = T === p ? g : o),
                       (v = { type: O + 'Reference', identifier: i(g) }),
-                      (O !== a && O !== s) || (v.referenceType = R),
+                      (O !== a && O !== s) || (v.referenceType = T),
                       O === a
                         ? ((b = A.enterLink()),
                           (v.children = A.tokenizeInline(o, y)),
@@ -26831,27 +26839,27 @@ object-assign
         C = b ? h : s(e),
         _ = E ? h : s(t),
         A = (C = C == f ? d : C) == d,
-        x = (_ = _ == f ? d : _) == d,
-        w = C == _;
-      if (w && c(e)) {
+        w = (_ = _ == f ? d : _) == d,
+        x = C == _;
+      if (x && c(e)) {
         if (!c(t)) return !1;
         (b = !0), (A = !1);
       }
-      if (w && !A)
+      if (x && !A)
         return (
           v || (v = new r()),
           b || l(e) ? o(e, t, n, g, y, v) : i(e, t, C, n, g, y, v)
         );
       if (!(n & p)) {
         var k = A && m.call(e, '__wrapped__'),
-          S = x && m.call(t, '__wrapped__');
+          S = w && m.call(t, '__wrapped__');
         if (k || S) {
           var D = k ? e.value() : e,
             O = S ? t.value() : t;
           return v || (v = new r()), y(D, O, n, g, v);
         }
       }
-      return !!w && (v || (v = new r()), a(e, t, n, g, y, v));
+      return !!x && (v || (v = new r()), a(e, t, n, g, y, v));
     };
   },
   function(e, t, n) {
@@ -26893,7 +26901,7 @@ object-assign
   function(e, t, n) {
     var r = n(56),
       o = n(150),
-      i = n(43),
+      i = n(45),
       a = n(176),
       s = n(493),
       u = n(494),
@@ -26912,14 +26920,14 @@ object-assign
       C = '[object DataView]',
       _ = r ? r.prototype : void 0,
       A = _ ? _.valueOf : void 0;
-    e.exports = function equalByTag(e, t, n, r, _, x, w) {
+    e.exports = function equalByTag(e, t, n, r, _, w, x) {
       switch (n) {
         case C:
           if (e.byteLength != t.byteLength || e.byteOffset != t.byteOffset)
             return !1;
           (e = e.buffer), (t = t.buffer);
         case E:
-          return !(e.byteLength != t.byteLength || !x(new o(e), new o(t)));
+          return !(e.byteLength != t.byteLength || !w(new o(e), new o(t)));
         case p:
         case f:
         case m:
@@ -26934,11 +26942,11 @@ object-assign
         case y:
           var S = r & c;
           if ((k || (k = u), e.size != t.size && !S)) return !1;
-          var D = w.get(e);
+          var D = x.get(e);
           if (D) return D == t;
-          (r |= l), w.set(e, t);
-          var O = a(k(e), k(t), r, _, x, w);
-          return w.delete(e), O;
+          (r |= l), x.set(e, t);
+          var O = a(k(e), k(t), r, _, w, x);
+          return x.delete(e), O;
         case b:
           if (A) return A.call(e) == A.call(t);
       }
@@ -29523,10 +29531,10 @@ object-assign
         }
         function extractNames(e) {
           var t = [];
-          return T[e.type](t, e), t;
+          return R[e.type](t, e), t;
         }
         function destructure(e, t, n, r, o, i) {
-          j[n.type](e, t, n, r, o, i);
+          F[n.type](e, t, n, r, o, i);
         }
         function destructureIdentifier(e, t, n, r, o, i) {
           i.push(function(t, i, a) {
@@ -31060,7 +31068,7 @@ object-assign
           .forEach(function(e) {
             return (A[e] = !0);
           });
-        var x = (function(e) {
+        var w = (function(e) {
             function ClassBody() {
               e.apply(this, arguments);
             }
@@ -31154,8 +31162,8 @@ object-assign
                   var E,
                     C,
                     _ = this.findScope(!1),
-                    x = [],
-                    w = [];
+                    w = [],
+                    x = [];
                   if (
                     (this.body.forEach(function(e, n) {
                       if ('constructor' !== e.kind) {
@@ -31181,11 +31189,11 @@ object-assign
                             );
                           t.remove(e.start, e.key.start),
                             e.static
-                              ? (~w.indexOf(e.key.name) || w.push(e.key.name),
+                              ? (~x.indexOf(e.key.name) || x.push(e.key.name),
                                 C ||
                                   (C = _.createIdentifier('staticAccessors')),
                                 (o = '' + C))
-                              : (~x.indexOf(e.key.name) || x.push(e.key.name),
+                              : (~w.indexOf(e.key.name) || w.push(e.key.name),
                                 E ||
                                   (E = _.createIdentifier(
                                     'prototypeAccessors',
@@ -31221,16 +31229,16 @@ object-assign
                         t.overwrite(e.key.start, e.key.end, 'function' + m);
                       }
                     }),
-                    x.length || w.length)
+                    w.length || x.length)
                   ) {
                     var k = [],
                       S = [];
-                    x.length &&
+                    w.length &&
                       (k.push(
                         'var ' +
                           E +
                           ' = { ' +
-                          x
+                          w
                             .map(function(e) {
                               return e + ': {}';
                             })
@@ -31244,12 +31252,12 @@ object-assign
                           E +
                           ' );',
                       )),
-                      w.length &&
+                      x.length &&
                         (k.push(
                           'var ' +
                             C +
                             ' = { ' +
-                            w
+                            x
                               .map(function(e) {
                                 return e + ': {}';
                               })
@@ -31272,7 +31280,7 @@ object-assign
               ClassBody
             );
           })(d),
-          w = (function(e) {
+          x = (function(e) {
             function ClassDeclaration() {
               e.apply(this, arguments);
             }
@@ -31449,7 +31457,7 @@ object-assign
               ExportNamedDeclaration
             );
           })(d),
-          R = (function(e) {
+          T = (function(e) {
             function LoopStatement() {
               e.apply(this, arguments);
             }
@@ -31552,27 +31560,27 @@ object-assign
               LoopStatement
             );
           })(d),
-          T = {
+          R = {
             Identifier: function Identifier(e, t) {
               e.push(t);
             },
             ObjectPattern: function ObjectPattern(e, t) {
               for (var n = 0, r = t.properties; n < r.length; n += 1) {
                 var o = r[n];
-                T[o.value.type](e, o.value);
+                R[o.value.type](e, o.value);
               }
             },
             ArrayPattern: function ArrayPattern(e, t) {
               for (var n = 0, r = t.elements; n < r.length; n += 1) {
                 var o = r[n];
-                o && T[o.type](e, o);
+                o && R[o.type](e, o);
               }
             },
             RestElement: function RestElement(e, t) {
-              T[t.argument.type](e, t.argument);
+              R[t.argument.type](e, t.argument);
             },
             AssignmentPattern: function AssignmentPattern(e, t) {
-              T[t.left.type](e, t.left);
+              R[t.left.type](e, t.left);
             },
           },
           P = (function(e) {
@@ -31623,8 +31631,8 @@ object-assign
               }),
               ForStatement
             );
-          })(R),
-          F = (function(e) {
+          })(T),
+          j = (function(e) {
             function ForInStatement() {
               e.apply(this, arguments);
             }
@@ -31660,8 +31668,8 @@ object-assign
               }),
               ForInStatement
             );
-          })(R),
-          j = {
+          })(T),
+          F = {
             Identifier: destructureIdentifier,
             AssignmentPattern: function destructureAssignmentPattern(
               e,
@@ -31789,7 +31797,7 @@ object-assign
               }),
               ForOfStatement
             );
-          })(R),
+          })(T),
           B = (function(e) {
             function FunctionDeclaration() {
               e.apply(this, arguments);
@@ -32300,18 +32308,18 @@ object-assign
                 A = function(e, t) {
                   for (var n, r, o = 0, i = e.slice(), a = t.length; o < a; )
                     (i =
-                      (n = t[o]) == (r = t[o + 1] - 1) ? _(i, n) : w(i, n, r)),
+                      (n = t[o]) == (r = t[o + 1] - 1) ? _(i, n) : x(i, n, r)),
                       (o += 2);
                   return i;
                 },
-                x = function(e, t) {
+                w = function(e, t) {
                   for (var n, r, o = 0, i = e.slice(), a = t.length; o < a; )
                     (i =
                       (n = t[o]) == (r = t[o + 1] - 1) ? E(i, n) : C(i, n, r)),
                       (o += 2);
                   return i;
                 },
-                w = function(e, t, n) {
+                x = function(e, t, n) {
                   if (n < t) throw Error(u.rangeOrder);
                   if (t < 0 || t > 1114111 || n < 0 || n > 1114111)
                     throw RangeError(u.codePointRange);
@@ -32362,21 +32370,21 @@ object-assign
                 O = function(e) {
                   return 2 == e.length && e[0] + 1 == e[1];
                 },
-                R = function(e) {
+                T = function(e) {
                   for (var t, n, r = 0, o = [], i = e.length; r < i; ) {
                     for (t = e[r], n = e[r + 1]; t < n; ) o.push(t), ++t;
                     r += 2;
                   }
                   return o;
                 },
-                T = Math.floor,
+                R = Math.floor,
                 P = function(e) {
-                  return parseInt(T((e - 65536) / 1024) + 55296, 10);
+                  return parseInt(R((e - 65536) / 1024) + 55296, 10);
                 },
-                F = function(e) {
+                j = function(e) {
                   return parseInt((e - 65536) % 1024 + 56320, 10);
                 },
-                j = String.fromCharCode,
+                F = String.fromCharCode,
                 I = function(e) {
                   return 9 == e
                     ? '\\t'
@@ -32395,9 +32403,9 @@ object-assign
                               63 == e ||
                               (e >= 91 && e <= 94) ||
                               (e >= 123 && e <= 125)
-                              ? '\\' + j(e)
+                              ? '\\' + F(e)
                               : e >= 32 && e <= 126
-                                ? j(e)
+                                ? F(e)
                                 : e <= 255
                                   ? '\\x' + g(y(e), 2)
                                   : '\\u' + g(y(e), 4);
@@ -32532,7 +32540,7 @@ object-assign
                         i && r[0] == i[0] && r[1] == i[1];
 
                       )
-                        (u = O(a) ? _(u, a[0]) : w(u, a[0], a[1] - 1)),
+                        (u = O(a) ? _(u, a[0]) : x(u, a[0], a[1] - 1)),
                           (r = (t = e[++l])[0]),
                           (o = t[1]),
                           (i = (n = e[l + 1]) && n[0]),
@@ -32558,7 +32566,7 @@ object-assign
                         a == l &&
                         (O(s[0])
                           ? (r[0] = _(r[0], s[0][0]))
-                          : (r[0] = w(r[0], s[0][0], s[0][1] - 1)),
+                          : (r[0] = x(r[0], s[0][0], s[0][1] - 1)),
                         e.splice(n, 1),
                         --n);
                     }
@@ -32575,10 +32583,10 @@ object-assign
                     (t = e[s]),
                       (n = e[s + 1] - 1),
                       (r = P(t)),
-                      (o = F(t)),
+                      (o = j(t)),
                       (i = P(n));
                     var l = 56320 == o,
-                      p = 57343 == (a = F(n)),
+                      p = 57343 == (a = j(n)),
                       f = !1;
                     r == i || (l && p)
                       ? (u.push([[r, i + 1], [o, a + 1]]), (f = !0))
@@ -32659,7 +32667,7 @@ object-assign
                   return null == e
                     ? t
                     : e instanceof K
-                      ? ((t.data = x(t.data, e.data)), t)
+                      ? ((t.data = w(t.data, e.data)), t)
                       : (arguments.length > 1 && (e = v.call(arguments)),
                         d(e)
                           ? (f(e, function(e) {
@@ -32671,7 +32679,7 @@ object-assign
                 addRange: function(e, t) {
                   var n = this;
                   return (
-                    (n.data = w(n.data, m(e) ? e : L(e), m(t) ? t : L(t))), n
+                    (n.data = x(n.data, m(e) ? e : L(e), m(t) ? t : L(t))), n
                   );
                 },
                 removeRange: function(e, t) {
@@ -32682,7 +32690,7 @@ object-assign
                 },
                 intersection: function(e) {
                   var t = this,
-                    n = e instanceof K ? R(e.data) : e;
+                    n = e instanceof K ? T(e.data) : e;
                   return (t.data = S(t.data, n)), t;
                 },
                 contains: function(e) {
@@ -32707,7 +32715,7 @@ object-assign
                   return RegExp(t, e || '');
                 },
                 valueOf: function() {
-                  return R(this.data);
+                  return T(this.data);
                 },
               }),
                 ($.toArray = $.valueOf),
@@ -34033,15 +34041,15 @@ object-assign
             BinaryExpression: b,
             BreakStatement: C,
             CallExpression: _,
-            ClassBody: x,
-            ClassDeclaration: w,
+            ClassBody: w,
+            ClassDeclaration: x,
             ClassExpression: k,
             ContinueStatement: S,
-            DoWhileStatement: R,
+            DoWhileStatement: T,
             ExportNamedDeclaration: O,
             ExportDefaultDeclaration: D,
             ForStatement: P,
-            ForInStatement: F,
+            ForInStatement: j,
             ForOfStatement: I,
             FunctionDeclaration: B,
             FunctionExpression: L,
@@ -34262,8 +34270,8 @@ object-assign
                         t.insertRight(this.start, '( ' + g + ' = ');
                     }
                     for (
-                      var A, x = this.properties.length, w = !1, k = 0;
-                      k < x;
+                      var A, w = this.properties.length, x = !1, k = 0;
+                      k < w;
                       k += 1
                     ) {
                       var S = r.properties[k];
@@ -34274,24 +34282,24 @@ object-assign
                         D < S.start
                           ? t.overwrite(D, S.start, O)
                           : t.insertRight(S.start, O);
-                        for (var R = S.key.end; ']' !== t.original[R]; ) R += 1;
+                        for (var T = S.key.end; ']' !== t.original[T]; ) T += 1;
                         if (
-                          ((R += 1),
-                          S.value.start > R && t.remove(R, S.value.start),
-                          t.insertLeft(R, ' = '),
+                          ((T += 1),
+                          S.value.start > T && t.remove(T, S.value.start),
+                          t.insertLeft(T, ' = '),
                           t.move(D, S.end, C),
-                          k < x - 1 && !w)
+                          k < w - 1 && !x)
                         ) {
-                          for (R = S.end; ',' !== t.original[R]; ) R += 1;
-                          t.remove(S.end, R + 1);
+                          for (T = S.end; ',' !== t.original[T]; ) T += 1;
+                          t.remove(S.end, T + 1);
                         }
                         S.method &&
                           n.conciseMethodProperty &&
                           t.insertRight(S.value.start, 'function ');
-                      } else w = !0;
+                      } else x = !0;
                     }
-                    s === x &&
-                      t.remove(this.properties[x - 1].end, this.end - 1),
+                    s === w &&
+                      t.remove(this.properties[w - 1].end, this.end - 1),
                       m || t.insertLeft(A.end, ', ' + g + ' )');
                   }
                 }),
@@ -34803,7 +34811,7 @@ object-assign
                 VariableDeclarator
               );
             })(d),
-            WhileStatement: R,
+            WhileStatement: T,
           },
           ue = {
             IfStatement: 'consequent',
@@ -36208,8 +36216,8 @@ object-assign
           var e = this.options.program || this.startNode();
           return this.nextToken(), this.parseTopLevel(e);
         });
-      var x = A.prototype;
-      (x.isUseStrict = function(e) {
+      var w = A.prototype;
+      (w.isUseStrict = function(e) {
         return (
           this.options.ecmaVersion >= 5 &&
           'ExpressionStatement' === e.type &&
@@ -36217,26 +36225,26 @@ object-assign
           'use strict' === e.expression.raw.slice(1, -1)
         );
       }),
-        (x.eat = function(e) {
+        (w.eat = function(e) {
           return this.type === e && (this.next(), !0);
         }),
-        (x.isContextual = function(e) {
+        (w.isContextual = function(e) {
           return this.type === d.name && this.value === e;
         }),
-        (x.eatContextual = function(e) {
+        (w.eatContextual = function(e) {
           return this.value === e && this.eat(d.name);
         }),
-        (x.expectContextual = function(e) {
+        (w.expectContextual = function(e) {
           this.eatContextual(e) || this.unexpected();
         }),
-        (x.canInsertSemicolon = function() {
+        (w.canInsertSemicolon = function() {
           return (
             this.type === d.eof ||
             this.type === d.braceR ||
             m.test(this.input.slice(this.lastTokEnd, this.start))
           );
         }),
-        (x.insertSemicolon = function() {
+        (w.insertSemicolon = function() {
           if (this.canInsertSemicolon())
             return (
               this.options.onInsertedSemicolon &&
@@ -36247,10 +36255,10 @@ object-assign
               !0
             );
         }),
-        (x.semicolon = function() {
+        (w.semicolon = function() {
           this.eat(d.semi) || this.insertSemicolon() || this.unexpected();
         }),
-        (x.afterTrailingComma = function(e) {
+        (w.afterTrailingComma = function(e) {
           if (this.type == e)
             return (
               this.options.onTrailingComma &&
@@ -36262,21 +36270,21 @@ object-assign
               !0
             );
         }),
-        (x.expect = function(e) {
+        (w.expect = function(e) {
           this.eat(e) || this.unexpected();
         }),
-        (x.unexpected = function(e) {
+        (w.unexpected = function(e) {
           this.raise(null != e ? e : this.start, 'Unexpected token');
         });
-      var w = function DestructuringErrors() {
+      var x = function DestructuringErrors() {
         (this.shorthandAssign = 0), (this.trailingComma = 0);
       };
-      (x.checkPatternErrors = function(e, t) {
+      (w.checkPatternErrors = function(e, t) {
         var n = e && e.trailingComma;
         if (!t) return !!n;
         n && this.raise(n, 'Comma is not permitted after the rest element');
       }),
-        (x.checkExpressionErrors = function(e, t) {
+        (w.checkExpressionErrors = function(e, t) {
           var n = e && e.shorthandAssign;
           if (!t) return !!n;
           n &&
@@ -36463,7 +36471,7 @@ object-assign
                 : this.parseForIn(e, n)
             );
           }
-          var o = new w(),
+          var o = new x(),
             i = this.parseExpression(!0, o);
           return this.type === d._in ||
           (this.options.ecmaVersion >= 6 && this.isContextual('of'))
@@ -36927,8 +36935,8 @@ object-assign
           }
           return t;
         });
-      var R = A.prototype;
-      (R.toAssignable = function(e, t) {
+      var T = A.prototype;
+      (T.toAssignable = function(e, t) {
         var n = this;
         if (this.options.ecmaVersion >= 6 && e)
           switch (e.type) {
@@ -36977,7 +36985,7 @@ object-assign
           }
         return e;
       }),
-        (R.toAssignableList = function(e, t) {
+        (T.toAssignableList = function(e, t) {
           var n = this,
             r = e.length;
           if (r) {
@@ -37005,7 +37013,7 @@ object-assign
           }
           return e;
         }),
-        (R.parseSpread = function(e) {
+        (T.parseSpread = function(e) {
           var t = this.startNode();
           return (
             this.next(),
@@ -37013,7 +37021,7 @@ object-assign
             this.finishNode(t, 'SpreadElement')
           );
         }),
-        (R.parseRest = function(e) {
+        (T.parseRest = function(e) {
           var t = this.startNode();
           return (
             this.next(),
@@ -37025,7 +37033,7 @@ object-assign
             this.finishNode(t, 'RestElement')
           );
         }),
-        (R.parseBindingAtom = function() {
+        (T.parseBindingAtom = function() {
           if (this.options.ecmaVersion < 6) return this.parseIdent();
           switch (this.type) {
             case d.name:
@@ -37043,7 +37051,7 @@ object-assign
               this.unexpected();
           }
         }),
-        (R.parseBindingList = function(e, t, n, r) {
+        (T.parseBindingList = function(e, t, n, r) {
           for (var o = this, i = [], a = !0; !this.eat(e); )
             if ((a ? (a = !1) : o.expect(d.comma), t && o.type === d.comma))
               i.push(null);
@@ -37066,10 +37074,10 @@ object-assign
             }
           return i;
         }),
-        (R.parseBindingListItem = function(e) {
+        (T.parseBindingListItem = function(e) {
           return e;
         }),
-        (R.parseMaybeDefault = function(e, t, n) {
+        (T.parseMaybeDefault = function(e, t, n) {
           if (
             ((n = n || this.parseBindingAtom()),
             this.options.ecmaVersion < 6 || !this.eat(d.eq))
@@ -37082,7 +37090,7 @@ object-assign
             this.finishNode(r, 'AssignmentPattern')
           );
         }),
-        (R.checkLVal = function(e, t, n) {
+        (T.checkLVal = function(e, t, n) {
           var r = this;
           switch (e.type) {
             case 'Identifier':
@@ -37129,8 +37137,8 @@ object-assign
               this.raise(e.start, (t ? 'Binding' : 'Assigning to') + ' rvalue');
           }
         });
-      var T = A.prototype;
-      (T.checkPropClash = function(e, t) {
+      var R = A.prototype;
+      (R.checkPropClash = function(e, t) {
         if (
           !(
             this.options.ecmaVersion >= 6 &&
@@ -37170,7 +37178,7 @@ object-assign
           }
         }
       }),
-        (T.parseExpression = function(e, t) {
+        (R.parseExpression = function(e, t) {
           var n = this,
             r = this.start,
             o = this.startLoc,
@@ -37183,18 +37191,18 @@ object-assign
           }
           return i;
         }),
-        (T.parseMaybeAssign = function(e, t, n) {
+        (R.parseMaybeAssign = function(e, t, n) {
           if (this.inGenerator && this.isContextual('yield'))
             return this.parseYield();
           var r = !1;
-          t || ((t = new w()), (r = !0));
+          t || ((t = new x()), (r = !0));
           var o = this.start,
             i = this.startLoc;
           (this.type != d.parenL && this.type != d.name) ||
             (this.potentialArrowAt = this.start);
           var a = this.parseMaybeConditional(e, t);
           if ((n && (a = n.call(this, a, o, i)), this.type.isAssign)) {
-            this.checkPatternErrors(t, !0), r || w.call(t);
+            this.checkPatternErrors(t, !0), r || x.call(t);
             var s = this.startNodeAt(o, i);
             return (
               (s.operator = this.value),
@@ -37208,7 +37216,7 @@ object-assign
           }
           return r && this.checkExpressionErrors(t, !0), a;
         }),
-        (T.parseMaybeConditional = function(e, t) {
+        (R.parseMaybeConditional = function(e, t) {
           var n = this.start,
             r = this.startLoc,
             o = this.parseExprOps(e, t);
@@ -37225,7 +37233,7 @@ object-assign
           }
           return o;
         }),
-        (T.parseExprOps = function(e, t) {
+        (R.parseExprOps = function(e, t) {
           var n = this.start,
             r = this.startLoc,
             o = this.parseMaybeUnary(t, !1);
@@ -37233,7 +37241,7 @@ object-assign
             ? o
             : this.parseExprOp(o, n, r, -1, e);
         }),
-        (T.parseExprOp = function(e, t, n, r, o) {
+        (R.parseExprOp = function(e, t, n, r, o) {
           var i = this.type.binop;
           if (null != i && (!o || this.type !== d._in) && i > r) {
             var a = this.type === d.logicalOR || this.type === d.logicalAND,
@@ -37247,7 +37255,7 @@ object-assign
           }
           return e;
         }),
-        (T.buildBinary = function(e, t, n, r, o, i) {
+        (R.buildBinary = function(e, t, n, r, o, i) {
           var a = this.startNodeAt(e, t);
           return (
             (a.left = n),
@@ -37256,7 +37264,7 @@ object-assign
             this.finishNode(a, i ? 'LogicalExpression' : 'BinaryExpression')
           );
         }),
-        (T.parseMaybeUnary = function(e, t) {
+        (R.parseMaybeUnary = function(e, t) {
           var n,
             r = this,
             o = this.start,
@@ -37309,7 +37317,7 @@ object-assign
               )
             : n;
         }),
-        (T.parseExprSubscripts = function(e) {
+        (R.parseExprSubscripts = function(e) {
           var t = this.start,
             n = this.startLoc,
             r = this.parseExprAtom(e),
@@ -37320,7 +37328,7 @@ object-assign
             ? r
             : this.parseSubscripts(r, t, n);
         }),
-        (T.parseSubscripts = function(e, t, n, r) {
+        (R.parseSubscripts = function(e, t, n, r) {
           for (var o = this; ; )
             if (o.eat(d.dot)) {
               var i = o.startNodeAt(t, n);
@@ -37348,7 +37356,7 @@ object-assign
                 (e = o.finishNode(u, 'TaggedTemplateExpression'));
             }
         }),
-        (T.parseExprAtom = function(e) {
+        (R.parseExprAtom = function(e) {
           var t,
             n = this.potentialArrowAt == this.start;
           switch (this.type) {
@@ -37411,7 +37419,7 @@ object-assign
               this.unexpected();
           }
         }),
-        (T.parseLiteral = function(e) {
+        (R.parseLiteral = function(e) {
           var t = this.startNode();
           return (
             (t.value = e),
@@ -37420,12 +37428,12 @@ object-assign
             this.finishNode(t, 'Literal')
           );
         }),
-        (T.parseParenExpression = function() {
+        (R.parseParenExpression = function() {
           this.expect(d.parenL);
           var e = this.parseExpression();
           return this.expect(d.parenR), e;
         }),
-        (T.parseParenAndDistinguishExpression = function(e) {
+        (R.parseParenAndDistinguishExpression = function(e) {
           var t,
             n = this,
             r = this.start,
@@ -37439,7 +37447,7 @@ object-assign
                 u = this.startLoc,
                 c = [],
                 l = !0,
-                p = new w();
+                p = new x();
               this.type !== d.parenR;
 
             ) {
@@ -37477,14 +37485,14 @@ object-assign
           }
           return t;
         }),
-        (T.parseParenItem = function(e) {
+        (R.parseParenItem = function(e) {
           return e;
         }),
-        (T.parseParenArrowList = function(e, t, n) {
+        (R.parseParenArrowList = function(e, t, n) {
           return this.parseArrowExpression(this.startNodeAt(e, t), n);
         });
       var P = [];
-      (T.parseNew = function() {
+      (R.parseNew = function() {
         var e = this.startNode(),
           t = this.parseIdent(!0);
         if (this.options.ecmaVersion >= 6 && this.eat(d.dot))
@@ -37513,7 +37521,7 @@ object-assign
           this.finishNode(e, 'NewExpression')
         );
       }),
-        (T.parseTemplateElement = function() {
+        (R.parseTemplateElement = function() {
           var e = this.startNode();
           return (
             (e.value = {
@@ -37527,7 +37535,7 @@ object-assign
             this.finishNode(e, 'TemplateElement')
           );
         }),
-        (T.parseTemplate = function() {
+        (R.parseTemplate = function() {
           var e = this,
             t = this.startNode();
           this.next(), (t.expressions = []);
@@ -37539,7 +37547,7 @@ object-assign
               t.quasis.push((n = e.parseTemplateElement()));
           return this.next(), this.finishNode(t, 'TemplateLiteral');
         }),
-        (T.parseObj = function(e, t) {
+        (R.parseObj = function(e, t) {
           var n = this,
             r = this.startNode(),
             o = !0,
@@ -37563,7 +37571,7 @@ object-assign
           }
           return this.finishNode(r, e ? 'ObjectPattern' : 'ObjectExpression');
         }),
-        (T.parsePropertyValue = function(e, t, n, r, o, i) {
+        (R.parsePropertyValue = function(e, t, n, r, o, i) {
           if (this.eat(d.colon))
             (e.value = t
               ? this.parseMaybeDefault(this.start, this.startLoc)
@@ -37627,7 +37635,7 @@ object-assign
                 (e.shorthand = !0))
               : this.unexpected();
         }),
-        (T.parsePropertyName = function(e) {
+        (R.parsePropertyName = function(e) {
           if (this.options.ecmaVersion >= 6) {
             if (this.eat(d.bracketL))
               return (
@@ -37643,12 +37651,12 @@ object-assign
               ? this.parseExprAtom()
               : this.parseIdent(!0));
         }),
-        (T.initFunction = function(e) {
+        (R.initFunction = function(e) {
           (e.id = null),
             this.options.ecmaVersion >= 6 &&
               ((e.generator = !1), (e.expression = !1));
         }),
-        (T.parseMethod = function(e) {
+        (R.parseMethod = function(e) {
           var t = this.startNode(),
             n = this.inGenerator;
           return (
@@ -37662,7 +37670,7 @@ object-assign
             this.finishNode(t, 'FunctionExpression')
           );
         }),
-        (T.parseArrowExpression = function(e, t) {
+        (R.parseArrowExpression = function(e, t) {
           var n = this.inGenerator;
           return (
             (this.inGenerator = !1),
@@ -37673,7 +37681,7 @@ object-assign
             this.finishNode(e, 'ArrowFunctionExpression')
           );
         }),
-        (T.parseFunctionBody = function(e, t) {
+        (R.parseFunctionBody = function(e, t) {
           var n = t && this.type !== d.braceL;
           if (n) (e.body = this.parseMaybeAssign()), (e.expression = !0);
           else {
@@ -37698,7 +37706,7 @@ object-assign
               (this.strict = a);
           } else t && this.checkParams(e, i);
         }),
-        (T.checkParams = function(e, t) {
+        (R.checkParams = function(e, t) {
           for (var n = this, r = {}, o = 0; o < e.params.length; o++)
             t &&
               n.options.ecmaVersion >= 7 &&
@@ -37709,7 +37717,7 @@ object-assign
               ),
               n.checkLVal(e.params[o], !0, r);
         }),
-        (T.parseExprList = function(e, t, n, r) {
+        (R.parseExprList = function(e, t, n, r) {
           for (var o = this, i = [], a = !0; !this.eat(e); ) {
             if (a) a = !1;
             else if ((o.expect(d.comma), t && o.afterTrailingComma(e))) break;
@@ -37727,7 +37735,7 @@ object-assign
           }
           return i;
         }),
-        (T.parseIdent = function(e) {
+        (R.parseIdent = function(e) {
           var t = this.startNode();
           return (
             e && 'never' == this.options.allowReserved && (e = !1),
@@ -37758,7 +37766,7 @@ object-assign
             this.finishNode(t, 'Identifier')
           );
         }),
-        (T.parseYield = function() {
+        (R.parseYield = function() {
           var e = this.startNode();
           return (
             this.next(),
@@ -37771,19 +37779,19 @@ object-assign
             this.finishNode(e, 'YieldExpression')
           );
         });
-      var F = A.prototype;
-      (F.raise = function(e, t) {
+      var j = A.prototype;
+      (j.raise = function(e, t) {
         var n = getLineInfo(this.input, e);
         t += ' (' + n.line + ':' + n.column + ')';
         var r = new SyntaxError(t);
         throw ((r.pos = e), (r.loc = n), (r.raisedAt = this.pos), r);
       }),
-        (F.raiseRecoverable = F.raise),
-        (F.curPosition = function() {
+        (j.raiseRecoverable = j.raise),
+        (j.curPosition = function() {
           if (this.options.locations)
             return new b(this.curLine, this.pos - this.lineStart);
         });
-      var j = function Node(e, t, n) {
+      var F = function Node(e, t, n) {
           (this.type = ''),
             (this.start = t),
             (this.end = 0),
@@ -37794,10 +37802,10 @@ object-assign
         },
         I = A.prototype;
       (I.startNode = function() {
-        return new j(this, this.start, this.startLoc);
+        return new F(this, this.start, this.startLoc);
       }),
         (I.startNodeAt = function(e, t) {
-          return new j(this, e, t);
+          return new F(this, e, t);
         }),
         (I.finishNode = function(e, t) {
           return finishNodeAt.call(
@@ -38499,7 +38507,7 @@ object-assign
         (e.Position = b),
         (e.SourceLocation = E),
         (e.getLineInfo = getLineInfo),
-        (e.Node = j),
+        (e.Node = F),
         (e.TokenType = l),
         (e.tokTypes = d),
         (e.TokContext = B),
@@ -40646,7 +40654,7 @@ object-assign
       (t.swap = t.swapCase = n(585)),
       (t.path = t.pathCase = n(586)),
       (t.upper = t.upperCase = n(24)),
-      (t.lower = t.lowerCase = n(45)),
+      (t.lower = t.lowerCase = n(47)),
       (t.camel = t.camelCase = n(192)),
       (t.snake = t.snakeCase = n(193)),
       (t.title = t.titleCase = n(587)),
@@ -40677,7 +40685,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(24),
-      o = n(45);
+      o = n(47);
     e.exports = function(e, t) {
       if (null == e) return '';
       for (var n = '', i = 0; i < e.length; i++) {
@@ -40746,13 +40754,13 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(45);
+    var r = n(47);
     e.exports = function(e, t) {
       return r(e, t) === e;
     };
   },
   function(e, t, n) {
-    var r = n(45);
+    var r = n(47);
     e.exports = function(e, t) {
       return null == e
         ? ''
@@ -40777,6 +40785,13 @@ object-assign
         e
       );
     }
+    function _toConsumableArray(e) {
+      if (Array.isArray(e)) {
+        for (var t = 0, n = Array(e.length); t < e.length; t++) n[t] = e[t];
+        return n;
+      }
+      return Array.from(e);
+    }
     function _classCallCheck(e, t) {
       if (!(e instanceof t))
         throw new TypeError('Cannot call a class as a function');
@@ -40795,29 +40810,29 @@ object-assign
       o = _interopRequireDefault(n(597)),
       i = _interopRequireDefault(n(110)),
       a = n(191),
-      s = function Theme(e, t) {
-        var n =
-            arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
-          r =
-            arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {};
-        _classCallCheck(this, Theme),
-          u.call(this),
-          (this.namespace = e),
-          (this.globals = o.default.defaultsDeep(n, t)),
-          (this.registeredComponents = r);
+      s = function Theme(e) {
+        var t =
+            arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+          n =
+            arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
+        if ((_classCallCheck(this, Theme), u.call(this), !e))
+          throw new Error('namespace is required');
+        (this.namespace = e),
+          (this.globals = t),
+          (this.registeredComponents = n);
       },
       u = function _initialiseProps() {
         var e = this;
         (this.connect = i.default),
           (this.variant = a.asVariant),
           (this._compiled = null),
-          (this.normalizeThemeConfig = function(t) {
-            return o.default.isFunction(t)
-              ? function(n) {
-                  return t(n[e.namespace]);
+          (this.normalizeThemeConfig = function(e) {
+            return o.default.isFunction(e)
+              ? function(t) {
+                  return e(t);
                 }
               : function() {
-                  return t;
+                  return e;
                 };
           }),
           (this.register = function(t, n) {
@@ -40854,41 +40869,69 @@ object-assign
                   t +
                   ' before the default has been registered',
               );
-            var i = e.registeredComponents[t].default;
             return (
               (e.registeredComponents[t][n] = function(t) {
-                return o.default.defaultsDeep(
-                  e.normalizeThemeConfig(r)(t),
-                  i(t),
-                );
+                return e.normalizeThemeConfig(r)(t);
               }),
               e
             );
           }),
           (this.createSelector = function(t) {
+            if (!e.registeredComponents[t])
+              throw new Error(
+                'Cannot create selector for ' +
+                  t +
+                  '; no component registered by that name.',
+              );
             return function(n) {
-              return function(r) {
-                var o = r.theme,
-                  i = r.variant,
-                  a = void 0 === i ? 'default' : i,
-                  s = (o[e.namespace].components[t][a] ||
-                    o[e.namespace].components[t].default)(o);
-                return n ? s[n] : s;
-              };
+              return function(e) {
+                var r = this,
+                  i = e.theme,
+                  a = e.variant,
+                  s = void 0 === a ? 'default' : a,
+                  u = (o.default.isArray(s)
+                    ? [].concat(_toConsumableArray(s), ['default'])
+                    : [s, 'default']).map(function(e) {
+                    return i[r.namespace].components[t][e] || {};
+                  }),
+                  c = o.default.defaultsDeep.apply(
+                    o.default,
+                    _toConsumableArray(u),
+                  );
+                return n ? o.default.get(c, n) : c;
+              }.bind(e);
             };
           }),
           (this.compile = function() {
-            return e._compiled
-              ? e._compiled
-              : ((e._compiled = _defineProperty(
+            if (e._compiled) return e._compiled;
+            var t = function compileVariants(t) {
+                return Object.keys(t).reduce(function(n, o) {
+                  return r({}, n, _defineProperty({}, o, t[o](e.globals)));
+                }, {});
+              },
+              n = Object.keys(e.registeredComponents).reduce(function(n, o) {
+                return r(
                   {},
-                  e.namespace,
-                  r({}, e.globals, { components: e.registeredComponents }),
-                )),
-                e._compiled);
+                  n,
+                  _defineProperty({}, o, t(e.registeredComponents[o])),
+                );
+              }, {});
+            return (
+              (e._compiled = _defineProperty(
+                {},
+                e.namespace,
+                r({}, e.globals, { components: n }),
+              )),
+              console.log(e._compiled),
+              e._compiled
+            );
           }),
           (this.extend = function(t, n) {
-            return new s(t, e.globals, n, e.registeredComponents);
+            return new s(
+              t,
+              o.default.defaultsDeep(n, e.globals),
+              e.registeredComponents,
+            );
           });
       };
     t.default = s;
@@ -41194,24 +41237,24 @@ object-assign
           C = 16,
           _ = 32,
           A = 64,
-          x = 128,
-          w = 256,
+          w = 128,
+          x = 256,
           k = 512,
           S = 30,
           D = '...',
           O = 800,
-          R = 16,
-          T = 1,
+          T = 16,
+          R = 1,
           P = 2,
-          F = 1 / 0,
-          j = 9007199254740991,
+          j = 1 / 0,
+          F = 9007199254740991,
           I = 1.7976931348623157e308,
           B = NaN,
           L = 4294967295,
           N = L - 1,
           M = L >>> 1,
           U = [
-            ['ary', x],
+            ['ary', w],
             ['bind', y],
             ['bindKey', v],
             ['curry', E],
@@ -41219,7 +41262,7 @@ object-assign
             ['flip', k],
             ['partial', _],
             ['partialRight', A],
-            ['rearg', w],
+            ['rearg', x],
           ],
           q = '[object Arguments]',
           z = '[object Array]',
@@ -41258,17 +41301,17 @@ object-assign
           Ce = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
           _e = /&(?:amp|lt|gt|quot|#39);/g,
           Ae = /[&<>"']/g,
-          xe = RegExp(_e.source),
-          we = RegExp(Ae.source),
+          we = RegExp(_e.source),
+          xe = RegExp(Ae.source),
           ke = /<%-([\s\S]+?)%>/g,
           Se = /<%([\s\S]+?)%>/g,
           De = /<%=([\s\S]+?)%>/g,
           Oe = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
-          Re = /^\w*$/,
-          Te = /^\./,
+          Te = /^\w*$/,
+          Re = /^\./,
           Pe = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
-          Fe = /[\\^$.*+?()[\]{}|]/g,
-          je = RegExp(Fe.source),
+          je = /[\\^$.*+?()[\]{}|]/g,
+          Fe = RegExp(je.source),
           Ie = /^\s+|\s+$/g,
           Be = /^\s+/,
           Le = /\s+$/,
@@ -41395,7 +41438,7 @@ object-assign
           re
         ] = At[oe] = At[me] = At[ge] = At[ye] = At[ve] = !0),
           (At[$] = At[G] = At[ae] = !1);
-        var xt = {
+        var wt = {
             À: 'A',
             Á: 'A',
             Â: 'A',
@@ -41587,7 +41630,7 @@ object-assign
             ŉ: "'n",
             ſ: 's',
           },
-          wt = {
+          xt = {
             '&': '&amp;',
             '<': '&lt;',
             '>': '&gt;',
@@ -41611,14 +41654,14 @@ object-assign
           },
           Dt = parseFloat,
           Ot = parseInt,
-          Rt = 'object' == typeof e && e && e.Object === Object && e,
-          Tt =
+          Tt = 'object' == typeof e && e && e.Object === Object && e,
+          Rt =
             'object' == typeof self && self && self.Object === Object && self,
-          Pt = Rt || Tt || Function('return this')(),
-          Ft = 'object' == typeof t && t && !t.nodeType && t,
-          jt = Ft && 'object' == typeof r && r && !r.nodeType && r,
-          It = jt && jt.exports === Ft,
-          Bt = It && Rt.process,
+          Pt = Tt || Rt || Function('return this')(),
+          jt = 'object' == typeof t && t && !t.nodeType && t,
+          Ft = jt && 'object' == typeof r && r && !r.nodeType && r,
+          It = Ft && Ft.exports === jt,
+          Bt = It && Tt.process,
           Lt = (function() {
             try {
               return Bt && Bt.binding && Bt.binding('util');
@@ -41631,8 +41674,8 @@ object-assign
           zt = Lt && Lt.isSet,
           Wt = Lt && Lt.isTypedArray,
           Vt = baseProperty('length'),
-          Ht = basePropertyOf(xt),
-          Kt = basePropertyOf(wt),
+          Ht = basePropertyOf(wt),
+          Kt = basePropertyOf(xt),
           $t = basePropertyOf(kt),
           Gt = (function runInContext(e) {
             function lodash(e) {
@@ -41695,7 +41738,7 @@ object-assign
             function arrayLikeKeys(e, t) {
               var n = Or(e),
                 r = !n && Dr(e),
-                o = !n && !r && Tr(e),
+                o = !n && !r && Rr(e),
                 i = !n && !r && !o && Br(e),
                 a = n || r || o || i,
                 s = a ? baseTimes(e.length, tt) : [],
@@ -41786,7 +41829,7 @@ object-assign
               } else {
                 var m = Mn(e),
                   g = m == G || m == Y;
-                if (Tr(e)) return cloneBuffer(e, u);
+                if (Rr(e)) return cloneBuffer(e, u);
                 if (m == Z || m == q || (g && !o)) {
                   if (((s = c || g ? {} : initCloneObject(e)), !u))
                     return c
@@ -41912,7 +41955,7 @@ object-assign
               return e && On(e, t, keys);
             }
             function baseForOwnRight(e, t) {
-              return e && Rn(e, t, keys);
+              return e && Tn(e, t, keys);
             }
             function baseFunctions(e, t) {
               return arrayFilter(t, function(t) {
@@ -41935,7 +41978,7 @@ object-assign
             function baseGetTag(e) {
               return null == e
                 ? e === i ? ie : Q
-                : jt && jt in Ze(e) ? getRawTag(e) : objectToString(e);
+                : Ft && Ft in Ze(e) ? getRawTag(e) : objectToString(e);
             }
             function baseGt(e, t) {
               return e > t;
@@ -42024,8 +42067,8 @@ object-assign
                 l = (u = u == q ? Z : u) == Z,
                 p = (c = c == q ? Z : c) == Z,
                 f = u == c;
-              if (f && Tr(e)) {
-                if (!Tr(t)) return !1;
+              if (f && Rr(e)) {
+                if (!Rr(t)) return !1;
                 (a = !0), (l = !1);
               }
               if (f && !l)
@@ -42159,7 +42202,7 @@ object-assign
                   f = p === i;
                 if (f) {
                   var h = Or(c),
-                    d = !h && Tr(c),
+                    d = !h && Rr(c),
                     m = !h && !d && Br(c);
                   (p = c),
                     h || d || m
@@ -42245,7 +42288,7 @@ object-assign
                   (u = o(s, l, u, r)) > -1;
 
                 )
-                  s !== e && Rt.call(s, u, 1), Rt.call(e, u, 1);
+                  s !== e && Tt.call(s, u, 1), Tt.call(e, u, 1);
               return e;
             }
             function basePullAt(e, t) {
@@ -42253,7 +42296,7 @@ object-assign
                 var o = t[n];
                 if (n == r || o !== i) {
                   var i = o;
-                  isIndex(o) ? Rt.call(e, o, 1) : baseUnset(e, o);
+                  isIndex(o) ? Tt.call(e, o, 1) : baseUnset(e, o);
                 }
               }
               return e;
@@ -42272,7 +42315,7 @@ object-assign
             }
             function baseRepeat(e, t) {
               var n = '';
-              if (!e || t < 1 || t > j) return n;
+              if (!e || t < 1 || t > F) return n;
               do {
                 t % 2 && (n += e), (t = Xt(t / 2)) && (e += e);
               } while (t);
@@ -42391,9 +42434,9 @@ object-assign
             function baseToString(e) {
               if ('string' == typeof e) return e;
               if (Or(e)) return arrayMap(e, baseToString) + '';
-              if (isSymbol(e)) return wn ? wn.call(e) : '';
+              if (isSymbol(e)) return xn ? xn.call(e) : '';
               var t = e + '';
-              return '0' == t && 1 / e == -F ? '-0' : t;
+              return '0' == t && 1 / e == -j ? '-0' : t;
             }
             function baseUniq(e, t, n) {
               var r = -1,
@@ -42483,7 +42526,7 @@ object-assign
             function cloneBuffer(e, t) {
               if (t) return e.slice();
               var n = e.length,
-                r = xt ? xt(n) : new e.constructor(n);
+                r = wt ? wt(n) : new e.constructor(n);
               return e.copy(r), r;
             }
             function cloneArrayBuffer(e) {
@@ -42513,7 +42556,7 @@ object-assign
               );
             }
             function cloneSymbol(e) {
-              return xn ? Ze(xn.call(e)) : {};
+              return wn ? Ze(wn.call(e)) : {};
             }
             function cloneTypedArray(e, t) {
               var n = t ? cloneArrayBuffer(e.buffer) : e.buffer;
@@ -42789,7 +42832,7 @@ object-assign
                   s =
                     l &&
                     isLaziable(l[0]) &&
-                    l[1] == (x | E | _ | w) &&
+                    l[1] == (w | E | _ | x) &&
                     !l[4].length &&
                     1 == l[9]
                       ? s[getFuncName(l[0])].apply(s, l[3])
@@ -42833,7 +42876,7 @@ object-assign
                   );
                 }
                 var A = h ? r : this,
-                  x = d ? A[e] : e;
+                  w = d ? A[e] : e;
                 return (
                   (i = y.length),
                   c ? (y = reorder(y, c)) : g && i > 1 && y.reverse(),
@@ -42841,11 +42884,11 @@ object-assign
                   this &&
                     this !== Pt &&
                     this instanceof wrapper &&
-                    (x = b || createCtor(x)),
-                  x.apply(A, y)
+                    (w = b || createCtor(w)),
+                  w.apply(A, y)
                 );
               }
-              var f = n & x,
+              var f = n & w,
                 h = n & y,
                 d = n & v,
                 m = n & (E | C),
@@ -43015,7 +43058,7 @@ object-assign
                       ? createHybrid.apply(i, m)
                       : createPartial(e, t, n, r);
               else var g = createBind(e, t, n);
-              return setWrapToString((d ? Tn : qn)(g, m), e, t);
+              return setWrapToString((d ? Rn : qn)(g, m), e, t);
             }
             function customDefaultsAssignIn(e, t, n, r) {
               return e === i || (eq(e, it[n]) && !ut.call(r, n)) ? t : e;
@@ -43103,7 +43146,7 @@ object-assign
                   var l = equalArrays(s(e), s(t), r, o, i, a);
                   return a.delete(e), l;
                 case oe:
-                  if (xn) return xn.call(e) == xn.call(t);
+                  if (wn) return wn.call(e) == wn.call(t);
               }
               return !1;
             }
@@ -43198,14 +43241,14 @@ object-assign
               return baseIsNative(n) ? n : i;
             }
             function getRawTag(e) {
-              var t = ut.call(e, jt),
-                n = e[jt];
+              var t = ut.call(e, Ft),
+                n = e[Ft];
               try {
-                e[jt] = i;
+                e[Ft] = i;
                 var r = !0;
               } catch (e) {}
               var o = pt.call(e);
-              return r && (t ? (e[jt] = n) : delete e[jt]), o;
+              return r && (t ? (e[Ft] = n) : delete e[Ft]), o;
             }
             function getView(e, t, n) {
               for (var r = -1, o = n.length; ++r < o; ) {
@@ -43262,7 +43305,7 @@ object-assign
             function initCloneObject(e) {
               return 'function' != typeof e.constructor || isPrototype(e)
                 ? {}
-                : kn(wt(e));
+                : kn(xt(e));
             }
             function initCloneByTag(e, t, n, r) {
               var o = e.constructor;
@@ -43308,11 +43351,11 @@ object-assign
               );
             }
             function isFlattenable(e) {
-              return Or(e) || Dr(e) || !!(Tt && e && e[Tt]);
+              return Or(e) || Dr(e) || !!(Rt && e && e[Rt]);
             }
             function isIndex(e, t) {
               return (
-                !!(t = null == t ? j : t) &&
+                !!(t = null == t ? F : t) &&
                 ('number' == typeof e || Ye.test(e)) &&
                 e > -1 &&
                 e % 1 == 0 &&
@@ -43339,7 +43382,7 @@ object-assign
                   null != e &&
                   !isSymbol(e)
                 ) ||
-                Re.test(e) ||
+                Te.test(e) ||
                 !Oe.test(e) ||
                 (null != t && e in Ze(t))
               );
@@ -43381,11 +43424,11 @@ object-assign
               var n = e[1],
                 r = t[1],
                 o = n | r,
-                i = o < (y | v | x),
+                i = o < (y | v | w),
                 a =
-                  (r == x && n == E) ||
-                  (r == x && n == w && e[7].length <= t[8]) ||
-                  (r == (x | w) && t[7].length <= t[8] && n == E);
+                  (r == w && n == E) ||
+                  (r == w && n == x && e[7].length <= t[8]) ||
+                  (r == (w | x) && t[7].length <= t[8] && n == E);
               if (!i && !a) return e;
               r & y && ((e[2] = t[2]), (o |= n & y ? 0 : b));
               var s = t[3];
@@ -43400,7 +43443,7 @@ object-assign
                   (e[5] = u ? composeArgsRight(u, s, t[6]) : s),
                   (e[6] = u ? replaceHolders(e[5], p) : t[6])),
                 (s = t[7]) && (e[7] = s),
-                r & x && (e[8] = null == e[8] ? t[8] : on(e[8], t[8])),
+                r & w && (e[8] = null == e[8] ? t[8] : on(e[8], t[8])),
                 null == e[9] && (e[9] = t[9]),
                 (e[0] = t[0]),
                 (e[1] = o),
@@ -43460,7 +43503,7 @@ object-assign
                 n = 0;
               return function() {
                 var r = an(),
-                  o = R - (r - n);
+                  o = T - (r - n);
                 if (((n = r), o > 0)) {
                   if (++t >= O) return arguments[0];
                 } else t = 0;
@@ -43481,7 +43524,7 @@ object-assign
             function toKey(e) {
               if ('string' == typeof e || isSymbol(e)) return e;
               var t = e + '';
-              return '0' == t && 1 / e == -F ? '-0' : t;
+              return '0' == t && 1 / e == -j ? '-0' : t;
             }
             function toSource(e) {
               if (null != e) {
@@ -43590,7 +43633,7 @@ object-assign
               return (
                 (t = n ? i : t),
                 (t = e && null == t ? e.length : t),
-                createWrap(e, x, i, i, i, i, t)
+                createWrap(e, w, i, i, i, i, t)
               );
             }
             function before(e, t) {
@@ -43673,7 +43716,7 @@ object-assign
                     : a),
                   (d = 'trailing' in n ? !!n.trailing : d)),
                 (debounced.cancel = function cancel() {
-                  c !== i && jn(c), (p = 0), (r = l = o = c = i);
+                  c !== i && Fn(c), (p = 0), (r = l = o = c = i);
                 }),
                 (debounced.flush = function flush() {
                   return c === i ? s : trailingEdge(yr());
@@ -43743,7 +43786,7 @@ object-assign
               return 'number' == typeof e && e == toInteger(e);
             }
             function isLength(e) {
-              return 'number' == typeof e && e > -1 && e % 1 == 0 && e <= j;
+              return 'number' == typeof e && e > -1 && e % 1 == 0 && e <= F;
             }
             function isObject(e) {
               var t = typeof e;
@@ -43759,7 +43802,7 @@ object-assign
             }
             function isPlainObject(e) {
               if (!isObjectLike(e) || baseGetTag(e) != Z) return !1;
-              var t = wt(e);
+              var t = xt(e);
               if (null === t) return !0;
               var n = ut.call(t, 'constructor') && t.constructor;
               return (
@@ -43781,13 +43824,13 @@ object-assign
               if (!e) return [];
               if (isArrayLike(e))
                 return isString(e) ? stringToArray(e) : copyArray(e);
-              if (Ft && e[Ft]) return iteratorToArray(e[Ft]());
+              if (jt && e[jt]) return iteratorToArray(e[jt]());
               var t = Mn(e);
               return (t == J ? mapToArray : t == ne ? setToArray : values)(e);
             }
             function toFinite(e) {
               return e
-                ? (e = toNumber(e)) === F || e === -F
+                ? (e = toNumber(e)) === j || e === -j
                   ? (e < 0 ? -1 : 1) * I
                   : e === e ? e : 0
                 : 0 === e ? e : 0;
@@ -43947,7 +43990,7 @@ object-assign
                 '^' +
                   st
                     .call(ut)
-                    .replace(Fe, '\\$&')
+                    .replace(je, '\\$&')
                     .replace(
                       /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
                       '$1.*?',
@@ -43957,14 +44000,14 @@ object-assign
               yt = It ? e.Buffer : i,
               vt = e.Symbol,
               bt = e.Uint8Array,
-              xt = yt ? yt.allocUnsafe : i,
-              wt = overArg(Ze.getPrototypeOf, Ze),
+              wt = yt ? yt.allocUnsafe : i,
+              xt = overArg(Ze.getPrototypeOf, Ze),
               kt = Ze.create,
               St = it.propertyIsEnumerable,
-              Rt = rt.splice,
-              Tt = vt ? vt.isConcatSpreadable : i,
-              Ft = vt ? vt.iterator : i,
-              jt = vt ? vt.toStringTag : i,
+              Tt = rt.splice,
+              Rt = vt ? vt.isConcatSpreadable : i,
+              jt = vt ? vt.iterator : i,
+              Ft = vt ? vt.toStringTag : i,
               Bt = (function() {
                 try {
                   var e = getNative(Ze, 'defineProperty');
@@ -44001,8 +44044,8 @@ object-assign
               Cn = toSource(hn),
               _n = toSource(dn),
               An = vt ? vt.prototype : i,
-              xn = An ? An.valueOf : i,
-              wn = An ? An.toString : i,
+              wn = An ? An.valueOf : i,
+              xn = An ? An.toString : i,
               kn = (function() {
                 function object() {}
                 return function(e) {
@@ -44061,7 +44104,7 @@ object-assign
                   n = assocIndexOf(t, e);
                 return !(
                   n < 0 ||
-                  (n == t.length - 1 ? t.pop() : Rt.call(t, n, 1),
+                  (n == t.length - 1 ? t.pop() : Tt.call(t, n, 1),
                   --this.size,
                   0)
                 );
@@ -44139,8 +44182,8 @@ object-assign
             var Sn = createBaseEach(baseForOwn),
               Dn = createBaseEach(baseForOwnRight, !0),
               On = createBaseFor(),
-              Rn = createBaseFor(!0),
-              Tn = gn
+              Tn = createBaseFor(!0),
+              Rn = gn
                 ? function(e, t) {
                     return gn.set(e, t), e;
                   }
@@ -44155,14 +44198,14 @@ object-assign
                     });
                   }
                 : identity,
-              Fn = baseRest,
-              jn =
+              jn = baseRest,
+              Fn =
                 Lt ||
                 function(e) {
                   return Pt.clearTimeout(e);
                 },
               In =
-                hn && 1 / setToArray(new hn([, -0]))[1] == F
+                hn && 1 / setToArray(new hn([, -0]))[1] == j
                   ? function(e) {
                       return new hn(e);
                     }
@@ -44184,7 +44227,7 @@ object-assign
                 : stubArray,
               Nn = Qt
                 ? function(e) {
-                    for (var t = []; e; ) arrayPush(t, Ln(e)), (e = wt(e));
+                    for (var t = []; e; ) arrayPush(t, Ln(e)), (e = xt(e));
                     return t;
                   }
                 : stubArray,
@@ -44214,7 +44257,7 @@ object-assign
                 return t;
               });
             var Un = at ? isFunction : stubFalse,
-              qn = shortOut(Tn),
+              qn = shortOut(Rn),
               zn =
                 Yt ||
                 function(e, t) {
@@ -44230,7 +44273,7 @@ object-assign
               })(function(e) {
                 var t = [];
                 return (
-                  Te.test(e) && t.push(''),
+                  Re.test(e) && t.push(''),
                   e.replace(Pe, function(e, n, r, o) {
                     t.push(r ? o.replace(ze, '$1') : n || e);
                   }),
@@ -44442,7 +44485,7 @@ object-assign
                 return baseDelay(e, toNumber(t) || 0, n);
               });
             memoize.Cache = MapCache;
-            var _r = Fn(function(e, t) {
+            var _r = jn(function(e, t) {
                 var n = (t =
                   1 == t.length && Or(t[0])
                     ? arrayMap(t[0], baseUnary(getIteratee()))
@@ -44458,12 +44501,12 @@ object-assign
                 var n = replaceHolders(t, getHolder(Ar));
                 return createWrap(e, _, i, t, n);
               }),
-              xr = baseRest(function(e, t) {
-                var n = replaceHolders(t, getHolder(xr));
+              wr = baseRest(function(e, t) {
+                var n = replaceHolders(t, getHolder(wr));
                 return createWrap(e, A, i, t, n);
               }),
-              wr = flatRest(function(e, t) {
-                return createWrap(e, w, i, i, i, t);
+              xr = flatRest(function(e, t) {
+                return createWrap(e, x, i, i, i, t);
               }),
               kr = createRelationalOperation(baseGt),
               Sr = createRelationalOperation(function(e, t) {
@@ -44483,23 +44526,23 @@ object-assign
                     );
                   },
               Or = t.isArray,
-              Rr = Nt
+              Tr = Nt
                 ? baseUnary(Nt)
                 : function baseIsArrayBuffer(e) {
                     return isObjectLike(e) && baseGetTag(e) == ue;
                   },
-              Tr = Zt || stubFalse,
+              Rr = Zt || stubFalse,
               Pr = Mt
                 ? baseUnary(Mt)
                 : function baseIsDate(e) {
                     return isObjectLike(e) && baseGetTag(e) == H;
                   },
-              Fr = Ut
+              jr = Ut
                 ? baseUnary(Ut)
                 : function baseIsMap(e) {
                     return isObjectLike(e) && Mn(e) == J;
                   },
-              jr = qt
+              Fr = qt
                 ? baseUnary(qt)
                 : function baseIsRegExp(e) {
                     return isObjectLike(e) && baseGetTag(e) == te;
@@ -44631,8 +44674,8 @@ object-assign
               Ao = createMathOperation(function(e, t) {
                 return e / t;
               }, 1),
-              xo = createRound('floor'),
-              wo = createMathOperation(function(e, t) {
+              wo = createRound('floor'),
+              xo = createMathOperation(function(e, t) {
                 return e * t;
               }, 1),
               ko = createRound('round'),
@@ -44770,7 +44813,7 @@ object-assign
                 return baseFlatten(map(e, t), 1);
               }),
               (lodash.flatMapDeep = function flatMapDeep(e, t) {
-                return baseFlatten(map(e, t), F);
+                return baseFlatten(map(e, t), j);
               }),
               (lodash.flatMapDepth = function flatMapDepth(e, t, n) {
                 return (
@@ -44779,7 +44822,7 @@ object-assign
               }),
               (lodash.flatten = flatten),
               (lodash.flattenDeep = function flattenDeep(e) {
-                return (null == e ? 0 : e.length) ? baseFlatten(e, F) : [];
+                return (null == e ? 0 : e.length) ? baseFlatten(e, j) : [];
               }),
               (lodash.flattenDepth = function flattenDepth(e, t) {
                 return (null == e ? 0 : e.length)
@@ -44884,7 +44927,7 @@ object-assign
               (lodash.overEvery = yo),
               (lodash.overSome = vo),
               (lodash.partial = Ar),
-              (lodash.partialRight = xr),
+              (lodash.partialRight = wr),
               (lodash.partition = mr),
               (lodash.pick = Qr),
               (lodash.pickBy = pickBy),
@@ -44909,7 +44952,7 @@ object-assign
               (lodash.pullAt = Qn),
               (lodash.range = bo),
               (lodash.rangeRight = Eo),
-              (lodash.rearg = wr),
+              (lodash.rearg = xr),
               (lodash.reject = function reject(e, t) {
                 return (Or(e) ? arrayFilter : baseFilter)(
                   e,
@@ -44980,7 +45023,7 @@ object-assign
                     (t = n = i),
                   (n = n === i ? L : n >>> 0)
                     ? (e = toString(e)) &&
-                      ('string' == typeof t || (null != t && !jr(t))) &&
+                      ('string' == typeof t || (null != t && !Fr(t))) &&
                       !(t = baseToString(t)) &&
                       hasUnicode(e)
                       ? castSlice(stringToArray(e), 0, n)
@@ -45051,12 +45094,12 @@ object-assign
               (lodash.toPlainObject = toPlainObject),
               (lodash.transform = function transform(e, t, n) {
                 var r = Or(e),
-                  o = r || Tr(e) || Br(e);
+                  o = r || Rr(e) || Br(e);
                 if (((t = getIteratee(t, 4)), null == n)) {
                   var i = e && e.constructor;
                   n = o
                     ? r ? new i() : []
-                    : isObject(e) && isFunction(i) ? kn(wt(e)) : {};
+                    : isObject(e) && isFunction(i) ? kn(xt(e)) : {};
                 }
                 return (
                   (o ? arrayEach : baseForOwn)(e, function(e, r, o) {
@@ -45165,11 +45208,11 @@ object-assign
               }),
               (lodash.eq = eq),
               (lodash.escape = function escape(e) {
-                return (e = toString(e)) && we.test(e) ? e.replace(Ae, Kt) : e;
+                return (e = toString(e)) && xe.test(e) ? e.replace(Ae, Kt) : e;
               }),
               (lodash.escapeRegExp = function escapeRegExp(e) {
-                return (e = toString(e)) && je.test(e)
-                  ? e.replace(Fe, '\\$&')
+                return (e = toString(e)) && Fe.test(e)
+                  ? e.replace(je, '\\$&')
                   : e;
               }),
               (lodash.every = function every(e, t, n) {
@@ -45189,14 +45232,14 @@ object-assign
               (lodash.findLastKey = function findLastKey(e, t) {
                 return baseFindKey(e, getIteratee(t, 3), baseForOwnRight);
               }),
-              (lodash.floor = xo),
+              (lodash.floor = wo),
               (lodash.forEach = forEach),
               (lodash.forEachRight = forEachRight),
               (lodash.forIn = function forIn(e, t) {
                 return null == e ? e : On(e, getIteratee(t, 3), keysIn);
               }),
               (lodash.forInRight = function forInRight(e, t) {
-                return null == e ? e : Rn(e, getIteratee(t, 3), keysIn);
+                return null == e ? e : Tn(e, getIteratee(t, 3), keysIn);
               }),
               (lodash.forOwn = function forOwn(e, t) {
                 return e && baseForOwn(e, getIteratee(t, 3));
@@ -45241,7 +45284,7 @@ object-assign
               (lodash.invoke = Gr),
               (lodash.isArguments = Dr),
               (lodash.isArray = Or),
-              (lodash.isArrayBuffer = Rr),
+              (lodash.isArrayBuffer = Tr),
               (lodash.isArrayLike = isArrayLike),
               (lodash.isArrayLikeObject = isArrayLikeObject),
               (lodash.isBoolean = function isBoolean(e) {
@@ -45251,7 +45294,7 @@ object-assign
                   (isObjectLike(e) && baseGetTag(e) == V)
                 );
               }),
-              (lodash.isBuffer = Tr),
+              (lodash.isBuffer = Rr),
               (lodash.isDate = Pr),
               (lodash.isElement = function isElement(e) {
                 return isObjectLike(e) && 1 === e.nodeType && !isPlainObject(e);
@@ -45263,7 +45306,7 @@ object-assign
                   (Or(e) ||
                     'string' == typeof e ||
                     'function' == typeof e.splice ||
-                    Tr(e) ||
+                    Rr(e) ||
                     Br(e) ||
                     Dr(e))
                 )
@@ -45288,7 +45331,7 @@ object-assign
               (lodash.isFunction = isFunction),
               (lodash.isInteger = isInteger),
               (lodash.isLength = isLength),
-              (lodash.isMap = Fr),
+              (lodash.isMap = jr),
               (lodash.isMatch = function isMatch(e, t) {
                 return e === t || baseIsMatch(e, t, getMatchData(t));
               }),
@@ -45315,9 +45358,9 @@ object-assign
               (lodash.isObject = isObject),
               (lodash.isObjectLike = isObjectLike),
               (lodash.isPlainObject = isPlainObject),
-              (lodash.isRegExp = jr),
+              (lodash.isRegExp = Fr),
               (lodash.isSafeInteger = function isSafeInteger(e) {
-                return isInteger(e) && e >= -j && e <= j;
+                return isInteger(e) && e >= -F && e <= F;
               }),
               (lodash.isSet = Ir),
               (lodash.isString = isString),
@@ -45386,7 +45429,7 @@ object-assign
               (lodash.stubTrue = function stubTrue() {
                 return !0;
               }),
-              (lodash.multiply = wo),
+              (lodash.multiply = xo),
               (lodash.nth = function nth(e, t) {
                 return e && e.length ? baseNth(e, toInteger(t)) : i;
               }),
@@ -45610,7 +45653,7 @@ object-assign
                 return y;
               }),
               (lodash.times = function times(e, t) {
-                if ((e = toInteger(e)) < 1 || e > j) return [];
+                if ((e = toInteger(e)) < 1 || e > F) return [];
                 var n = L,
                   r = on(e, L);
                 (t = getIteratee(t)), (e -= L);
@@ -45625,7 +45668,7 @@ object-assign
               }),
               (lodash.toNumber = toNumber),
               (lodash.toSafeInteger = function toSafeInteger(e) {
-                return e ? baseClamp(toInteger(e), -j, j) : 0 === e ? e : 0;
+                return e ? baseClamp(toInteger(e), -F, F) : 0 === e ? e : 0;
               }),
               (lodash.toString = toString),
               (lodash.toUpper = function toUpper(e) {
@@ -45681,7 +45724,7 @@ object-assign
                 if (u < 1) return r;
                 var c = s ? castSlice(s, 0, u).join('') : e.slice(0, u);
                 if (o === i) return c + r;
-                if ((s && (u += c.length - u), jr(o))) {
+                if ((s && (u += c.length - u), Fr(o))) {
                   if (e.slice(u).search(o)) {
                     var l,
                       p = c;
@@ -45702,7 +45745,7 @@ object-assign
                 return c + r;
               }),
               (lodash.unescape = function unescape(e) {
-                return (e = toString(e)) && xe.test(e) ? e.replace(_e, $t) : e;
+                return (e = toString(e)) && we.test(e) ? e.replace(_e, $t) : e;
               }),
               (lodash.uniqueId = function uniqueId(e) {
                 var t = ++ct;
@@ -45765,7 +45808,7 @@ object-assign
               }),
               arrayEach(['filter', 'map', 'takeWhile'], function(e, t) {
                 var n = t + 1,
-                  r = n == T || 3 == n;
+                  r = n == R || 3 == n;
                 LazyWrapper.prototype[e] = function(e) {
                   var t = this.clone();
                   return (
@@ -45944,7 +45987,7 @@ object-assign
                       E = v(g);
                     if (b == P) g = E;
                     else if (!E) {
-                      if (b == T) continue e;
+                      if (b == R) continue e;
                       break e;
                     }
                   }
@@ -45999,8 +46042,8 @@ object-assign
                 return baseWrapperValue(this.__wrapped__, this.__actions__);
               }),
               (lodash.prototype.first = lodash.prototype.head),
-              Ft &&
-                (lodash.prototype[Ft] = function wrapperToIterator() {
+              jt &&
+                (lodash.prototype[jt] = function wrapperToIterator() {
                   return this;
                 }),
               lodash
@@ -46864,37 +46907,43 @@ object-assign
       sections: [
         { name: 'Introduction', components: [], sections: [], content: n(620) },
         {
+          name: 'API Reference',
+          components: [],
+          sections: [],
+          content: n(621),
+        },
+        {
           name: 'Example Components',
           components: [
             {
               filepath: 'example\\components\\Anchor.js',
               pathLine: 'example\\components\\Anchor.js',
               module: n(196),
-              props: n(621),
+              props: n(622),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\Box.js',
               pathLine: 'example\\components\\Box.js',
-              module: n(623),
-              props: n(624),
+              module: n(624),
+              props: n(625),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\Button.js',
               pathLine: 'example\\components\\Button.js',
-              module: n(626),
-              props: n(627),
+              module: n(627),
+              props: n(628),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\Nested.js',
               pathLine: 'example\\components\\Nested.js',
-              module: n(629),
-              props: n(630),
+              module: n(630),
+              props: n(631),
               hasExamples: !0,
               metadata: {},
             },
@@ -46907,8 +46956,8 @@ object-assign
   },
   function(e, t, n) {
     var r = { react: n(0) },
-      o = n(46).bind(null, r);
-    n(47).bind(null, "var React = require('react');", o);
+      o = n(38).bind(null, r);
+    n(39).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
@@ -46918,18 +46967,30 @@ object-assign
     ];
   },
   function(e, t, n) {
+    var r = { react: n(0) },
+      o = n(38).bind(null, r);
+    n(39).bind(null, "var React = require('react');", o);
+    e.exports = [
+      {
+        type: 'markdown',
+        content:
+          '## API Documentation\n\n### Default export: `Theme`\n\n`Theme` is a class which defines a \'smart\' theme for your library. You should create a theme and expose it so it can be referenced by your components, and utilized by a library consumer.\n\n#### `Theme(namespace: String, globals = {}, components = {})`\n\n```javascript\n<span class="hljs-keyword">const</span> theme = <span class="hljs-keyword">new</span> Theme(<span class="hljs-string">\'myTheme\'</span>, {\n  <span class="hljs-attr">colors</span>: {\n    <span class="hljs-attr">primary</span>: <span class="hljs-string">\'blue\'</span>,\n    <span class="hljs-attr">secondary</span>: <span class="hljs-string">\'green\'</span>,\n  },\n  <span class="hljs-attr">fonts</span>: {\n    <span class="hljs-attr">main</span>: <span class="hljs-string">\'sans-serif\'</span>,\n  },\n});\n```\n\nThe constructor takes three parameter, though only two will probably be useful in most cases.\n\n_`namespace: String` (_required_)_\n\nA namespace to prevent collisions between your theme and any other themes used by library consumers in their apps. You don\'t need to store or reference this namespace after defining it (unless you\'re implementing advanced functionality in your component styling, perhaps).\n\n_`globals: Object`_\n\nA set of common values you want to reuse among your components. Common things here might be colors, fonts, sizes, weights, and other such basics. All your styling definitions will have immediate access to these values, and your library users will be able to customize them.\n_`components: Object`_\n\nFor advanced use cases: you can provide pre-built component registrations using this parameter. This is utilized internally. There\'s not much reason you\'d need to know the makeup of a component registration, but if you\'d like you can read the source code and create some yourself.\n\n#### `theme.register(componentName: String, defaultStyling: Function|Object)`\n\n```javascript\ntheme.register(<span class="hljs-string">\'button\'</span>, (values) =&gt; ({\n  <span class="hljs-attr">color</span>: values.colors.primary,\n  <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">\'4px\'</span>,\n}));\n\ntheme.register(<span class="hljs-string">\'anchor\'</span>, { <span class="hljs-attr">color</span>: <span class="hljs-string">\'blue\'</span> });\n```\n\n`register` adds a component\'s default styling to your theme. Before you define a component in your library, register all the configurable style properties it will use internally.\n\n_`componentName: String` (_required_)_\n\nA unique name for the component.\n\n_`defaultStyling : Function|Object` (_required_)_\n\nIf a function, it will be called with the global values you supplied when creating the theme. A function should return an object, where keys are style value names and values are CSS property values.\n\nIf it\'s an object, it will be used as if it were the return value of the function form. You can supply an object if you don\'t need to utilize any of your global values.\n\nWhen you define the styling on your component, you will be referencing these values by name.\n\n_returns `{ addVariant, createSelector }`_\n\nThe return value of `register` is a chaining helper.\n\n`addVariant` is `theme.registerVariant`, but bound to your component name you provided for convenience. It can be chained consecutively.\n\n`createSelector` is `theme.createSelector`, but bound to your component name you provided for convenience. It returns a selector, as discussed in `theme.createSelector`.\n\n#### `theme.registerVariant(componentName: String, variantName: String, variantStyling: Function|Object)`\n\n`registerVariant` adds a variant style definition to a component. Variants are a named set of overrides to the default styling values. Common variants are things like \'small\', \'secondary\', or \'dark\'.\n\n_`componentName: String` (_required_)_\n\nThe name of the component to register a variant for. This component must already be registered in the theme.\n\n_`variantName: String` (_required_)_\n\nA name for the variant. Overriding existing variants is currently allowed. You can also override the default variant by passing `\'default\'`. Overriding is not guaranteed to be supported in the future; it depends on whether this feature causes more problems than it solves.\n\n_`variantStyling: Function|Object` (_required_)_\n\nSimilar to the `defaultStyling` parameter of `theme.register`. This can be a function to compute style values, or an object to define them.\n\nThe key difference with variants is that the styling provided here is merged into the defaults, so you only have to provide the values you want to override.\n\n#### `theme.createSelector(componentName: String)`\n\n`createSelector` creates a style value selector function for the component of the specified name.\n\n_returns `function selector(valueName: String|Array)`_\n\nThe selector function accepts a value name to select out of your component\'s style definition. The selection uses `_.get` under the hood, so you can provide a path string or array of strings for nested style definitions.\n\n`selector(valueName)` returns another function which is meant to be used as an interpolation in `styled-components`. You can use it like so:\n\n```javascript\nstyled.div<span class="hljs-string">`\n  color: <span class="hljs-subst">${select(<span class="hljs-string">\'foregroundColor\'</span>)}</span>;\n`</span>;\n```\n\nNote that the returned selector function assumes that one of the properties passed to the `styled-component` is `variant`. If no `variant` property is passed, `\'default\'` will be used to choose the variant styles. `styled-library-themer` provides utilities to provide `variant` to your components in a managed way; see `theme.connect` and `theme.variant`.\n\n#### `theme.connect(Component: React.Component)`\n\n`connect` accepts a Component and returns a higher-order component which provides it with a `variant` property provided from higher in the DOM tree. Use this to seamlessly supply variant information to complex library components which contain multiple internal `styled-components`. You can also use it to inform any regular React component of the current variant configuration if a higher component is providing one.\n\n#### `theme.variant(variantName: String|Array)`\n\n`variant` takes a variant name (or array of variant names) and returns a function which takes a Component. The returned function creates a version of the Component which is wrapped in a provider for the supplied variant(s). Perhaps it\'s better to see code:\n\n```javascript\n<span class="hljs-keyword">const</span> SecondaryButton = theme.variant(<span class="hljs-string">\'secondary\'</span>)(Button);\n<span class="hljs-keyword">const</span> SmallSecondaryButton = theme.variant([<span class="hljs-string">\'secondary\'</span>, <span class="hljs-string">\'small\'</span>])(Button);\n```\n\nFor the array version, ordering is important. Former variants will override conflicting properties with latter ones. Think of the list as `[\'mainVariant\', \'supportingVariant\' ...]`.\n\n#### `theme.compile()`\n\nCompiling a theme finalizes all component registrations and variants and prevents further updates, providing an object which can be passed directly to `styled-components`\' `ThemeProvider`.\n\n`theme.compile()` is memoized; subsequent calls will return a cached version of the precompiled output. You can (and should) pass `theme.compile()` directly to a `styled-components` `ThemeProvider`.\n\n#### `theme.extend(newNamespace: String, overrides: Object)`\n\nCreates a clone of a theme with overridden global values. The `overrides` parameter will be recursively merged with the base theme\'s global values. All component and variant definitions will be persisted during the copy.\n\nWhen you expose your theme as part of your library, users can use this method to override the base style values to easily make broad modifications, like changing primary colors or font families, without having to change individual components.\n\n### `connectVariants(Component: React.Component)`\n\n```javascript\n<span class="hljs-keyword">import</span> { connectVariants } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n\n<span class="hljs-keyword">const</span> ConnectedComponent = connectVariants(Component);\n```\n\nA very simple component wrapper that provides variant definitions from the context. Wrap any component you want to be aware of the current variant definitions. Exposed on `Theme` as `Theme.connect`.\n\n### `VariantProvider`\n\n```javascript\n<span class="hljs-keyword">import</span> { VariantProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n\n<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">VariantProvider</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">"small"</span>&gt;</span>\n  <span class="hljs-tag">&lt;<span class="hljs-name">ConnectedComponent</span> /&gt;</span>\n<span class="hljs-tag">&lt;/<span class="hljs-name">VariantProvider</span>&gt;</span></span>\n```\n\nA Provider component that sets variant information in the context. Children of this component which are connected via `connectVariants` will receive the defined variant(s) as a prop, `variant`.\n\n### `asVariant(variant: String|Array)`\n\n```javascript\n<span class="hljs-keyword">import</span> { asVariant } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n\n<span class="hljs-keyword">const</span> SmallButton = asVariant(<span class="hljs-string">\'small\'</span>)(Button);\n```\n\nA higher-order component function which wraps a component with a `VariantProvider` which provides the specified variant(s). Exposed on `Theme` as `Theme.variant`.\n\n### `createThemeProvider(theme: Theme)`\n\n```javascript\n<span class="hljs-keyword">import</span> { createThemeProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n\n<span class="hljs-keyword">const</span> MyThemeProvider = createThemeProvider(myTheme);\n```\n\nUtility function to create a customized `styled-components` `ThemeProvider` which will provide the compiled `theme`.\n\n### `spreadStyles(selector: Function)`\n\n```javascript\n<span class="hljs-keyword">import</span> { spreadStyles } <span class="hljs-keyword">from</span> <span class="hljs-string">\'styled-library-themer\'</span>;\n\n<span class="hljs-keyword">const</span> select = theme\n  .register(<span class="hljs-string">\'button\'</span>, theme =&gt; ({\n    <span class="hljs-attr">color</span>: theme.colors.primary,\n    <span class="hljs-attr">background</span>: theme.colors.secondary,\n    <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">\'4px\'</span>,\n    <span class="hljs-attr">padding</span>: <span class="hljs-string">\'4px 8px\'</span>,\n  }))\n  .createSelector();\n\n<span class="hljs-keyword">const</span> ButtonImpl = theme.connect(styled.button<span class="hljs-string">`<span class="hljs-subst">${spreadStyles(select)}</span>;`</span>);\n```\n\nUtility function that uses a component\'s style selector to quickly and easily generate all style values which correspond to CSS properties.\n\nSimply register style properties for your component which, when converted to `kebab-case`, match a CSS property name. You can then use `spreadStyles` to generate CSS for all these properties within your `styled-components` definition. Properties which do not match a valid CSS property name will be ignored.',
+      },
+    ];
+  },
+  function(e, t, n) {
     e.exports = {
       description: '',
       methods: [],
       displayName: 'Anchor',
       doclets: {},
-      examples: n(622),
+      examples: n(623),
     };
   },
   function(e, t, n) {
     var r = { 'styled-components': n(21), '../theme': n(37), react: n(0) },
-      o = n(46).bind(null, r),
-      i = n(47).bind(null, "var React = require('react');", o);
+      o = n(38).bind(null, r),
+      i = n(39).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
@@ -47089,13 +47150,13 @@ object-assign
       methods: [],
       displayName: 'Box',
       doclets: {},
-      examples: n(625),
+      examples: n(626),
     };
   },
   function(e, t, n) {
     var r = { react: n(0) },
-      o = n(46).bind(null, r),
-      i = n(47).bind(null, "var React = require('react');", o);
+      o = n(38).bind(null, r),
+      i = n(39).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
@@ -47158,13 +47219,13 @@ object-assign
       methods: [],
       displayName: 'Button',
       doclets: {},
-      examples: n(628),
+      examples: n(629),
     };
   },
   function(e, t, n) {
     var r = { react: n(0) },
-      o = n(46).bind(null, r),
-      i = n(47).bind(null, "var React = require('react');", o);
+      o = n(38).bind(null, r),
+      i = n(39).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
@@ -47296,13 +47357,13 @@ object-assign
       methods: [],
       displayName: 'Nested',
       doclets: {},
-      examples: n(631),
+      examples: n(632),
     };
   },
   function(e, t, n) {
     var r = { react: n(0) },
-      o = n(46).bind(null, r),
-      i = n(47).bind(null, "var React = require('react');", o);
+      o = n(38).bind(null, r),
+      i = n(39).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
