@@ -2,7 +2,7 @@
   "name": "styled-library-themer",
   "version": "0.2.0",
   "description": "A theme integration library built on top of styled-components targeting shared component library use cases",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest --config jestConfig.json --coverage",
     "styleguide": "styleguidist server",
