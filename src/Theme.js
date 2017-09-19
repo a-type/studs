@@ -94,12 +94,6 @@ export default class Theme {
    * @memberof Theme
    */
   createSelector = componentName => {
-    if (!this.registeredComponents[componentName]) {
-      throw new Error(
-        `Cannot create selector for ${componentName}; no component registered by that name.`,
-      );
-    }
-
     // using function keyword here since my syntax highlighting is confused
     return valueName =>
       function({ theme, variant = 'default' }) {

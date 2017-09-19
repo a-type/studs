@@ -1124,8 +1124,7 @@ object-assign
                 ? arguments[0]
                 : 'undefined' == typeof document)
                   ? J
-                  : M
-                ).create();
+                  : M).create();
               }),
               (StyleSheet.clone = function clone(e) {
                 var t = new StyleSheet(
@@ -4718,8 +4717,9 @@ object-assign
         var t = /(=0|=2)/g,
           n = { '=0': '=', '=2': ':' };
         return ('' +
-          ('.' === e[0] && '$' === e[1] ? e.substring(2) : e.substring(1))
-        ).replace(t, function(e) {
+          ('.' === e[0] && '$' === e[1]
+            ? e.substring(2)
+            : e.substring(1))).replace(t, function(e) {
           return n[e];
         });
       },
@@ -5602,8 +5602,8 @@ object-assign
               _possibleConstructorReturn(
                 this,
                 (VariantWrapper.__proto__ ||
-                  Object.getPrototypeOf(VariantWrapper)
-                ).apply(this, arguments),
+                  Object.getPrototypeOf(VariantWrapper))
+                  .apply(this, arguments),
               )
             );
           }
@@ -6127,7 +6127,7 @@ object-assign
             if (shouldIgnoreValue(n, t)) return '';
             var i = n.attributeName;
             return n.hasBooleanValue ||
-              (n.hasOverloadedBooleanValue && !0 === t)
+            (n.hasOverloadedBooleanValue && !0 === t)
               ? i + '=""'
               : i + '=' + o(t);
           }
@@ -7370,9 +7370,9 @@ object-assign
             }
           : function(e) {
               return e &&
-                'function' == typeof Symbol &&
-                e.constructor === Symbol &&
-                e !== Symbol.prototype
+              'function' == typeof Symbol &&
+              e.constructor === Symbol &&
+              e !== Symbol.prototype
                 ? 'symbol'
                 : typeof e;
             },
@@ -9180,8 +9180,8 @@ object-assign
             _possibleConstructorReturn(
               this,
               (VariantProvider.__proto__ ||
-                Object.getPrototypeOf(VariantProvider)
-              ).apply(this, arguments),
+                Object.getPrototypeOf(VariantProvider))
+                .apply(this, arguments),
             )
           );
         }
@@ -10849,8 +10849,9 @@ object-assign
         var t = /(=0|=2)/g,
           n = { '=0': '=', '=2': ':' };
         return ('' +
-          ('.' === e[0] && '$' === e[1] ? e.substring(2) : e.substring(1))
-        ).replace(t, function(e) {
+          ('.' === e[0] && '$' === e[1]
+            ? e.substring(2)
+            : e.substring(1))).replace(t, function(e) {
           return n[e];
         });
       },
@@ -16661,10 +16662,8 @@ object-assign
                 _classCallCheck(this, _class),
                 _possibleConstructorReturn(
                   this,
-                  (_class.__proto__ || Object.getPrototypeOf(_class)).apply(
-                    this,
-                    arguments,
-                  ),
+                  (_class.__proto__ || Object.getPrototypeOf(_class))
+                    .apply(this, arguments),
                 )
               );
             }
@@ -17399,9 +17398,9 @@ object-assign
           }
         : function(e) {
             return e &&
-              'function' == typeof Symbol &&
-              e.constructor === Symbol &&
-              e !== Symbol.prototype
+            'function' == typeof Symbol &&
+            e.constructor === Symbol &&
+            e !== Symbol.prototype
               ? 'symbol'
               : typeof e;
           };
@@ -17534,9 +17533,9 @@ object-assign
           }
         : function(e) {
             return e &&
-              'function' == typeof Symbol &&
-              e.constructor === Symbol &&
-              e !== Symbol.prototype
+            'function' == typeof Symbol &&
+            e.constructor === Symbol &&
+            e !== Symbol.prototype
               ? 'symbol'
               : typeof e;
           };
@@ -17572,9 +17571,9 @@ object-assign
             }
           : function(e) {
               return e &&
-                'function' == typeof Symbol &&
-                e.constructor === Symbol &&
-                e !== Symbol.prototype
+              'function' == typeof Symbol &&
+              e.constructor === Symbol &&
+              e !== Symbol.prototype
                 ? 'symbol'
                 : typeof e;
             },
@@ -18396,9 +18395,9 @@ object-assign
             }
           : function(e) {
               return e &&
-                'function' == typeof Symbol &&
-                e.constructor === Symbol &&
-                e !== Symbol.prototype
+              'function' == typeof Symbol &&
+              e.constructor === Symbol &&
+              e !== Symbol.prototype
                 ? 'symbol'
                 : typeof e;
             },
@@ -19150,9 +19149,9 @@ object-assign
           }
         : function(e) {
             return e &&
-              'function' == typeof Symbol &&
-              e.constructor === Symbol &&
-              e !== Symbol.prototype
+            'function' == typeof Symbol &&
+            e.constructor === Symbol &&
+            e !== Symbol.prototype
               ? 'symbol'
               : typeof e;
           };
@@ -20735,7 +20734,7 @@ object-assign
             !1 === e.loose &&
             (e.children = e.children.map(function(e) {
               return 1 === e.children.length &&
-                'paragraph' === e.children[0].type
+              'paragraph' === e.children[0].type
                 ? h({}, e, { children: e.children[0].children })
                 : e;
             })),
@@ -20815,8 +20814,7 @@ object-assign
       }
       var t = (arguments.length > 1 && void 0 !== arguments[1]
           ? arguments[1]
-          : {}
-        ).overrides,
+          : {}).overrides,
         n = void 0 === t ? {} : t,
         r = void 0,
         i = void 0;
@@ -25746,17 +25744,16 @@ object-assign
             return (b = t.charAt(k)) && b !== u
               ? void 0
               : !!n ||
-                  ((r = e(r).test().end),
-                  (_ = w.decode.raw(w.unescape(_), r)),
-                  A &&
-                    ((y = e(y).test().end),
-                    (A = w.decode.raw(w.unescape(A), y))),
-                  e(D)({
-                    type: 'definition',
-                    identifier: o(C),
-                    title: A || null,
-                    url: _,
-                  }));
+                ((r = e(r).test().end),
+                (_ = w.decode.raw(w.unescape(_), r)),
+                A &&
+                  ((y = e(y).test().end), (A = w.decode.raw(w.unescape(A), y))),
+                e(D)({
+                  type: 'definition',
+                  identifier: o(C),
+                  title: A || null,
+                  url: _,
+                }));
           }
         }
       }
@@ -28324,10 +28321,8 @@ object-assign
             _classCallCheck(this, StyleGuide),
             _possibleConstructorReturn(
               this,
-              (StyleGuide.__proto__ || Object.getPrototypeOf(StyleGuide)).apply(
-                this,
-                arguments,
-              ),
+              (StyleGuide.__proto__ || Object.getPrototypeOf(StyleGuide))
+                .apply(this, arguments),
             )
           );
         }
@@ -29054,11 +29049,8 @@ object-assign
           _classCallCheck(this, Playground);
           var n = _possibleConstructorReturn(
               this,
-              (Playground.__proto__ || Object.getPrototypeOf(Playground)).call(
-                this,
-                e,
-                t,
-              ),
+              (Playground.__proto__ || Object.getPrototypeOf(Playground))
+                .call(this, e, t),
             ),
             r = e.code,
             o = e.settings,
@@ -29241,8 +29233,8 @@ object-assign
           var e = _possibleConstructorReturn(
             this,
             (PreviewComponent.__proto__ ||
-              Object.getPrototypeOf(PreviewComponent)
-            ).call(this),
+              Object.getPrototypeOf(PreviewComponent))
+              .call(this),
           );
           return (
             (e.state = {}),
@@ -33464,7 +33456,7 @@ object-assign
                           ? createEscaped('null', 0, '0', t.length + 1)
                           : createEscaped('octal', parseInt(t, 8), t, 1))
                       : !!(e = matchReg(/^[dDsSwW]/)) &&
-                          createCharacterClassEscape(e[0]);
+                        createCharacterClassEscape(e[0]);
                   }
                   function parseCharacterEscape() {
                     var e;
@@ -35355,26 +35347,26 @@ object-assign
         return e < 65
           ? 36 === e
           : e < 91 ||
-              (e < 97
-                ? 95 === e
-                : e < 123 ||
-                  (e <= 65535
-                    ? e >= 170 && a.test(String.fromCharCode(e))
-                    : !1 !== t && isInAstralSet(e, u)));
+            (e < 97
+              ? 95 === e
+              : e < 123 ||
+                (e <= 65535
+                  ? e >= 170 && a.test(String.fromCharCode(e))
+                  : !1 !== t && isInAstralSet(e, u)));
       }
       function isIdentifierChar(e, t) {
         return e < 48
           ? 36 === e
           : e < 58 ||
-              (!(e < 65) &&
-                (e < 91 ||
-                  (e < 97
-                    ? 95 === e
-                    : e < 123 ||
-                      (e <= 65535
-                        ? e >= 170 && s.test(String.fromCharCode(e))
-                        : !1 !== t &&
-                          (isInAstralSet(e, u) || isInAstralSet(e, c))))));
+            (!(e < 65) &&
+              (e < 91 ||
+                (e < 97
+                  ? 95 === e
+                  : e < 123 ||
+                    (e <= 65535
+                      ? e >= 170 && s.test(String.fromCharCode(e))
+                      : !1 !== t &&
+                        (isInAstralSet(e, u) || isInAstralSet(e, c))))));
       }
       function binop(e, t) {
         return new l(e, { beforeExpr: !0, binop: t });
@@ -36407,8 +36399,8 @@ object-assign
               var i = this.value,
                 a = this.parseExpression();
               return r === d.name &&
-                'Identifier' === a.type &&
-                this.eat(d.colon)
+              'Identifier' === a.type &&
+              this.eat(d.colon)
                 ? this.parseLabeledStatement(o, i, a)
                 : this.parseExpressionStatement(o, a);
           }
@@ -36482,7 +36474,7 @@ object-assign
           var o = new x(),
             i = this.parseExpression(!0, o);
           return this.type === d._in ||
-            (this.options.ecmaVersion >= 6 && this.isContextual('of'))
+          (this.options.ecmaVersion >= 6 && this.isContextual('of'))
             ? (this.checkPatternErrors(o, !0),
               this.toAssignable(i),
               this.checkLVal(i),
@@ -37625,8 +37617,7 @@ object-assign
               ? ((this.keywords.test(e.key.name) ||
                   (this.strict
                     ? this.reservedWordsStrictBind
-                    : this.reservedWords
-                  ).test(e.key.name) ||
+                    : this.reservedWords).test(e.key.name) ||
                   (this.inGenerator && 'yield' == e.key.name)) &&
                   this.raiseRecoverable(
                     e.key.start,
@@ -37752,8 +37743,7 @@ object-assign
               ? (!e &&
                   (this.strict
                     ? this.reservedWordsStrict
-                    : this.reservedWords
-                  ).test(this.value) &&
+                    : this.reservedWords).test(this.value) &&
                   (this.options.ecmaVersion >= 6 ||
                     -1 ==
                       this.input.slice(this.start, this.end).indexOf('\\')) &&
@@ -37858,12 +37848,12 @@ object-assign
           return e === d._return
             ? m.test(this.input.slice(this.lastTokEnd, this.start))
             : e === d._else ||
-                e === d.semi ||
-                e === d.eof ||
-                e === d.parenR ||
-                (e == d.braceL
-                  ? this.curContext() === L.b_stat
-                  : !this.exprAllowed);
+              e === d.semi ||
+              e === d.eof ||
+              e === d.parenR ||
+              (e == d.braceL
+                ? this.curContext() === L.b_stat
+                : !this.exprAllowed);
         }),
         (N.updateContext = function(e) {
           var t,
@@ -38918,8 +38908,7 @@ object-assign
           (t = t || {}).exclude &&
             ('number' == typeof t.exclude[0]
               ? [t.exclude]
-              : t.exclude
-            ).forEach(function(e) {
+              : t.exclude).forEach(function(e) {
               for (var t = e[0]; t < e[1]; t += 1) o[t] = !0;
             });
           var i = !1 !== t.indentStart,
@@ -39504,10 +39493,8 @@ object-assign
             _classCallCheck(this, Wrapper),
             _possibleConstructorReturn(
               this,
-              (Wrapper.__proto__ || Object.getPrototypeOf(Wrapper)).apply(
-                this,
-                arguments,
-              ),
+              (Wrapper.__proto__ || Object.getPrototypeOf(Wrapper))
+                .apply(this, arguments),
             )
           );
         }
@@ -40890,12 +40877,6 @@ object-assign
             );
           }),
           (this.createSelector = function(t) {
-            if (!e.registeredComponents[t])
-              throw new Error(
-                'Cannot create selector for ' +
-                  t +
-                  '; no component registered by that name.',
-              );
             return function(n) {
               return function(e) {
                 var r = this,
@@ -40904,8 +40885,7 @@ object-assign
                   s = void 0 === a ? 'default' : a,
                   u = (o.default.isArray(s)
                     ? [].concat(_toConsumableArray(s), ['default'])
-                    : [s, 'default']
-                  ).map(function(e) {
+                    : [s, 'default']).map(function(e) {
                     return i[r.namespace].components[t][e] || {};
                   }),
                   c = o.default.defaultsDeep.apply(
@@ -42732,8 +42712,7 @@ object-assign
               function wrapper() {
                 return (this && this !== Pt && this instanceof wrapper
                   ? o
-                  : e
-                ).apply(r ? n : this, arguments);
+                  : e).apply(r ? n : this, arguments);
               }
               var r = t & y,
                 o = createCtor(e);
@@ -43301,9 +43280,9 @@ object-assign
               return i || ++r != o
                 ? i
                 : !!(o = null == e ? 0 : e.length) &&
-                    isLength(o) &&
-                    isIndex(a, o) &&
-                    (Or(e) || Dr(e));
+                  isLength(o) &&
+                  isIndex(a, o) &&
+                  (Or(e) || Dr(e));
             }
             function initCloneArray(e) {
               var t = e.length,
@@ -43404,9 +43383,9 @@ object-assign
             function isKeyable(e) {
               var t = typeof e;
               return 'string' == t ||
-                'number' == t ||
-                'symbol' == t ||
-                'boolean' == t
+              'number' == t ||
+              'symbol' == t ||
+              'boolean' == t
                 ? '__proto__' !== e
                 : null === e;
             }
@@ -44419,8 +44398,8 @@ object-assign
                     return baseAt(t, e);
                   };
                 return !(t > 1 || this.__actions__.length) &&
-                  r instanceof LazyWrapper &&
-                  isIndex(n)
+                r instanceof LazyWrapper &&
+                isIndex(n)
                   ? ((r = r.slice(n, +n + (t ? 1 : 0))).__actions__.push({
                       func: thru,
                       args: [o],
@@ -46363,8 +46342,9 @@ object-assign
           _classCallCheck(this, ReactComponent);
           var n = _possibleConstructorReturn(
               this,
-              (ReactComponent.__proto__ || Object.getPrototypeOf(ReactComponent)
-              ).call(this, e, t),
+              (ReactComponent.__proto__ ||
+                Object.getPrototypeOf(ReactComponent))
+                .call(this, e, t),
             ),
             r = t.config.showUsage;
           return (
@@ -47133,10 +47113,8 @@ object-assign
             _classCallCheck(this, Box),
             _possibleConstructorReturn(
               this,
-              (Box.__proto__ || Object.getPrototypeOf(Box)).apply(
-                this,
-                arguments,
-              ),
+              (Box.__proto__ || Object.getPrototypeOf(Box))
+                .apply(this, arguments),
             )
           );
         }
@@ -47332,10 +47310,8 @@ object-assign
             _classCallCheck(this, Nested),
             _possibleConstructorReturn(
               this,
-              (Nested.__proto__ || Object.getPrototypeOf(Nested)).apply(
-                this,
-                arguments,
-              ),
+              (Nested.__proto__ || Object.getPrototypeOf(Nested))
+                .apply(this, arguments),
             )
           );
         }

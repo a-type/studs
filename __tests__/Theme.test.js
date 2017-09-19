@@ -179,20 +179,18 @@ describe('the Theme class', () => {
     expect(selector('fontSize')({ theme: compiled, variant })).toEqual('16px');
   });
 
-  test('cannot create a selector for a nonexistent component', () => {
-    expect(() => theme.createSelector('foo')).toThrow(
-      /no component registered/,
-    );
+  test('can create a selector for a nonexistent component', () => {
+    expect(theme.createSelector('foo')).toBeDefined();
   });
 
   test('is extensible', () => {
-    const customTheme = theme.extend('customTheme', {
+    const customTheme = theme.extend({
       colors: { primary: 'red' },
     });
     const compiled = customTheme.compile();
 
     expect(compiled).toEqual({
-      customTheme: {
+      [namespace]: {
         colors: {
           primary: 'red',
           secondary: '#4ac9e2',

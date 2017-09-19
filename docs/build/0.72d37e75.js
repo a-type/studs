@@ -528,13 +528,14 @@ webpackJsonp([0], {
             ) {
               var s =
                 null == o.from || (a.inclusiveLeft ? o.from <= t : o.from < t);
-              (r || (r = [])).push(
-                new MarkedSpan(
-                  a,
-                  s ? null : o.from - t,
-                  null == o.to ? null : o.to - t,
-                ),
-              );
+              (r || (r = []))
+                .push(
+                  new MarkedSpan(
+                    a,
+                    s ? null : o.from - t,
+                    null == o.to ? null : o.to - t,
+                  ),
+                );
             }
           }
         return r;
@@ -926,8 +927,8 @@ webpackJsonp([0], {
         if (g) return g;
         var m = r > 0 ? u.end : l(u.begin, -1);
         return null == m ||
-          (r > 0 && m == t.text.length) ||
-          !(g = f(r > 0 ? 0 : i.length - 1, r, c(m)))
+        (r > 0 && m == t.text.length) ||
+        !(g = f(r > 0 ? 0 : i.length - 1, r, c(m)))
           ? null
           : g;
       }
@@ -2194,7 +2195,7 @@ webpackJsonp([0], {
               parseInt(getComputedStyle(document.body).marginLeft)
             )
           : window.pageXOffset ||
-              (document.documentElement || document.body).scrollLeft;
+            (document.documentElement || document.body).scrollLeft;
       }
       function pageScrollY() {
         return u && m
@@ -2203,7 +2204,7 @@ webpackJsonp([0], {
               parseInt(getComputedStyle(document.body).marginTop)
             )
           : window.pageYOffset ||
-              (document.documentElement || document.body).scrollTop;
+            (document.documentElement || document.body).scrollTop;
       }
       function intoCoordSystem(e, t, n, r, i) {
         if (!i && t.widgets)
@@ -2399,8 +2400,7 @@ webpackJsonp([0], {
               return o.top > i
                 ? ((s = Math.min(n, s)), !0)
                 : !(o.bottom <= i) &&
-                    (o.left > r ||
-                      (!(o.right < r) && r - o.left < o.right - r));
+                  (o.left > r || (!(o.right < r) && r - o.left < o.right - r));
             },
             a,
             s,
@@ -6919,9 +6919,8 @@ webpackJsonp([0], {
             var t = this.doc.cm.curOp;
             (t.maybeHiddenMarkers &&
               -1 != indexOf(t.maybeHiddenMarkers, this)) ||
-              (t.maybeUnhiddenMarkers || (t.maybeUnhiddenMarkers = [])).push(
-                this,
-              );
+              (t.maybeUnhiddenMarkers || (t.maybeUnhiddenMarkers = []))
+                .push(this);
           }
           this.lines.push(e);
         }),
@@ -7414,10 +7413,8 @@ webpackJsonp([0], {
           );
           return (
             e.sharedHist && (r.history = this.history),
-            (this.linked || (this.linked = [])).push({
-              doc: r,
-              sharedHist: e.sharedHist,
-            }),
+            (this.linked || (this.linked = []))
+              .push({ doc: r, sharedHist: e.sharedHist }),
             (r.linked = [
               { doc: this, isParent: !0, sharedHist: e.sharedHist },
             ]),
@@ -8042,9 +8039,9 @@ webpackJsonp([0], {
             ) {
               var l = t.display.view,
                 c = (i.line >= t.display.viewFrom && posToDOM(t, i)) || {
-                    node: l[0].measure.map[2],
-                    offset: 0,
-                  },
+                  node: l[0].measure.map[2],
+                  offset: 0,
+                },
                 u = o.line < t.display.viewTo && posToDOM(t, o);
               if (!u) {
                 var d = l[l.length - 1].measure,
@@ -9518,10 +9515,8 @@ webpackJsonp([0], {
           _classCallCheck(this, CodeMirror);
           var t = _possibleConstructorReturn(
             this,
-            (CodeMirror.__proto__ || Object.getPrototypeOf(CodeMirror)).call(
-              this,
-              e,
-            ),
+            (CodeMirror.__proto__ || Object.getPrototypeOf(CodeMirror))
+              .call(this, e),
           );
           return (
             (t.hydrated = !1),
@@ -10928,10 +10923,10 @@ webpackJsonp([0], {
         }
         function classBody(e, t) {
           return 'modifier' == e ||
-            'async' == e ||
-            ('variable' == e &&
-              ('static' == t || 'get' == t || 'set' == t) &&
-              m.stream.match(/^\s+[\w$\xa1-\uffff]/, !1))
+          'async' == e ||
+          ('variable' == e &&
+            ('static' == t || 'get' == t || 'set' == t) &&
+            m.stream.match(/^\s+[\w$\xa1-\uffff]/, !1))
             ? ((m.marked = 'keyword'), cont(classBody))
             : 'variable' == e
               ? ((m.marked = 'property'),
@@ -11172,9 +11167,9 @@ webpackJsonp([0], {
                 p = s == d;
               return 'vardef' == d
                 ? l.indented +
-                    ('operator' == t.lastType || ',' == t.lastType
-                      ? l.info + 1
-                      : 0)
+                  ('operator' == t.lastType || ',' == t.lastType
+                    ? l.info + 1
+                    : 0)
                 : 'form' == d && '{' == s
                   ? l.indented
                   : 'form' == d
