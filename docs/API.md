@@ -98,7 +98,7 @@ styled.div`
 `;
 ```
 
-Note that the returned selector function assumes that one of the properties passed to the `styled-component` is `variant`. If no `variant` property is passed, `'default'` will be used to choose the variant styles. `styled-library-themer` provides utilities to provide `variant` to your components in a managed way; see `theme.connect` and `theme.variant`.
+Note that the returned selector function assumes that one of the properties passed to the `styled-component` is `variant`. If no `variant` property is passed, `'default'` will be used to choose the variant styles. `studs` provides utilities to provide `variant` to your components in a managed way; see `theme.connect` and `theme.variant`.
 
 #### `theme.connect(Component: React.Component)`
 
@@ -130,7 +130,7 @@ When you expose your theme as part of your library, users can use this method to
 ### `connectVariants(Component: React.Component)`
 
 ```javascript static
-import { connectVariants } from 'styled-library-themer';
+import { connectVariants } from 'studs';
 
 const ConnectedComponent = connectVariants(Component);
 ```
@@ -140,7 +140,7 @@ A very simple component wrapper that provides variant definitions from the conte
 ### `VariantProvider`
 
 ```javascript static
-import { VariantProvider } from 'styled-library-themer';
+import { VariantProvider } from 'studs';
 
 <VariantProvider variant="small">
   <ConnectedComponent />
@@ -152,7 +152,7 @@ A Provider component that sets variant information in the context. Children of t
 ### `asVariant(variant: String|Array)`
 
 ```javascript static
-import { asVariant } from 'styled-library-themer';
+import { asVariant } from 'studs';
 
 const SmallButton = asVariant('small')(Button);
 ```
@@ -162,7 +162,7 @@ A higher-order component function which wraps a component with a `VariantProvide
 ### `createThemeProvider(theme: Theme)`
 
 ```javascript static
-import { createThemeProvider } from 'styled-library-themer';
+import { createThemeProvider } from 'studs';
 
 const MyThemeProvider = createThemeProvider(myTheme);
 ```
@@ -172,7 +172,7 @@ Utility function to create a customized `styled-components` `ThemeProvider` whic
 ### `spreadStyles(selector: Function)`
 
 ```javascript static
-import { spreadStyles } from 'styled-library-themer';
+import { spreadStyles } from 'studs';
 
 const select = theme
   .register('button', theme => ({

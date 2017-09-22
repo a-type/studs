@@ -1,5 +1,5 @@
 {
-  "name": "styled-library-themer",
+  "name": "studs",
   "version": "0.2.2",
   "description": "A theme integration library built on top of styled-components targeting shared component library use cases",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-type/styled-library-themer.git"
+    "url": "git+https://github.com/a-type/studs.git"
   },
   "keywords": [
     "styled-components",
@@ -31,9 +31,9 @@
   "author": "Grant Forrest <gaforres@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/a-type/styled-library-themer/issues"
+    "url": "https://github.com/a-type/studs/issues"
   },
-  "homepage": "https://github.com/a-type/styled-library-themer#readme",
+  "homepage": "https://github.com/a-type/studs#readme",
   "dependencies": {
     "change-case": "^3.0.1",
     "known-css-properties": "^0.3.0",

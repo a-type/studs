@@ -1,16 +1,16 @@
-## [styled-library-themer](https://github.com/a-type/styled-library-themer/)
+## [studs](https://github.com/a-type/studs/)
 
 > _Simplify your styling, and make your library more adaptable!_
 
-`styled-library-themer` is a theme framework for component libraries which allows a library creator to expose advanced theme and component customization tools to users while organizing and standardizing their library's internal styling pattern.
+`studs` is a theme framework for component libraries which allows a library creator to expose advanced theme and component customization tools to users while organizing and standardizing their library's internal styling pattern.
 
-Defining a component's look-and-feel is easier with `styled-library-themer` than with plain `styled-components`: you can co-locate your component's style properties and use named value shorthands instead of digging through the passed `theme` prop for the thing you need. No more `${({ theme }) => ...}`.
+Defining a component's look-and-feel is easier with `studs` than with plain `styled-components`: you can co-locate your component's style properties and use named value shorthands instead of digging through the passed `theme` prop for the thing you need. No more `${({ theme }) => ...}`.
 
 And with the same tools you use to organize your styling and variations on components internally, you can also allow your users to make customizations to fit their needs.
 
 ### Features
 
-`styled-library-themer` integrates and extends `styled-components` to provide a seamless theme and user-customization experience for component libraries. By replacing your 'dumb' theme object with a smart one and exposing powerful utilities to your library's consumers, we can:
+`studs` integrates and extends `styled-components` to provide a seamless theme and user-customization experience for component libraries. By replacing your 'dumb' theme object with a smart one and exposing powerful utilities to your library's consumers, we can:
 
 * Co-locate component styling properties with our component code while still providing them through the `styled-components` root theme.
 * [Namespace our theme](https://github.com/styled-components/styled-components-experimentation/blob/master/component-libraries/shared-component-libraries.md#namespace-your-theme-and-export-a-custom-themeprovider) out-of-the-box without extra complications.
@@ -20,7 +20,7 @@ And with the same tools you use to organize your styling and variations on compo
 * Expose the ability for our library consumers to create customized variants of our components by overriding our defined style properties for specific use cases.
 * Let our library consumers override our theme's global shared values to alter colors, fonts, etc with precision and ease.
 
-`styled-library-themer` doesn't override or modify `styled-components` in any way, it leverages the manner in which `styled-components` was designed to be extensible and flexible by building abstractions on top of it. So it's simple to integrate into your existing library!
+`studs` doesn't override or modify `styled-components` in any way, it leverages the manner in which `styled-components` was designed to be extensible and flexible by building abstractions on top of it. So it's simple to integrate into your existing library!
 
 ### Creating a Theme
 
@@ -28,7 +28,7 @@ To begin, create your theme with your shared style values. These global values c
 
 ```javascript static
 // theme.js
-import Theme from 'styled-library-themer';
+import Theme from 'studs';
 
 const globals = {
   colors: {
@@ -131,13 +131,13 @@ When a user wants to utilize your library, they will provide the theme. You shou
 
 ```javascript static
 /* import ... */
-import { createThemeProvider } from 'styled-library-themer';
+import { createThemeProvider } from 'studs';
 import theme from './theme';
 
 export const MyLibraryThemeProvider = createThemeProvider(theme);
 ```
 
-The reason this is critical when using `styled-library-themer` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.
+The reason this is critical when using `studs` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.
 
 Rather than explain all this to your library users, just tell them to use your custom `ThemeProvider`!
 
@@ -176,4 +176,4 @@ The extended theme keeps all your component style definitions and default global
 
 ### See it in Action
 
-The [documentation](https://a-type.github.io/styled-library-themer/#example-components) includes a small example styleguide rendered by `react-styleguidist` which demonstrates variants, user variants, and the interaction between nested variants.
+The [documentation](https://a-type.github.io/studs/#example-components) includes a small example styleguide rendered by `react-styleguidist` which demonstrates variants, user variants, and the interaction between nested variants.

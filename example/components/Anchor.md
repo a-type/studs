@@ -1,4 +1,4 @@
-[View source](https://github.com/a-type/styled-library-themer/blob/master/example/components/Anchor.js)
+[View source](https://github.com/a-type/studs/blob/master/example/components/Anchor.js)
 
 _Primary_
 
