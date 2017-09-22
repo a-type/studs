@@ -103,6 +103,15 @@ describe('the Theme class', () => {
     );
   });
 
+  test('can select and mutate a value', () => {
+    const selector = registerButton().createSelector();
+    const compiled = theme.compile();
+
+    expect(selector('color', val => val + '_foo')({ theme: compiled })).toEqual(
+      globals.colors.primary + '_foo',
+    );
+  });
+
   test('can select all values for a component', () => {
     const selector = registerButton().createSelector();
     const compiled = theme.compile();

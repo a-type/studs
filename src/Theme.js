@@ -95,7 +95,7 @@ export default class Theme {
    */
   createSelector = componentName => {
     // using function keyword here since my syntax highlighting is confused
-    return valueName =>
+    return (valueName, mutator = _.identity) =>
       function({ theme, variant = 'default' }) {
         const variantList = _.isArray(variant)
           ? [...variant, 'default']
@@ -107,11 +107,11 @@ export default class Theme {
         const computedValues = _.defaultsDeep(...styles);
 
         if (valueName) {
-          return _.get(computedValues, valueName);
+          return mutator(_.get(computedValues, valueName));
         }
 
         // empty valueName string returns the whole set
-        return computedValues;
+        return mutator(computedValues);
       }.bind(this);
   };
 

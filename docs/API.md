@@ -86,7 +86,7 @@ The key difference with variants is that the styling provided here is merged int
 
 `createSelector` creates a style value selector function for the component of the specified name.
 
-*returns `function selector(valueName: String|Array)`*
+*returns `function selector(valueName: String|Array, mutator: Function)`*
 
 The selector function accepts a value name to select out of your component's style definition. The selection uses `_.get` under the hood, so you can provide a path string or array of strings for nested style definitions.
 
@@ -99,6 +99,8 @@ styled.div`
 ```
 
 Note that the returned selector function assumes that one of the properties passed to the `styled-component` is `variant`. If no `variant` property is passed, `'default'` will be used to choose the variant styles. `studs` provides utilities to provide `variant` to your components in a managed way; see `theme.connect` and `theme.variant`.
+
+The second parameter of the returned selector function, `mutator`, is meant for modifying the value after it's computed in a deterministic way. This function may be expanded in the future, but be careful with using it. It will be called every time your compontent updates; costly calculations will incur performance drawbacks.
 
 #### `theme.connect(Component: React.Component)`
 
