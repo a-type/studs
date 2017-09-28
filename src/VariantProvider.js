@@ -22,12 +22,12 @@ export default class VariantProvider extends React.Component {
 
   getChildContext() {
     if (this.props.compose) {
+      const parentVariants = this.context[CONTEXT_KEY]
+        ? this.context[CONTEXT_KEY].variants
+        : {};
       return {
         [CONTEXT_KEY]: {
-          variants: [
-            ...this.context[CONTEXT_KEY].variants,
-            ...this.getVariantArray(),
-          ],
+          variants: [...parentVariants, ...this.getVariantArray()],
         },
       };
     }
