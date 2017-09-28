@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const CONTEXT_KEY = 'styled_library_themer';
 export const contextType = PropTypes.shape({
-  variant: PropTypes.string,
+  variants: PropTypes.arrayOf(PropTypes.string),
 });
 
 export default WrappedComponent => {
@@ -14,11 +14,11 @@ export default WrappedComponent => {
 
     render() {
       const {
-        [CONTEXT_KEY]: { variant } = { variant: 'default' },
+        [CONTEXT_KEY]: { variants } = { variants: ['default'] },
       } = this.context;
       const { children, ...rest } = this.props;
       return (
-        <WrappedComponent {...rest} variant={variant}>
+        <WrappedComponent {...rest} variants={variants} variant={variants}>
           {children}
         </WrappedComponent>
       );

@@ -104,7 +104,7 @@ Note that the returned selector function assumes that one of the properties pass
 
 `connect` accepts a Component and returns a higher-order component which provides it with a `variant` property provided from higher in the DOM tree. Use this to seamlessly supply variant information to complex library components which contain multiple internal `styled-components`. You can also use it to inform any regular React component of the current variant configuration if a higher component is providing one.
 
-#### `theme.variant(variantName: String|Array)`
+#### `theme.variant(variantName: String|Array, compose: Boolean)`
 
 `variant` takes a variant name (or array of variant names) and returns a function which takes a Component. The returned function creates a version of the Component which is wrapped in a provider for the supplied variant(s). Perhaps it's better to see code:
 
@@ -114,6 +114,8 @@ const SmallSecondaryButton = theme.variant(['secondary', 'small'])(Button);
 ```
 
 For the array version, ordering is important. Former variants will override conflicting properties with latter ones. Think of the list as `['mainVariant', 'supportingVariant' ...]`.
+
+This function also supports a parameter for turning on variant composition. See `VariantProvider` for more information on composition.
 
 #### `theme.compile()`
 
@@ -137,17 +139,21 @@ const ConnectedComponent = connectVariants(Component);
 
 A very simple component wrapper that provides variant definitions from the context. Wrap any component you want to be aware of the current variant definitions. Exposed on `Theme` as `Theme.connect`.
 
+The connected component will be passed a `variants` prop, which is an array of string variant names which apply to that component.
+
 ### `VariantProvider`
 
 ```javascript static
 import { VariantProvider } from 'studs';
 
-<VariantProvider variant="small">
+<VariantProvider variants={["small"]}>
   <ConnectedComponent />
 </VariantProvider>
 ```
 
-A Provider component that sets variant information in the context. Children of this component which are connected via `connectVariants` will receive the defined variant(s) as a prop, `variant`.
+A Provider component that sets variant information in the context. Children of this component which are connected via `connectVariants` will receive the defined variant(s) as a prop, `variants`.
+
+`VariantProvider` also supports the `compose` boolean prop. If `compose` is set to `true`, the `VariantProvider` will add its variants to the current context variant list instead of overwriting them. This is primarily designed for components which are used within other components in a component library. If you have a small variant icon nestd within an accordion, for instance, you may want to use the `compose` form of `VariantProvider`, so that if your user decides to apply a variant to the accordion, the icon will receive the applied variant in addition to its small variant, instead of the small variant overriding the user-supplied one.
 
 ### `asVariant(variant: String|Array)`
 
