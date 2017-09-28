@@ -20,6 +20,10 @@ export default class VariantProvider extends React.Component {
     [CONTEXT_KEY]: contextType,
   };
 
+  static contextTypes = {
+    [CONTEXT_KEY]: contextType,
+  };
+
   getChildContext() {
     if (this.props.compose) {
       const parentVariants = this.context[CONTEXT_KEY]
