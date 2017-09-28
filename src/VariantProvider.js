@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CONTEXT_KEY, contextType } from './connectVariants';
+import _ from 'lodash';
 
 export default class VariantProvider extends React.Component {
   static propTypes = {
-    variant: PropTypes.oneOfType([
+    variants: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
     ]),
+    compose: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    compose: false,
   };
 
   static childContextTypes = {
@@ -15,20 +21,41 @@ export default class VariantProvider extends React.Component {
   };
 
   getChildContext() {
+    if (this.props.compose) {
+      return {
+        [CONTEXT_KEY]: {
+          variants: [
+            ...this.context[CONTEXT_KEY].variants,
+            ...this.getVariantArray(),
+          ],
+        },
+      };
+    }
+
     return {
       [CONTEXT_KEY]: {
-        variant: this.props.variant,
+        variants: this.getVariantArray(),
       },
     };
   }
+
+  getVariantArray = () => {
+    if (_.isArray(this.props.variants)) {
+      return this.props.variants;
+    }
+    return [this.props.variants];
+  };
 
   render() {
     return React.Children.only(this.props.children);
   }
 }
 
-export const asVariant = (variant = 'default') => WrappedComponent => props => (
-  <VariantProvider variant={variant}>
+export const asVariant = (
+  variants = ['default'],
+  compose = false,
+) => WrappedComponent => props => (
+  <VariantProvider variants={variants} compose={compose}>
     <WrappedComponent {...props} />
   </VariantProvider>
 );
