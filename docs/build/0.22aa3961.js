@@ -269,12 +269,10 @@ webpackJsonp([0], {
         return t;
       }
       function findFirst(e, t, n) {
-        for (var r = t > n ? -1 : 1; ; ) {
-          if (t == n) return t;
-          var i = (t + n) / 2,
-            o = r < 0 ? Math.ceil(i) : Math.floor(i);
-          if (o == t) return e(o) ? t : n;
-          e(o) ? (n = o) : (t = o + r);
+        for (;;) {
+          if (Math.abs(t - n) <= 1) return e(t) ? t : n;
+          var r = Math.floor((t + n) / 2);
+          e(r) ? (n = r) : (t = r);
         }
       }
       function Display(e, t, r) {
@@ -803,7 +801,7 @@ webpackJsonp([0], {
           });
       }
       function iterateBidiSections(e, t, n, r) {
-        if (!e) return r(t, n, 'ltr', 0);
+        if (!e) return r(t, n, 'ltr');
         for (var i = !1, o = 0; o < e.length; ++o) {
           var a = e[o];
           ((a.from < n && a.to > t) || (t == n && a.to == t)) &&
@@ -811,7 +809,6 @@ webpackJsonp([0], {
               Math.max(a.from, t),
               Math.min(a.to, n),
               1 == a.level ? 'rtl' : 'ltr',
-              o,
             ),
             (i = !0));
         }
@@ -832,6 +829,108 @@ webpackJsonp([0], {
       function getOrder(e, t) {
         var n = e.order;
         return null == n && (n = e.order = V(e.text, t)), n;
+      }
+      function moveCharLogically(e, t, n) {
+        var r = skipExtendingChars(e.text, t + n, n);
+        return r < 0 || r > e.text.length ? null : r;
+      }
+      function moveLogically(e, t, n) {
+        var r = moveCharLogically(e, t.ch, n);
+        return null == r
+          ? null
+          : new Pos(t.line, r, n < 0 ? 'after' : 'before');
+      }
+      function endOfLine(e, t, n, r, i) {
+        if (e) {
+          var o = getOrder(n, t.doc.direction);
+          if (o) {
+            var a,
+              s = i < 0 ? lst(o) : o[0],
+              l = i < 0 == (1 == s.level) ? 'after' : 'before';
+            if (s.level > 0) {
+              var c = prepareMeasureForLine(t, n);
+              a = i < 0 ? n.text.length - 1 : 0;
+              var u = measureCharPrepared(t, c, a).top;
+              (a = findFirst(
+                function(e) {
+                  return measureCharPrepared(t, c, e).top == u;
+                },
+                i < 0 == (1 == s.level) ? s.from : s.to - 1,
+                a,
+              )),
+                'before' == l && (a = moveCharLogically(n, a, 1));
+            } else a = i < 0 ? s.to : s.from;
+            return new Pos(r, a, l);
+          }
+        }
+        return new Pos(
+          r,
+          i < 0 ? n.text.length : 0,
+          i < 0 ? 'before' : 'after',
+        );
+      }
+      function moveVisually(e, t, n, r) {
+        var i = getOrder(t, e.doc.direction);
+        if (!i) return moveLogically(t, n, r);
+        n.ch >= t.text.length
+          ? ((n.ch = t.text.length), (n.sticky = 'before'))
+          : n.ch <= 0 && ((n.ch = 0), (n.sticky = 'after'));
+        var o = getBidiPartAt(i, n.ch, n.sticky),
+          a = i[o];
+        if (
+          'ltr' == e.doc.direction &&
+          a.level % 2 == 0 &&
+          (r > 0 ? a.to > n.ch : a.from < n.ch)
+        )
+          return moveLogically(t, n, r);
+        var s,
+          l = function(e, n) {
+            return moveCharLogically(t, e instanceof Pos ? e.ch : e, n);
+          },
+          c = function(n) {
+            return e.options.lineWrapping
+              ? ((s = s || prepareMeasureForLine(e, t)),
+                wrappedLineExtentChar(e, t, s, n))
+              : { begin: 0, end: t.text.length };
+          },
+          u = c('before' == n.sticky ? l(n, -1) : n.ch);
+        if ('rtl' == e.doc.direction || 1 == a.level) {
+          var d = (1 == a.level) == r < 0,
+            p = l(n, d ? 1 : -1);
+          if (
+            null != p &&
+            (d ? p <= a.to && p <= u.end : p >= a.from && p >= u.begin)
+          ) {
+            var h = d ? 'before' : 'after';
+            return new Pos(n.line, p, h);
+          }
+        }
+        var f = function(e, t, r) {
+            for (
+              var o = function(e, t) {
+                return t
+                  ? new Pos(n.line, l(e, 1), 'before')
+                  : new Pos(n.line, e, 'after');
+              };
+              e >= 0 && e < i.length;
+              e += t
+            ) {
+              var a = i[e],
+                s = t > 0 == (1 != a.level),
+                c = s ? r.begin : l(r.end, -1);
+              if (a.from <= c && c < a.to) return o(c, s);
+              if (((c = s ? a.from : l(a.to, -1)), r.begin <= c && c < r.end))
+                return o(c, s);
+            }
+          },
+          g = f(o + r, r, u);
+        if (g) return g;
+        var m = r > 0 ? u.end : l(u.begin, -1);
+        return null == m ||
+        (r > 0 && m == t.text.length) ||
+        !(g = f(r > 0 ? 0 : i.length - 1, r, c(m)))
+          ? null
+          : g;
       }
       function getHandlers(e, t) {
         return (e._handlers && e._handlers[t]) || j;
@@ -2107,33 +2206,28 @@ webpackJsonp([0], {
           : window.pageYOffset ||
             (document.documentElement || document.body).scrollTop;
       }
-      function widgetTopHeight(e) {
-        var t = 0;
-        if (e.widgets)
-          for (var n = 0; n < e.widgets.length; ++n)
-            e.widgets[n].above && (t += widgetHeight(e.widgets[n]));
-        return t;
-      }
       function intoCoordSystem(e, t, n, r, i) {
-        if (!i) {
-          var o = widgetTopHeight(t);
-          (n.top += o), (n.bottom += o);
-        }
+        if (!i && t.widgets)
+          for (var o = 0; o < t.widgets.length; ++o)
+            if (t.widgets[o].above) {
+              var a = widgetHeight(t.widgets[o]);
+              (n.top += a), (n.bottom += a);
+            }
         if ('line' == r) return n;
         r || (r = 'local');
-        var a = heightAtLine(t);
+        var s = heightAtLine(t);
         if (
           ('local' == r
-            ? (a += paddingTop(e.display))
-            : (a -= e.display.viewOffset),
+            ? (s += paddingTop(e.display))
+            : (s -= e.display.viewOffset),
           'page' == r || 'window' == r)
         ) {
-          var s = e.display.lineSpace.getBoundingClientRect();
-          a += s.top + ('window' == r ? 0 : pageScrollY());
-          var l = s.left + ('window' == r ? 0 : pageScrollX());
-          (n.left += l), (n.right += l);
+          var l = e.display.lineSpace.getBoundingClientRect();
+          s += l.top + ('window' == r ? 0 : pageScrollY());
+          var c = l.left + ('window' == r ? 0 : pageScrollX());
+          (n.left += c), (n.right += c);
         }
-        return (n.top += a), (n.bottom += a), n;
+        return (n.top += s), (n.bottom += s), n;
       }
       function fromCoordSystem(e, t, n) {
         if ('div' == n) return t;
@@ -2162,7 +2256,7 @@ webpackJsonp([0], {
           );
         }
         function getBidi(e, t, n) {
-          var r = 1 == a[t].level;
+          var r = a[t].level % 2 != 0;
           return get(n ? e - 1 : e, r != n);
         }
         (r = r || getLine(e.doc, t.line)),
@@ -2219,160 +2313,109 @@ webpackJsonp([0], {
         }
       }
       function wrappedLineExtent(e, t, n, r) {
-        r -= widgetTopHeight(t);
-        var i = t.text.length,
-          o = findFirst(
-            function(t) {
-              return measureCharPrepared(e, n, t - 1).bottom <= r;
+        var i = function(r) {
+            return intoCoordSystem(e, t, measureCharPrepared(e, n, r), 'line');
+          },
+          o = t.text.length,
+          a = findFirst(
+            function(e) {
+              return i(e - 1).bottom <= r;
             },
-            i,
+            o,
             0,
           );
         return (
-          (i = findFirst(
-            function(t) {
-              return measureCharPrepared(e, n, t).top > r;
+          (o = findFirst(
+            function(e) {
+              return i(e).top > r;
             },
+            a,
             o,
-            i,
           )),
-          { begin: o, end: i }
+          { begin: a, end: o }
         );
       }
       function wrappedLineExtentChar(e, t, n, r) {
-        return (
-          n || (n = prepareMeasureForLine(e, t)),
-          wrappedLineExtent(
-            e,
-            t,
-            n,
-            intoCoordSystem(e, t, measureCharPrepared(e, n, r), 'line').top,
-          )
+        return wrappedLineExtent(
+          e,
+          t,
+          n,
+          intoCoordSystem(e, t, measureCharPrepared(e, n, r), 'line').top,
         );
-      }
-      function boxIsAfter(e, t, n, r) {
-        return !(e.bottom <= n) && (e.top > n || (r ? e.left : e.right) > t);
       }
       function coordsCharInner(e, t, n, r, i) {
         i -= heightAtLine(t);
-        var o = prepareMeasureForLine(e, t),
-          a = widgetTopHeight(t),
-          s = 0,
-          l = t.text.length,
-          c = !0,
-          u = getOrder(t, e.doc.direction);
-        if (u) {
-          var d = (e.options.lineWrapping
-            ? coordsBidiPartWrapped
-            : coordsBidiPart)(e, t, n, o, u, r, i);
-          (s = (c = 1 != d.level) ? d.from : d.to - 1),
-            (l = c ? d.to : d.from - 1);
-        }
-        var p,
-          h,
-          f = null,
-          g = null,
-          m = findFirst(
-            function(t) {
-              var n = measureCharPrepared(e, o, t);
-              return (
-                (n.top += a),
-                (n.bottom += a),
-                !!boxIsAfter(n, r, i, !1) &&
-                  (n.top <= i && n.left <= r && ((f = t), (g = n)), !0)
-              );
-            },
-            s,
-            l,
-          ),
-          v = !1;
-        if (g) {
-          var y = r - g.left < g.right - r,
-            b = y == c;
-          (m = f + (b ? 0 : 1)),
-            (h = b ? 'after' : 'before'),
-            (p = y ? g.left : g.right);
-        } else {
-          c || (m != l && m != s) || m++,
-            (h =
-              0 == m
-                ? 'after'
-                : m == t.text.length
-                  ? 'before'
-                  : measureCharPrepared(e, o, m - (c ? 1 : 0)).bottom + a <=
-                      i ==
-                    c
-                    ? 'after'
-                    : 'before');
-          var x = cursorCoords(e, Pos(n, m, h), 'line', t, o);
-          (p = x.left), (v = i < x.top || i >= x.bottom);
-        }
-        return (
-          (m = skipExtendingChars(t.text, m, 1)), PosWithInfo(n, m, h, v, r - p)
-        );
-      }
-      function coordsBidiPart(e, t, n, r, i, o, a) {
-        var s = findFirst(
-            function(s) {
-              var l = i[s],
-                c = 1 != l.level;
-              return boxIsAfter(
-                cursorCoords(
-                  e,
-                  Pos(n, c ? l.to : l.from, c ? 'before' : 'after'),
-                  'line',
-                  t,
-                  r,
-                ),
-                o,
-                a,
-                !0,
-              );
-            },
-            0,
-            i.length - 1,
-          ),
-          l = i[s];
-        if (s > 0) {
-          var c = 1 != l.level,
-            u = cursorCoords(
-              e,
-              Pos(n, c ? l.from : l.to, c ? 'after' : 'before'),
-              'line',
-              t,
-              r,
-            );
-          boxIsAfter(u, o, a, !0) && u.top > a && (l = i[s - 1]);
-        }
-        return l;
-      }
-      function coordsBidiPartWrapped(e, t, n, r, i, o, a) {
-        for (
-          var s = wrappedLineExtent(e, t, r, a),
-            l = s.begin,
-            c = s.end,
-            u = null,
-            d = null,
-            p = 0;
-          p < i.length;
-          p++
-        ) {
-          var h = i[p];
-          if (!(h.from >= c || h.to <= l)) {
-            var f = measureCharPrepared(
-                e,
-                r,
-                1 != h.level ? Math.min(c, h.to) - 1 : Math.max(l, h.from),
-              ).right,
-              g = f < o ? o - f + 1e9 : f - o;
-            (!u || d > g) && ((u = h), (d = g));
+        var o,
+          a = 0,
+          s = t.text.length,
+          l = prepareMeasureForLine(e, t);
+        if (getOrder(t, e.doc.direction)) {
+          if (e.options.lineWrapping) {
+            var c;
+            (a = (c = wrappedLineExtent(e, t, l, i)).begin), (s = c.end);
           }
+          o = new Pos(n, Math.floor(a + (s - a) / 2));
+          var u,
+            d,
+            p = cursorCoords(e, o, 'line', t, l).left,
+            h = p < r ? 1 : -1,
+            f = p - r,
+            g = Math.ceil((s - a) / 4);
+          e: do {
+            (u = f), (d = o);
+            for (var m = 0; m < g; ++m) {
+              var v = o;
+              if (
+                null == (o = moveVisually(e, t, o, h)) ||
+                o.ch < a ||
+                s <= ('before' == o.sticky ? o.ch - 1 : o.ch)
+              ) {
+                o = v;
+                break e;
+              }
+            }
+            if (((f = cursorCoords(e, o, 'line', t, l).left - r), g > 1)) {
+              var y = Math.abs(f - u) / g;
+              (g = Math.min(g, Math.ceil(Math.abs(f) / y))),
+                (h = f < 0 ? 1 : -1);
+            }
+          } while (
+            0 != f &&
+            (g > 1 || (h < 0 != f < 0 && Math.abs(f) <= Math.abs(u)))
+          );
+          if (Math.abs(f) > Math.abs(u)) {
+            if (f < 0 == u < 0)
+              throw new Error('Broke out of infinite loop in coordsCharInner');
+            o = d;
+          }
+        } else {
+          var b = findFirst(
+            function(n) {
+              var o = intoCoordSystem(
+                e,
+                t,
+                measureCharPrepared(e, l, n),
+                'line',
+              );
+              return o.top > i
+                ? ((s = Math.min(n, s)), !0)
+                : !(o.bottom <= i) &&
+                  (o.left > r || (!(o.right < r) && r - o.left < o.right - r));
+            },
+            a,
+            s,
+          );
+          o = new Pos(
+            n,
+            (b = skipExtendingChars(t.text, b, 1)),
+            b == s ? 'before' : 'after',
+          );
         }
+        var x = cursorCoords(e, o, 'line', t, l);
         return (
-          u || (u = i[i.length - 1]),
-          u.from < l && (u = { from: l, to: u.to, level: u.level }),
-          u.to > c && (u = { from: u.from, to: c, level: u.level }),
-          u
+          (i < x.top || x.bottom < i) && (o.outside = !0),
+          (o.xRel = r < x.left ? -1 : r > x.right ? 1 : 0),
+          o
         );
       }
       function textHeight(e) {
@@ -2494,7 +2537,6 @@ webpackJsonp([0], {
         e.display.input.showSelection(e.display.input.prepareSelection());
       }
       function prepareSelection(e, t) {
-        void 0 === t && (t = !0);
         for (
           var n = e.doc,
             r = {},
@@ -2504,7 +2546,7 @@ webpackJsonp([0], {
           a < n.sel.ranges.length;
           a++
         )
-          if (t || a != n.sel.primIndex) {
+          if (!1 !== t || a != n.sel.primIndex) {
             var s = n.sel.ranges[a];
             if (
               !(
@@ -2546,9 +2588,6 @@ webpackJsonp([0], {
             (o.style.height = 0.85 * (r.other.bottom - r.other.top) + 'px');
         }
       }
-      function cmpCoords(e, t) {
-        return e.top - t.top || e.left - t.left;
-      }
       function drawSelectionRange(e, t, n) {
         function add(e, t, n, r) {
           t < 0 && (t = 0),
@@ -2578,55 +2617,43 @@ webpackJsonp([0], {
           var o,
             a,
             c = getLine(i, t),
-            u = c.text.length,
-            d = getOrder(c, i.direction);
+            u = c.text.length;
           return (
-            iterateBidiSections(d, n || 0, null == r ? u : r, function(
-              t,
-              i,
-              p,
-              h,
-            ) {
-              var f = coords(t, 'ltr' == p ? 'left' : 'right'),
-                g = coords(i - 1, 'ltr' == p ? 'right' : 'left');
-              if ('ltr' == p) {
-                var m = null == n && 0 == t ? s : f.left,
-                  v = null == r && i == u ? l : g.right;
-                g.top - f.top <= 3
-                  ? add(m, g.top, v - m, g.bottom)
-                  : (add(m, f.top, null, f.bottom),
-                    f.bottom < g.top && add(s, f.bottom, null, g.top),
-                    add(s, g.top, g.right, g.bottom));
-              } else if (t < i) {
-                var y = null == n && 0 == t ? l : f.right,
-                  b = null == r && i == u ? s : g.left;
-                if (g.top - f.top <= 3) add(b, g.top, y - b, g.bottom);
+            iterateBidiSections(
+              getOrder(c, i.direction),
+              n || 0,
+              null == r ? u : r,
+              function(e, t, i) {
+                var c,
+                  d,
+                  p,
+                  h = coords(e, 'left');
+                if (e == t) (c = h), (d = p = h.left);
                 else {
-                  var x = s;
-                  if (h) {
-                    var C = wrappedLineExtentChar(e, c, null, t).end;
-                    x = coords(
-                      C - (/\s/.test(c.text.charAt(C - 1)) ? 2 : 1),
-                      'left',
-                    ).left;
+                  if (((c = coords(t - 1, 'right')), 'rtl' == i)) {
+                    var f = h;
+                    (h = c), (c = f);
                   }
-                  add(x, f.top, y - x, f.bottom),
-                    f.bottom < g.top && add(s, f.bottom, null, g.top);
-                  var w = null;
-                  d.length,
-                    (w =
-                      coords(
-                        wrappedLineExtentChar(e, c, null, i).begin,
-                        'right',
-                      ).right - b),
-                    add(b, g.top, w, g.bottom);
+                  (d = h.left), (p = c.right);
                 }
-              }
-              (!o || cmpCoords(f, o) < 0) && (o = f),
-                cmpCoords(g, o) < 0 && (o = g),
-                (!a || cmpCoords(f, a) < 0) && (a = f),
-                cmpCoords(g, a) < 0 && (a = g);
-            }),
+                null == n && 0 == e && (d = s),
+                  c.top - h.top > 3 &&
+                    (add(d, h.top, null, h.bottom),
+                    (d = s),
+                    h.bottom < c.top && add(d, h.bottom, null, c.top)),
+                  null == r && t == u && (p = l),
+                  (!o ||
+                    h.top < o.top ||
+                    (h.top == o.top && h.left < o.left)) &&
+                    (o = h),
+                  (!a ||
+                    c.bottom > a.bottom ||
+                    (c.bottom == a.bottom && c.right > a.right)) &&
+                    (a = c),
+                  d < s + 1 && (d = s),
+                  add(d, c.top, p - d, c.bottom);
+              },
+            ),
             { start: o, end: a }
           );
         }
@@ -3172,7 +3199,7 @@ webpackJsonp([0], {
               n.sizer.offsetLeft + e.adjustWidthTo - displayWidth(t),
             ))),
           (e.updatedDisplay || e.selectionChanged) &&
-            (e.preparedSelection = n.input.prepareSelection());
+            (e.preparedSelection = n.input.prepareSelection(e.focus));
       }
       function endOperation_W2(e) {
         var t = e.cm;
@@ -3185,7 +3212,10 @@ webpackJsonp([0], {
               !0,
             ),
           (t.display.maxLineChanged = !1));
-        var n = e.focus && e.focus == activeElt();
+        var n =
+          e.focus &&
+          e.focus == activeElt() &&
+          (!document.hasFocus || document.hasFocus());
         e.preparedSelection &&
           t.display.input.showSelection(e.preparedSelection, n),
           (e.updatedDisplay || e.startHeight != t.doc.height) &&
@@ -4478,8 +4508,8 @@ webpackJsonp([0], {
       }
       function replaceRange(e, t, n, r, i) {
         if ((r || (r = n), cmp(r, n) < 0)) {
-          var o;
-          (n = (o = [r, n])[0]), (r = o[1]);
+          var o = r;
+          (r = n), (n = o);
         }
         'string' == typeof t && (t = e.splitLines(t)),
           makeChange(e, { from: n, to: r, text: t, origin: i });
@@ -4985,108 +5015,6 @@ webpackJsonp([0], {
           ensureCursorVisible(e);
         });
       }
-      function moveCharLogically(e, t, n) {
-        var r = skipExtendingChars(e.text, t + n, n);
-        return r < 0 || r > e.text.length ? null : r;
-      }
-      function moveLogically(e, t, n) {
-        var r = moveCharLogically(e, t.ch, n);
-        return null == r
-          ? null
-          : new Pos(t.line, r, n < 0 ? 'after' : 'before');
-      }
-      function endOfLine(e, t, n, r, i) {
-        if (e) {
-          var o = getOrder(n, t.doc.direction);
-          if (o) {
-            var a,
-              s = i < 0 ? lst(o) : o[0],
-              l = i < 0 == (1 == s.level) ? 'after' : 'before';
-            if (s.level > 0) {
-              var c = prepareMeasureForLine(t, n);
-              a = i < 0 ? n.text.length - 1 : 0;
-              var u = measureCharPrepared(t, c, a).top;
-              (a = findFirst(
-                function(e) {
-                  return measureCharPrepared(t, c, e).top == u;
-                },
-                i < 0 == (1 == s.level) ? s.from : s.to - 1,
-                a,
-              )),
-                'before' == l && (a = moveCharLogically(n, a, 1));
-            } else a = i < 0 ? s.to : s.from;
-            return new Pos(r, a, l);
-          }
-        }
-        return new Pos(
-          r,
-          i < 0 ? n.text.length : 0,
-          i < 0 ? 'before' : 'after',
-        );
-      }
-      function moveVisually(e, t, n, r) {
-        var i = getOrder(t, e.doc.direction);
-        if (!i) return moveLogically(t, n, r);
-        n.ch >= t.text.length
-          ? ((n.ch = t.text.length), (n.sticky = 'before'))
-          : n.ch <= 0 && ((n.ch = 0), (n.sticky = 'after'));
-        var o = getBidiPartAt(i, n.ch, n.sticky),
-          a = i[o];
-        if (
-          'ltr' == e.doc.direction &&
-          a.level % 2 == 0 &&
-          (r > 0 ? a.to > n.ch : a.from < n.ch)
-        )
-          return moveLogically(t, n, r);
-        var s,
-          l = function(e, n) {
-            return moveCharLogically(t, e instanceof Pos ? e.ch : e, n);
-          },
-          c = function(n) {
-            return e.options.lineWrapping
-              ? ((s = s || prepareMeasureForLine(e, t)),
-                wrappedLineExtentChar(e, t, s, n))
-              : { begin: 0, end: t.text.length };
-          },
-          u = c('before' == n.sticky ? l(n, -1) : n.ch);
-        if ('rtl' == e.doc.direction || 1 == a.level) {
-          var d = (1 == a.level) == r < 0,
-            p = l(n, d ? 1 : -1);
-          if (
-            null != p &&
-            (d ? p <= a.to && p <= u.end : p >= a.from && p >= u.begin)
-          ) {
-            var h = d ? 'before' : 'after';
-            return new Pos(n.line, p, h);
-          }
-        }
-        var f = function(e, t, r) {
-            for (
-              var o = function(e, t) {
-                return t
-                  ? new Pos(n.line, l(e, 1), 'before')
-                  : new Pos(n.line, e, 'after');
-              };
-              e >= 0 && e < i.length;
-              e += t
-            ) {
-              var a = i[e],
-                s = t > 0 == (1 != a.level),
-                c = s ? r.begin : l(r.end, -1);
-              if (a.from <= c && c < a.to) return o(c, s);
-              if (((c = s ? a.from : l(a.to, -1)), r.begin <= c && c < r.end))
-                return o(c, s);
-            }
-          },
-          g = f(o + r, r, u);
-        if (g) return g;
-        var m = r > 0 ? u.end : l(u.begin, -1);
-        return null == m ||
-        (r > 0 && m == t.text.length) ||
-        !(g = f(r > 0 ? 0 : i.length - 1, r, c(m)))
-          ? null
-          : g;
-      }
       function lineStart(e, t) {
         var n = getLine(e.doc, t),
           r = visualLine(n);
@@ -5411,7 +5339,7 @@ webpackJsonp([0], {
                 ? ((b = C.head), (w = minPos(x.from(), C.anchor)))
                 : ((b = C.anchor), (w = maxPos(x.to(), C.head)));
               var S = l.ranges.slice(0);
-              (S[s] = bidiSimplify(e, new ve(clipPos(o, w), b))),
+              (S[s] = new ve(clipPos(o, w), b)),
                 setSelection(o, normalizeSelection(S, s), H);
             }
         }
@@ -5496,43 +5424,13 @@ webpackJsonp([0], {
           G(document, 'mousemove', f),
           G(document, 'mouseup', g);
       }
-      function bidiSimplify(e, t) {
-        var n = t.anchor,
-          r = t.head,
-          i = getLine(e.doc, n.line);
-        if (0 == cmp(n, r) && n.sticky == r.sticky) return t;
-        var o = getOrder(i);
-        if (!o) return t;
-        var a = getBidiPartAt(o, n.ch, n.sticky),
-          s = o[a];
-        if (s.from != n.ch && s.to != n.ch) return t;
-        var l = a + ((s.from == n.ch) == (1 != s.level) ? 0 : 1);
-        if (0 == l || l == o.length) return t;
-        var c;
-        if (r.line != n.line)
-          c = (r.line - n.line) * ('ltr' == e.doc.direction ? 1 : -1) > 0;
-        else {
-          var u = getBidiPartAt(o, r.ch, r.sticky),
-            d = u - a || (r.ch - n.ch) * (1 == s.level ? -1 : 1);
-          c = u == l - 1 || u == l ? d < 0 : d > 0;
-        }
-        var p = o[l + (c ? -1 : 0)],
-          h = c == (1 == p.level),
-          f = h ? p.from : p.to,
-          g = h ? 'after' : 'before';
-        return n.ch == f && n.sticky == g
-          ? t
-          : new ve(new Pos(n.line, f, g), r);
-      }
       function gutterEvent(e, t, n, r) {
         var i, o;
-        if (t.touches) (i = t.touches[0].clientX), (o = t.touches[0].clientY);
-        else
-          try {
-            (i = t.clientX), (o = t.clientY);
-          } catch (t) {
-            return !1;
-          }
+        try {
+          (i = t.clientX), (o = t.clientY);
+        } catch (t) {
+          return !1;
+        }
         if (i >= Math.floor(e.display.gutters.getBoundingClientRect().right))
           return !1;
         r && e_preventDefault(t);
@@ -5704,11 +5602,7 @@ webpackJsonp([0], {
         var n,
           r = { end: 0 };
         G(t.scroller, 'touchstart', function(i) {
-          if (
-            !signalDOMEvent(e, i) &&
-            !isMouseLikeTouchEvent(i) &&
-            !clickInGutter(e, i)
-          ) {
+          if (!signalDOMEvent(e, i) && !isMouseLikeTouchEvent(i)) {
             t.input.ensurePolled(), clearTimeout(n);
             var o = +new Date();
             (t.activeTouch = {
@@ -7519,10 +7413,8 @@ webpackJsonp([0], {
           );
           return (
             e.sharedHist && (r.history = this.history),
-            (this.linked || (this.linked = [])).push({
-              doc: r,
-              sharedHist: e.sharedHist,
-            }),
+            (this.linked || (this.linked = []))
+              .push({ doc: r, sharedHist: e.sharedHist }),
             (r.linked = [
               { doc: this, isParent: !0, sharedHist: e.sharedHist },
             ]),
@@ -9559,7 +9451,7 @@ webpackJsonp([0], {
             (e.rmClass = L),
             (e.keyNames = Me);
         })(CodeMirror$1),
-        (CodeMirror$1.version = '5.30.0'),
+        (CodeMirror$1.version = '5.29.0'),
         CodeMirror$1
       );
     });
@@ -10672,7 +10564,7 @@ webpackJsonp([0], {
               return cont(
                 pushcontext,
                 pushlex(')'),
-                commasep(funarg, ')'),
+                commasep(pattern, ')'),
                 poplex,
                 expect('=>'),
                 n,
@@ -10743,13 +10635,7 @@ webpackJsonp([0], {
                           )
                         : c && 'as' == t
                           ? ((m.marked = 'keyword'), cont(typeexpr, r))
-                          : 'regexp' == e
-                            ? ((m.state.lastType = m.marked = 'operator'),
-                              m.stream.backUp(
-                                m.stream.pos - m.stream.start - 1,
-                              ),
-                              cont(i))
-                            : void 0
+                          : void 0
                   : void 0;
         }
         function quasi(e, t) {
@@ -10808,31 +10694,23 @@ webpackJsonp([0], {
           if ('variable' == e) return (m.marked = 'property'), cont();
         }
         function objprop(e, t) {
-          if ('async' == e) return (m.marked = 'property'), cont(objprop);
-          if ('variable' == e || 'keyword' == m.style) {
-            if (((m.marked = 'property'), 'get' == t || 'set' == t))
-              return cont(getterSetter);
-            var n;
-            return (
-              c &&
-                m.state.fatArrowAt == m.stream.start &&
-                (n = m.stream.match(/^\s*:\s*/, !1)) &&
-                (m.state.fatArrowAt = m.stream.pos + n[0].length),
-              cont(afterprop)
-            );
-          }
-          return 'number' == e || 'string' == e
-            ? ((m.marked = s ? 'property' : m.style + ' property'),
-              cont(afterprop))
-            : 'jsonld-keyword' == e
-              ? cont(afterprop)
-              : 'modifier' == e
-                ? cont(objprop)
-                : '[' == e
-                  ? cont(expression, expect(']'), afterprop)
-                  : 'spread' == e
-                    ? cont(expression, afterprop)
-                    : ':' == e ? pass(afterprop) : void 0;
+          return 'async' == e
+            ? ((m.marked = 'property'), cont(objprop))
+            : 'variable' == e || 'keyword' == m.style
+              ? ((m.marked = 'property'),
+                cont('get' == t || 'set' == t ? getterSetter : afterprop))
+              : 'number' == e || 'string' == e
+                ? ((m.marked = s ? 'property' : m.style + ' property'),
+                  cont(afterprop))
+                : 'jsonld-keyword' == e
+                  ? cont(afterprop)
+                  : 'modifier' == e
+                    ? cont(objprop)
+                    : '[' == e
+                      ? cont(expression, expect(']'), afterprop)
+                      : 'spread' == e
+                        ? cont(expression, afterprop)
+                        : ':' == e ? pass(afterprop) : void 0;
         }
         function getterSetter(e) {
           return 'variable' != e
@@ -11020,13 +10898,10 @@ webpackJsonp([0], {
                     )
                   : void 0;
         }
-        function funarg(e, t) {
-          return (
-            '@' == t && cont(expression, funarg),
-            'spread' == e || 'modifier' == e
-              ? cont(funarg)
-              : pass(pattern, maybetype, maybeAssign)
-          );
+        function funarg(e) {
+          return 'spread' == e || 'modifier' == e
+            ? cont(funarg)
+            : pass(pattern, maybetype, maybeAssign);
         }
         function classExpression(e, t) {
           return 'variable' == e ? className(e, t) : classNameAfter(e, t);
@@ -11053,7 +10928,7 @@ webpackJsonp([0], {
             ('static' == t || 'get' == t || 'set' == t) &&
             m.stream.match(/^\s+[\w$\xa1-\uffff]/, !1))
             ? ((m.marked = 'keyword'), cont(classBody))
-            : 'variable' == e || 'keyword' == m.style
+            : 'variable' == e
               ? ((m.marked = 'property'),
                 cont(c ? classfield : functiondef, classBody))
               : '[' == e
@@ -11127,7 +11002,7 @@ webpackJsonp([0], {
         function expressionAllowed(e, t, n) {
           return (
             (t.tokenize == tokenBase &&
-              /^(?:operator|sof|keyword [bc]|case|new|export|default|spread|[\[{}\(,;:]|=>)$/.test(
+              /^(?:operator|sof|keyword c|case|new|export|default|[\[{}\(,;:]|=>)$/.test(
                 t.lastType,
               )) ||
             ('quasi' == t.lastType &&
@@ -11164,7 +11039,6 @@ webpackJsonp([0], {
                 continue: n,
                 new: kw('new'),
                 delete: n,
-                void: n,
                 throw: n,
                 debugger: n,
                 var: kw('var'),
