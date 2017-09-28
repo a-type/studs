@@ -9250,6 +9250,7 @@ object-assign
     }),
       (u.defaultProps = { compose: !1 }),
       (u.childContextTypes = _defineProperty({}, a.CONTEXT_KEY, a.contextType)),
+      (u.contextTypes = _defineProperty({}, a.CONTEXT_KEY, a.contextType)),
       (t.default = u);
     t.asVariant = function asVariant() {
       var e =
