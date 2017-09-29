@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import theme from '../theme';
 
 const selector = theme
-  .register('box', theme => ({
+  .register('Box', theme => ({
     outerColor: theme.colors.primary,
     innerColor: theme.colors.secondary,
     outerPadding: '15px',

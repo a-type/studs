@@ -28,7 +28,7 @@ const ThemeProvider = require('styled-components').ThemeProvider;
 const theme = require('../theme').default.extend('customTheme');
 
 
-theme.registerVariant('anchor', 'custom', {
+theme.registerVariant('Anchor', 'custom', {
   color: 'pink',
 });
 const CustomAnchor = theme.variant('custom')(Anchor);

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import theme from '../theme';
 
 const select = theme
-  .register('anchor', theme => ({
+  .register('Anchor', theme => ({
     color: theme.colors.primary,
     fontWeight: 'bold',
   }))

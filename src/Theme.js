@@ -102,7 +102,9 @@ export default class Theme {
           : [variant, 'default'];
         const styles = variantList.map(
           variantName =>
-            theme[this.namespace].components[componentName][variantName] || {},
+            _.clone(
+              theme[this.namespace].components[componentName][variantName],
+            ) || {},
         );
         const computedValues = _.defaultsDeep(...styles);
 

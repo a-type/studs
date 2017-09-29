@@ -4,7 +4,7 @@ import theme from '../theme';
 import Anchor from './Anchor';
 
 const selector = theme
-  .register('nested', theme => ({
+  .register('Nested', theme => ({
     background: theme.colors.secondary,
   }))
   .addVariant('secondary', () => ({
