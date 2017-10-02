@@ -8,6 +8,8 @@ export const contextType = PropTypes.shape({
 
 export default WrappedComponent => {
   return class VariantWrapper extends React.Component {
+    static WrappedComponent = WrappedComponent;
+
     static contextTypes = {
       [CONTEXT_KEY]: contextType,
     };
