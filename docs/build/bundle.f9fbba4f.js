@@ -47,7 +47,7 @@
         'build/' +
         ({}[e] || e) +
         '.' +
-        { 0: 'cf0d9a8d' }[e] +
+        { 0: 'a1c58a47' }[e] +
         '.js');
     var a = setTimeout(onScriptComplete, 12e4);
     return (i.onerror = i.onload = onScriptComplete), o.appendChild(i), n;
@@ -80,14 +80,14 @@
     (__webpack_require__.oe = function(e) {
       throw (console.error(e), e);
     }),
-    __webpack_require__((__webpack_require__.s = 202));
+    __webpack_require__((__webpack_require__.s = 203));
 })([
   function(e, t, n) {
     'use strict';
     e.exports = n(32);
   },
   function(e, t, n) {
-    e.exports = n(220)();
+    e.exports = n(221)();
   },
   function(e, t, n) {
     'use strict';
@@ -141,7 +141,7 @@
   },
   function(e, t, n) {
     'use strict';
-    var r = n(311);
+    var r = n(312);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -253,7 +253,7 @@ object-assign
     }
     var r = n(4),
       o = n(34),
-      i = n(120),
+      i = n(121),
       a = (n(2), o.ID_ATTRIBUTE_NAME),
       s = i,
       u =
@@ -322,7 +322,7 @@ object-assign
       (e.exports = r);
   },
   function(e, t, n) {
-    var r = n(145),
+    var r = n(146),
       o = 'object' == typeof self && self && self.Object === Object && self,
       i = r || o || Function('return this')();
     e.exports = i;
@@ -339,6 +339,22 @@ object-assign
     'use strict';
     var r = null;
     e.exports = { debugTool: r };
+  },
+  function(e, t, n) {
+    'use strict';
+    function _interopRequireDefault(e) {
+      return e && e.__esModule ? e : { default: e };
+    }
+    Object.defineProperty(t, '__esModule', { value: !0 }),
+      (t.Provider = void 0);
+    _interopRequireDefault(n(0));
+    var r = n(191),
+      o = _interopRequireDefault(r),
+      i = (_interopRequireDefault(n(17)),
+      { colors: { primary: '#133337', secondary: '#4ac9e2' } }),
+      a = new o.default('exampleTheme', i);
+    t.default = a;
+    t.Provider = (0, r.createThemeProvider)(a);
   },
   function(e, t, n) {
     'use strict';
@@ -389,9 +405,9 @@ object-assign
     }
     var r = n(4),
       o = n(6),
-      i = n(124),
-      a = n(25),
-      s = n(125),
+      i = n(125),
+      a = n(26),
+      s = n(126),
       u = n(35),
       c = n(49),
       l = (n(2), []),
@@ -572,17 +588,17 @@ object-assign
             return K;
           });
         var o,
-          i = n(203),
+          i = n(204),
           a = n.n(i),
-          s = n(205),
+          s = n(206),
           u = n.n(s),
           c = n(0),
           l = n.n(c),
           p = n(1),
           f = n.n(p),
-          h = n(221),
+          h = n(222),
           d = n.n(h),
-          m = n(222),
+          m = n(223),
           g = n.n(m),
           y = /([A-Z])/g,
           v = function hyphenate$2(e) {
@@ -651,12 +667,12 @@ object-assign
               n[r - 1] = arguments[r];
             return _(D(e, n));
           },
-          T = /^[^\S\n]*?\/\* sc-component-id:\s+(\S+)\s+\*\//gm,
-          R = function(e) {
+          R = /^[^\S\n]*?\/\* sc-component-id:\s+(\S+)\s+\*\//gm,
+          T = function(e) {
             var t = '' + (e || ''),
               n = [];
             return (
-              t.replace(T, function(e, t, r) {
+              t.replace(R, function(e, t, r) {
                 return n.push({ componentId: t, matchIndex: r }), e;
               }),
               n.map(function(e, r) {
@@ -747,7 +763,7 @@ object-assign
                 (this.el = e),
                 (this.isLocal = t),
                 (this.ready = !1);
-              var r = R(n);
+              var r = T(n);
               (this.size = r.length),
                 (this.components = r.reduce(function(e, t) {
                   return (e[t.componentId] = t), e;
@@ -783,8 +799,8 @@ object-assign
                   r.textNode.appendData(t),
                   n)
                 ) {
-                  var o = this.el.getAttribute(U);
-                  this.el.setAttribute(U, o ? o + ' ' + n : n),
+                  var o = this.el.getAttribute(q);
+                  this.el.setAttribute(q, o ? o + ' ' + n : n),
                     'undefined' != typeof window &&
                       window.__webpack_nonce__ &&
                       this.el.setAttribute('nonce', window.__webpack_nonce__);
@@ -826,15 +842,15 @@ object-assign
               for (
                 var e = [],
                   t = {},
-                  n = document.querySelectorAll('[' + U + ']'),
+                  n = document.querySelectorAll('[' + q + ']'),
                   r = n.length,
                   o = 0;
                 o < r;
                 o += 1
               ) {
                 var i = n[o];
-                e.push(new L(i, 'true' === i.getAttribute(q), i.innerHTML));
-                var a = i.getAttribute(U);
+                e.push(new L(i, 'true' === i.getAttribute(U), i.innerHTML));
+                var a = i.getAttribute(q);
                 a &&
                   a
                     .trim()
@@ -848,8 +864,8 @@ object-assign
                   var t = document.createElement('style');
                   if (
                     ((t.type = 'text/css'),
-                    t.setAttribute(U, ''),
-                    t.setAttribute(q, e ? 'true' : 'false'),
+                    t.setAttribute(q, ''),
+                    t.setAttribute(U, e ? 'true' : 'false'),
                     !document.head)
                   )
                     throw new Error('Missing document <head>');
@@ -860,8 +876,8 @@ object-assign
               );
             },
           },
-          U = 'data-styled-components',
-          q = 'data-styled-components-is-local',
+          q = 'data-styled-components',
+          U = 'data-styled-components-is-local',
           z = '__styled-components-stylesheet__',
           W = null,
           V = [],
@@ -1056,8 +1072,8 @@ object-assign
               (ServerTag.prototype.toHTML = function toHTML() {
                 var t = [
                   'type="text/css"',
-                  U + '="' + this.names.join(' ') + '"',
-                  q + '="' + (this.isLocal ? 'true' : 'false') + '"',
+                  q + '="' + this.names.join(' ') + '"',
+                  U + '="' + (this.isLocal ? 'true' : 'false') + '"',
                 ];
                 return (
                   void 0 !== e &&
@@ -1073,8 +1089,8 @@ object-assign
               (ServerTag.prototype.toReactElement = function toReactElement(t) {
                 var n,
                   r = ((n = {}),
-                  (n[U] = this.names.join(' ')),
-                  (n[q] = this.isLocal.toString()),
+                  (n[q] = this.names.join(' ')),
+                  (n[U] = this.isLocal.toString()),
                   n);
                 return (
                   void 0 !== e &&
@@ -2315,7 +2331,7 @@ object-assign
             );
           })(ge, me);
         t.default = be;
-      }.call(t, n(17), n(31));
+      }.call(t, n(18), n(31));
   },
   function(e, t) {
     var n;
@@ -2355,7 +2371,7 @@ object-assign
       );
     }
     var r = n(6),
-      o = n(25),
+      o = n(26),
       i = n(9),
       a = (n(3),
       [
@@ -2458,9 +2474,9 @@ object-assign
   },
   function(e, t, n) {
     var r = n(47),
-      o = n(583),
-      i = n(584),
-      a = n(585);
+      o = n(584),
+      i = n(585),
+      a = n(586);
     e.exports = function(e, t, n) {
       return null == e
         ? ''
@@ -2481,7 +2497,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(414);
+    var r = n(415);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -2566,8 +2582,8 @@ object-assign
     e.exports = s;
   },
   function(e, t, n) {
-    var r = n(325),
-      o = n(330);
+    var r = n(326),
+      o = n(331);
     e.exports = function getNative(e, t) {
       var n = o(e, t);
       return r(n) ? n : void 0;
@@ -2575,8 +2591,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(56),
-      o = n(326),
-      i = n(327),
+      o = n(327),
+      i = n(328),
       a = '[object Null]',
       s = '[object Undefined]',
       u = r ? r.toStringTag : void 0;
@@ -2585,22 +2601,6 @@ object-assign
         ? void 0 === e ? s : a
         : u && u in Object(e) ? o(e) : i(e);
     };
-  },
-  function(e, t, n) {
-    'use strict';
-    function _interopRequireDefault(e) {
-      return e && e.__esModule ? e : { default: e };
-    }
-    Object.defineProperty(t, '__esModule', { value: !0 }),
-      (t.Provider = void 0);
-    _interopRequireDefault(n(0));
-    var r = n(190),
-      o = _interopRequireDefault(r),
-      i = (_interopRequireDefault(n(16)),
-      { colors: { primary: '#133337', secondary: '#4ac9e2' } }),
-      a = new o.default('exampleTheme', i);
-    t.default = a;
-    t.Provider = (0, r.createThemeProvider)(a);
   },
   function(e, t, n) {
     'use strict';
@@ -2748,14 +2748,14 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(6),
-      o = n(113),
-      i = n(207),
-      a = n(212),
+      o = n(114),
+      i = n(208),
+      a = n(213),
       s = n(33),
-      u = n(213),
-      c = n(216),
-      l = n(217),
-      p = n(219),
+      u = n(214),
+      c = n(217),
+      l = n(218),
+      p = n(220),
       f = s.createElement,
       h = s.createFactory,
       d = s.cloneElement,
@@ -2795,9 +2795,9 @@ object-assign
       return void 0 !== e.key;
     }
     var r = n(6),
-      o = n(18),
-      i = (n(3), n(115), Object.prototype.hasOwnProperty),
-      a = n(116),
+      o = n(19),
+      i = (n(3), n(116), Object.prototype.hasOwnProperty),
+      a = n(117),
       s = { key: !0, ref: !0, __self: !0, __source: !0 },
       u = function(e, t, n, r, o, i, s) {
         var u = { $$typeof: a, type: e, key: t, ref: n, props: s, _owner: i };
@@ -2947,7 +2947,7 @@ object-assign
     function attachRefs() {
       r.attachRefs(this, this._currentElement);
     }
-    var r = n(239),
+    var r = n(240),
       o = (n(12),
       n(3),
       {
@@ -3006,10 +3006,10 @@ object-assign
         toString: toString,
       };
     }
-    var r = n(73),
+    var r = n(74),
       o = n(51),
-      i = n(74),
-      a = n(129),
+      i = n(75),
+      a = n(130),
       s =
         ('undefined' != typeof document &&
           'number' == typeof document.documentMode) ||
@@ -3040,8 +3040,8 @@ object-assign
       (e.exports = DOMLazyTree);
   },
   function(e, t, n) {
-    var r = n(86),
-      o = n(90);
+    var r = n(87),
+      o = n(91);
     e.exports = function isArrayLike(e) {
       return null != e && o(e.length) && !r(e);
     };
@@ -3121,9 +3121,9 @@ object-assign
         accumulateDispatches(e._targetInst, null, e);
     }
     var r = n(42),
-      o = n(67),
-      i = n(121),
-      a = n(122),
+      o = n(68),
+      i = n(122),
+      a = n(123),
       s = (n(3), r.getListener),
       u = {
         accumulateTwoPhaseDispatches: function accumulateTwoPhaseDispatches(e) {
@@ -3173,11 +3173,11 @@ object-assign
       }
     }
     var r = n(4),
-      o = n(66),
-      i = n(67),
-      a = n(68),
-      s = n(121),
-      u = n(122),
+      o = n(67),
+      i = n(68),
+      a = n(69),
+      s = n(122),
+      u = n(123),
       c = (n(2), {}),
       l = null,
       p = function(e, t) {
@@ -3268,8 +3268,8 @@ object-assign
     function SyntheticUIEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(19),
-      o = n(69),
+    var r = n(20),
+      o = n(70),
       i = {
         view: function(e) {
           if (e.view) return e.view;
@@ -3427,7 +3427,7 @@ object-assign
       return r.call(this, e, t, n, o);
     }
     var r = n(43),
-      o = n(128),
+      o = n(129),
       i = {
         screenX: null,
         screenY: null,
@@ -3437,7 +3437,7 @@ object-assign
         shiftKey: null,
         altKey: null,
         metaKey: null,
-        getModifierState: n(71),
+        getModifierState: n(72),
         button: function(e) {
           var t = e.button;
           return 'which' in e ? t : 2 === t ? 2 : 4 === t ? 1 : 0;
@@ -3462,10 +3462,10 @@ object-assign
     'use strict';
     var r,
       o = n(8),
-      i = n(73),
+      i = n(74),
       a = /^[ \r\n\t\f]/,
       s = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/,
-      u = n(74)(function(e, t) {
+      u = n(75)(function(e, t) {
         if (e.namespaceURI !== i.svg || 'innerHTML' in e) e.innerHTML = t;
         else {
           (r = r || document.createElement('div')).innerHTML =
@@ -3544,11 +3544,11 @@ object-assign
     }
     var r,
       o = n(6),
-      i = n(66),
-      a = n(260),
-      s = n(128),
-      u = n(261),
-      c = n(70),
+      i = n(67),
+      a = n(261),
+      s = n(129),
+      u = n(262),
+      c = n(71),
       l = {},
       p = !1,
       f = 0,
@@ -3732,11 +3732,11 @@ object-assign
         this.set(r[0], r[1]);
       }
     }
-    var r = n(315),
-      o = n(316),
-      i = n(317),
-      a = n(318),
-      s = n(319);
+    var r = n(316),
+      o = n(317),
+      i = n(318),
+      a = n(319),
+      s = n(320);
     (ListCache.prototype.clear = r),
       (ListCache.prototype.delete = o),
       (ListCache.prototype.get = i),
@@ -3756,18 +3756,18 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(26)(Object, 'create');
+    var r = n(27)(Object, 'create');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(339);
+    var r = n(340);
     e.exports = function getMapData(e, t) {
       var n = e.__data__;
       return r(t) ? n['string' == typeof t ? 'string' : 'hash'] : n.map;
     };
   },
   function(e, t, n) {
-    var r = n(148);
+    var r = n(149);
     e.exports = function baseAssignValue(e, t, n) {
       '__proto__' == t && r
         ? r(e, t, { configurable: !0, enumerable: !0, value: n, writable: !0 })
@@ -3836,10 +3836,10 @@ object-assign
           );
         };
       })(),
-      i = _interopRequireDefault(n(158)),
-      a = _interopRequireDefault(n(376)),
-      s = _interopRequireDefault(n(161)),
-      u = _interopRequireDefault(n(159)),
+      i = _interopRequireDefault(n(159)),
+      a = _interopRequireDefault(n(377)),
+      s = _interopRequireDefault(n(162)),
+      u = _interopRequireDefault(n(160)),
       c = (function() {
         function RuleList(e) {
           _classCallCheck(this, RuleList),
@@ -3958,8 +3958,8 @@ object-assign
     t.default = c;
   },
   function(e, t, n) {
-    var r = n(27),
-      o = n(22),
+    var r = n(28),
+      o = n(23),
       i = '[object Symbol]';
     e.exports = function isSymbol(e) {
       return 'symbol' == typeof e || (o(e) && r(e) == i);
@@ -4178,11 +4178,217 @@ object-assign
             s ? c + l : l
           );
         });
-      var r = n(545),
+      var r = n(546),
         o = n.n(r),
-        i = n(547),
+        i = n(548),
         a = new (n.n(i)).a();
-    }.call(t, n(17)));
+    }.call(t, n(18)));
+  },
+  function(e, t, n) {
+    'use strict';
+    function _interopRequireDefault(e) {
+      return e && e.__esModule ? e : { default: e };
+    }
+    function _classCallCheck(e, t) {
+      if (!(e instanceof t))
+        throw new TypeError('Cannot call a class as a function');
+    }
+    function _possibleConstructorReturn(e, t) {
+      if (!e)
+        throw new ReferenceError(
+          "this hasn't been initialised - super() hasn't been called",
+        );
+      return !t || ('object' != typeof t && 'function' != typeof t) ? e : t;
+    }
+    function _inherits(e, t) {
+      if ('function' != typeof t && null !== t)
+        throw new TypeError(
+          'Super expression must either be null or a function, not ' + typeof t,
+        );
+      (e.prototype = Object.create(t && t.prototype, {
+        constructor: {
+          value: e,
+          enumerable: !1,
+          writable: !0,
+          configurable: !0,
+        },
+      })),
+        t &&
+          (Object.setPrototypeOf
+            ? Object.setPrototypeOf(e, t)
+            : (e.__proto__ = t));
+    }
+    Object.defineProperty(t, '__esModule', { value: !0 });
+    var r = (function() {
+        function defineProperties(e, t) {
+          for (var n = 0; n < t.length; n++) {
+            var r = t[n];
+            (r.enumerable = r.enumerable || !1),
+              (r.configurable = !0),
+              'value' in r && (r.writable = !0),
+              Object.defineProperty(e, r.key, r);
+          }
+        }
+        return function(e, t, n) {
+          return (
+            t && defineProperties(e.prototype, t),
+            n && defineProperties(e, n),
+            e
+          );
+        };
+      })(),
+      o =
+        Object.assign ||
+        function(e) {
+          for (var t = 1; t < arguments.length; t++) {
+            var n = arguments[t];
+            for (var r in n)
+              Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+          }
+          return e;
+        },
+      i = _interopRequireDefault(n(0)),
+      a = _interopRequireDefault(n(1)),
+      s = { fontFamily: 'sans-serif', borderCollapse: 'collapse' },
+      u = { border: '1px solid #dddddd' },
+      c = {
+        borderRight: '1px solid #dddddd',
+        fontFamily: 'monospace',
+        padding: '8px 4px',
+      },
+      l = o({}, c, {
+        fontFamily: 'sans-serif',
+        background: '#f1f1f1',
+        fontWeight: 'normal',
+      }),
+      p = (function(e) {
+        function StyleRenderer() {
+          var e, t, n, r;
+          _classCallCheck(this, StyleRenderer);
+          for (var o = arguments.length, a = Array(o), s = 0; s < o; s++)
+            a[s] = arguments[s];
+          return (
+            (t = n = _possibleConstructorReturn(
+              this,
+              (e =
+                StyleRenderer.__proto__ ||
+                Object.getPrototypeOf(StyleRenderer)).call.apply(
+                e,
+                [this].concat(a),
+              ),
+            )),
+            (n.renderVariantHeaders = function() {
+              var e = n.props,
+                t = e.theme,
+                r = e.name,
+                o = t.compile()[t.namespace].components[r];
+              return Object.keys(o).map(function(e) {
+                return i.default.createElement(
+                  'th',
+                  { style: l, key: e },
+                  'Variant: ',
+                  i.default.createElement('i', null, e),
+                );
+              });
+            }),
+            (n.renderRows = function() {
+              var e = n.props,
+                t = e.theme,
+                r = e.name,
+                o = t.createSelector(r),
+                a = t.compile(),
+                s = a[t.namespace].components[r],
+                l = Object.keys(s),
+                p = s.default;
+              return Object.keys(p).map(function(e) {
+                return i.default.createElement(
+                  'tr',
+                  { key: e, style: u },
+                  i.default.createElement(
+                    'td',
+                    { style: c },
+                    i.default.createElement('b', null, e),
+                  ),
+                  l.map(function(t) {
+                    return i.default.createElement(
+                      'td',
+                      { key: t, style: c },
+                      o(e)({ theme: a, variant: [t] }),
+                    );
+                  }),
+                );
+              });
+            }),
+            (r = t),
+            _possibleConstructorReturn(n, r)
+          );
+        }
+        return (
+          _inherits(StyleRenderer, i.default.Component),
+          r(StyleRenderer, [
+            {
+              key: 'render',
+              value: function render() {
+                return i.default.createElement(
+                  'div',
+                  {
+                    style: { fontFamily: 'sans-serif' },
+                    className: 'studs-config-renderer',
+                  },
+                  i.default.createElement(
+                    'p',
+                    null,
+                    i.default.createElement('b', null, 'Configurable Values:'),
+                    ' These values can be modified using',
+                    ' ',
+                    i.default.createElement(
+                      'a',
+                      { href: 'https://www.npmjs.com/package/react-studs' },
+                      'react-studs',
+                    ),
+                    ' ',
+                    'See more',
+                    ' ',
+                    i.default.createElement(
+                      'a',
+                      {
+                        href:
+                          'https://www.npmjs.com/package/react-studs#user-customization',
+                      },
+                      'here.',
+                    ),
+                  ),
+                  i.default.createElement(
+                    'table',
+                    { style: s },
+                    i.default.createElement(
+                      'thead',
+                      null,
+                      i.default.createElement(
+                        'tr',
+                        { style: u },
+                        i.default.createElement(
+                          'th',
+                          { style: l },
+                          'Option Name',
+                        ),
+                        this.renderVariantHeaders(),
+                      ),
+                    ),
+                    i.default.createElement('tbody', null, this.renderRows()),
+                  ),
+                );
+              },
+            },
+          ]),
+          StyleRenderer
+        );
+      })();
+    (p.propTypes = {
+      theme: a.default.object.isRequired,
+      name: a.default.string.isRequired,
+    }),
+      (t.default = p);
   },
   function(e, t, n) {
     'use strict';
@@ -4289,7 +4495,7 @@ object-assign
     var r,
       o,
       i = n(4),
-      a = n(68),
+      a = n(69),
       s = (n(2),
       n(3),
       {
@@ -4494,10 +4700,10 @@ object-assign
       }
     }
     var r = n(36),
-      o = n(245),
-      i = (n(7), n(12), n(74)),
+      o = n(246),
+      i = (n(7), n(12), n(75)),
       a = n(51),
-      s = n(129),
+      s = n(130),
       u = i(function(e, t, n) {
         e.insertBefore(t, n);
       }),
@@ -4582,8 +4788,8 @@ object-assign
       return '';
     }
     var r = n(4),
-      o = n(263),
-      i = n(117)(n(32).isValidElement),
+      o = n(264),
+      i = n(118)(n(32).isValidElement),
       a = (n(2),
       n(3),
       {
@@ -4748,8 +4954,8 @@ object-assign
       return n;
     }
     var r = n(4),
-      o = (n(18), n(44)),
-      i = (n(12), n(13)),
+      o = (n(19), n(44)),
+      i = (n(12), n(14)),
       a = (n(2),
       n(3),
       {
@@ -4834,11 +5040,11 @@ object-assign
       n.d(t, 'a', function() {
         return c;
       });
-    var r = n(308),
-      o = n(404),
-      i = n(539),
-      a = n(549),
-      s = n(551),
+    var r = n(309),
+      o = n(405),
+      i = n(540),
+      a = n(550),
+      s = n(552),
       u = 'rsg-code-editor',
       c = 'rsg-usage',
       l = [i.a];
@@ -4858,11 +5064,11 @@ object-assign
       this.size = t.size;
     }
     var r = n(54),
-      o = n(320),
-      i = n(321),
-      a = n(322),
-      s = n(323),
-      u = n(324);
+      o = n(321),
+      i = n(322),
+      a = n(323),
+      s = n(324),
+      u = n(325);
     (Stack.prototype.clear = o),
       (Stack.prototype.delete = i),
       (Stack.prototype.get = a),
@@ -4871,12 +5077,12 @@ object-assign
       (e.exports = Stack);
   },
   function(e, t, n) {
-    var r = n(26)(n(10), 'Map');
+    var r = n(27)(n(10), 'Map');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(27),
-      o = n(14),
+    var r = n(28),
+      o = n(15),
       i = '[object AsyncFunction]',
       a = '[object Function]',
       s = '[object GeneratorFunction]',
@@ -4896,11 +5102,11 @@ object-assign
         this.set(r[0], r[1]);
       }
     }
-    var r = n(331),
-      o = n(338),
-      i = n(340),
-      a = n(341),
-      s = n(342);
+    var r = n(332),
+      o = n(339),
+      i = n(341),
+      a = n(342),
+      s = n(343);
     (MapCache.prototype.clear = r),
       (MapCache.prototype.delete = o),
       (MapCache.prototype.get = i),
@@ -4916,8 +5122,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(351),
-      o = n(22),
+    var r = n(352),
+      o = n(23),
       i = Object.prototype,
       a = i.hasOwnProperty,
       s = i.propertyIsEnumerable,
@@ -4941,7 +5147,7 @@ object-assign
   function(e, t, n) {
     (function(e) {
       var r = n(10),
-        o = n(353),
+        o = n(354),
         i = 'object' == typeof t && t && !t.nodeType && t,
         a = i && 'object' == typeof e && e && !e.nodeType && e,
         s = a && a.exports === i ? r.Buffer : void 0,
@@ -4950,9 +5156,9 @@ object-assign
     }.call(t, n(60)(e)));
   },
   function(e, t, n) {
-    var r = n(355),
-      o = n(356),
-      i = n(357),
+    var r = n(356),
+      o = n(357),
+      i = n(358),
       a = i && i.isTypedArray,
       s = a ? o(a) : r;
     e.exports = s;
@@ -4977,20 +5183,20 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(156),
-      o = (n.n(r), n(391)),
+    var r = n(157),
+      o = (n.n(r), n(392)),
       i = n.n(o),
-      a = n(392),
+      a = n(393),
       s = n.n(a),
-      u = n(394),
+      u = n(395),
       c = n.n(u),
-      l = n(395),
+      l = n(396),
       p = n.n(l),
-      f = n(396),
+      f = n(397),
       h = n.n(f),
-      d = n(398),
+      d = n(399),
       m = n.n(d),
-      g = n(399),
+      g = n(400),
       y =
         Object.assign ||
         function(e) {
@@ -5072,14 +5278,14 @@ object-assign
       });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(160));
+    })(n(161));
   },
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(157));
+    })(n(158));
     t.default = new r.default();
   },
   function(e, t, n) {
@@ -5103,7 +5309,7 @@ object-assign
         x,
         L,
         M,
-        U,
+        q,
         z,
         W,
         V,
@@ -5134,10 +5340,10 @@ object-assign
         me = [];
       for (
         Y = now(),
-          U = re
+          q = re
             ? function parseError(e, t) {
                 var n = now();
-                (n.column += t), (n.offset += t), re.call(ae, q[e], n, e);
+                (n.column += t), (n.offset += t), re.call(ae, U[e], n, e);
               }
             : p,
           le--,
@@ -5172,7 +5378,7 @@ object-assign
               n = w,
               V = w,
               s = w,
-              G = T[$],
+              G = R[$],
               Q--;
             ++Q < ce && ((M = at(Q)), G(M));
 
@@ -5185,29 +5391,29 @@ object-assign
               (s
                 ? $ === k
                   ? (a && !V
-                      ? U(I, 1)
+                      ? q(I, 1)
                       : (n !== s &&
                           ((J = 1 + (Q = H + n.length) - H), (a = !1)),
                         a ||
-                          ((z = n ? R : j),
+                          ((z = n ? T : j),
                           t.attribute
                             ? (M = at(Q)) === _
-                              ? (U(z, J), (V = null))
-                              : u(M) ? (V = null) : U(z, J)
-                            : U(z, J))),
+                              ? (q(z, J), (V = null))
+                              : u(M) ? (V = null) : q(z, J)
+                            : q(z, J))),
                     (L = V))
-                  : (a || U(P, J),
+                  : (a || q(P, J),
                     isProhibited((L = parseInt(s, O[$])))
-                      ? (U(N, J), (L = f))
+                      ? (q(N, J), (L = f))
                       : L in i
-                        ? (U(B, J), (L = i[L]))
+                        ? (q(B, J), (L = i[L]))
                         : ((W = w),
-                          isWarning(L) && U(B, J),
+                          isWarning(L) && q(B, J),
                           L > 65535 &&
                             ((W += l(((L -= 65536) >>> 10) | 55296)),
                             (L = 56320 | (1023 & L))),
                           (L = W + l(L))))
-                : $ !== k && U(F, J)),
+                : $ !== k && q(F, J)),
             L
               ? (flush(),
                 (Y = now()),
@@ -5238,12 +5444,12 @@ object-assign
         65534 == (65535 & e)
       );
     }
-    var r = n(436),
-      o = n(437),
-      i = n(438),
+    var r = n(437),
+      o = n(438),
+      i = n(439),
       a = n(63),
-      s = n(439),
-      u = n(440);
+      s = n(440),
+      u = n(441);
     e.exports = function wrapper(e, t) {
       var n,
         r,
@@ -5290,9 +5496,9 @@ object-assign
       D = 'decimal',
       O = {};
     (O[S] = 16), (O[D] = 10);
-    var T = {};
-    (T[k] = u), (T[D] = a), (T[S] = s);
-    var R = 1,
+    var R = {};
+    (R[k] = u), (R[D] = a), (R[S] = s);
+    var T = 1,
       P = 2,
       j = 3,
       F = 4,
@@ -5301,15 +5507,15 @@ object-assign
       N = 7,
       L = 'Numeric character references',
       M = ' must be terminated by a semicolon',
-      U = ' cannot be empty',
-      q = {};
-    (q[R] = 'Named character references' + M),
-      (q[P] = L + M),
-      (q[j] = 'Named character references' + U),
-      (q[F] = L + U),
-      (q[I] = 'Named character references must be known'),
-      (q[B] = L + ' cannot be disallowed'),
-      (q[N] = L + ' cannot be outside the permissible Unicode range');
+      q = ' cannot be empty',
+      U = {};
+    (U[T] = 'Named character references' + M),
+      (U[P] = L + M),
+      (U[j] = 'Named character references' + q),
+      (U[F] = L + q),
+      (U[I] = 'Named character references must be known'),
+      (U[B] = L + ' cannot be disallowed'),
+      (U[N] = L + ' cannot be outside the permissible Unicode range');
   },
   function(e, t, n) {
     'use strict' /*!
@@ -5368,21 +5574,21 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(459);
+    var r = n(460);
     e.exports = function normalize(e) {
       return r(e).toLowerCase();
     };
   },
   function(e, t, n) {
-    var r = n(154),
-      o = n(484),
+    var r = n(155),
+      o = n(485),
       i = n(37);
     e.exports = function keys(e) {
       return i(e) ? r(e) : o(e);
     };
   },
   function(e, t, n) {
-    var r = n(15),
+    var r = n(16),
       o = n(62),
       i = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
       a = /^\w*$/;
@@ -5405,20 +5611,13 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(523);
+    var r = n(524);
     n.d(t, 'a', function() {
       return r.a;
     }),
       n.d(t, 'b', function() {
         return r.b;
       });
-  },
-  function(e, t, n) {
-    'use strict';
-    var r = n(526);
-    n.d(t, 'a', function() {
-      return r.a;
-    });
   },
   function(e, t, n) {
     'use strict';
@@ -5429,7 +5628,14 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(529);
+    var r = n(528);
+    n.d(t, 'a', function() {
+      return r.a;
+    });
+  },
+  function(e, t, n) {
+    'use strict';
+    var r = n(530);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -5458,7 +5664,7 @@ object-assign
           return e;
         },
       o = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(541)),
+      i = _interopRequireDefault(n(542)),
       a = function IconBase(e, t) {
         var n = e.children,
           i = e.color,
@@ -5632,13 +5838,14 @@ object-assign
             VariantWrapper
           );
         })()),
+        (t.WrappedComponent = e),
         (t.contextTypes = _defineProperty({}, s, u)),
         n
       );
     };
   },
   function(e, t, n) {
-    var r = n(24);
+    var r = n(25);
     e.exports = function(e, t) {
       return null == e
         ? ''
@@ -5647,7 +5854,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(599);
+    var r = n(600);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -5669,9 +5876,9 @@ object-assign
     function ComponentDummy() {}
     var r = n(40),
       o = n(6),
-      i = n(114),
-      a = (n(115), n(48));
-    n(2), n(206);
+      i = n(115),
+      a = (n(116), n(48));
+    n(2), n(207);
     (ReactComponent.prototype.isReactComponent = {}),
       (ReactComponent.prototype.setState = function(e, t) {
         'object' != typeof e && 'function' != typeof e && null != e && r('85'),
@@ -5728,7 +5935,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(214);
+    var r = n(215);
     e.exports = function(e) {
       return r(e, !1);
     };
@@ -5739,7 +5946,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    e.exports = n(231);
+    e.exports = n(232);
   },
   function(e, t, n) {
     'use strict';
@@ -5790,7 +5997,7 @@ object-assign
         throw new TypeError('Cannot call a class as a function');
     }
     var r = n(4),
-      o = n(25),
+      o = n(26),
       i = (n(2),
       (function() {
         function CallbackQueue(e) {
@@ -6100,7 +6307,7 @@ object-assign
       );
     }
     var r = n(34),
-      o = (n(7), n(12), n(259)),
+      o = (n(7), n(12), n(260)),
       i = (n(3),
       new RegExp(
         '^[' +
@@ -6222,9 +6429,9 @@ object-assign
       );
     }
     var r = n(6),
-      o = n(75),
+      o = n(76),
       i = n(7),
-      a = n(13),
+      a = n(14),
       s = (n(3), !1),
       u = {
         getHostProps: function(e, t) {
@@ -6306,10 +6513,10 @@ object-assign
     }
     var r = n(4),
       o = n(6),
-      i = n(268),
-      a = n(136),
-      s = n(137),
-      u = (n(269),
+      i = n(269),
+      a = n(137),
+      s = n(138),
+      u = (n(270),
       n(2),
       n(3),
       function(e) {
@@ -6447,9 +6654,9 @@ object-assign
       return f;
     }
     var r = n(4),
-      o = (n(18), n(270)),
-      i = n(271),
-      a = (n(2), n(79)),
+      o = (n(19), n(271)),
+      i = n(272),
+      a = (n(2), n(80)),
       s = (n(3), '.'),
       u = ':';
     e.exports = function traverseAllChildren(e, t, n) {
@@ -6526,7 +6733,7 @@ object-assign
       u,
       c,
       l = n(40),
-      p = n(18);
+      p = n(19);
     n(2), n(3);
     if (
       'function' == typeof Array.from &&
@@ -6784,10 +6991,10 @@ object-assign
     function isInDocument(e) {
       return o(document.documentElement, e);
     }
-    var r = n(283),
-      o = n(285),
-      i = n(130),
-      a = n(142),
+    var r = n(284),
+      o = n(286),
+      i = n(131),
+      a = n(143),
       s = {
         hasSelectionCapabilities: function(e) {
           var t = e && e.nodeName && e.nodeName.toLowerCase();
@@ -6936,19 +7143,19 @@ object-assign
       i = n(34),
       a = n(32),
       s = n(53),
-      u = (n(18), n(7)),
-      c = n(300),
-      l = n(301),
-      p = n(125),
+      u = (n(19), n(7)),
+      c = n(301),
+      l = n(302),
+      p = n(126),
       f = n(44),
-      h = (n(12), n(302)),
+      h = (n(12), n(303)),
       d = n(35),
-      m = n(80),
-      g = n(13),
+      m = n(81),
+      g = n(14),
       y = n(48),
-      v = n(134),
+      v = n(135),
       b = (n(2), n(51)),
-      E = n(78),
+      E = n(79),
       C = (n(3), i.ID_ATTRIBUTE_NAME),
       _ = i.ROOT_ATTRIBUTE_NAME,
       w = 1,
@@ -7080,7 +7287,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(135);
+    var r = n(136);
     e.exports = function getHostComponentFromComposite(e) {
       for (var t; (t = e._renderedNodeType) === r.COMPOSITE; )
         e = e._renderedComponent;
@@ -7093,7 +7300,7 @@ object-assign
     (function(t) {
       var n = 'object' == typeof t && t && t.Object === Object && t;
       e.exports = n;
-    }.call(t, n(17)));
+    }.call(t, n(18)));
   },
   function(e, t) {
     var n = Function.prototype.toString;
@@ -7117,7 +7324,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(26),
+    var r = n(27),
       o = (function() {
         try {
           var e = r(Object, 'defineProperty');
@@ -7127,7 +7334,7 @@ object-assign
     e.exports = o;
   },
   function(e, t, n) {
-    var r = n(343)();
+    var r = n(344)();
     e.exports = r;
   },
   function(e, t, n) {
@@ -7135,7 +7342,7 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(152)(Object.getPrototypeOf, Object);
+    var r = n(153)(Object.getPrototypeOf, Object);
     e.exports = r;
   },
   function(e, t) {
@@ -7146,20 +7353,20 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(154),
-      o = n(362),
+    var r = n(155),
+      o = n(363),
       i = n(37);
     e.exports = function keysIn(e) {
       return i(e) ? r(e, !0) : o(e);
     };
   },
   function(e, t, n) {
-    var r = n(361),
-      o = n(89),
-      i = n(15),
-      a = n(91),
-      s = n(93),
-      u = n(92),
+    var r = n(362),
+      o = n(90),
+      i = n(16),
+      a = n(92),
+      s = n(94),
+      u = n(93),
       c = Object.prototype.hasOwnProperty;
     e.exports = function arrayLikeKeys(e, t) {
       var n = i(e),
@@ -7195,7 +7402,7 @@ object-assign
       };
       return (n.cache = new (memoize.Cache || r)()), n;
     }
-    var r = n(87),
+    var r = n(88),
       o = 'Expected a function';
     (memoize.Cache = r), (e.exports = memoize);
   },
@@ -7206,21 +7413,21 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
       (t.create = t.sheets = t.RuleList = t.SheetsManager = t.SheetsRegistry = t.getDynamicStyles = void 0);
-    var r = n(373);
+    var r = n(374);
     Object.defineProperty(t, 'getDynamicStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(r).default;
       },
     });
-    var o = n(157);
+    var o = n(158);
     Object.defineProperty(t, 'SheetsRegistry', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(o).default;
       },
     });
-    var i = n(374);
+    var i = n(375);
     Object.defineProperty(t, 'SheetsManager', {
       enumerable: !0,
       get: function get() {
@@ -7234,14 +7441,14 @@ object-assign
         return _interopRequireDefault(a).default;
       },
     });
-    var s = n(97);
+    var s = n(98);
     Object.defineProperty(t, 'sheets', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(s).default;
       },
     });
-    var u = _interopRequireDefault(n(377)),
+    var u = _interopRequireDefault(n(378)),
       c = (t.create = function create(e) {
         return new u.default(e);
       });
@@ -7353,8 +7560,8 @@ object-assign
         );
       });
     var r = _interopRequireDefault(n(38)),
-      o = _interopRequireDefault(n(159)),
-      i = _interopRequireDefault(n(375));
+      o = _interopRequireDefault(n(160)),
+      i = _interopRequireDefault(n(376));
   },
   function(e, t, n) {
     'use strict';
@@ -7397,8 +7604,8 @@ object-assign
           );
         };
       })(),
-      i = _interopRequireDefault(n(96)),
-      a = _interopRequireDefault(n(160)),
+      i = _interopRequireDefault(n(97)),
+      a = _interopRequireDefault(n(161)),
       s = (function() {
         function StyleRule(e, t, n) {
           _classCallCheck(this, StyleRule),
@@ -8073,9 +8280,9 @@ object-assign
  * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
  * @license  MIT
  */
-      var r = n(409),
-        o = n(410),
-        i = n(411);
+      var r = n(410),
+        o = n(411),
+        i = n(412);
       (t.Buffer = Buffer),
         (t.SlowBuffer = function SlowBuffer(e) {
           return +e != e && (e = 0), Buffer.alloc(+e);
@@ -8692,18 +8899,18 @@ object-assign
           return this;
         });
       var s = /[^+\/0-9A-Za-z-_]/g;
-    }.call(t, n(17)));
+    }.call(t, n(18)));
   },
   function(e, t, n) {
     'use strict';
-    var r = n(412);
+    var r = n(413);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(413);
+    var r = n(414);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -8844,7 +9051,7 @@ object-assign
       commonmark: !1,
       footnotes: !1,
       pedantic: !1,
-      blocks: n(444),
+      blocks: n(445),
     };
   },
   function(e, t, n) {
@@ -8888,18 +9095,18 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(149),
-      o = n(103);
+    var r = n(150),
+      o = n(104);
     e.exports = function baseForOwn(e, t) {
       return e && r(e, t, o);
     };
   },
   function(e, t, n) {
-    var r = n(486),
-      o = n(510),
-      i = n(94),
-      a = n(15),
-      s = n(519);
+    var r = n(487),
+      o = n(511),
+      i = n(95),
+      a = n(16),
+      s = n(520);
     e.exports = function baseIteratee(e) {
       return 'function' == typeof e
         ? e
@@ -8917,14 +9124,14 @@ object-assign
           : r(e, t, n, i, baseIsEqual, a))
       );
     }
-    var r = n(488),
-      o = n(22);
+    var r = n(489),
+      o = n(23);
     e.exports = baseIsEqual;
   },
   function(e, t, n) {
-    var r = n(489),
-      o = n(492),
-      i = n(493),
+    var r = n(490),
+      o = n(493),
+      i = n(494),
       a = 1,
       s = 2;
     e.exports = function equalArrays(e, t, n, u, c, l) {
@@ -8964,7 +9171,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(14);
+    var r = n(15);
     e.exports = function isStrictComparable(e) {
       return e === e && !r(e);
     };
@@ -8977,7 +9184,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(180),
+    var r = n(181),
       o = n(64);
     e.exports = function baseGet(e, t) {
       for (var n = 0, i = (t = r(t, e)).length; null != e && n < i; )
@@ -8986,10 +9193,10 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(15),
-      o = n(104),
-      i = n(512),
-      a = n(514);
+    var r = n(16),
+      o = n(105),
+      i = n(513),
+      a = n(515);
     e.exports = function castPath(e, t) {
       return r(e) ? e : o(e, t) ? [e] : i(a(e));
     };
@@ -9003,7 +9210,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(522);
+    var r = n(523);
     n.d(t, 'a', function() {
       return r.a;
     }),
@@ -9013,51 +9220,51 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(528);
+    var r = n(529);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
-    var r = n(181),
-      o = n(174),
-      i = n(530),
-      a = n(15);
+    var r = n(182),
+      o = n(175),
+      i = n(531),
+      a = n(16);
     e.exports = function map(e, t) {
       return (a(e) ? r : i)(e, o(t, 3));
     };
   },
   function(e, t, n) {
     'use strict';
-    var r = n(535);
+    var r = n(536);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(544);
+    var r = n(545);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(550);
+    var r = n(551);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(562);
+    var r = n(563);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(565);
+    var r = n(566);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -9068,15 +9275,15 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
-      (t.spreadStyles = t.createThemeProvider = t.asVariant = t.VariantProvider = t.connectVariants = void 0);
-    var r = n(110);
+      (t.StyleRenderer = t.spreadStyles = t.createThemeProvider = t.asVariant = t.VariantProvider = t.connectVariants = void 0);
+    var r = n(111);
     Object.defineProperty(t, 'connectVariants', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(r).default;
       },
     });
-    var o = n(191);
+    var o = n(192);
     Object.defineProperty(t, 'VariantProvider', {
       enumerable: !0,
       get: function get() {
@@ -9089,22 +9296,29 @@ object-assign
           return o.asVariant;
         },
       });
-    var i = n(578);
+    var i = n(579);
     Object.defineProperty(t, 'createThemeProvider', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(i).default;
       },
     });
-    var a = n(579);
+    var a = n(580);
     Object.defineProperty(t, 'spreadStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(a).default;
       },
     });
-    var s = _interopRequireDefault(n(598));
-    t.default = s.default;
+    var s = n(66);
+    Object.defineProperty(t, 'StyleRenderer', {
+      enumerable: !0,
+      get: function get() {
+        return _interopRequireDefault(s).default;
+      },
+    });
+    var u = _interopRequireDefault(n(599));
+    t.default = u.default;
   },
   function(e, t, n) {
     'use strict';
@@ -9182,8 +9396,8 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       i = _interopRequireDefault(n(1)),
-      a = n(110),
-      s = _interopRequireDefault(n(192)),
+      a = n(111),
+      s = _interopRequireDefault(n(193)),
       u = (function(e) {
         function VariantProvider() {
           var e, t, n, r;
@@ -9369,7 +9583,7 @@ object-assign
           return e.split('');
         }
         function asciiWords(e) {
-          return e.match(qe) || [];
+          return e.match(Ue) || [];
         }
         function baseFindKey(e, t, n) {
           var r;
@@ -9576,8 +9790,8 @@ object-assign
           S = 30,
           D = '...',
           O = 800,
-          T = 16,
-          R = 1,
+          R = 16,
+          T = 1,
           P = 2,
           j = 1 / 0,
           F = 9007199254740991,
@@ -9586,7 +9800,7 @@ object-assign
           N = 4294967295,
           L = N - 1,
           M = N >>> 1,
-          U = [
+          q = [
             ['ary', A],
             ['bind', y],
             ['bindKey', v],
@@ -9597,7 +9811,7 @@ object-assign
             ['partialRight', w],
             ['rearg', x],
           ],
-          q = '[object Arguments]',
+          U = '[object Arguments]',
           z = '[object Array]',
           W = '[object AsyncFunction]',
           V = '[object Boolean]',
@@ -9640,8 +9854,8 @@ object-assign
           Se = /<%([\s\S]+?)%>/g,
           De = /<%=([\s\S]+?)%>/g,
           Oe = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
-          Te = /^\w*$/,
-          Re = /^\./,
+          Re = /^\w*$/,
+          Te = /^\./,
           Pe = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
           je = /[\\^$.*+?()[\]{}|]/g,
           Fe = RegExp(je.source),
@@ -9650,8 +9864,8 @@ object-assign
           Ne = /\s+$/,
           Le = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,
           Me = /\{\n\/\* \[wrapped with (.+)\] \*/,
-          Ue = /,? & /,
-          qe = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g,
+          qe = /,? & /,
+          Ue = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g,
           ze = /\\(\\)?/g,
           We = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
           Ve = /\w*$/,
@@ -9761,11 +9975,11 @@ object-assign
         (_t[le] = _t[pe] = _t[fe] = _t[he] = _t[de] = _t[me] = _t[ge] = _t[
           ye
         ] = _t[ve] = !0),
-          (_t[q] = _t[z] = _t[ue] = _t[V] = _t[ce] = _t[H] = _t[$] = _t[G] = _t[
+          (_t[U] = _t[z] = _t[ue] = _t[V] = _t[ce] = _t[H] = _t[$] = _t[G] = _t[
             X
           ] = _t[J] = _t[Z] = _t[te] = _t[ne] = _t[re] = _t[ae] = !1);
         var wt = {};
-        (wt[q] = wt[z] = wt[ue] = wt[ce] = wt[V] = wt[H] = wt[le] = wt[pe] = wt[
+        (wt[U] = wt[z] = wt[ue] = wt[ce] = wt[V] = wt[H] = wt[le] = wt[pe] = wt[
           fe
         ] = wt[he] = wt[de] = wt[X] = wt[J] = wt[Z] = wt[te] = wt[ne] = wt[
           re
@@ -9987,14 +10201,14 @@ object-assign
           },
           Dt = parseFloat,
           Ot = parseInt,
-          Tt = 'object' == typeof e && e && e.Object === Object && e,
-          Rt =
+          Rt = 'object' == typeof e && e && e.Object === Object && e,
+          Tt =
             'object' == typeof self && self && self.Object === Object && self,
-          Pt = Tt || Rt || Function('return this')(),
+          Pt = Rt || Tt || Function('return this')(),
           jt = 'object' == typeof t && t && !t.nodeType && t,
           Ft = jt && 'object' == typeof r && r && !r.nodeType && r,
           It = Ft && Ft.exports === jt,
-          Bt = It && Tt.process,
+          Bt = It && Rt.process,
           Nt = (function() {
             try {
               return Bt && Bt.binding && Bt.binding('util');
@@ -10002,8 +10216,8 @@ object-assign
           })(),
           Lt = Nt && Nt.isArrayBuffer,
           Mt = Nt && Nt.isDate,
-          Ut = Nt && Nt.isMap,
-          qt = Nt && Nt.isRegExp,
+          qt = Nt && Nt.isMap,
+          Ut = Nt && Nt.isRegExp,
           zt = Nt && Nt.isSet,
           Wt = Nt && Nt.isTypedArray,
           Vt = baseProperty('length'),
@@ -10071,7 +10285,7 @@ object-assign
             function arrayLikeKeys(e, t) {
               var n = Or(e),
                 r = !n && Dr(e),
-                o = !n && !r && Rr(e),
+                o = !n && !r && Tr(e),
                 i = !n && !r && !o && Br(e),
                 a = n || r || o || i,
                 s = a ? baseTimes(e.length, tt) : [],
@@ -10162,8 +10376,8 @@ object-assign
               } else {
                 var m = Mn(e),
                   g = m == G || m == Y;
-                if (Rr(e)) return cloneBuffer(e, u);
-                if (m == Z || m == q || (g && !o)) {
+                if (Tr(e)) return cloneBuffer(e, u);
+                if (m == Z || m == U || (g && !o)) {
                   if (((s = c || g ? {} : initCloneObject(e)), !u))
                     return c
                       ? copySymbolsIn(e, baseAssignIn(s, e))
@@ -10288,7 +10502,7 @@ object-assign
               return e && On(e, t, keys);
             }
             function baseForOwnRight(e, t) {
-              return e && Tn(e, t, keys);
+              return e && Rn(e, t, keys);
             }
             function baseFunctions(e, t) {
               return arrayFilter(t, function(t) {
@@ -10380,7 +10594,7 @@ object-assign
               return null == r ? i : apply(r, e, n);
             }
             function baseIsArguments(e) {
-              return isObjectLike(e) && baseGetTag(e) == q;
+              return isObjectLike(e) && baseGetTag(e) == U;
             }
             function baseIsEqual(e, t, n, r, o) {
               return (
@@ -10397,11 +10611,11 @@ object-assign
                 s = Or(t),
                 u = a ? z : Mn(e),
                 c = s ? z : Mn(t),
-                l = (u = u == q ? Z : u) == Z,
-                p = (c = c == q ? Z : c) == Z,
+                l = (u = u == U ? Z : u) == Z,
+                p = (c = c == U ? Z : c) == Z,
                 f = u == c;
-              if (f && Rr(e)) {
-                if (!Rr(t)) return !1;
+              if (f && Tr(e)) {
+                if (!Tr(t)) return !1;
                 (a = !0), (l = !1);
               }
               if (f && !l)
@@ -10535,7 +10749,7 @@ object-assign
                   f = p === i;
                 if (f) {
                   var h = Or(c),
-                    d = !h && Rr(c),
+                    d = !h && Tr(c),
                     m = !h && !d && Br(c);
                   (p = c),
                     h || d || m
@@ -10621,7 +10835,7 @@ object-assign
                   (u = o(s, l, u, r)) > -1;
 
                 )
-                  s !== e && Tt.call(s, u, 1), Tt.call(e, u, 1);
+                  s !== e && Rt.call(s, u, 1), Rt.call(e, u, 1);
               return e;
             }
             function basePullAt(e, t) {
@@ -10629,7 +10843,7 @@ object-assign
                 var o = t[n];
                 if (n == r || o !== i) {
                   var i = o;
-                  isIndex(o) ? Tt.call(e, o, 1) : baseUnset(e, o);
+                  isIndex(o) ? Rt.call(e, o, 1) : baseUnset(e, o);
                 }
               }
               return e;
@@ -11322,13 +11536,13 @@ object-assign
               var g = [e, t, o, d, f, m, h, u, c, l],
                 C = n.apply(i, g);
               return (
-                isLaziable(e) && qn(C, g),
+                isLaziable(e) && Un(C, g),
                 (C.placeholder = r),
                 setWrapToString(C, e, t)
               );
             }
             function createRound(e) {
-              var t = qe[e];
+              var t = Ue[e];
               return function(e, n) {
                 if (
                   ((e = toNumber(e)),
@@ -11391,7 +11605,7 @@ object-assign
                       ? createHybrid.apply(i, m)
                       : createPartial(e, t, n, r);
               else var g = createBind(e, t, n);
-              return setWrapToString((d ? Rn : qn)(g, m), e, t);
+              return setWrapToString((d ? Tn : Un)(g, m), e, t);
             }
             function customDefaultsAssignIn(e, t, n, r) {
               return e === i || (eq(e, it[n]) && !ut.call(r, n)) ? t : e;
@@ -11605,7 +11819,7 @@ object-assign
             }
             function getWrapDetails(e) {
               var t = e.match(Me);
-              return t ? t[1].split(Ue) : [];
+              return t ? t[1].split(qe) : [];
             }
             function hasPath(e, t, n) {
               for (
@@ -11684,7 +11898,7 @@ object-assign
               );
             }
             function isFlattenable(e) {
-              return Or(e) || Dr(e) || !!(Rt && e && e[Rt]);
+              return Or(e) || Dr(e) || !!(Tt && e && e[Tt]);
             }
             function isIndex(e, t) {
               return (
@@ -11715,7 +11929,7 @@ object-assign
                   null != e &&
                   !isSymbol(e)
                 ) ||
-                Te.test(e) ||
+                Re.test(e) ||
                 !Oe.test(e) ||
                 (null != t && e in Ze(t))
               );
@@ -11836,7 +12050,7 @@ object-assign
                 n = 0;
               return function() {
                 var r = an(),
-                  o = T - (r - n);
+                  o = R - (r - n);
                 if (((n = r), o > 0)) {
                   if (++t >= O) return arguments[0];
                 } else t = 0;
@@ -11872,7 +12086,7 @@ object-assign
             }
             function updateWrapDetails(e, t) {
               return (
-                arrayEach(U, function(n) {
+                arrayEach(q, function(n) {
                   var r = '_.' + n[0];
                   t & n[1] && !arrayIncludes(e, r) && e.push(r);
                 }),
@@ -12298,7 +12512,7 @@ object-assign
               n = e.Date,
               r = e.Error,
               o = e.Function,
-              qe = e.Math,
+              Ue = e.Math,
               Ze = e.Object,
               et = e.RegExp,
               tt = e.String,
@@ -12337,8 +12551,8 @@ object-assign
               xt = overArg(Ze.getPrototypeOf, Ze),
               kt = Ze.create,
               St = it.propertyIsEnumerable,
-              Tt = rt.splice,
-              Rt = vt ? vt.isConcatSpreadable : i,
+              Rt = rt.splice,
+              Tt = vt ? vt.isConcatSpreadable : i,
               jt = vt ? vt.iterator : i,
               Ft = vt ? vt.toStringTag : i,
               Bt = (function() {
@@ -12350,18 +12564,18 @@ object-assign
               Nt = e.clearTimeout !== Pt.clearTimeout && e.clearTimeout,
               Vt = n && n.now !== Pt.Date.now && n.now,
               Yt = e.setTimeout !== Pt.setTimeout && e.setTimeout,
-              Xt = qe.ceil,
-              Jt = qe.floor,
+              Xt = Ue.ceil,
+              Jt = Ue.floor,
               Qt = Ze.getOwnPropertySymbols,
               Zt = yt ? yt.isBuffer : i,
               en = e.isFinite,
               tn = rt.join,
               nn = overArg(Ze.keys, Ze),
-              rn = qe.max,
-              on = qe.min,
+              rn = Ue.max,
+              on = Ue.min,
               an = n.now,
               sn = e.parseInt,
-              un = qe.random,
+              un = Ue.random,
               cn = rt.reverse,
               ln = getNative(e, 'DataView'),
               pn = getNative(e, 'Map'),
@@ -12437,7 +12651,7 @@ object-assign
                   n = assocIndexOf(t, e);
                 return !(
                   n < 0 ||
-                  (n == t.length - 1 ? t.pop() : Tt.call(t, n, 1),
+                  (n == t.length - 1 ? t.pop() : Rt.call(t, n, 1),
                   --this.size,
                   0)
                 );
@@ -12515,8 +12729,8 @@ object-assign
             var Sn = createBaseEach(baseForOwn),
               Dn = createBaseEach(baseForOwnRight, !0),
               On = createBaseFor(),
-              Tn = createBaseFor(!0),
-              Rn = gn
+              Rn = createBaseFor(!0),
+              Tn = gn
                 ? function(e, t) {
                     return gn.set(e, t), e;
                   }
@@ -12589,8 +12803,8 @@ object-assign
                   }
                 return t;
               });
-            var Un = at ? isFunction : stubFalse,
-              qn = shortOut(Rn),
+            var qn = at ? isFunction : stubFalse,
+              Un = shortOut(Tn),
               zn =
                 Yt ||
                 function(e, t) {
@@ -12606,7 +12820,7 @@ object-assign
               })(function(e) {
                 var t = [];
                 return (
-                  Re.test(e) && t.push(''),
+                  Te.test(e) && t.push(''),
                   e.replace(Pe, function(e, n, r, o) {
                     t.push(r ? o.replace(ze, '$1') : n || e);
                   }),
@@ -12859,24 +13073,24 @@ object-assign
                     );
                   },
               Or = t.isArray,
-              Tr = Lt
+              Rr = Lt
                 ? baseUnary(Lt)
                 : function baseIsArrayBuffer(e) {
                     return isObjectLike(e) && baseGetTag(e) == ue;
                   },
-              Rr = Zt || stubFalse,
+              Tr = Zt || stubFalse,
               Pr = Mt
                 ? baseUnary(Mt)
                 : function baseIsDate(e) {
                     return isObjectLike(e) && baseGetTag(e) == H;
                   },
-              jr = Ut
-                ? baseUnary(Ut)
+              jr = qt
+                ? baseUnary(qt)
                 : function baseIsMap(e) {
                     return isObjectLike(e) && Mn(e) == X;
                   },
-              Fr = qt
-                ? baseUnary(qt)
+              Fr = Ut
+                ? baseUnary(Ut)
                 : function baseIsRegExp(e) {
                     return isObjectLike(e) && baseGetTag(e) == te;
                   },
@@ -12902,10 +13116,10 @@ object-assign
                 if (isPrototype(t) || isArrayLike(t)) copyObject(t, keys(t), e);
                 else for (var n in t) ut.call(t, n) && assignValue(e, n, t[n]);
               }),
-              Ur = createAssigner(function(e, t) {
+              qr = createAssigner(function(e, t) {
                 copyObject(t, keysIn(t), e);
               }),
-              qr = createAssigner(function(e, t, n, r) {
+              Ur = createAssigner(function(e, t, n, r) {
                 copyObject(t, keysIn(t), e, r);
               }),
               zr = createAssigner(function(e, t, n, r) {
@@ -12913,7 +13127,7 @@ object-assign
               }),
               Wr = flatRest(baseAt),
               Vr = baseRest(function(e) {
-                return e.push(i, customDefaultsAssignIn), apply(qr, i, e);
+                return e.push(i, customDefaultsAssignIn), apply(Ur, i, e);
               }),
               Hr = baseRest(function(e) {
                 return e.push(i, customDefaultsMerge), apply(Xr, i, e);
@@ -13027,8 +13241,8 @@ object-assign
               }),
               (lodash.ary = ary),
               (lodash.assign = Mr),
-              (lodash.assignIn = Ur),
-              (lodash.assignInWith = qr),
+              (lodash.assignIn = qr),
+              (lodash.assignInWith = Ur),
               (lodash.assignWith = zr),
               (lodash.at = Wr),
               (lodash.before = before),
@@ -13427,7 +13641,7 @@ object-assign
               (lodash.toPlainObject = toPlainObject),
               (lodash.transform = function transform(e, t, n) {
                 var r = Or(e),
-                  o = r || Rr(e) || Br(e);
+                  o = r || Tr(e) || Br(e);
                 if (((t = getIteratee(t, 4)), null == n)) {
                   var i = e && e.constructor;
                   n = o
@@ -13495,8 +13709,8 @@ object-assign
               (lodash.zipWith = sr),
               (lodash.entries = Zr),
               (lodash.entriesIn = eo),
-              (lodash.extend = Ur),
-              (lodash.extendWith = qr),
+              (lodash.extend = qr),
+              (lodash.extendWith = Ur),
               mixin(lodash, lodash),
               (lodash.add = Co),
               (lodash.attempt = co),
@@ -13572,7 +13786,7 @@ object-assign
                 return null == e ? e : On(e, getIteratee(t, 3), keysIn);
               }),
               (lodash.forInRight = function forInRight(e, t) {
-                return null == e ? e : Tn(e, getIteratee(t, 3), keysIn);
+                return null == e ? e : Rn(e, getIteratee(t, 3), keysIn);
               }),
               (lodash.forOwn = function forOwn(e, t) {
                 return e && baseForOwn(e, getIteratee(t, 3));
@@ -13617,7 +13831,7 @@ object-assign
               (lodash.invoke = Gr),
               (lodash.isArguments = Dr),
               (lodash.isArray = Or),
-              (lodash.isArrayBuffer = Tr),
+              (lodash.isArrayBuffer = Rr),
               (lodash.isArrayLike = isArrayLike),
               (lodash.isArrayLikeObject = isArrayLikeObject),
               (lodash.isBoolean = function isBoolean(e) {
@@ -13627,7 +13841,7 @@ object-assign
                   (isObjectLike(e) && baseGetTag(e) == V)
                 );
               }),
-              (lodash.isBuffer = Rr),
+              (lodash.isBuffer = Tr),
               (lodash.isDate = Pr),
               (lodash.isElement = function isElement(e) {
                 return isObjectLike(e) && 1 === e.nodeType && !isPlainObject(e);
@@ -13639,7 +13853,7 @@ object-assign
                   (Or(e) ||
                     'string' == typeof e ||
                     'function' == typeof e.splice ||
-                    Rr(e) ||
+                    Tr(e) ||
                     Br(e) ||
                     Dr(e))
                 )
@@ -13678,7 +13892,7 @@ object-assign
                 return isNumber(e) && e != +e;
               }),
               (lodash.isNative = function isNative(e) {
-                if (Un(e)) throw new r(s);
+                if (qn(e)) throw new r(s);
                 return baseIsNative(e);
               }),
               (lodash.isNil = function isNil(e) {
@@ -13922,10 +14136,10 @@ object-assign
                 var r = lodash.templateSettings;
                 n && isIterateeCall(e, t, n) && (t = i),
                   (e = toString(e)),
-                  (t = qr({}, t, r, customDefaultsAssignIn));
+                  (t = Ur({}, t, r, customDefaultsAssignIn));
                 var a,
                   s,
-                  u = qr({}, t.imports, r.imports, customDefaultsAssignIn),
+                  u = Ur({}, t.imports, r.imports, customDefaultsAssignIn),
                   c = keys(u),
                   l = baseValues(u, c),
                   p = 0,
@@ -14141,7 +14355,7 @@ object-assign
               }),
               arrayEach(['filter', 'map', 'takeWhile'], function(e, t) {
                 var n = t + 1,
-                  r = n == R || 3 == n;
+                  r = n == T || 3 == n;
                 LazyWrapper.prototype[e] = function(e) {
                   var t = this.clone();
                   return (
@@ -14320,7 +14534,7 @@ object-assign
                       E = v(g);
                     if (b == P) g = E;
                     else if (!E) {
-                      if (b == R) continue e;
+                      if (b == T) continue e;
                       break e;
                     }
                   }
@@ -14387,11 +14601,11 @@ object-assign
             return Gt;
           }.call(t, n, t, r)) !== i && (r.exports = o);
       }.call(this));
-    }.call(t, n(17), n(60)(e)));
+    }.call(t, n(18), n(60)(e)));
   },
   function(e, t, n) {
-    var r = n(24),
-      o = n(21);
+    var r = n(25),
+      o = n(22);
     e.exports = function(e, t, n) {
       var i = o(e, t);
       return (
@@ -14403,14 +14617,14 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(21);
+    var r = n(22);
     e.exports = function(e, t) {
       return r(e, t, '_');
     };
   },
   function(e, t, n) {
     'use strict';
-    var r = n(606);
+    var r = n(607);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -14459,8 +14673,8 @@ object-assign
         ],
       ),
       o = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(16)),
-      a = _interopRequireDefault(n(28)),
+      i = _interopRequireDefault(n(17)),
+      a = _interopRequireDefault(n(13)),
       s = a.default
         .register('Anchor', function(e) {
           return { color: e.colors.primary, fontWeight: 'bold' };
@@ -14498,9 +14712,9 @@ object-assign
         );
       })(['', ';'], ['', ';']),
       o = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(16)),
-      a = _interopRequireDefault(n(28)),
-      s = n(190),
+      i = _interopRequireDefault(n(17)),
+      a = _interopRequireDefault(n(13)),
+      s = n(191),
       u = a.default
         .register('Button', function(e) {
           return {
@@ -14513,13 +14727,13 @@ object-assign
         })
         .addVariant('small', { fontSize: '11px', padding: '2px 4px' })
         .createSelector(),
-      c = a.default.connect(i.default.button(r, (0, s.spreadStyles)(u)));
-    (t.Button = function Button(e) {
-      var t = e.children,
-        n = _objectWithoutProperties(e, ['children']);
-      return o.default.createElement(c, n, t);
-    }),
-      (t.default = c);
+      c = a.default.connect(i.default.button(r, (0, s.spreadStyles)(u))),
+      l = function Button(e) {
+        var t = e.children,
+          n = _objectWithoutProperties(e, ['children']);
+        return o.default.createElement(c, n, t);
+      };
+    (t.Button = l), (c.Small = a.default.variant('small')(l)), (t.default = c);
   },
   function(e, t) {
     function cssWithMappingToString(e, t) {
@@ -14746,7 +14960,7 @@ object-assign
       a = null,
       s = 0,
       u = [],
-      c = n(403);
+      c = n(404);
     e.exports = function(e, t) {
       if ('undefined' != typeof DEBUG && DEBUG && 'object' != typeof document)
         throw new Error(
@@ -14783,9 +14997,9 @@ object-assign
     })();
   },
   function(e, t, n) {
-    var r = n(14),
-      o = n(401),
-      i = n(402),
+    var r = n(15),
+      o = n(402),
+      i = n(403),
       a = 'Expected a function',
       s = Math.max,
       u = Math.min;
@@ -14855,7 +15069,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    n(16), (e.exports = n(223));
+    n(17), n(66), (e.exports = n(224));
   },
   function(e, t, n) {
     'use strict';
@@ -14869,7 +15083,7 @@ object-assign
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
  */
-    var r = n(204);
+    var r = n(205);
     e.exports = function isPlainObject(e) {
       var t, n;
       return (
@@ -14949,7 +15163,7 @@ object-assign
             }
             if (1 === be)
               switch (y) {
-                case T:
+                case R:
                 case V:
                   be = 0;
                   break;
@@ -14962,14 +15176,14 @@ object-assign
                   de--, (y = D);
               }
             switch (y) {
-              case T:
+              case R:
                 for (
                   f = (Ie = Ie.trim()).charCodeAt(0), C = 1, _e = ++de;
                   de < Pe;
 
                 ) {
                   switch ((y = o.charCodeAt(de))) {
-                    case T:
+                    case R:
                       C++;
                       break;
                     case O:
@@ -15046,7 +15260,7 @@ object-assign
                   (_e = Ie.length) > 1)
                 )
                   switch ((0 === z &&
-                    ((f = Ie.charCodeAt(0)) === q || (f > 96 && f < 123)) &&
+                    ((f = Ie.charCodeAt(0)) === U || (f > 96 && f < 123)) &&
                     (_e = (Ie = Ie.replace(' ', ':')).length),
                   Ee > 0 &&
                     void 0 !==
@@ -15089,11 +15303,11 @@ object-assign
                   case W:
                   case X:
                   case G:
-                  case q:
+                  case U:
                   case H:
                   case V:
                   case D:
-                  case T:
+                  case R:
                   case O:
                     break;
                   default:
@@ -15135,7 +15349,7 @@ object-assign
                 case ee:
                   Fe = '\\v';
                   break;
-                case U:
+                case q:
                   p + c + u === 0 &&
                     fe > 0 &&
                     ((Ce = 1), (me = 1), (Fe = '\f' + Fe));
@@ -15170,7 +15384,7 @@ object-assign
                 case P:
                   p + c + u === 0 && (de === je && (je++, Pe++), l--);
                   break;
-                case R:
+                case T:
                   if (p + c + u === 0) {
                     if (0 === _)
                       switch (2 * v + 3 * b) {
@@ -15210,7 +15424,7 @@ object-assign
                     case Y:
                     case X:
                     case P:
-                    case R:
+                    case T:
                       if (0 === _) {
                         switch (v) {
                           case N:
@@ -15225,7 +15439,7 @@ object-assign
                         me = 1;
                       } else
                         switch (y) {
-                          case R:
+                          case T:
                             _ = ++C;
                             break;
                           case P:
@@ -15235,7 +15449,7 @@ object-assign
                     case M:
                       switch (v) {
                         case Q:
-                        case T:
+                        case R:
                         case O:
                         case D:
                         case V:
@@ -15260,7 +15474,7 @@ object-assign
             0 === _e &&
             0 === Le.length &&
             (0 === r[0].length) == !1 &&
-            (i !== ne || (1 === r.length && (fe > 0 ? Te : Re) === r[0])) &&
+            (i !== ne || (1 === r.length && (fe > 0 ? Re : Te) === r[0])) &&
             (_e = r.join(',').length + 2),
           _e > 0)
         ) {
@@ -15310,7 +15524,7 @@ object-assign
         var o = t,
           i = o.charCodeAt(0);
         switch ((i < 33 && (i = (o = o.trim()).charCodeAt(0)), i)) {
-          case U:
+          case q:
             switch (fe + r) {
               case 0:
               case 1:
@@ -15323,7 +15537,7 @@ object-assign
             switch (o.charCodeAt(1)) {
               case 103:
                 if (de > 0 && fe > 0)
-                  return o.replace(p, '$1').replace(l, '$1' + Re);
+                  return o.replace(p, '$1').replace(l, '$1' + Te);
                 break;
               default:
                 return e.trim() + o;
@@ -15362,7 +15576,7 @@ object-assign
               c = x + c + k + c + S + c + c;
               break;
             case 883:
-              c.charCodeAt(8) === q && (c = x + c + c);
+              c.charCodeAt(8) === U && (c = x + c + c);
               break;
             case 932:
               c = x + c + S + c + c;
@@ -15404,7 +15618,7 @@ object-assign
               c += ';';
               break;
             case 938:
-              if (c.charCodeAt(5) === q)
+              if (c.charCodeAt(5) === U)
                 switch (c.charCodeAt(6)) {
                   case 105:
                     (s = c.replace('-items', '')),
@@ -15433,7 +15647,7 @@ object-assign
                 (c = 'width:' + x + s + 'width:' + k + s + 'width:' + s));
               break;
             case 1015:
-              if (e.charCodeAt(9) !== q) break;
+              if (e.charCodeAt(9) !== U) break;
             case 962:
               (c = x + c + (102 === c.charCodeAt(5) ? S + c : '') + c),
                 n + a === 211 &&
@@ -15476,7 +15690,7 @@ object-assign
           r = e.substring(0, n).trim(),
           o = e.substring(n, t - 1).trim(),
           i = '';
-        if (e.charCodeAt(9) !== q)
+        if (e.charCodeAt(9) !== U)
           for (
             var u = o.split(a), c = 0, n = 0, t = u.length;
             c < t;
@@ -15489,7 +15703,7 @@ object-assign
                 ((f > L && f < 90) ||
                   (f > 96 && f < 123) ||
                   f === z ||
-                  (f === q && l.charCodeAt(1) !== q))
+                  (f === U && l.charCodeAt(1) !== U))
               )
                 switch (isNaN(parseFloat(l)) + (-1 !== l.indexOf('('))) {
                   case 1:
@@ -15553,23 +15767,23 @@ object-assign
                   case Y:
                   case X:
                   case M:
-                  case R:
+                  case T:
                     break;
                   default:
                     t = ' ';
                 }
               switch (h) {
-                case U:
-                  r = t + Te;
+                case q:
+                  r = t + Re;
                 case J:
                 case Y:
                 case X:
                 case M:
                 case P:
-                case R:
+                case T:
                   break;
                 case j:
-                  r = t + r + Te;
+                  r = t + r + Re;
                   break;
                 case H:
                   switch (2 * r.charCodeAt(1) + 3 * r.charCodeAt(2)) {
@@ -15579,7 +15793,7 @@ object-assign
                         break;
                       }
                     default:
-                      (l < 1 || s[l - 1].length < 1) && (r = t + Te + r);
+                      (l < 1 || s[l - 1].length < 1) && (r = t + Re + r);
                   }
                   break;
                 case V:
@@ -15587,8 +15801,8 @@ object-assign
                 default:
                   r =
                     p > 1 && r.indexOf(':') > 0
-                      ? t + r.replace(E, '$1' + Te + '$2')
-                      : t + r + Te;
+                      ? t + r.replace(E, '$1' + Re + '$2')
+                      : t + r + Re;
               }
               c += r;
             }
@@ -15681,9 +15895,9 @@ object-assign
         r < 33 && (r = (n = n.trim()).charCodeAt(0)),
           De > 0 && (Oe = n.replace(f, r === j ? '' : '-')),
           (r = 1),
-          1 === fe ? (Re = n) : (Te = n);
+          1 === fe ? (Te = n) : (Re = n);
         var o,
-          i = [Re];
+          i = [Te];
         Ee > 0 &&
           void 0 !== (o = proxy(_e, t, i, i, le, ce, 0, 0)) &&
           'string' == typeof o &&
@@ -15695,8 +15909,8 @@ object-assign
             'string' != typeof (a = o) &&
             (r = 0),
           (Oe = ''),
-          (Re = ''),
           (Te = ''),
+          (Re = ''),
           (pe = 0),
           (le = 1),
           (ce = 1),
@@ -15732,8 +15946,8 @@ object-assign
         S = '-ms-',
         D = 59,
         O = 125,
-        T = 123,
-        R = 40,
+        R = 123,
+        T = 40,
         P = 41,
         j = 91,
         F = 93,
@@ -15742,8 +15956,8 @@ object-assign
         N = 9,
         L = 64,
         M = 32,
-        U = 38,
-        q = 45,
+        q = 38,
+        U = 45,
         z = 95,
         W = 42,
         V = 44,
@@ -15786,8 +16000,8 @@ object-assign
         Se = 0,
         De = 1,
         Oe = '',
-        Te = '',
-        Re = '';
+        Re = '',
+        Te = '';
       return (
         (stylis.use = use), (stylis.set = set), void 0 !== e && set(e), stylis
       );
@@ -15847,10 +16061,10 @@ object-assign
     function forEachSingleChildDummy(e, t, n) {
       return null;
     }
-    var r = n(208),
+    var r = n(209),
       o = n(33),
       i = n(9),
-      a = n(209),
+      a = n(210),
       s = r.twoArgumentPooler,
       u = r.fourArgumentPooler,
       c = /\/+/g;
@@ -16015,9 +16229,9 @@ object-assign
       return f;
     }
     var r = n(40),
-      o = (n(18), n(116)),
-      i = n(210),
-      a = (n(2), n(211)),
+      o = (n(19), n(117)),
+      i = n(211),
+      a = (n(2), n(212)),
       s = (n(3), '.'),
       u = ':';
     e.exports = function traverseAllChildren(e, t, n) {
@@ -16201,7 +16415,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(33).isValidElement,
-      o = n(117);
+      o = n(118);
     e.exports = o(r);
   },
   function(e, t, n) {
@@ -16209,8 +16423,8 @@ object-assign
     var r = n(9),
       o = n(2),
       i = n(3),
-      a = n(118),
-      s = n(215);
+      a = n(119),
+      s = n(216);
     e.exports = function(e, t) {
       function getIteratorFn(e) {
         var t = e && ((n && e[n]) || e[u]);
@@ -16561,10 +16775,10 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(113).Component,
+    var r = n(114).Component,
       o = n(33).isValidElement,
-      i = n(114),
-      a = n(218);
+      i = n(115),
+      a = n(219);
     e.exports = a(r, o, i);
   },
   function(e, t, n) {
@@ -16813,7 +17027,7 @@ object-assign
     'use strict';
     var r = n(9),
       o = n(2),
-      i = n(118);
+      i = n(119);
     e.exports = function() {
       function shim(e, t, n, r, a, s) {
         s !== i &&
@@ -16899,7 +17113,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     function renderStyleguide() {
-      var e = n(620),
+      var e = n(621),
         t = Object(p.h)(e.sections),
         r = Object(p.f)(),
         i = r.targetName,
@@ -16941,24 +17155,24 @@ object-assign
         );
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    n(224);
+    n(225);
     var r = n(0),
       o = n.n(r),
-      i = n(119),
+      i = n(120),
       a = n.n(i),
-      s = n(307),
+      s = n(308),
       u = n.n(s),
-      c = n(83),
-      l = n(552),
+      c = n(84),
+      l = n(553),
       p = n(65),
-      f = (n(618), 0);
+      f = (n(619), 0);
     window.addEventListener('hashchange', renderStyleguide), renderStyleguide();
   },
   function(e, t, n) {
     'use strict';
-    var r = n(225),
-      o = (n.n(r), n(226)),
-      i = (n.n(o), n(228));
+    var r = n(226),
+      o = (n.n(r), n(227)),
+      i = (n.n(o), n(229));
     n.n(i);
   },
   function(e, t) {
@@ -17040,7 +17254,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    n(227).polyfill();
+    n(228).polyfill();
   },
   function(e, t, n) {
     'use strict';
@@ -17077,7 +17291,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    e.exports = n(229).polyfill();
+    e.exports = n(230).polyfill();
   },
   function(e, t, n) {
     (function(t, r) {
@@ -17402,7 +17616,7 @@ object-assign
               : void 0 === c
                 ? (function attemptVertx() {
                     try {
-                      var e = n(230);
+                      var e = n(231);
                       return (
                         (a = e.runOnLoop || e.runOnContext), useVertxTimer()
                       );
@@ -17527,20 +17741,20 @@ object-assign
           Promise$2
         );
       });
-    }.call(t, n(31), n(17)));
+    }.call(t, n(31), n(18)));
   },
   function(e, t) {},
   function(e, t, n) {
     'use strict';
     var r = n(7),
-      o = n(232),
-      i = n(143),
+      o = n(233),
+      i = n(144),
       a = n(35),
-      s = n(13),
-      u = n(304),
-      c = n(305),
-      l = n(144),
-      p = n(306);
+      s = n(14),
+      u = n(305),
+      c = n(306),
+      l = n(145),
+      p = n(307);
     n(3);
     o.inject();
     var f = {
@@ -17570,25 +17784,25 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(233),
-      o = n(234),
-      i = n(238),
-      a = n(241),
-      s = n(242),
-      u = n(243),
-      c = n(244),
-      l = n(250),
+    var r = n(234),
+      o = n(235),
+      i = n(239),
+      a = n(242),
+      s = n(243),
+      u = n(244),
+      c = n(245),
+      l = n(251),
       p = n(7),
-      f = n(275),
-      h = n(276),
-      d = n(277),
-      m = n(278),
-      g = n(279),
-      y = n(281),
-      v = n(282),
-      b = n(288),
-      E = n(289),
-      C = n(290),
+      f = n(276),
+      h = n(277),
+      d = n(278),
+      m = n(279),
+      g = n(280),
+      y = n(282),
+      v = n(283),
+      b = n(289),
+      E = n(290),
+      C = n(291),
       _ = !1;
     e.exports = {
       inject: function inject() {
@@ -17786,9 +18000,9 @@ object-assign
     }
     var r = n(41),
       o = n(8),
-      i = n(235),
-      a = n(236),
-      s = n(237),
+      i = n(236),
+      a = n(237),
+      s = n(238),
       u = [9, 13, 27, 32],
       c = 229,
       l = o.canUseDOM && 'CompositionEvent' in window,
@@ -17886,8 +18100,8 @@ object-assign
         (this._fallbackText = null);
     }
     var r = n(6),
-      o = n(25),
-      i = n(123);
+      o = n(26),
+      i = n(124);
     r(FallbackCompositionState.prototype, {
       destructor: function() {
         (this._root = null),
@@ -17920,7 +18134,7 @@ object-assign
     function SyntheticCompositionEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(19),
+    var r = n(20),
       o = { data: null };
     r.augmentClass(SyntheticCompositionEvent, o),
       (e.exports = SyntheticCompositionEvent);
@@ -17930,7 +18144,7 @@ object-assign
     function SyntheticInputEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(19),
+    var r = n(20),
       o = { data: null };
     r.augmentClass(SyntheticInputEvent, o), (e.exports = SyntheticInputEvent);
   },
@@ -18025,12 +18239,12 @@ object-assign
       o = n(41),
       i = n(8),
       a = n(7),
-      s = n(13),
-      u = n(19),
-      c = n(126),
-      l = n(69),
-      p = n(70),
-      f = n(127),
+      s = n(14),
+      u = n(20),
+      c = n(127),
+      l = n(70),
+      p = n(71),
+      f = n(128),
       h = {
         change: {
           phasedRegistrationNames: {
@@ -18099,7 +18313,7 @@ object-assign
     function detachRef(e, t, n) {
       'function' == typeof e ? e(null) : r.removeComponentAsRefFrom(t, e, n);
     }
-    var r = n(240),
+    var r = n(241),
       o = {};
     (o.attachRefs = function(e, t) {
       if (null !== t && 'object' == typeof t) {
@@ -18394,9 +18608,9 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(72),
+    var r = n(73),
       o = {
-        processChildrenUpdates: n(249).dangerouslyProcessChildrenUpdates,
+        processChildrenUpdates: n(250).dangerouslyProcessChildrenUpdates,
         replaceNodeWithMarkup: r.dangerouslyReplaceNodeWithMarkup,
       };
     e.exports = o;
@@ -18406,7 +18620,7 @@ object-assign
     var r = n(4),
       o = n(36),
       i = n(8),
-      a = n(246),
+      a = n(247),
       s = n(9),
       u = (n(2),
       {
@@ -18431,8 +18645,8 @@ object-assign
       return t && t[1].toLowerCase();
     }
     var r = n(8),
-      o = n(247),
-      i = n(248),
+      o = n(248),
+      i = n(249),
       a = n(2),
       s = r.canUseDOM ? document.createElement('div') : null,
       u = /^\s*<(\w+)/;
@@ -18550,7 +18764,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(72),
+    var r = n(73),
       o = n(7),
       i = {
         dangerouslyProcessChildrenUpdates: function(e, t) {
@@ -18588,7 +18802,7 @@ object-assign
         null != t.dangerouslySetInnerHTML &&
           (null != t.children && r('60'),
           ('object' == typeof t.dangerouslySetInnerHTML &&
-            T in t.dangerouslySetInnerHTML) ||
+            R in t.dangerouslySetInnerHTML) ||
             r('61')),
         null != t.style &&
           'object' != typeof t.style &&
@@ -18699,33 +18913,33 @@ object-assign
     }
     var r = n(4),
       o = n(6),
-      i = n(251),
-      a = n(252),
+      i = n(252),
+      a = n(253),
       s = n(36),
-      u = n(73),
+      u = n(74),
       c = n(34),
-      l = n(132),
+      l = n(133),
       p = n(42),
-      f = n(66),
+      f = n(67),
       h = n(53),
-      d = n(120),
+      d = n(121),
       m = n(7),
-      g = n(262),
-      y = n(264),
-      v = n(133),
-      b = n(265),
-      E = (n(12), n(266)),
-      C = n(273),
+      g = n(263),
+      y = n(265),
+      v = n(134),
+      b = n(266),
+      E = (n(12), n(267)),
+      C = n(274),
       _ = (n(9), n(52)),
-      w = (n(2), n(70), n(77), n(126)),
-      A = (n(81), n(3), d),
+      w = (n(2), n(71), n(78), n(127)),
+      A = (n(82), n(3), d),
       x = p.deleteListener,
       k = m.getNodeFromInstance,
       S = h.listenTo,
       D = f.registrationNameModules,
       O = { string: !0, number: !0 },
-      T = '__html',
-      R = {
+      R = '__html',
+      T = {
         children: null,
         dangerouslySetInnerHTML: null,
         suppressContentEditableWarning: null,
@@ -18778,11 +18992,11 @@ object-assign
       N = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/,
       L = {},
       M = {}.hasOwnProperty,
-      U = 1;
+      q = 1;
     (ReactDOMComponent.displayName = 'ReactDOMComponent'),
       (ReactDOMComponent.Mixin = {
         mountComponent: function(e, t, n, r) {
-          (this._rootNodeID = U++),
+          (this._rootNodeID = q++),
             (this._domID = n._idCounter++),
             (this._hostParent = t),
             (this._hostContainerInfo = n);
@@ -18894,7 +19108,7 @@ object-assign
                     (i = a.createMarkupForStyles(i, this)));
                   var s = null;
                   null != this._tag && isCustomComponent(this._tag, t)
-                    ? R.hasOwnProperty(r) ||
+                    ? T.hasOwnProperty(r) ||
                       (s = l.createMarkupForCustomAttribute(r, i))
                     : (s = l.createMarkupForProperty(r, i)),
                     s && (n += ' ' + s);
@@ -18980,7 +19194,7 @@ object-assign
                 D.hasOwnProperty(r)
                   ? e[r] && x(this, r)
                   : isCustomComponent(this._tag, e)
-                    ? R.hasOwnProperty(r) ||
+                    ? T.hasOwnProperty(r) ||
                       l.deleteValueForAttribute(k(this), r)
                     : (c.properties[r] || c.isCustomAttribute(r)) &&
                       l.deleteValueForProperty(k(this), r);
@@ -19010,7 +19224,7 @@ object-assign
               else if (D.hasOwnProperty(r))
                 p ? enqueuePutListener(this, r, p, n) : f && x(this, r);
               else if (isCustomComponent(this._tag, t))
-                R.hasOwnProperty(r) || l.setValueForAttribute(k(this), r, p);
+                T.hasOwnProperty(r) || l.setValueForAttribute(k(this), r, p);
               else if (c.properties[r] || c.isCustomAttribute(r)) {
                 var h = k(this);
                 null != p
@@ -19080,7 +19294,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(7),
-      o = n(130),
+      o = n(131),
       i = {
         focusDOMComponent: function() {
           o(r.getNodeFromInstance(this));
@@ -19090,11 +19304,11 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(131),
+    var r = n(132),
       o = n(8),
-      i = (n(12), n(253), n(255)),
-      a = n(256),
-      s = n(258),
+      i = (n(12), n(254), n(256)),
+      a = n(257),
+      s = n(259),
       u = (n(3),
       s(function(e) {
         return a(e);
@@ -19142,7 +19356,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(254),
+    var r = n(255),
       o = /^-ms-/;
     e.exports = function camelizeStyleName(e) {
       return r(e.replace(o, 'ms-'));
@@ -19159,7 +19373,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(131),
+    var r = n(132),
       o = (n(3), r.isUnitlessNumber);
     e.exports = function dangerousStyleValue(e, t, n, r) {
       if (null == t || 'boolean' == typeof t || '' === t) return '';
@@ -19171,7 +19385,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(257),
+    var r = n(258),
       o = /^ms-/;
     e.exports = function hyphenateStyleName(e) {
       return r(e).replace(o, '-ms-');
@@ -19288,10 +19502,10 @@ object-assign
     }
     var r = n(4),
       o = n(6),
-      i = n(132),
-      a = n(75),
+      i = n(133),
+      a = n(76),
       s = n(7),
-      u = n(13),
+      u = n(14),
       c = (n(2),
       n(3),
       {
@@ -19391,7 +19605,7 @@ object-assign
     var r = n(6),
       o = n(32),
       i = n(7),
-      a = n(133),
+      a = n(134),
       s = (n(3), !1),
       u = {
         mountWrapper: function(e, t, n) {
@@ -19448,9 +19662,9 @@ object-assign
     }
     var r = n(4),
       o = n(6),
-      i = n(75),
+      i = n(76),
       a = n(7),
-      s = n(13),
+      s = n(14),
       u = (n(2),
       n(3),
       {
@@ -19562,10 +19776,10 @@ object-assign
       o.processChildrenUpdates(e, t);
     }
     var r = n(4),
-      o = n(76),
-      i = (n(44), n(12), n(18), n(35)),
-      a = n(267),
-      s = (n(9), n(272)),
+      o = n(77),
+      i = (n(44), n(12), n(19), n(35)),
+      a = n(268),
+      s = (n(9), n(273)),
       u = (n(2),
       {
         Mixin: {
@@ -19694,9 +19908,9 @@ object-assign
         null != t && i && (e[n] = o(t, !0));
       }
       var r = n(35),
-        o = n(134),
-        i = (n(79), n(78)),
-        a = n(138);
+        o = n(135),
+        i = (n(80), n(79)),
+        a = n(139);
       n(3);
       void 0 !== t && Object({ NODE_ENV: 'production' });
       var s = {
@@ -19754,15 +19968,15 @@ object-assign
     var r = n(4),
       o = n(6),
       i = n(32),
-      a = n(76),
-      s = n(18),
-      u = n(68),
+      a = n(77),
+      s = n(19),
+      u = n(69),
       c = n(44),
-      l = (n(12), n(135)),
+      l = (n(12), n(136)),
       p = n(35),
       f = n(48),
-      h = (n(2), n(77)),
-      d = n(78),
+      h = (n(2), n(78)),
+      d = n(79),
       m = (n(3), { ImpureClass: 0, PureClass: 1, StatelessFunctional: 2 });
     StatelessComponent.prototype.render = function() {
       var e = c.get(this)._currentElement.type,
@@ -20134,8 +20348,8 @@ object-assign
           i && null != t && (o[n] = t);
         }
       }
-      n(79);
-      var r = n(138);
+      n(80);
+      var r = n(139);
       n(3);
       void 0 !== t && Object({ NODE_ENV: 'production' }),
         (e.exports = function flattenChildren(e, t) {
@@ -20154,9 +20368,9 @@ object-assign
         (this.updateQueue = new a(this));
     }
     var r = n(6),
-      o = n(25),
+      o = n(26),
       i = n(49),
-      a = (n(12), n(274)),
+      a = (n(12), n(275)),
       s = [],
       u = { enqueue: function() {} },
       c = {
@@ -20184,7 +20398,7 @@ object-assign
         throw new TypeError('Cannot call a class as a function');
     }
     function warnNoop(e, t) {}
-    var r = n(80),
+    var r = n(81),
       o = (n(3),
       (function() {
         function ReactServerUpdateQueue(e) {
@@ -20317,12 +20531,12 @@ object-assign
     'use strict';
     var r = n(4),
       o = n(6),
-      i = n(72),
+      i = n(73),
       a = n(36),
       s = n(7),
       u = n(52),
       c = (n(2),
-      n(81),
+      n(82),
       function(e) {
         (this._currentElement = e),
           (this._stringText = '' + e),
@@ -20402,7 +20616,7 @@ object-assign
       this.reinitializeTransaction();
     }
     var r = n(6),
-      o = n(13),
+      o = n(14),
       i = n(49),
       a = n(9),
       s = {
@@ -20455,13 +20669,13 @@ object-assign
       e(l(window));
     }
     var r = n(6),
-      o = n(140),
+      o = n(141),
       i = n(8),
-      a = n(25),
+      a = n(26),
       s = n(7),
-      u = n(13),
-      c = n(69),
-      l = n(280);
+      u = n(14),
+      c = n(70),
+      l = n(281);
     r(TopLevelCallbackBookKeeping.prototype, {
       destructor: function() {
         (this.topLevelType = null),
@@ -20521,12 +20735,12 @@ object-assign
     'use strict';
     var r = n(34),
       o = n(42),
-      i = n(67),
-      a = n(76),
-      s = n(136),
+      i = n(68),
+      a = n(77),
+      s = n(137),
       u = n(53),
-      c = n(137),
-      l = n(13),
+      c = n(138),
+      l = n(14),
       p = {
         Component: a.injection,
         DOMProperty: r.injection,
@@ -20548,12 +20762,12 @@ object-assign
         (this.useCreateElement = e);
     }
     var r = n(6),
-      o = n(124),
-      i = n(25),
+      o = n(125),
+      i = n(26),
       a = n(53),
-      s = n(141),
+      s = n(142),
       u = (n(12), n(49)),
-      c = n(80),
+      c = n(81),
       l = [
         { initialize: s.getSelectionInformation, close: s.restoreSelection },
         {
@@ -20604,8 +20818,8 @@ object-assign
       return e === n && t === r;
     }
     var r = n(8),
-      o = n(284),
-      i = n(123),
+      o = n(285),
+      i = n(124),
       a = r.canUseDOM && 'selection' in document && !('getSelection' in window),
       s = {
         getOffsets: a
@@ -20734,12 +20948,12 @@ object-assign
                   !!(16 & e.compareDocumentPosition(t)))))
       );
     }
-    var r = n(286);
+    var r = n(287);
     e.exports = containsNode;
   },
   function(e, t, n) {
     'use strict';
-    var r = n(287);
+    var r = n(288);
     e.exports = function isTextNode(e) {
       return r(e) && 3 == e.nodeType;
     };
@@ -21068,11 +21282,11 @@ object-assign
     var r = n(41),
       o = n(8),
       i = n(7),
-      a = n(141),
-      s = n(19),
-      u = n(142),
-      c = n(127),
-      l = n(77),
+      a = n(142),
+      s = n(20),
+      u = n(143),
+      c = n(128),
+      l = n(78),
       p =
         o.canUseDOM &&
         'documentMode' in document &&
@@ -21144,22 +21358,22 @@ object-assign
       );
     }
     var r = n(4),
-      o = n(140),
+      o = n(141),
       i = n(41),
       a = n(7),
-      s = n(291),
-      u = n(292),
-      c = n(19),
-      l = n(293),
-      p = n(294),
+      s = n(292),
+      u = n(293),
+      c = n(20),
+      l = n(294),
+      p = n(295),
       f = n(50),
-      h = n(296),
-      d = n(297),
-      m = n(298),
+      h = n(297),
+      d = n(298),
+      m = n(299),
       g = n(43),
-      y = n(299),
+      y = n(300),
       v = n(9),
-      b = n(82),
+      b = n(83),
       E = (n(2), {}),
       C = {};
     [
@@ -21354,7 +21568,7 @@ object-assign
     function SyntheticAnimationEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(19),
+    var r = n(20),
       o = { animationName: null, elapsedTime: null, pseudoElement: null };
     r.augmentClass(SyntheticAnimationEvent, o),
       (e.exports = SyntheticAnimationEvent);
@@ -21364,7 +21578,7 @@ object-assign
     function SyntheticClipboardEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(19),
+    var r = n(20),
       o = {
         clipboardData: function(e) {
           return 'clipboardData' in e ? e.clipboardData : window.clipboardData;
@@ -21388,9 +21602,9 @@ object-assign
       return r.call(this, e, t, n, o);
     }
     var r = n(43),
-      o = n(82),
+      o = n(83),
       i = {
-        key: n(295),
+        key: n(296),
         location: null,
         ctrlKey: null,
         shiftKey: null,
@@ -21398,7 +21612,7 @@ object-assign
         metaKey: null,
         repeat: null,
         locale: null,
-        getModifierState: n(71),
+        getModifierState: n(72),
         charCode: function(e) {
           return 'keypress' === e.type ? o(e) : 0;
         },
@@ -21416,7 +21630,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(82),
+    var r = n(83),
       o = {
         Esc: 'Escape',
         Spacebar: ' ',
@@ -21506,7 +21720,7 @@ object-assign
         metaKey: null,
         ctrlKey: null,
         shiftKey: null,
-        getModifierState: n(71),
+        getModifierState: n(72),
       };
     r.augmentClass(SyntheticTouchEvent, o), (e.exports = SyntheticTouchEvent);
   },
@@ -21515,7 +21729,7 @@ object-assign
     function SyntheticTransitionEvent(e, t, n, o) {
       return r.call(this, e, t, n, o);
     }
-    var r = n(19),
+    var r = n(20),
       o = { propertyName: null, elapsedTime: null, pseudoElement: null };
     r.augmentClass(SyntheticTransitionEvent, o),
       (e.exports = SyntheticTransitionEvent);
@@ -21546,7 +21760,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    n(81);
+    n(82);
     var r = 9;
     e.exports = function ReactDOMContainerInfo(e, t) {
       var n = {
@@ -21567,7 +21781,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(303),
+    var r = n(304),
       o = /\/?>/,
       i = /^<\!\-\-/,
       a = {
@@ -21609,9 +21823,9 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(4),
-      o = (n(18), n(7)),
+      o = (n(19), n(7)),
       i = n(44),
-      a = n(144);
+      a = n(145);
     n(2), n(3);
     e.exports = function findDOMNode(e) {
       if (null == e) return null;
@@ -21623,7 +21837,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(143);
+    var r = n(144);
     e.exports = r.renderSubtreeIntoContainer;
   },
   function(e, t, n) {
@@ -21634,7 +21848,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(309);
+    var r = n(310);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -21672,7 +21886,7 @@ object-assign
     }
     var r = n(0),
       o = n.n(r),
-      i = n(310),
+      i = n(311),
       a = (function() {
         function defineProperties(e, t) {
           for (var n = 0; n < t.length; n++) {
@@ -21721,7 +21935,7 @@ object-assign
                 var e = this;
                 n
                   .e(0)
-                  .then(n.bind(null, 636))
+                  .then(n.bind(null, 637))
                   .then(function(t) {
                     e.setState({ editor: t.default });
                   });
@@ -21822,7 +22036,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(312),
+      s = n(313),
       u =
         Object.assign ||
         function(e) {
@@ -21906,12 +22120,12 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(313),
+    var r = n(314),
       o = n.n(r),
-      i = n(155),
+      i = n(156),
       a = n.n(i),
-      s = n(95),
-      u = n(400);
+      s = n(96),
+      u = n(401);
     t.a = a()(function(e, t, n) {
       var r = o()({}, u, t.theme),
         i = o()({}, e(r), t.styles && t.styles[n]);
@@ -21919,8 +22133,8 @@ object-assign
     });
   },
   function(e, t, n) {
-    var r = n(314),
-      o = n(364)(function(e, t, n) {
+    var r = n(315),
+      o = n(365)(function(e, t, n) {
         r(e, t, n);
       });
     e.exports = o;
@@ -21940,12 +22154,12 @@ object-assign
           u,
         );
     }
-    var r = n(84),
-      o = n(147),
-      i = n(149),
-      a = n(344),
-      s = n(14),
-      u = n(153);
+    var r = n(85),
+      o = n(148),
+      i = n(150),
+      a = n(345),
+      s = n(15),
+      u = n(154);
     e.exports = baseMerge;
   },
   function(e, t) {
@@ -22011,8 +22225,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(54),
-      o = n(85),
-      i = n(87),
+      o = n(86),
+      i = n(88),
       a = 200;
     e.exports = function stackSet(e, t) {
       var n = this.__data__;
@@ -22026,10 +22240,10 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(86),
-      o = n(328),
-      i = n(14),
-      a = n(146),
+    var r = n(87),
+      o = n(329),
+      i = n(15),
+      a = n(147),
       s = /[\\^$.*+?()[\]{}|]/g,
       u = /^\[object .+?Constructor\]$/,
       c = Function.prototype,
@@ -22075,7 +22289,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(329),
+    var r = n(330),
       o = (function() {
         var e = /[^.]+$/.exec((r && r.keys && r.keys.IE_PROTO) || '');
         return e ? 'Symbol(src)_1.' + e : '';
@@ -22094,9 +22308,9 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(332),
+    var r = n(333),
       o = n(54),
-      i = n(85);
+      i = n(86);
     e.exports = function mapCacheClear() {
       (this.size = 0),
         (this.__data__ = {
@@ -22115,11 +22329,11 @@ object-assign
         this.set(r[0], r[1]);
       }
     }
-    var r = n(333),
-      o = n(334),
-      i = n(335),
-      a = n(336),
-      s = n(337);
+    var r = n(334),
+      o = n(335),
+      i = n(336),
+      a = n(337),
+      s = n(338);
     (Hash.prototype.clear = r),
       (Hash.prototype.delete = o),
       (Hash.prototype.get = i),
@@ -22219,20 +22433,20 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(147),
-      o = n(345),
-      i = n(346),
-      a = n(348),
-      s = n(349),
-      u = n(89),
-      c = n(15),
-      l = n(352),
-      p = n(91),
-      f = n(86),
-      h = n(14),
-      d = n(354),
-      m = n(92),
-      g = n(358);
+    var r = n(148),
+      o = n(346),
+      i = n(347),
+      a = n(349),
+      s = n(350),
+      u = n(90),
+      c = n(16),
+      l = n(353),
+      p = n(92),
+      f = n(87),
+      h = n(15),
+      d = n(355),
+      m = n(93),
+      g = n(359);
     e.exports = function baseMergeDeep(e, t, n, y, v, b, E) {
       var C = e[n],
         _ = t[n],
@@ -22279,14 +22493,14 @@ object-assign
     }.call(t, n(60)(e)));
   },
   function(e, t, n) {
-    var r = n(347);
+    var r = n(348);
     e.exports = function cloneTypedArray(e, t) {
       var n = t ? r(e.buffer) : e.buffer;
       return new e.constructor(n, e.byteOffset, e.length);
     };
   },
   function(e, t, n) {
-    var r = n(150);
+    var r = n(151);
     e.exports = function cloneArrayBuffer(e) {
       var t = new e.constructor(e.byteLength);
       return new r(t).set(new r(e)), t;
@@ -22301,15 +22515,15 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(350),
-      o = n(151),
-      i = n(88);
+    var r = n(351),
+      o = n(152),
+      i = n(89);
     e.exports = function initCloneObject(e) {
       return 'function' != typeof e.constructor || i(e) ? {} : r(o(e));
     };
   },
   function(e, t, n) {
-    var r = n(14),
+    var r = n(15),
       o = Object.create,
       i = (function() {
         function object() {}
@@ -22324,8 +22538,8 @@ object-assign
     e.exports = i;
   },
   function(e, t, n) {
-    var r = n(27),
-      o = n(22),
+    var r = n(28),
+      o = n(23),
       i = '[object Arguments]';
     e.exports = function baseIsArguments(e) {
       return o(e) && r(e) == i;
@@ -22333,7 +22547,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(37),
-      o = n(22);
+      o = n(23);
     e.exports = function isArrayLikeObject(e) {
       return o(e) && r(e);
     };
@@ -22344,9 +22558,9 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(27),
-      o = n(151),
-      i = n(22),
+    var r = n(28),
+      o = n(152),
+      i = n(23),
       a = '[object Object]',
       s = Function.prototype,
       u = Object.prototype,
@@ -22362,9 +22576,9 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(27),
-      o = n(90),
-      i = n(22),
+    var r = n(28),
+      o = n(91),
+      i = n(23),
       a = {};
     (a['[object Float32Array]'] = a['[object Float64Array]'] = a[
       '[object Int8Array]'
@@ -22395,7 +22609,7 @@ object-assign
   },
   function(e, t, n) {
     (function(e) {
-      var r = n(145),
+      var r = n(146),
         o = 'object' == typeof t && t && !t.nodeType && t,
         i = o && 'object' == typeof e && e && !e.nodeType && e,
         a = i && i.exports === o && r.process,
@@ -22408,14 +22622,14 @@ object-assign
     }.call(t, n(60)(e)));
   },
   function(e, t, n) {
-    var r = n(359),
-      o = n(153);
+    var r = n(360),
+      o = n(154);
     e.exports = function toPlainObject(e) {
       return r(e, o(e));
     };
   },
   function(e, t, n) {
-    var r = n(360),
+    var r = n(361),
       o = n(59);
     e.exports = function copyObject(e, t, n, i) {
       var a = !n;
@@ -22444,9 +22658,9 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(14),
-      o = n(88),
-      i = n(363),
+    var r = n(15),
+      o = n(89),
+      i = n(364),
       a = Object.prototype.hasOwnProperty;
     e.exports = function baseKeysIn(e) {
       if (!r(e)) return i(e);
@@ -22465,8 +22679,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(365),
-      o = n(372);
+    var r = n(366),
+      o = n(373);
     e.exports = function createAssigner(e) {
       return r(function(t, n) {
         var r = -1,
@@ -22488,15 +22702,15 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(94),
-      o = n(366),
-      i = n(368);
+    var r = n(95),
+      o = n(367),
+      i = n(369);
     e.exports = function baseRest(e, t) {
       return i(o(e, t, r), e + '');
     };
   },
   function(e, t, n) {
-    var r = n(367),
+    var r = n(368),
       o = Math.max;
     e.exports = function overRest(e, t, n) {
       return (
@@ -22531,14 +22745,14 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(369),
-      o = n(371)(r);
+    var r = n(370),
+      o = n(372)(r);
     e.exports = o;
   },
   function(e, t, n) {
-    var r = n(370),
-      o = n(148),
-      i = n(94),
+    var r = n(371),
+      o = n(149),
+      i = n(95),
       a = o
         ? function(e, t) {
             return o(e, 'toString', {
@@ -22578,8 +22792,8 @@ object-assign
   function(e, t, n) {
     var r = n(45),
       o = n(37),
-      i = n(93),
-      a = n(14);
+      i = n(94),
+      a = n(15);
     e.exports = function isIterateeCall(e, t, n) {
       if (!a(n)) return !1;
       var s = typeof t;
@@ -22806,13 +23020,13 @@ object-assign
           );
         };
       })(),
-      a = _interopRequireDefault(n(378)),
-      s = _interopRequireDefault(n(379)),
-      u = _interopRequireDefault(n(380)),
-      c = _interopRequireDefault(n(97)),
-      l = _interopRequireDefault(n(386)),
-      p = _interopRequireDefault(n(158)),
-      f = _interopRequireDefault(n(387)),
+      a = _interopRequireDefault(n(379)),
+      s = _interopRequireDefault(n(380)),
+      u = _interopRequireDefault(n(381)),
+      c = _interopRequireDefault(n(98)),
+      l = _interopRequireDefault(n(387)),
+      p = _interopRequireDefault(n(159)),
+      f = _interopRequireDefault(n(388)),
       h = (function() {
         function Jss(e) {
           _classCallCheck(this, Jss),
@@ -22956,7 +23170,7 @@ object-assign
           );
         };
       })(),
-      i = _interopRequireDefault(n(161)),
+      i = _interopRequireDefault(n(162)),
       a = _interopRequireDefault(n(61)),
       s = (function() {
         function StyleSheet(e, t) {
@@ -23203,11 +23417,11 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = _interopRequireDefault(n(381)),
-      o = _interopRequireDefault(n(382)),
-      i = _interopRequireDefault(n(383)),
-      a = _interopRequireDefault(n(384)),
-      s = _interopRequireDefault(n(385)),
+    var r = _interopRequireDefault(n(382)),
+      o = _interopRequireDefault(n(383)),
+      i = _interopRequireDefault(n(384)),
+      a = _interopRequireDefault(n(385)),
+      s = _interopRequireDefault(n(386)),
       u = {
         '@charset': r.default,
         '@import': r.default,
@@ -23469,7 +23683,7 @@ object-assign
       })(),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(96)),
+      })(n(97)),
       i = (function() {
         function FontFaceRule(e, t, n) {
           _classCallCheck(this, FontFaceRule),
@@ -23526,7 +23740,7 @@ object-assign
       })(),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(96)),
+      })(n(97)),
       i = (function() {
         function ViewportRule(e, t, n) {
           _classCallCheck(this, ViewportRule),
@@ -23564,7 +23778,7 @@ object-assign
           return t.key + '-' + o + '-' + e++;
         };
       };
-    }.call(t, n(17)));
+    }.call(t, n(18)));
   },
   function(e, t, n) {
     'use strict';
@@ -23579,9 +23793,9 @@ object-assign
           ? e.Renderer
           : e.virtual || !r.default ? i.default : o.default;
       });
-    var r = _interopRequireDefault(n(388)),
-      o = _interopRequireDefault(n(389)),
-      i = _interopRequireDefault(n(390));
+    var r = _interopRequireDefault(n(389)),
+      o = _interopRequireDefault(n(390)),
+      i = _interopRequireDefault(n(391));
   },
   function(e, t, n) {
     'use strict';
@@ -23728,7 +23942,7 @@ object-assign
         };
       })(),
       o = _interopRequireDefault(n(38)),
-      i = _interopRequireDefault(n(97)),
+      i = _interopRequireDefault(n(98)),
       a = { STYLE_RULE: 1, KEYFRAMES_RULE: 7 },
       s = (function() {
         var e = void 0;
@@ -23994,7 +24208,7 @@ object-assign
         },
       };
     };
-    var i = n(156),
+    var i = n(157),
       a = '@global',
       s = '@global ',
       u = (function() {
@@ -24112,7 +24326,7 @@ object-assign
     };
     var o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(393)),
+      })(n(394)),
       i = (function debounce(e) {
         var t = !1;
         return function() {
@@ -24374,7 +24588,7 @@ object-assign
     var o = addCamelCasedVersion(
       (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(397)).default,
+      })(n(398)).default,
     );
   },
   function(e, t, n) {
@@ -24676,7 +24890,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(14),
+    var r = n(15),
       o = n(62),
       i = NaN,
       a = /^\s+|\s+$/g,
@@ -24730,7 +24944,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(405);
+    var r = n(406);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -24750,15 +24964,15 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(406),
-      u = n(537);
+      s = n(407),
+      u = n(538);
     Usage.propTypes = {
       props: a.a.shape({ props: a.a.object, methods: a.a.array }).isRequired,
     };
   },
   function(e, t, n) {
     'use strict';
-    var r = n(407);
+    var r = n(408);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -25049,48 +25263,48 @@ object-assign
       __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_1_prop_types__,
       ),
-      __WEBPACK_IMPORTED_MODULE_2_react_group__ = __webpack_require__(162),
+      __WEBPACK_IMPORTED_MODULE_2_react_group__ = __webpack_require__(163),
       __WEBPACK_IMPORTED_MODULE_2_react_group___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_2_react_group__,
       ),
       __WEBPACK_IMPORTED_MODULE_3_javascript_stringify__ = __webpack_require__(
-        408,
+        409,
       ),
       __WEBPACK_IMPORTED_MODULE_3_javascript_stringify___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_3_javascript_stringify__,
       ),
       __WEBPACK_IMPORTED_MODULE_4_rsg_components_Arguments__ = __webpack_require__(
-        164,
+        165,
       ),
       __WEBPACK_IMPORTED_MODULE_5_rsg_components_Code__ = __webpack_require__(
-        107,
-      ),
-      __WEBPACK_IMPORTED_MODULE_6_rsg_components_JsDoc__ = __webpack_require__(
         108,
       ),
+      __WEBPACK_IMPORTED_MODULE_6_rsg_components_JsDoc__ = __webpack_require__(
+        109,
+      ),
       __WEBPACK_IMPORTED_MODULE_7_rsg_components_Markdown__ = __webpack_require__(
-        23,
+        24,
       ),
       __WEBPACK_IMPORTED_MODULE_8_rsg_components_Name__ = __webpack_require__(
-        106,
+        107,
       ),
       __WEBPACK_IMPORTED_MODULE_9_rsg_components_Type__ = __webpack_require__(
-        183,
+        184,
       ),
       __WEBPACK_IMPORTED_MODULE_10_rsg_components_Text__ = __webpack_require__(
-        533,
+        534,
       ),
       __WEBPACK_IMPORTED_MODULE_11_rsg_components_Para__ = __webpack_require__(
-        105,
+        106,
       ),
       __WEBPACK_IMPORTED_MODULE_12_rsg_components_Table__ = __webpack_require__(
-        185,
+        186,
       ),
-      __WEBPACK_IMPORTED_MODULE_13_lodash_map__ = __webpack_require__(184),
+      __WEBPACK_IMPORTED_MODULE_13_lodash_map__ = __webpack_require__(185),
       __WEBPACK_IMPORTED_MODULE_13_lodash_map___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_13_lodash_map__,
       ),
-      __WEBPACK_IMPORTED_MODULE_14__util__ = __webpack_require__(536),
+      __WEBPACK_IMPORTED_MODULE_14__util__ = __webpack_require__(537),
       _extends =
         Object.assign ||
         function(e) {
@@ -25297,7 +25511,7 @@ object-assign
           return d;
         };
       });
-    }.call(t, n(163).Buffer));
+    }.call(t, n(164).Buffer));
   },
   function(e, t, n) {
     'use strict';
@@ -25483,7 +25697,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(165),
+      s = n(166),
       u = n(5),
       c =
         Object.assign ||
@@ -25567,10 +25781,10 @@ object-assign
       i = n(1),
       a = n.n(i),
       s = n(5),
-      u = n(23),
-      c = n(106),
-      l = n(183),
-      p = n(162),
+      u = n(24),
+      c = n(107),
+      l = n(184),
+      p = n(163),
       f = n.n(p),
       h =
         Object.assign ||
@@ -25616,12 +25830,12 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(415),
-      u = n(483),
+      s = n(416),
+      u = n(484),
       c = n.n(u),
       l = n(5),
-      p = n(182),
-      f = n(105),
+      p = n(183),
+      f = n(106),
       h =
         Object.assign ||
         function(e) {
@@ -25632,7 +25846,7 @@ object-assign
           }
           return e;
         };
-    n(524);
+    n(525);
     var d = function memoize(e) {
       return e;
     };
@@ -26050,11 +26264,11 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(416),
+      s = n(417),
       u = n.n(s),
-      c = n(417),
+      c = n(418),
       l = n.n(c),
-      p = n(428),
+      p = n(429),
       f = n.n(p),
       h =
         Object.assign ||
@@ -26385,18 +26599,18 @@ object-assign
         S = y.Symbol,
         D = v.splice,
         O = getNative(y, 'Map'),
-        T = getNative(Object, 'create'),
-        R = S ? S.prototype : void 0,
-        P = R ? R.toString : void 0;
+        R = getNative(Object, 'create'),
+        T = S ? S.prototype : void 0,
+        P = T ? T.toString : void 0;
       (Hash.prototype.clear = function hashClear() {
-        this.__data__ = T ? T(null) : {};
+        this.__data__ = R ? R(null) : {};
       }),
         (Hash.prototype.delete = function hashDelete(e) {
           return this.has(e) && delete this.__data__[e];
         }),
         (Hash.prototype.get = function hashGet(e) {
           var t = this.__data__;
-          if (T) {
+          if (R) {
             var n = t[e];
             return n === r ? void 0 : n;
           }
@@ -26404,10 +26618,10 @@ object-assign
         }),
         (Hash.prototype.has = function hashHas(e) {
           var t = this.__data__;
-          return T ? void 0 !== t[e] : A.call(t, e);
+          return R ? void 0 !== t[e] : A.call(t, e);
         }),
         (Hash.prototype.set = function hashSet(e, t) {
-          return (this.__data__[e] = T && void 0 === t ? r : t), this;
+          return (this.__data__[e] = R && void 0 === t ? r : t), this;
         }),
         (ListCache.prototype.clear = function listCacheClear() {
           this.__data__ = [];
@@ -26466,7 +26680,7 @@ object-assign
         var r = null == e ? void 0 : baseGet(e, t);
         return void 0 === r ? n : r;
       };
-    }.call(t, n(17)));
+    }.call(t, n(18)));
   },
   function(e, t, n) {
     'use strict';
@@ -26651,13 +26865,13 @@ object-assign
       if (!n)
         throw new Error('`' + e + '` finished async. Use `' + t + '` instead');
     }
-    var r = n(418),
-      o = n(419),
-      i = n(420),
-      a = n(424),
-      s = n(425),
-      u = n(426),
-      c = n(427);
+    var r = n(419),
+      o = n(420),
+      i = n(421),
+      a = n(425),
+      s = n(426),
+      u = n(427),
+      c = n(428);
     e.exports = unified().freeze();
     var l = [].slice,
       p = {}.hasOwnProperty,
@@ -26799,10 +27013,10 @@ object-assign
         if (!e)
           throw new Error('Setting `' + t + '` requires `path` to be set too');
       }
-      var r = n(166),
-        o = n(421),
-        i = n(422),
-        a = n(423);
+      var r = n(167),
+        o = n(422),
+        i = n(423),
+        a = n(424);
       e.exports = VFile;
       var s = {}.hasOwnProperty,
         u = VFile.prototype;
@@ -26895,7 +27109,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(166);
+    var r = n(167);
     e.exports = function replaceExt(e, t) {
       if ('string' != typeof e) return e;
       if (0 === e.length) return e;
@@ -27049,9 +27263,9 @@ object-assign
       (t.prototype.options = o(t.prototype.options, this.data('settings'), e)),
         (this.Parser = t);
     }
-    var r = n(429),
+    var r = n(430),
       o = n(46),
-      i = n(431);
+      i = n(432);
     (e.exports = parse), (parse.Parser = i);
   },
   function(e, t, n) {
@@ -27064,7 +27278,7 @@ object-assign
  *   without affecting the original class.
  */;
     var r = n(46),
-      o = n(430);
+      o = n(431);
     e.exports = function unherit(e) {
       function From(t) {
         return e.apply(this, t);
@@ -27126,16 +27340,16 @@ object-assign
       return n;
     }
     var r = n(46),
-      o = n(432),
-      i = n(433),
-      a = n(434),
-      s = n(435),
-      u = n(441);
+      o = n(433),
+      i = n(434),
+      a = n(435),
+      s = n(436),
+      u = n(442);
     e.exports = Parser;
     var c = Parser.prototype;
-    (c.setOptions = n(442)),
-      (c.parse = n(445)),
-      (c.options = n(168)),
+    (c.setOptions = n(443)),
+      (c.parse = n(446)),
+      (c.options = n(169)),
       (c.exitStart = o('atStart', !0)),
       (c.enterList = o('inList', !1)),
       (c.enterLink = o('inLink', !1)),
@@ -27168,33 +27382,33 @@ object-assign
         ['footnote', { commonmark: !1 }],
       ]),
       (c.blockTokenizers = {
-        newline: n(448),
-        indentedCode: n(449),
-        fencedCode: n(450),
-        blockquote: n(451),
-        atxHeading: n(452),
-        thematicBreak: n(453),
-        list: n(454),
-        setextHeading: n(456),
-        html: n(457),
-        footnote: n(458),
-        definition: n(460),
-        table: n(461),
-        paragraph: n(462),
+        newline: n(449),
+        indentedCode: n(450),
+        fencedCode: n(451),
+        blockquote: n(452),
+        atxHeading: n(453),
+        thematicBreak: n(454),
+        list: n(455),
+        setextHeading: n(457),
+        html: n(458),
+        footnote: n(459),
+        definition: n(461),
+        table: n(462),
+        paragraph: n(463),
       }),
       (c.inlineTokenizers = {
-        escape: n(463),
-        autoLink: n(465),
-        url: n(466),
-        html: n(468),
-        link: n(469),
-        reference: n(470),
-        strong: n(471),
-        emphasis: n(473),
-        deletion: n(476),
-        code: n(478),
-        break: n(480),
-        text: n(482),
+        escape: n(464),
+        autoLink: n(466),
+        url: n(467),
+        html: n(469),
+        link: n(470),
+        reference: n(471),
+        strong: n(472),
+        emphasis: n(474),
+        deletion: n(477),
+        code: n(479),
+        break: n(481),
+        text: n(483),
       }),
       (c.blockMethods = keys(c.blockTokenizers)),
       (c.inlineMethods = keys(c.inlineTokenizers)),
@@ -27273,7 +27487,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(98);
+    var r = n(99);
     e.exports = function factory(e) {
       function normalize(t) {
         for (var n = e.offset, r = t.line, o = []; ++r && r in n; )
@@ -29680,7 +29894,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(167),
+    var r = n(168),
       o = n(63);
     e.exports = function alphanumerical(e) {
       return r(e) || o(e);
@@ -29835,8 +30049,8 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(46),
-      o = n(443),
-      i = n(168);
+      o = n(444),
+      i = n(169);
     e.exports = function setOptions(e) {
       var t,
         n,
@@ -29980,7 +30194,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(46),
-      o = n(446);
+      o = n(447);
     e.exports = function parse() {
       var e,
         t = this,
@@ -30010,7 +30224,7 @@ object-assign
     function soft(e) {
       e.position = void 0;
     }
-    var r = n(447);
+    var r = n(448);
     e.exports = function removePosition(e, t) {
       return r(e, t ? hard : soft), e;
     };
@@ -30063,8 +30277,8 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(99),
-      o = n(100);
+    var r = n(100),
+      o = n(101);
     e.exports = function indentedCode(e, t, n) {
       for (
         var r, c, l, p = -1, f = t.length, h = '', d = '', m = '', g = '';
@@ -30104,7 +30318,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(100);
+    var r = n(101);
     e.exports = function fencedCode(e, t, n) {
       var p,
         f,
@@ -30200,7 +30414,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(39),
-      o = n(101);
+      o = n(102);
     e.exports = function blockquote(e, t, n) {
       for (
         var c,
@@ -30431,11 +30645,11 @@ object-assign
       return l.join(h);
     }
     var r = n(39),
-      o = n(99),
+      o = n(100),
       i = n(63),
-      a = n(169),
-      s = n(455),
-      u = n(101);
+      a = n(170),
+      s = n(456),
+      u = n(102);
     e.exports = function list(e, t, n) {
       for (
         var o,
@@ -30452,8 +30666,8 @@ object-assign
           S,
           D,
           O,
-          T,
           R,
+          T,
           P,
           j,
           F,
@@ -30462,11 +30676,11 @@ object-assign
           N,
           L,
           M,
-          U = this,
-          q = U.options.commonmark,
-          z = U.options.pedantic,
-          W = U.blockTokenizers,
-          V = U.interruptList,
+          q = this,
+          U = q.options.commonmark,
+          z = q.options.pedantic,
+          W = q.blockTokenizers,
+          V = q.interruptList,
           H = 0,
           K = t.length,
           $ = null,
@@ -30482,7 +30696,7 @@ object-assign
         H++;
       }
       if (!(G >= g)) {
-        if (((m = t.charAt(H)), (o = q ? A : w), !0 === _[m]))
+        if (((m = t.charAt(H)), (o = U ? A : w), !0 === _[m]))
           (y = m), (s = !1);
         else {
           for (s = !0, a = ''; H < K && ((m = t.charAt(H)), i(m)); )
@@ -30492,7 +30706,7 @@ object-assign
         }
         if ((m = t.charAt(++H)) === f || m === d) {
           if (n) return !0;
-          for (H = 0, O = [], T = [], R = []; H < K; ) {
+          for (H = 0, O = [], R = [], T = []; H < K; ) {
             for (
               b = H,
                 E = !1,
@@ -30536,8 +30750,8 @@ object-assign
               if (!z && y !== C) break;
               E = !0;
             } else
-              q || M || t.charAt(b) !== f
-                ? q && P && (M = G >= P.indent || G > g)
+              U || M || t.charAt(b) !== f
+                ? U && P && (M = G >= P.indent || G > g)
                 : (M = !0),
                 (E = !1),
                 (H = b);
@@ -30545,37 +30759,37 @@ object-assign
               ((k = t.slice(b, v)),
               (x = b === H ? k : t.slice(H, v)),
               (C === c || C === l || C === p) &&
-                W.thematicBreak.call(U, e, k, !0))
+                W.thematicBreak.call(q, e, k, !0))
             )
               break;
             if (((S = D), (D = !r(x).length), M && P))
-              (P.value = P.value.concat(R, k)), (T = T.concat(R, k)), (R = []);
+              (P.value = P.value.concat(T, k)), (R = R.concat(T, k)), (T = []);
             else if (E)
-              0 !== R.length && (P.value.push(''), (P.trail = R.concat())),
+              0 !== T.length && (P.value.push(''), (P.trail = T.concat())),
                 (P = { value: [k], indent: G, trail: [] }),
                 O.push(P),
-                (T = T.concat(R, k)),
-                (R = []);
+                (R = R.concat(T, k)),
+                (T = []);
             else if (D) {
               if (S) break;
-              R.push(k);
+              T.push(k);
             } else {
               if (S) break;
-              if (u(V, W, U, [e, k, !0])) break;
-              (P.value = P.value.concat(R, k)), (T = T.concat(R, k)), (R = []);
+              if (u(V, W, q, [e, k, !0])) break;
+              (P.value = P.value.concat(T, k)), (R = R.concat(T, k)), (T = []);
             }
             H = v + 1;
           }
           for (
-            B = e(T.join(h)).reset({
+            B = e(R.join(h)).reset({
               type: 'list',
               ordered: s,
               start: $,
               loose: null,
               children: [],
             }),
-              j = U.enterList(),
-              F = U.enterBlock(),
+              j = q.enterList(),
+              F = q.enterBlock(),
               I = !1,
               H = -1,
               K = O.length;
@@ -30584,7 +30798,7 @@ object-assign
           )
             (P = O[H].value.join(h)),
               (N = e.now()),
-              (P = e(P)(listItem(U, P, N), B)).loose && (I = !0),
+              (P = e(P)(listItem(q, P, N), B)).loose && (I = !0),
               (P = O[H].trail.join(h)),
               H !== K - 1 && (P += h),
               e(P);
@@ -30615,8 +30829,8 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(39),
-      o = n(99),
-      i = n(169);
+      o = n(100),
+      i = n(170);
     e.exports = function indentation(e, t) {
       var n,
         c,
@@ -30702,7 +30916,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(170).openCloseTag;
+    var r = n(171).openCloseTag;
     e.exports = function blockHTML(e, t, n) {
       for (
         var u,
@@ -30847,7 +31061,7 @@ object-assign
       }
     }
     var r = n(11),
-      o = n(102);
+      o = n(103);
     (e.exports = footnoteDefinition),
       (footnoteDefinition.notInList = !0),
       (footnoteDefinition.notInBlock = !0);
@@ -30967,7 +31181,7 @@ object-assign
       return e !== p && e !== f && !r(e);
     }
     var r = n(11),
-      o = n(102);
+      o = n(103);
     (e.exports = definition),
       (definition.notInList = !0),
       (definition.notInBlock = !0);
@@ -31002,8 +31216,8 @@ object-assign
         S,
         D,
         O,
-        T,
         R,
+        T,
         P,
         j,
         F,
@@ -31012,16 +31226,16 @@ object-assign
         N,
         L,
         M,
-        U,
         q,
+        U,
         z = this;
       if (z.options.gfm) {
         for (v = 0, I = 0, w = t.length + 1, A = []; v < w; ) {
           if (
             ((M = t.indexOf(l, v)),
-            (U = t.indexOf(s, v + 1)),
+            (q = t.indexOf(s, v + 1)),
             -1 === M && (M = t.length),
-            -1 === U || U > M)
+            -1 === q || q > M)
           ) {
             if (I < h) return;
             break;
@@ -31040,9 +31254,9 @@ object-assign
         ) {
           if ((k = b.charAt(v)) === s) {
             if (((S = null), !1 === E)) {
-              if (!1 === q) return;
+              if (!1 === U) return;
             } else D.push(E), (E = !1);
-            q = !1;
+            U = !1;
           } else if (k === a) (S = !0), (E = E || y);
           else if (k === u) E = E === d ? m : S && E === y ? g : d;
           else if (!r(k)) return;
@@ -31066,22 +31280,22 @@ object-assign
                 v = 0,
                 x = '',
                 O = '',
-                T = !0,
-                R = null,
+                R = !0,
+                T = null,
                 P = null;
               v < w;
 
             )
               if ((k = B.charAt(v)) !== p && k !== c) {
                 if ('' === k || k === s)
-                  if (T) e(k);
+                  if (R) e(k);
                   else {
                     if (k && P) {
                       (x += k), v++;
                       continue;
                     }
                     (!O && !k) ||
-                      T ||
+                      R ||
                       ((C = O),
                       x.length > 1 &&
                         (k
@@ -31103,10 +31317,10 @@ object-assign
                   k === o && v !== w - 2 && ((O += B.charAt(v + 1)), v++),
                   k === i)
                 ) {
-                  for (R = 1; B.charAt(v + 1) === k; ) (O += k), v++, R++;
-                  P ? R >= P && (P = 0) : (P = R);
+                  for (T = 1; B.charAt(v + 1) === k; ) (O += k), v++, T++;
+                  P ? T >= P && (P = 0) : (P = T);
                 }
-                (T = !1), v++;
+                (R = !1), v++;
               } else O ? (x += k) : e(k), v++;
             F || e(l + b);
           }
@@ -31133,8 +31347,8 @@ object-assign
     'use strict';
     var r = n(39),
       o = n(63),
-      i = n(100),
-      a = n(101);
+      i = n(101),
+      a = n(102);
     e.exports = function paragraph(e, t, n) {
       for (
         var p,
@@ -31216,7 +31430,7 @@ object-assign
           e('\\' + r)(o))
         );
     }
-    var r = n(464);
+    var r = n(465);
     (e.exports = escape), (escape.locator = r);
   },
   function(e, t, n) {
@@ -31285,8 +31499,8 @@ object-assign
       }
     }
     var r = n(11),
-      o = n(98),
-      i = n(171);
+      o = n(99),
+      i = n(172);
     (e.exports = autoLink), (autoLink.locator = i), (autoLink.notInLink = !0);
     var a = '<',
       s = '>',
@@ -31351,9 +31565,9 @@ object-assign
         }
       }
     }
-    var r = n(98),
+    var r = n(99),
       o = n(11),
-      i = n(467);
+      i = n(468);
     (e.exports = url), (url.locator = i), (url.notInLink = !0);
     var a = '[',
       s = ']',
@@ -31400,9 +31614,9 @@ object-assign
           e(u)({ type: 'html', value: u }))
         );
     }
-    var r = n(167),
-      o = n(171),
-      i = n(170).tag;
+    var r = n(168),
+      o = n(172),
+      i = n(171).tag;
     (e.exports = inlineHTML), (inlineHTML.locator = o);
     var a = /^<a /i,
       s = /^<\/a>/i;
@@ -31425,8 +31639,8 @@ object-assign
         S,
         D,
         O,
-        T,
         R,
+        T,
         P,
         j,
         F = this,
@@ -31435,7 +31649,7 @@ object-assign
         N = t.charAt(0),
         L = F.options.pedantic,
         M = F.options.commonmark,
-        U = F.options.gfm;
+        q = F.options.gfm;
       if (
         ('!' === N && ((w = !0), (I = N), (N = t.charAt(++B))),
         N === s && (w || !F.inLink))
@@ -31446,8 +31660,8 @@ object-assign
             B++,
             k = t.length,
             D = 0,
-            (R = e.now()).column += B,
-            R.offset += B;
+            (T = e.now()).column += B,
+            T.offset += B;
           B < k;
 
         ) {
@@ -31455,8 +31669,8 @@ object-assign
             for (g = 1; t.charAt(B + 1) === h; ) (E += N), B++, g++;
             y ? g >= y && (y = 0) : (y = g);
           } else if (N === a) B++, (E += t.charAt(B));
-          else if ((y && !U) || N !== s) {
-            if ((!y || U) && N === u) {
+          else if ((y && !q) || N !== s) {
+            if ((!y || q) && N === u) {
               if (!D) {
                 if (!L)
                   for (; B < k && ((N = t.charAt(B + 1)), r(N)); )
@@ -31481,7 +31695,7 @@ object-assign
               (O += N), B++;
             }
             if (t.charAt(B) !== f) return;
-            (I += p + O + f), (T = O), B++;
+            (I += p + O + f), (R = O), B++;
           } else {
             for (
               N = null, E = '';
@@ -31504,7 +31718,7 @@ object-assign
               }
               B++;
             }
-            (T = O), (B = (I += O).length);
+            (R = O), (B = (I += O).length);
           }
           for (O = ''; B < k && ((N = t.charAt(B)), r(N)); ) (O += N), B++;
           if (((N = t.charAt(B)), (I += O), O && i.call(_, N)))
@@ -31531,14 +31745,14 @@ object-assign
             return (
               !!n ||
               ((I += l),
-              (T = F.decode.raw(F.unescape(T), e(v).test().end)),
+              (R = F.decode.raw(F.unescape(R), e(v).test().end)),
               S &&
                 ((b = e(b).test().end), (S = F.decode.raw(F.unescape(S), b))),
-              (j = { type: w ? 'image' : 'link', title: S || null, url: T }),
+              (j = { type: w ? 'image' : 'link', title: S || null, url: R }),
               w
-                ? (j.alt = F.decode.raw(F.unescape(A), R) || null)
+                ? (j.alt = F.decode.raw(F.unescape(A), T) || null)
                 : ((P = F.enterLink()),
-                  (j.children = F.tokenizeInline(A, R)),
+                  (j.children = F.tokenizeInline(A, T)),
                   P()),
               e(I)(j))
             );
@@ -31546,7 +31760,7 @@ object-assign
       }
     }
     var r = n(11),
-      o = n(172);
+      o = n(173);
     (e.exports = link), (link.locator = o);
     var i = {}.hasOwnProperty,
       a = '\\',
@@ -31580,7 +31794,7 @@ object-assign
         S = '',
         D = '',
         O = a,
-        T = c;
+        R = c;
       if (('!' === A && ((O = s), (D = A), (A = t.charAt(++x))), A === d)) {
         for (
           x++,
@@ -31612,7 +31826,7 @@ object-assign
             )
               A === h && ((g += h), (A = t.charAt(++x))), (g += A), x++;
             (A = t.charAt(x)) === m
-              ? ((T = g ? p : l), (E += g + A), x++)
+              ? ((R = g ? p : l), (E += g + A), x++)
               : (g = ''),
               (S += E),
               (E = '');
@@ -31620,7 +31834,7 @@ object-assign
             if (!o) return;
             g = o;
           }
-          if (T === p || !C)
+          if (R === p || !C)
             return (
               (S = D + S),
               O === a && w.inLink
@@ -31634,9 +31848,9 @@ object-assign
                     : ((y = e.now()),
                       (y.column += D.length),
                       (y.offset += D.length),
-                      (g = T === p ? g : o),
+                      (g = R === p ? g : o),
                       (v = { type: O + 'Reference', identifier: i(g) }),
-                      (O !== a && O !== s) || (v.referenceType = T),
+                      (O !== a && O !== s) || (v.referenceType = R),
                       O === a
                         ? ((b = w.enterLink()),
                           (v.children = w.tokenizeInline(o, y)),
@@ -31649,8 +31863,8 @@ object-assign
       }
     }
     var r = n(11),
-      o = n(172),
-      i = n(102);
+      o = n(173),
+      i = n(103);
     (e.exports = reference), (reference.locator = o);
     var a = 'link',
       s = 'image',
@@ -31716,7 +31930,7 @@ object-assign
     }
     var r = n(39),
       o = n(11),
-      i = n(472);
+      i = n(473);
     (e.exports = strong), (strong.locator = i);
     var a = '*',
       s = '_';
@@ -31780,9 +31994,9 @@ object-assign
         }
     }
     var r = n(39),
-      o = n(474),
+      o = n(475),
       i = n(11),
-      a = n(475);
+      a = n(476);
     (e.exports = emphasis), (emphasis.locator = a);
     var s = '*',
       u = '_';
@@ -31834,7 +32048,7 @@ object-assign
         }
     }
     var r = n(11),
-      o = n(477);
+      o = n(478);
     (e.exports = strikethrough), (strikethrough.locator = o);
     var i = '~',
       a = '~~';
@@ -31882,7 +32096,7 @@ object-assign
       }
     }
     var r = n(11),
-      o = n(479);
+      o = n(480);
     (e.exports = inlineCode), (inlineCode.locator = o);
     var i = '`';
   },
@@ -31904,7 +32118,7 @@ object-assign
         s += r;
       }
     }
-    var r = n(481);
+    var r = n(482);
     (e.exports = hardBreak), (hardBreak.locator = r);
     var o = 2;
   },
@@ -31951,8 +32165,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(59),
-      o = n(173),
-      i = n(174);
+      o = n(174),
+      i = n(175);
     e.exports = function mapValues(e, t) {
       var n = {};
       return (
@@ -31965,8 +32179,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(88),
-      o = n(485),
+    var r = n(89),
+      o = n(486),
       i = Object.prototype.hasOwnProperty;
     e.exports = function baseKeys(e) {
       if (!r(e)) return o(e);
@@ -31976,13 +32190,13 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(152)(Object.keys, Object);
+    var r = n(153)(Object.keys, Object);
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(487),
-      o = n(509),
-      i = n(178);
+    var r = n(488),
+      o = n(510),
+      i = n(179);
     e.exports = function baseMatches(e) {
       var t = o(e);
       return 1 == t.length && t[0][2]
@@ -31993,8 +32207,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(84),
-      o = n(175),
+    var r = n(85),
+      o = n(176),
       i = 1,
       a = 2;
     e.exports = function baseIsMatch(e, t, n, s) {
@@ -32022,14 +32236,14 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(84),
-      o = n(176),
-      i = n(494),
-      a = n(497),
-      s = n(504),
-      u = n(15),
-      c = n(91),
-      l = n(92),
+    var r = n(85),
+      o = n(177),
+      i = n(495),
+      a = n(498),
+      s = n(505),
+      u = n(16),
+      c = n(92),
+      l = n(93),
       p = 1,
       f = '[object Arguments]',
       h = '[object Array]',
@@ -32070,9 +32284,9 @@ object-assign
         n = null == e ? 0 : e.length;
       for (this.__data__ = new r(); ++t < n; ) this.add(e[t]);
     }
-    var r = n(87),
-      o = n(490),
-      i = n(491);
+    var r = n(88),
+      o = n(491),
+      i = n(492);
     (SetCache.prototype.add = SetCache.prototype.push = o),
       (SetCache.prototype.has = i),
       (e.exports = SetCache);
@@ -32102,11 +32316,11 @@ object-assign
   },
   function(e, t, n) {
     var r = n(56),
-      o = n(150),
+      o = n(151),
       i = n(45),
-      a = n(176),
-      s = n(495),
-      u = n(496),
+      a = n(177),
+      s = n(496),
+      u = n(497),
       c = 1,
       l = 2,
       p = '[object Boolean]',
@@ -32180,7 +32394,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(498),
+    var r = n(499),
       o = 1,
       i = Object.prototype.hasOwnProperty;
     e.exports = function equalObjects(e, t, n, a, s, u) {
@@ -32224,16 +32438,16 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(499),
-      o = n(501),
-      i = n(103);
+    var r = n(500),
+      o = n(502),
+      i = n(104);
     e.exports = function getAllKeys(e) {
       return r(e, i, o);
     };
   },
   function(e, t, n) {
-    var r = n(500),
-      o = n(15);
+    var r = n(501),
+      o = n(16);
     e.exports = function baseGetAllKeys(e, t, n) {
       var i = t(e);
       return o(e) ? i : r(i, n(e));
@@ -32246,8 +32460,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(502),
-      o = n(503),
+    var r = n(503),
+      o = n(504),
       i = Object.prototype.propertyIsEnumerable,
       a = Object.getOwnPropertySymbols,
       s = a
@@ -32277,13 +32491,13 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(505),
-      o = n(85),
-      i = n(506),
-      a = n(507),
-      s = n(508),
-      u = n(27),
-      c = n(146),
+    var r = n(506),
+      o = n(86),
+      i = n(507),
+      a = n(508),
+      s = n(509),
+      u = n(28),
+      c = n(147),
       l = c(r),
       p = c(o),
       f = c(i),
@@ -32317,24 +32531,24 @@ object-assign
       (e.exports = m);
   },
   function(e, t, n) {
-    var r = n(26)(n(10), 'DataView');
+    var r = n(27)(n(10), 'DataView');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(26)(n(10), 'Promise');
+    var r = n(27)(n(10), 'Promise');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(26)(n(10), 'Set');
+    var r = n(27)(n(10), 'Set');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(26)(n(10), 'WeakMap');
+    var r = n(27)(n(10), 'WeakMap');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(177),
-      o = n(103);
+    var r = n(178),
+      o = n(104);
     e.exports = function getMatchData(e) {
       for (var t = o(e), n = t.length; n--; ) {
         var i = t[n],
@@ -32345,12 +32559,12 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(175),
-      o = n(511),
-      i = n(516),
-      a = n(104),
-      s = n(177),
-      u = n(178),
+    var r = n(176),
+      o = n(512),
+      i = n(517),
+      a = n(105),
+      s = n(178),
+      u = n(179),
       c = n(64),
       l = 1,
       p = 2;
@@ -32364,7 +32578,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(179);
+    var r = n(180);
     e.exports = function get(e, t, n) {
       var o = null == e ? void 0 : r(e, t);
       return void 0 === o ? n : o;
@@ -32374,7 +32588,7 @@ object-assign
     var r = /^\./,
       o = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
       i = /\\(\\)?/g,
-      a = n(513)(function(e) {
+      a = n(514)(function(e) {
         var t = [];
         return (
           r.test(e) && t.push(''),
@@ -32387,7 +32601,7 @@ object-assign
     e.exports = a;
   },
   function(e, t, n) {
-    var r = n(155),
+    var r = n(156),
       o = 500;
     e.exports = function memoizeCapped(e) {
       var t = r(e, function(e) {
@@ -32398,7 +32612,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(515);
+    var r = n(516);
     e.exports = function toString(e) {
       return null == e ? '' : r(e);
     };
@@ -32412,8 +32626,8 @@ object-assign
       return '0' == t && 1 / e == -s ? '-0' : t;
     }
     var r = n(56),
-      o = n(181),
-      i = n(15),
+      o = n(182),
+      i = n(16),
       a = n(62),
       s = 1 / 0,
       u = r ? r.prototype : void 0,
@@ -32421,8 +32635,8 @@ object-assign
     e.exports = baseToString;
   },
   function(e, t, n) {
-    var r = n(517),
-      o = n(518);
+    var r = n(518),
+      o = n(519);
     e.exports = function hasIn(e, t) {
       return null != e && o(e, t, r);
     };
@@ -32433,11 +32647,11 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(180),
-      o = n(89),
-      i = n(15),
-      a = n(93),
-      s = n(90),
+    var r = n(181),
+      o = n(90),
+      i = n(16),
+      a = n(94),
+      s = n(91),
       u = n(64);
     e.exports = function hasPath(e, t, n) {
       for (var c = -1, l = (t = r(t, e)).length, p = !1; ++c < l; ) {
@@ -32451,9 +32665,9 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(520),
-      o = n(521),
-      i = n(104),
+    var r = n(521),
+      o = n(522),
+      i = n(105),
       a = n(64);
     e.exports = function property(e) {
       return i(e) ? r(a(e)) : o(e);
@@ -32467,7 +32681,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(179);
+    var r = n(180);
     e.exports = function basePropertyDeep(e) {
       return function(t) {
         return r(t, e);
@@ -32500,7 +32714,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(20),
+      s = n(21),
       u = n.n(s),
       c = n(5),
       l =
@@ -32574,15 +32788,15 @@ object-assign
       (t.a = Object(s.a)(u)(ParaRenderer));
   },
   function(e, t, n) {
-    var r = n(525);
+    var r = n(526);
     'string' == typeof r && (r = [[e.i, r, '']]);
     var o = {};
     o.transform = void 0;
-    n(200)(r, o);
+    n(201)(r, o);
     r.locals && (e.exports = r.locals);
   },
   function(e, t, n) {
-    (e.exports = n(199)(void 0)).push([
+    (e.exports = n(200)(void 0)).push([
       e.i,
       '/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */\n\n/* Tomorrow Comment */\n.hljs-comment,\n.hljs-quote {\n  color: #8e908c;\n}\n\n/* Tomorrow Red */\n.hljs-variable,\n.hljs-template-variable,\n.hljs-tag,\n.hljs-name,\n.hljs-selector-id,\n.hljs-selector-class,\n.hljs-regexp,\n.hljs-deletion {\n  color: #c82829;\n}\n\n/* Tomorrow Orange */\n.hljs-number,\n.hljs-built_in,\n.hljs-builtin-name,\n.hljs-literal,\n.hljs-type,\n.hljs-params,\n.hljs-meta,\n.hljs-link {\n  color: #f5871f;\n}\n\n/* Tomorrow Yellow */\n.hljs-attribute {\n  color: #eab700;\n}\n\n/* Tomorrow Green */\n.hljs-string,\n.hljs-symbol,\n.hljs-bullet,\n.hljs-addition {\n  color: #718c00;\n}\n\n/* Tomorrow Blue */\n.hljs-title,\n.hljs-section {\n  color: #4271ae;\n}\n\n/* Tomorrow Purple */\n.hljs-keyword,\n.hljs-selector-tag {\n  color: #8959a8;\n}\n\n.hljs {\n  display: block;\n  overflow-x: auto;\n  background: white;\n  color: #4d4d4c;\n  padding: 0.5em;\n}\n\n.hljs-emphasis {\n  font-style: italic;\n}\n\n.hljs-strong {\n  font-weight: bold;\n}\n',
       '',
@@ -32614,9 +32828,9 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(107),
+      s = n(108),
       u = n(5),
-      c = n(20),
+      c = n(21),
       l = n.n(c);
     (NameRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -32678,7 +32892,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(107),
+      s = n(108),
       u = n(5);
     (TypeRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -32711,8 +32925,8 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(23),
-      u = n(184),
+      s = n(24),
+      u = n(185),
       c = n.n(u),
       l = function plural(e, t) {
         return 1 === e.length ? t : t + 's';
@@ -32761,7 +32975,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(531),
+    var r = n(532),
       o = n(37);
     e.exports = function baseMap(e, t) {
       var n = -1,
@@ -32775,8 +32989,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(173),
-      o = n(532)(r);
+    var r = n(174),
+      o = n(533)(r);
     e.exports = o;
   },
   function(e, t, n) {
@@ -32796,7 +33010,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(534);
+    var r = n(535);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -32836,7 +33050,7 @@ object-assign
       i = n(1),
       a = n.n(i),
       s = n(5),
-      u = n(20),
+      u = n(21),
       c = n.n(u),
       l =
         Object.assign ||
@@ -32975,7 +33189,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(538);
+    var r = n(539);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -32991,12 +33205,12 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(23),
-      u = n(165),
-      c = n(164),
-      l = n(106),
-      p = n(108),
-      f = n(185),
+      s = n(24),
+      u = n(166),
+      c = n(165),
+      l = n(107),
+      p = n(109),
+      f = n(186),
       h =
         Object.assign ||
         function(e) {
@@ -33067,11 +33281,11 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(540),
+      s = n(541),
       u = n.n(s),
-      c = n(543),
+      c = n(544),
       l = n.n(c),
-      p = n(186),
+      p = n(187),
       f = n(65),
       h = function IsolateButton(e) {
         var t = e.name,
@@ -33115,7 +33329,7 @@ object-assign
           return e;
         },
       o = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(109));
+      i = _interopRequireDefault(n(110));
     (t.default = function MdFullscreen(e) {
       return o.default.createElement(
         i.default,
@@ -33133,7 +33347,7 @@ object-assign
       (e.exports = t.default);
   },
   function(e, t, n) {
-    e.exports = n(542)();
+    e.exports = n(543)();
   },
   function(e, t, n) {
     'use strict';
@@ -33188,7 +33402,7 @@ object-assign
           return e;
         },
       o = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(109));
+      i = _interopRequireDefault(n(110));
     (t.default = function MdFullscreenExit(e) {
       return o.default.createElement(
         i.default,
@@ -33242,7 +33456,7 @@ object-assign
       i = n(1),
       a = n.n(i),
       s = n(5),
-      u = n(20),
+      u = n(21),
       c = n.n(u);
     (ToolbarButtonRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -33282,14 +33496,14 @@ object-assign
       })(ToolbarButtonRenderer));
   },
   function(e, t, n) {
-    var r = n(546);
+    var r = n(547);
     e.exports = function isNaN(e) {
       return r(e) && e != +e;
     };
   },
   function(e, t, n) {
-    var r = n(27),
-      o = n(22),
+    var r = n(28),
+      o = n(23),
       i = '[object Number]';
     e.exports = function isNumber(e) {
       return 'number' == typeof e || (o(e) && r(e) == i);
@@ -33314,7 +33528,7 @@ object-assign
             .replace(r(), '')
             .replace(o, '-');
     }
-    var r = n(548);
+    var r = n(549);
     (e.exports = BananaSlug),
       (BananaSlug.prototype.slug = function(e) {
         var t = this,
@@ -33343,7 +33557,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(187),
+      s = n(188),
       u = function CodeTabButton(e) {
         return o.a.createElement(s.a, e, 'Code');
       };
@@ -33388,7 +33602,7 @@ object-assign
       i = n(1),
       a = n.n(i),
       s = n(5),
-      u = n(20),
+      u = n(21),
       c = n.n(u);
     (TabButtonRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -33436,7 +33650,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(187),
+      s = n(188),
       u = function UsageTabButton(e) {
         var t = e.props;
         return t.props || (t.methods && t.methods.length > 0)
@@ -33453,7 +33667,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(553);
+    var r = n(554);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -33493,11 +33707,11 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(554),
-      u = n(559),
-      c = n(188),
-      l = n(616),
-      p = n(196),
+      s = n(555),
+      u = n(560),
+      c = n(189),
+      l = n(617),
+      p = n(197),
       f = (n.n(p),
       (function() {
         function defineProperties(e, t) {
@@ -33595,7 +33809,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(555);
+    var r = n(556);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -33642,8 +33856,8 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(556),
-      u = n(558),
+      s = n(557),
+      u = n(559),
       c = n(65),
       l = (function() {
         function defineProperties(e, t) {
@@ -33739,7 +33953,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(557);
+    var r = n(558);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -33797,9 +34011,9 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(20),
+      s = n(21),
       u = n.n(s),
-      c = n(182),
+      c = n(183),
       l = n(5);
     (ComponentsListRenderer.propTypes = {
       items: a.a.array.isRequired,
@@ -33961,10 +34175,10 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(560),
-      u = n(23),
+      s = n(561),
+      u = n(24),
       c = n(5),
-      l = n(20),
+      l = n(21),
       p = n.n(l);
     (StyleGuideRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -34028,7 +34242,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(561);
+    var r = n(562);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -34082,8 +34296,8 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(563),
-      u = n(615);
+      s = n(564),
+      u = n(616);
     Sections.propTypes = {
       sections: a.a.array.isRequired,
       root: a.a.bool,
@@ -34092,7 +34306,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(564);
+    var r = n(565);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -34127,10 +34341,10 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(189),
-      u = n(602),
-      c = n(188),
-      l = n(614);
+      s = n(190),
+      u = n(603),
+      c = n(189),
+      l = n(615);
     (Section.propTypes = {
       section: a.a.object.isRequired,
       depth: a.a.number.isRequired,
@@ -34170,9 +34384,9 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(566),
-      u = n(23),
-      c = n(601);
+      s = n(567),
+      u = n(24),
+      c = n(602);
     (Examples.propTypes = {
       examples: a.a.array.isRequired,
       name: a.a.string.isRequired,
@@ -34181,7 +34395,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(567);
+    var r = n(568);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -34221,13 +34435,13 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(201),
+      s = n(202),
       u = n.n(s),
-      c = n(568),
-      l = n(105),
-      p = n(112),
-      f = n(600),
-      h = n(83),
+      c = n(569),
+      l = n(106),
+      p = n(113),
+      f = n(601),
+      h = n(84),
       d = (function() {
         function defineProperties(e, t) {
           for (var n = 0; n < t.length; n++) {
@@ -34360,7 +34574,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(569);
+    var r = n(570);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -34400,13 +34614,13 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(119),
+      s = n(120),
       u = n.n(s),
-      c = n(570),
+      c = n(571),
       l = n.n(c),
-      p = n(571),
-      f = (n.n(p), n(575)),
-      h = n(577),
+      p = n(572),
+      f = (n.n(p), n(576)),
+      h = n(578),
       d = n.n(h),
       m = (function() {
         function defineProperties(e, t) {
@@ -34613,7 +34827,7 @@ object-assign
     (function(e) {
       var r;
       !(function(e, r) {
-        r(t, n(572), n(573));
+        r(t, n(573), n(574));
       })(0, function(t, o, i) {
         'use strict';
         function __commonjs(e, t) {
@@ -34733,7 +34947,7 @@ object-assign
         }
         function extractNames(e) {
           var t = [];
-          return R[e.type](t, e), t;
+          return T[e.type](t, e), t;
         }
         function destructure(e, t, n, r, o, i) {
           F[n.type](e, t, n, r, o, i);
@@ -36657,7 +36871,7 @@ object-assign
               ExportNamedDeclaration
             );
           })(d),
-          T = (function(e) {
+          R = (function(e) {
             function LoopStatement() {
               e.apply(this, arguments);
             }
@@ -36760,27 +36974,27 @@ object-assign
               LoopStatement
             );
           })(d),
-          R = {
+          T = {
             Identifier: function Identifier(e, t) {
               e.push(t);
             },
             ObjectPattern: function ObjectPattern(e, t) {
               for (var n = 0, r = t.properties; n < r.length; n += 1) {
                 var o = r[n];
-                R[o.value.type](e, o.value);
+                T[o.value.type](e, o.value);
               }
             },
             ArrayPattern: function ArrayPattern(e, t) {
               for (var n = 0, r = t.elements; n < r.length; n += 1) {
                 var o = r[n];
-                o && R[o.type](e, o);
+                o && T[o.type](e, o);
               }
             },
             RestElement: function RestElement(e, t) {
-              R[t.argument.type](e, t.argument);
+              T[t.argument.type](e, t.argument);
             },
             AssignmentPattern: function AssignmentPattern(e, t) {
-              R[t.left.type](e, t.left);
+              T[t.left.type](e, t.left);
             },
           },
           P = (function(e) {
@@ -36831,7 +37045,7 @@ object-assign
               }),
               ForStatement
             );
-          })(T),
+          })(R),
           j = (function(e) {
             function ForInStatement() {
               e.apply(this, arguments);
@@ -36868,7 +37082,7 @@ object-assign
               }),
               ForInStatement
             );
-          })(T),
+          })(R),
           F = {
             Identifier: destructureIdentifier,
             AssignmentPattern: function destructureAssignmentPattern(
@@ -36997,7 +37211,7 @@ object-assign
               }),
               ForOfStatement
             );
-          })(T),
+          })(R),
           B = (function(e) {
             function FunctionDeclaration() {
               e.apply(this, arguments);
@@ -37141,7 +37355,7 @@ object-assign
               IfStatement
             );
           })(d),
-          U = (function(e) {
+          q = (function(e) {
             function ImportDeclaration() {
               e.apply(this, arguments);
             }
@@ -37157,7 +37371,7 @@ object-assign
               ImportDeclaration
             );
           })(d),
-          q = (function(e) {
+          U = (function(e) {
             function ImportDefaultSpecifier() {
               e.apply(this, arguments);
             }
@@ -37570,16 +37784,16 @@ object-assign
                 O = function(e) {
                   return 2 == e.length && e[0] + 1 == e[1];
                 },
-                T = function(e) {
+                R = function(e) {
                   for (var t, n, r = 0, o = [], i = e.length; r < i; ) {
                     for (t = e[r], n = e[r + 1]; t < n; ) o.push(t), ++t;
                     r += 2;
                   }
                   return o;
                 },
-                R = Math.floor,
+                T = Math.floor,
                 P = function(e) {
-                  return parseInt(R((e - 65536) / 1024) + 55296, 10);
+                  return parseInt(T((e - 65536) / 1024) + 55296, 10);
                 },
                 j = function(e) {
                   return parseInt((e - 65536) % 1024 + 56320, 10);
@@ -37654,7 +37868,7 @@ object-assign
                       (o += 2);
                   return '[' + r + ']';
                 },
-                U = function(e) {
+                q = function(e) {
                   for (
                     var t,
                       n,
@@ -37718,7 +37932,7 @@ object-assign
                     astral: a,
                   };
                 },
-                q = function(e) {
+                U = function(e) {
                   for (
                     var t,
                       n,
@@ -37801,7 +38015,7 @@ object-assign
                       i,
                       (s += 2);
                   }
-                  return q(u);
+                  return U(u);
                 },
                 V = function(e) {
                   var t = [];
@@ -37817,7 +38031,7 @@ object-assign
                 H = function(e, t, n) {
                   if (n) return M(e);
                   var r = [],
-                    o = U(e),
+                    o = q(e),
                     i = o.loneHighSurrogates,
                     a = o.loneLowSurrogates,
                     s = o.bmp,
@@ -37890,7 +38104,7 @@ object-assign
                 },
                 intersection: function(e) {
                   var t = this,
-                    n = e instanceof K ? T(e.data) : e;
+                    n = e instanceof K ? R(e.data) : e;
                   return (t.data = S(t.data, n)), t;
                 },
                 contains: function(e) {
@@ -37915,7 +38129,7 @@ object-assign
                   return RegExp(t, e || '');
                 },
                 valueOf: function() {
-                  return T(this.data);
+                  return R(this.data);
                 },
               }),
                 ($.toArray = $.valueOf),
@@ -39245,7 +39459,7 @@ object-assign
             ClassDeclaration: x,
             ClassExpression: k,
             ContinueStatement: S,
-            DoWhileStatement: T,
+            DoWhileStatement: R,
             ExportNamedDeclaration: O,
             ExportDefaultDeclaration: D,
             ForStatement: P,
@@ -39255,8 +39469,8 @@ object-assign
             FunctionExpression: N,
             Identifier: L,
             IfStatement: M,
-            ImportDeclaration: U,
-            ImportDefaultSpecifier: q,
+            ImportDeclaration: q,
+            ImportDefaultSpecifier: U,
             ImportSpecifier: z,
             JSXAttribute: V,
             JSXClosingElement: H,
@@ -39482,16 +39696,16 @@ object-assign
                         D < S.start
                           ? t.overwrite(D, S.start, O)
                           : t.insertRight(S.start, O);
-                        for (var T = S.key.end; ']' !== t.original[T]; ) T += 1;
+                        for (var R = S.key.end; ']' !== t.original[R]; ) R += 1;
                         if (
-                          ((T += 1),
-                          S.value.start > T && t.remove(T, S.value.start),
-                          t.insertLeft(T, ' = '),
+                          ((R += 1),
+                          S.value.start > R && t.remove(R, S.value.start),
+                          t.insertLeft(R, ' = '),
                           t.move(D, S.end, C),
                           k < A - 1 && !x)
                         ) {
-                          for (T = S.end; ',' !== t.original[T]; ) T += 1;
-                          t.remove(S.end, T + 1);
+                          for (R = S.end; ',' !== t.original[R]; ) R += 1;
+                          t.remove(S.end, R + 1);
                         }
                         S.method &&
                           n.conciseMethodProperty &&
@@ -40011,7 +40225,7 @@ object-assign
                 VariableDeclarator
               );
             })(d),
-            WhileStatement: T,
+            WhileStatement: R,
           },
           ue = {
             IfStatement: 'consequent',
@@ -40530,7 +40744,7 @@ object-assign
           (t.VERSION = '0.15.2'),
           Object.defineProperty(t, '__esModule', { value: !0 });
       });
-    }.call(t, n(17)));
+    }.call(t, n(18)));
   },
   function(e, t, n) {
     !(function(e, n) {
@@ -42135,8 +42349,8 @@ object-assign
           }
           return t;
         });
-      var T = w.prototype;
-      (T.toAssignable = function(e, t) {
+      var R = w.prototype;
+      (R.toAssignable = function(e, t) {
         var n = this;
         if (this.options.ecmaVersion >= 6 && e)
           switch (e.type) {
@@ -42185,7 +42399,7 @@ object-assign
           }
         return e;
       }),
-        (T.toAssignableList = function(e, t) {
+        (R.toAssignableList = function(e, t) {
           var n = this,
             r = e.length;
           if (r) {
@@ -42213,7 +42427,7 @@ object-assign
           }
           return e;
         }),
-        (T.parseSpread = function(e) {
+        (R.parseSpread = function(e) {
           var t = this.startNode();
           return (
             this.next(),
@@ -42221,7 +42435,7 @@ object-assign
             this.finishNode(t, 'SpreadElement')
           );
         }),
-        (T.parseRest = function(e) {
+        (R.parseRest = function(e) {
           var t = this.startNode();
           return (
             this.next(),
@@ -42233,7 +42447,7 @@ object-assign
             this.finishNode(t, 'RestElement')
           );
         }),
-        (T.parseBindingAtom = function() {
+        (R.parseBindingAtom = function() {
           if (this.options.ecmaVersion < 6) return this.parseIdent();
           switch (this.type) {
             case d.name:
@@ -42251,7 +42465,7 @@ object-assign
               this.unexpected();
           }
         }),
-        (T.parseBindingList = function(e, t, n, r) {
+        (R.parseBindingList = function(e, t, n, r) {
           for (var o = this, i = [], a = !0; !this.eat(e); )
             if ((a ? (a = !1) : o.expect(d.comma), t && o.type === d.comma))
               i.push(null);
@@ -42274,10 +42488,10 @@ object-assign
             }
           return i;
         }),
-        (T.parseBindingListItem = function(e) {
+        (R.parseBindingListItem = function(e) {
           return e;
         }),
-        (T.parseMaybeDefault = function(e, t, n) {
+        (R.parseMaybeDefault = function(e, t, n) {
           if (
             ((n = n || this.parseBindingAtom()),
             this.options.ecmaVersion < 6 || !this.eat(d.eq))
@@ -42290,7 +42504,7 @@ object-assign
             this.finishNode(r, 'AssignmentPattern')
           );
         }),
-        (T.checkLVal = function(e, t, n) {
+        (R.checkLVal = function(e, t, n) {
           var r = this;
           switch (e.type) {
             case 'Identifier':
@@ -42337,8 +42551,8 @@ object-assign
               this.raise(e.start, (t ? 'Binding' : 'Assigning to') + ' rvalue');
           }
         });
-      var R = w.prototype;
-      (R.checkPropClash = function(e, t) {
+      var T = w.prototype;
+      (T.checkPropClash = function(e, t) {
         if (
           !(
             this.options.ecmaVersion >= 6 &&
@@ -42378,7 +42592,7 @@ object-assign
           }
         }
       }),
-        (R.parseExpression = function(e, t) {
+        (T.parseExpression = function(e, t) {
           var n = this,
             r = this.start,
             o = this.startLoc,
@@ -42391,7 +42605,7 @@ object-assign
           }
           return i;
         }),
-        (R.parseMaybeAssign = function(e, t, n) {
+        (T.parseMaybeAssign = function(e, t, n) {
           if (this.inGenerator && this.isContextual('yield'))
             return this.parseYield();
           var r = !1;
@@ -42416,7 +42630,7 @@ object-assign
           }
           return r && this.checkExpressionErrors(t, !0), a;
         }),
-        (R.parseMaybeConditional = function(e, t) {
+        (T.parseMaybeConditional = function(e, t) {
           var n = this.start,
             r = this.startLoc,
             o = this.parseExprOps(e, t);
@@ -42433,7 +42647,7 @@ object-assign
           }
           return o;
         }),
-        (R.parseExprOps = function(e, t) {
+        (T.parseExprOps = function(e, t) {
           var n = this.start,
             r = this.startLoc,
             o = this.parseMaybeUnary(t, !1);
@@ -42441,7 +42655,7 @@ object-assign
             ? o
             : this.parseExprOp(o, n, r, -1, e);
         }),
-        (R.parseExprOp = function(e, t, n, r, o) {
+        (T.parseExprOp = function(e, t, n, r, o) {
           var i = this.type.binop;
           if (null != i && (!o || this.type !== d._in) && i > r) {
             var a = this.type === d.logicalOR || this.type === d.logicalAND,
@@ -42455,7 +42669,7 @@ object-assign
           }
           return e;
         }),
-        (R.buildBinary = function(e, t, n, r, o, i) {
+        (T.buildBinary = function(e, t, n, r, o, i) {
           var a = this.startNodeAt(e, t);
           return (
             (a.left = n),
@@ -42464,7 +42678,7 @@ object-assign
             this.finishNode(a, i ? 'LogicalExpression' : 'BinaryExpression')
           );
         }),
-        (R.parseMaybeUnary = function(e, t) {
+        (T.parseMaybeUnary = function(e, t) {
           var n,
             r = this,
             o = this.start,
@@ -42517,7 +42731,7 @@ object-assign
               )
             : n;
         }),
-        (R.parseExprSubscripts = function(e) {
+        (T.parseExprSubscripts = function(e) {
           var t = this.start,
             n = this.startLoc,
             r = this.parseExprAtom(e),
@@ -42528,7 +42742,7 @@ object-assign
             ? r
             : this.parseSubscripts(r, t, n);
         }),
-        (R.parseSubscripts = function(e, t, n, r) {
+        (T.parseSubscripts = function(e, t, n, r) {
           for (var o = this; ; )
             if (o.eat(d.dot)) {
               var i = o.startNodeAt(t, n);
@@ -42556,7 +42770,7 @@ object-assign
                 (e = o.finishNode(u, 'TaggedTemplateExpression'));
             }
         }),
-        (R.parseExprAtom = function(e) {
+        (T.parseExprAtom = function(e) {
           var t,
             n = this.potentialArrowAt == this.start;
           switch (this.type) {
@@ -42619,7 +42833,7 @@ object-assign
               this.unexpected();
           }
         }),
-        (R.parseLiteral = function(e) {
+        (T.parseLiteral = function(e) {
           var t = this.startNode();
           return (
             (t.value = e),
@@ -42628,12 +42842,12 @@ object-assign
             this.finishNode(t, 'Literal')
           );
         }),
-        (R.parseParenExpression = function() {
+        (T.parseParenExpression = function() {
           this.expect(d.parenL);
           var e = this.parseExpression();
           return this.expect(d.parenR), e;
         }),
-        (R.parseParenAndDistinguishExpression = function(e) {
+        (T.parseParenAndDistinguishExpression = function(e) {
           var t,
             n = this,
             r = this.start,
@@ -42685,14 +42899,14 @@ object-assign
           }
           return t;
         }),
-        (R.parseParenItem = function(e) {
+        (T.parseParenItem = function(e) {
           return e;
         }),
-        (R.parseParenArrowList = function(e, t, n) {
+        (T.parseParenArrowList = function(e, t, n) {
           return this.parseArrowExpression(this.startNodeAt(e, t), n);
         });
       var P = [];
-      (R.parseNew = function() {
+      (T.parseNew = function() {
         var e = this.startNode(),
           t = this.parseIdent(!0);
         if (this.options.ecmaVersion >= 6 && this.eat(d.dot))
@@ -42721,7 +42935,7 @@ object-assign
           this.finishNode(e, 'NewExpression')
         );
       }),
-        (R.parseTemplateElement = function() {
+        (T.parseTemplateElement = function() {
           var e = this.startNode();
           return (
             (e.value = {
@@ -42735,7 +42949,7 @@ object-assign
             this.finishNode(e, 'TemplateElement')
           );
         }),
-        (R.parseTemplate = function() {
+        (T.parseTemplate = function() {
           var e = this,
             t = this.startNode();
           this.next(), (t.expressions = []);
@@ -42747,7 +42961,7 @@ object-assign
               t.quasis.push((n = e.parseTemplateElement()));
           return this.next(), this.finishNode(t, 'TemplateLiteral');
         }),
-        (R.parseObj = function(e, t) {
+        (T.parseObj = function(e, t) {
           var n = this,
             r = this.startNode(),
             o = !0,
@@ -42771,7 +42985,7 @@ object-assign
           }
           return this.finishNode(r, e ? 'ObjectPattern' : 'ObjectExpression');
         }),
-        (R.parsePropertyValue = function(e, t, n, r, o, i) {
+        (T.parsePropertyValue = function(e, t, n, r, o, i) {
           if (this.eat(d.colon))
             (e.value = t
               ? this.parseMaybeDefault(this.start, this.startLoc)
@@ -42835,7 +43049,7 @@ object-assign
                 (e.shorthand = !0))
               : this.unexpected();
         }),
-        (R.parsePropertyName = function(e) {
+        (T.parsePropertyName = function(e) {
           if (this.options.ecmaVersion >= 6) {
             if (this.eat(d.bracketL))
               return (
@@ -42851,12 +43065,12 @@ object-assign
               ? this.parseExprAtom()
               : this.parseIdent(!0));
         }),
-        (R.initFunction = function(e) {
+        (T.initFunction = function(e) {
           (e.id = null),
             this.options.ecmaVersion >= 6 &&
               ((e.generator = !1), (e.expression = !1));
         }),
-        (R.parseMethod = function(e) {
+        (T.parseMethod = function(e) {
           var t = this.startNode(),
             n = this.inGenerator;
           return (
@@ -42870,7 +43084,7 @@ object-assign
             this.finishNode(t, 'FunctionExpression')
           );
         }),
-        (R.parseArrowExpression = function(e, t) {
+        (T.parseArrowExpression = function(e, t) {
           var n = this.inGenerator;
           return (
             (this.inGenerator = !1),
@@ -42881,7 +43095,7 @@ object-assign
             this.finishNode(e, 'ArrowFunctionExpression')
           );
         }),
-        (R.parseFunctionBody = function(e, t) {
+        (T.parseFunctionBody = function(e, t) {
           var n = t && this.type !== d.braceL;
           if (n) (e.body = this.parseMaybeAssign()), (e.expression = !0);
           else {
@@ -42906,7 +43120,7 @@ object-assign
               (this.strict = a);
           } else t && this.checkParams(e, i);
         }),
-        (R.checkParams = function(e, t) {
+        (T.checkParams = function(e, t) {
           for (var n = this, r = {}, o = 0; o < e.params.length; o++)
             t &&
               n.options.ecmaVersion >= 7 &&
@@ -42917,7 +43131,7 @@ object-assign
               ),
               n.checkLVal(e.params[o], !0, r);
         }),
-        (R.parseExprList = function(e, t, n, r) {
+        (T.parseExprList = function(e, t, n, r) {
           for (var o = this, i = [], a = !0; !this.eat(e); ) {
             if (a) a = !1;
             else if ((o.expect(d.comma), t && o.afterTrailingComma(e))) break;
@@ -42935,7 +43149,7 @@ object-assign
           }
           return i;
         }),
-        (R.parseIdent = function(e) {
+        (T.parseIdent = function(e) {
           var t = this.startNode();
           return (
             e && 'never' == this.options.allowReserved && (e = !1),
@@ -42966,7 +43180,7 @@ object-assign
             this.finishNode(t, 'Identifier')
           );
         }),
-        (R.parseYield = function() {
+        (T.parseYield = function() {
           var e = this.startNode();
           return (
             this.next(),
@@ -43108,11 +43322,11 @@ object-assign
             e.options.locations && (this.loc = new E(e, e.startLoc, e.endLoc)),
             e.options.ranges && (this.range = [e.start, e.end]);
         },
-        U = w.prototype,
-        q =
+        q = w.prototype,
+        U =
           'object' == typeof Packages &&
           '[object JavaPackage]' == Object.prototype.toString.call(Packages);
-      (U.next = function() {
+      (q.next = function() {
         this.options.onToken && this.options.onToken(new M(this)),
           (this.lastTokEnd = this.end),
           (this.lastTokStart = this.start),
@@ -43120,11 +43334,11 @@ object-assign
           (this.lastTokStartLoc = this.startLoc),
           this.nextToken();
       }),
-        (U.getToken = function() {
+        (q.getToken = function() {
           return this.next(), new M(this);
         }),
         'undefined' != typeof Symbol &&
-          (U[Symbol.iterator] = function() {
+          (q[Symbol.iterator] = function() {
             var e = this;
             return {
               next: function() {
@@ -43133,7 +43347,7 @@ object-assign
               },
             };
           }),
-        (U.setStrict = function(e) {
+        (q.setStrict = function(e) {
           var t = this;
           if (
             ((this.strict = e), this.type === d.num || this.type === d.string)
@@ -43145,10 +43359,10 @@ object-assign
             this.nextToken();
           }
         }),
-        (U.curContext = function() {
+        (q.curContext = function() {
           return this.context[this.context.length - 1];
         }),
-        (U.nextToken = function() {
+        (q.nextToken = function() {
           var e = this.curContext();
           return (
             (e && e.preserveSpace) || this.skipSpace(),
@@ -43161,18 +43375,18 @@ object-assign
                 : void this.readToken(this.fullCharCodeAtPos())
           );
         }),
-        (U.readToken = function(e) {
+        (q.readToken = function(e) {
           return isIdentifierStart(e, this.options.ecmaVersion >= 6) || 92 === e
             ? this.readWord()
             : this.getTokenFromCode(e);
         }),
-        (U.fullCharCodeAtPos = function() {
+        (q.fullCharCodeAtPos = function() {
           var e = this.input.charCodeAt(this.pos);
           return e <= 55295 || e >= 57344
             ? e
             : (e << 10) + this.input.charCodeAt(this.pos + 1) - 56613888;
         }),
-        (U.skipBlockComment = function() {
+        (q.skipBlockComment = function() {
           var e = this,
             t = this.options.onComment && this.curPosition(),
             n = this.pos,
@@ -43196,7 +43410,7 @@ object-assign
               this.curPosition(),
             );
         }),
-        (U.skipLineComment = function(e) {
+        (q.skipLineComment = function(e) {
           for (
             var t = this,
               n = this.pos,
@@ -43220,7 +43434,7 @@ object-assign
               this.curPosition(),
             );
         }),
-        (U.skipSpace = function() {
+        (q.skipSpace = function() {
           var e = this;
           e: for (; this.pos < this.input.length; ) {
             var t = e.input.charCodeAt(e.pos);
@@ -43261,13 +43475,13 @@ object-assign
             }
           }
         }),
-        (U.finishToken = function(e, t) {
+        (q.finishToken = function(e, t) {
           (this.end = this.pos),
             this.options.locations && (this.endLoc = this.curPosition());
           var n = this.type;
           (this.type = e), (this.value = t), this.updateContext(n);
         }),
-        (U.readToken_dot = function() {
+        (q.readToken_dot = function() {
           var e = this.input.charCodeAt(this.pos + 1);
           if (e >= 48 && e <= 57) return this.readNumber(!0);
           var t = this.input.charCodeAt(this.pos + 2);
@@ -43275,13 +43489,13 @@ object-assign
             ? ((this.pos += 3), this.finishToken(d.ellipsis))
             : (++this.pos, this.finishToken(d.dot));
         }),
-        (U.readToken_slash = function() {
+        (q.readToken_slash = function() {
           var e = this.input.charCodeAt(this.pos + 1);
           return this.exprAllowed
             ? (++this.pos, this.readRegexp())
             : 61 === e ? this.finishOp(d.assign, 2) : this.finishOp(d.slash, 1);
         }),
-        (U.readToken_mult_modulo_exp = function(e) {
+        (q.readToken_mult_modulo_exp = function(e) {
           var t = this.input.charCodeAt(this.pos + 1),
             n = 1,
             r = 42 === e ? d.star : d.modulo;
@@ -43294,7 +43508,7 @@ object-assign
             61 === t ? this.finishOp(d.assign, n + 1) : this.finishOp(r, n)
           );
         }),
-        (U.readToken_pipe_amp = function(e) {
+        (q.readToken_pipe_amp = function(e) {
           var t = this.input.charCodeAt(this.pos + 1);
           return t === e
             ? this.finishOp(124 === e ? d.logicalOR : d.logicalAND, 2)
@@ -43302,12 +43516,12 @@ object-assign
               ? this.finishOp(d.assign, 2)
               : this.finishOp(124 === e ? d.bitwiseOR : d.bitwiseAND, 1);
         }),
-        (U.readToken_caret = function() {
+        (q.readToken_caret = function() {
           return 61 === this.input.charCodeAt(this.pos + 1)
             ? this.finishOp(d.assign, 2)
             : this.finishOp(d.bitwiseXOR, 1);
         }),
-        (U.readToken_plus_min = function(e) {
+        (q.readToken_plus_min = function(e) {
           var t = this.input.charCodeAt(this.pos + 1);
           return t === e
             ? 45 == t &&
@@ -43319,7 +43533,7 @@ object-assign
               ? this.finishOp(d.assign, 2)
               : this.finishOp(d.plusMin, 1);
         }),
-        (U.readToken_lt_gt = function(e) {
+        (q.readToken_lt_gt = function(e) {
           var t = this.input.charCodeAt(this.pos + 1),
             n = 1;
           return t === e
@@ -43338,7 +43552,7 @@ object-assign
                 this.nextToken())
               : (61 === t && (n = 2), this.finishOp(d.relational, n));
         }),
-        (U.readToken_eq_excl = function(e) {
+        (q.readToken_eq_excl = function(e) {
           var t = this.input.charCodeAt(this.pos + 1);
           return 61 === t
             ? this.finishOp(
@@ -43349,7 +43563,7 @@ object-assign
               ? ((this.pos += 2), this.finishToken(d.arrow))
               : this.finishOp(61 === e ? d.eq : d.prefix, 1);
         }),
-        (U.getTokenFromCode = function(e) {
+        (q.getTokenFromCode = function(e) {
           switch (e) {
             case 46:
               return this.readToken_dot();
@@ -43423,12 +43637,12 @@ object-assign
             "Unexpected character '" + codePointToString(e) + "'",
           );
         }),
-        (U.finishOp = function(e, t) {
+        (q.finishOp = function(e, t) {
           var n = this.input.slice(this.pos, this.pos + t);
           return (this.pos += t), this.finishToken(e, n);
         });
       var z = !!tryCreateRegexp('￿', 'u');
-      (U.readRegexp = function() {
+      (q.readRegexp = function() {
         for (var e, t, n = this, r = this.pos; ; ) {
           n.pos >= n.input.length &&
             n.raise(r, 'Unterminated regular expression');
@@ -43473,11 +43687,11 @@ object-assign
         }
         var l = null;
         return (
-          q || (tryCreateRegexp(s, u, r, this), (l = tryCreateRegexp(i, a))),
+          U || (tryCreateRegexp(s, u, r, this), (l = tryCreateRegexp(i, a))),
           this.finishToken(d.regexp, { pattern: i, flags: a, value: l })
         );
       }),
-        (U.readInt = function(e, t) {
+        (q.readInt = function(e, t) {
           for (
             var n = this, r = this.pos, o = 0, i = 0, a = null == t ? 1 / 0 : t;
             i < a;
@@ -43498,7 +43712,7 @@ object-assign
           }
           return this.pos === r || (null != t && this.pos - r !== t) ? null : o;
         }),
-        (U.readRadixNumber = function(e) {
+        (q.readRadixNumber = function(e) {
           this.pos += 2;
           var t = this.readInt(e);
           return (
@@ -43509,7 +43723,7 @@ object-assign
             this.finishToken(d.num, t)
           );
         }),
-        (U.readNumber = function(e) {
+        (q.readNumber = function(e) {
           var t = this.pos,
             n = !1,
             r = 48 === this.input.charCodeAt(this.pos);
@@ -43540,7 +43754,7 @@ object-assign
             this.finishToken(d.num, i)
           );
         }),
-        (U.readCodePoint = function() {
+        (q.readCodePoint = function() {
           var e;
           if (123 === this.input.charCodeAt(this.pos)) {
             this.options.ecmaVersion < 6 && this.unexpected();
@@ -43553,7 +43767,7 @@ object-assign
           } else e = this.readHexChar(4);
           return e;
         }),
-        (U.readString = function(e) {
+        (q.readString = function(e) {
           for (var t = this, n = '', r = ++this.pos; ; ) {
             t.pos >= t.input.length &&
               t.raise(t.start, 'Unterminated string constant');
@@ -43572,7 +43786,7 @@ object-assign
             this.finishToken(d.string, n)
           );
         }),
-        (U.readTmplToken = function() {
+        (q.readTmplToken = function() {
           for (var e = this, t = '', n = this.pos; ; ) {
             e.pos >= e.input.length &&
               e.raise(e.start, 'Unterminated template');
@@ -43603,7 +43817,7 @@ object-assign
             } else ++e.pos;
           }
         }),
-        (U.readEscapedChar = function(e) {
+        (q.readEscapedChar = function(e) {
           var t = this.input.charCodeAt(++this.pos);
           switch ((++this.pos, t)) {
             case 110:
@@ -43646,14 +43860,14 @@ object-assign
               return String.fromCharCode(t);
           }
         }),
-        (U.readHexChar = function(e) {
+        (q.readHexChar = function(e) {
           var t = this.pos,
             n = this.readInt(16, e);
           return (
             null === n && this.raise(t, 'Bad character escape sequence'), n
           );
         }),
-        (U.readWord1 = function() {
+        (q.readWord1 = function() {
           var e = this;
           this.containsEsc = !1;
           for (
@@ -43680,7 +43894,7 @@ object-assign
           }
           return t + this.input.slice(r, this.pos);
         }),
-        (U.readWord = function() {
+        (q.readWord = function() {
           var e = this.readWord1(),
             t = d.name;
           return (
@@ -43923,7 +44137,7 @@ object-assign
       function getSemis(e) {
         return new Array(e.split('\n').length).join(';');
       }
-      var r = n(574);
+      var r = n(575);
       Chunk.prototype = {
         append: function append(e) {
           this.outro += e;
@@ -44547,7 +44761,7 @@ object-assign
       }),
         (MagicString.Bundle = Bundle),
         (e.exports = MagicString);
-    }.call(t, n(163).Buffer));
+    }.call(t, n(164).Buffer));
   },
   function(e, t, n) {
     'use strict';
@@ -44593,7 +44807,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(576);
+    var r = n(577);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -44686,7 +44900,7 @@ object-assign
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
       })(n(0)),
-      i = n(28),
+      i = n(13),
       a = (function(e) {
         function Wrapper() {
           return (
@@ -44723,7 +44937,7 @@ object-assign
     var r = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
       })(n(0)),
-      o = n(16);
+      o = n(17);
     t.default = function(e) {
       return function(t) {
         return r.default.createElement(
@@ -44739,8 +44953,8 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(580)),
-      o = n(582);
+      })(n(581)),
+      o = n(583);
     t.default = function(e) {
       return function(t) {
         var n = e()(t);
@@ -44756,7 +44970,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    e.exports.all = n(581).properties;
+    e.exports.all = n(582).properties;
   },
   function(e, t) {
     e.exports = {
@@ -45849,24 +46063,24 @@ object-assign
     };
   },
   function(e, t, n) {
-    (t.no = t.noCase = n(21)),
-      (t.dot = t.dotCase = n(586)),
-      (t.swap = t.swapCase = n(587)),
-      (t.path = t.pathCase = n(588)),
-      (t.upper = t.upperCase = n(24)),
+    (t.no = t.noCase = n(22)),
+      (t.dot = t.dotCase = n(587)),
+      (t.swap = t.swapCase = n(588)),
+      (t.path = t.pathCase = n(589)),
+      (t.upper = t.upperCase = n(25)),
       (t.lower = t.lowerCase = n(47)),
-      (t.camel = t.camelCase = n(193)),
-      (t.snake = t.snakeCase = n(194)),
-      (t.title = t.titleCase = n(589)),
-      (t.param = t.paramCase = n(590)),
-      (t.header = t.headerCase = n(591)),
-      (t.pascal = t.pascalCase = n(592)),
-      (t.constant = t.constantCase = n(593)),
-      (t.sentence = t.sentenceCase = n(594)),
-      (t.isUpper = t.isUpperCase = n(595)),
-      (t.isLower = t.isLowerCase = n(596)),
-      (t.ucFirst = t.upperCaseFirst = n(111)),
-      (t.lcFirst = t.lowerCaseFirst = n(597));
+      (t.camel = t.camelCase = n(194)),
+      (t.snake = t.snakeCase = n(195)),
+      (t.title = t.titleCase = n(590)),
+      (t.param = t.paramCase = n(591)),
+      (t.header = t.headerCase = n(592)),
+      (t.pascal = t.pascalCase = n(593)),
+      (t.constant = t.constantCase = n(594)),
+      (t.sentence = t.sentenceCase = n(595)),
+      (t.isUpper = t.isUpperCase = n(596)),
+      (t.isLower = t.isLowerCase = n(597)),
+      (t.ucFirst = t.upperCaseFirst = n(112)),
+      (t.lcFirst = t.lowerCaseFirst = n(598));
   },
   function(e, t) {
     e.exports = /[^A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0-\u08B4\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16F1-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FD5\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AD\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC0-9\xB2\xB3\xB9\xBC-\xBE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0DE6-\u0DEF\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uA9F0-\uA9F9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19]+/g;
@@ -45878,13 +46092,13 @@ object-assign
     e.exports = /([A-Z\xC0-\xD6\xD8-\xDE\u0100\u0102\u0104\u0106\u0108\u010A\u010C\u010E\u0110\u0112\u0114\u0116\u0118\u011A\u011C\u011E\u0120\u0122\u0124\u0126\u0128\u012A\u012C\u012E\u0130\u0132\u0134\u0136\u0139\u013B\u013D\u013F\u0141\u0143\u0145\u0147\u014A\u014C\u014E\u0150\u0152\u0154\u0156\u0158\u015A\u015C\u015E\u0160\u0162\u0164\u0166\u0168\u016A\u016C\u016E\u0170\u0172\u0174\u0176\u0178\u0179\u017B\u017D\u0181\u0182\u0184\u0186\u0187\u0189-\u018B\u018E-\u0191\u0193\u0194\u0196-\u0198\u019C\u019D\u019F\u01A0\u01A2\u01A4\u01A6\u01A7\u01A9\u01AC\u01AE\u01AF\u01B1-\u01B3\u01B5\u01B7\u01B8\u01BC\u01C4\u01C7\u01CA\u01CD\u01CF\u01D1\u01D3\u01D5\u01D7\u01D9\u01DB\u01DE\u01E0\u01E2\u01E4\u01E6\u01E8\u01EA\u01EC\u01EE\u01F1\u01F4\u01F6-\u01F8\u01FA\u01FC\u01FE\u0200\u0202\u0204\u0206\u0208\u020A\u020C\u020E\u0210\u0212\u0214\u0216\u0218\u021A\u021C\u021E\u0220\u0222\u0224\u0226\u0228\u022A\u022C\u022E\u0230\u0232\u023A\u023B\u023D\u023E\u0241\u0243-\u0246\u0248\u024A\u024C\u024E\u0370\u0372\u0376\u037F\u0386\u0388-\u038A\u038C\u038E\u038F\u0391-\u03A1\u03A3-\u03AB\u03CF\u03D2-\u03D4\u03D8\u03DA\u03DC\u03DE\u03E0\u03E2\u03E4\u03E6\u03E8\u03EA\u03EC\u03EE\u03F4\u03F7\u03F9\u03FA\u03FD-\u042F\u0460\u0462\u0464\u0466\u0468\u046A\u046C\u046E\u0470\u0472\u0474\u0476\u0478\u047A\u047C\u047E\u0480\u048A\u048C\u048E\u0490\u0492\u0494\u0496\u0498\u049A\u049C\u049E\u04A0\u04A2\u04A4\u04A6\u04A8\u04AA\u04AC\u04AE\u04B0\u04B2\u04B4\u04B6\u04B8\u04BA\u04BC\u04BE\u04C0\u04C1\u04C3\u04C5\u04C7\u04C9\u04CB\u04CD\u04D0\u04D2\u04D4\u04D6\u04D8\u04DA\u04DC\u04DE\u04E0\u04E2\u04E4\u04E6\u04E8\u04EA\u04EC\u04EE\u04F0\u04F2\u04F4\u04F6\u04F8\u04FA\u04FC\u04FE\u0500\u0502\u0504\u0506\u0508\u050A\u050C\u050E\u0510\u0512\u0514\u0516\u0518\u051A\u051C\u051E\u0520\u0522\u0524\u0526\u0528\u052A\u052C\u052E\u0531-\u0556\u10A0-\u10C5\u10C7\u10CD\u13A0-\u13F5\u1E00\u1E02\u1E04\u1E06\u1E08\u1E0A\u1E0C\u1E0E\u1E10\u1E12\u1E14\u1E16\u1E18\u1E1A\u1E1C\u1E1E\u1E20\u1E22\u1E24\u1E26\u1E28\u1E2A\u1E2C\u1E2E\u1E30\u1E32\u1E34\u1E36\u1E38\u1E3A\u1E3C\u1E3E\u1E40\u1E42\u1E44\u1E46\u1E48\u1E4A\u1E4C\u1E4E\u1E50\u1E52\u1E54\u1E56\u1E58\u1E5A\u1E5C\u1E5E\u1E60\u1E62\u1E64\u1E66\u1E68\u1E6A\u1E6C\u1E6E\u1E70\u1E72\u1E74\u1E76\u1E78\u1E7A\u1E7C\u1E7E\u1E80\u1E82\u1E84\u1E86\u1E88\u1E8A\u1E8C\u1E8E\u1E90\u1E92\u1E94\u1E9E\u1EA0\u1EA2\u1EA4\u1EA6\u1EA8\u1EAA\u1EAC\u1EAE\u1EB0\u1EB2\u1EB4\u1EB6\u1EB8\u1EBA\u1EBC\u1EBE\u1EC0\u1EC2\u1EC4\u1EC6\u1EC8\u1ECA\u1ECC\u1ECE\u1ED0\u1ED2\u1ED4\u1ED6\u1ED8\u1EDA\u1EDC\u1EDE\u1EE0\u1EE2\u1EE4\u1EE6\u1EE8\u1EEA\u1EEC\u1EEE\u1EF0\u1EF2\u1EF4\u1EF6\u1EF8\u1EFA\u1EFC\u1EFE\u1F08-\u1F0F\u1F18-\u1F1D\u1F28-\u1F2F\u1F38-\u1F3F\u1F48-\u1F4D\u1F59\u1F5B\u1F5D\u1F5F\u1F68-\u1F6F\u1FB8-\u1FBB\u1FC8-\u1FCB\u1FD8-\u1FDB\u1FE8-\u1FEC\u1FF8-\u1FFB\u2102\u2107\u210B-\u210D\u2110-\u2112\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u2130-\u2133\u213E\u213F\u2145\u2183\u2C00-\u2C2E\u2C60\u2C62-\u2C64\u2C67\u2C69\u2C6B\u2C6D-\u2C70\u2C72\u2C75\u2C7E-\u2C80\u2C82\u2C84\u2C86\u2C88\u2C8A\u2C8C\u2C8E\u2C90\u2C92\u2C94\u2C96\u2C98\u2C9A\u2C9C\u2C9E\u2CA0\u2CA2\u2CA4\u2CA6\u2CA8\u2CAA\u2CAC\u2CAE\u2CB0\u2CB2\u2CB4\u2CB6\u2CB8\u2CBA\u2CBC\u2CBE\u2CC0\u2CC2\u2CC4\u2CC6\u2CC8\u2CCA\u2CCC\u2CCE\u2CD0\u2CD2\u2CD4\u2CD6\u2CD8\u2CDA\u2CDC\u2CDE\u2CE0\u2CE2\u2CEB\u2CED\u2CF2\uA640\uA642\uA644\uA646\uA648\uA64A\uA64C\uA64E\uA650\uA652\uA654\uA656\uA658\uA65A\uA65C\uA65E\uA660\uA662\uA664\uA666\uA668\uA66A\uA66C\uA680\uA682\uA684\uA686\uA688\uA68A\uA68C\uA68E\uA690\uA692\uA694\uA696\uA698\uA69A\uA722\uA724\uA726\uA728\uA72A\uA72C\uA72E\uA732\uA734\uA736\uA738\uA73A\uA73C\uA73E\uA740\uA742\uA744\uA746\uA748\uA74A\uA74C\uA74E\uA750\uA752\uA754\uA756\uA758\uA75A\uA75C\uA75E\uA760\uA762\uA764\uA766\uA768\uA76A\uA76C\uA76E\uA779\uA77B\uA77D\uA77E\uA780\uA782\uA784\uA786\uA78B\uA78D\uA790\uA792\uA796\uA798\uA79A\uA79C\uA79E\uA7A0\uA7A2\uA7A4\uA7A6\uA7A8\uA7AA-\uA7AD\uA7B0-\uA7B4\uA7B6\uFF21-\uFF3A])([A-Z\xC0-\xD6\xD8-\xDE\u0100\u0102\u0104\u0106\u0108\u010A\u010C\u010E\u0110\u0112\u0114\u0116\u0118\u011A\u011C\u011E\u0120\u0122\u0124\u0126\u0128\u012A\u012C\u012E\u0130\u0132\u0134\u0136\u0139\u013B\u013D\u013F\u0141\u0143\u0145\u0147\u014A\u014C\u014E\u0150\u0152\u0154\u0156\u0158\u015A\u015C\u015E\u0160\u0162\u0164\u0166\u0168\u016A\u016C\u016E\u0170\u0172\u0174\u0176\u0178\u0179\u017B\u017D\u0181\u0182\u0184\u0186\u0187\u0189-\u018B\u018E-\u0191\u0193\u0194\u0196-\u0198\u019C\u019D\u019F\u01A0\u01A2\u01A4\u01A6\u01A7\u01A9\u01AC\u01AE\u01AF\u01B1-\u01B3\u01B5\u01B7\u01B8\u01BC\u01C4\u01C7\u01CA\u01CD\u01CF\u01D1\u01D3\u01D5\u01D7\u01D9\u01DB\u01DE\u01E0\u01E2\u01E4\u01E6\u01E8\u01EA\u01EC\u01EE\u01F1\u01F4\u01F6-\u01F8\u01FA\u01FC\u01FE\u0200\u0202\u0204\u0206\u0208\u020A\u020C\u020E\u0210\u0212\u0214\u0216\u0218\u021A\u021C\u021E\u0220\u0222\u0224\u0226\u0228\u022A\u022C\u022E\u0230\u0232\u023A\u023B\u023D\u023E\u0241\u0243-\u0246\u0248\u024A\u024C\u024E\u0370\u0372\u0376\u037F\u0386\u0388-\u038A\u038C\u038E\u038F\u0391-\u03A1\u03A3-\u03AB\u03CF\u03D2-\u03D4\u03D8\u03DA\u03DC\u03DE\u03E0\u03E2\u03E4\u03E6\u03E8\u03EA\u03EC\u03EE\u03F4\u03F7\u03F9\u03FA\u03FD-\u042F\u0460\u0462\u0464\u0466\u0468\u046A\u046C\u046E\u0470\u0472\u0474\u0476\u0478\u047A\u047C\u047E\u0480\u048A\u048C\u048E\u0490\u0492\u0494\u0496\u0498\u049A\u049C\u049E\u04A0\u04A2\u04A4\u04A6\u04A8\u04AA\u04AC\u04AE\u04B0\u04B2\u04B4\u04B6\u04B8\u04BA\u04BC\u04BE\u04C0\u04C1\u04C3\u04C5\u04C7\u04C9\u04CB\u04CD\u04D0\u04D2\u04D4\u04D6\u04D8\u04DA\u04DC\u04DE\u04E0\u04E2\u04E4\u04E6\u04E8\u04EA\u04EC\u04EE\u04F0\u04F2\u04F4\u04F6\u04F8\u04FA\u04FC\u04FE\u0500\u0502\u0504\u0506\u0508\u050A\u050C\u050E\u0510\u0512\u0514\u0516\u0518\u051A\u051C\u051E\u0520\u0522\u0524\u0526\u0528\u052A\u052C\u052E\u0531-\u0556\u10A0-\u10C5\u10C7\u10CD\u13A0-\u13F5\u1E00\u1E02\u1E04\u1E06\u1E08\u1E0A\u1E0C\u1E0E\u1E10\u1E12\u1E14\u1E16\u1E18\u1E1A\u1E1C\u1E1E\u1E20\u1E22\u1E24\u1E26\u1E28\u1E2A\u1E2C\u1E2E\u1E30\u1E32\u1E34\u1E36\u1E38\u1E3A\u1E3C\u1E3E\u1E40\u1E42\u1E44\u1E46\u1E48\u1E4A\u1E4C\u1E4E\u1E50\u1E52\u1E54\u1E56\u1E58\u1E5A\u1E5C\u1E5E\u1E60\u1E62\u1E64\u1E66\u1E68\u1E6A\u1E6C\u1E6E\u1E70\u1E72\u1E74\u1E76\u1E78\u1E7A\u1E7C\u1E7E\u1E80\u1E82\u1E84\u1E86\u1E88\u1E8A\u1E8C\u1E8E\u1E90\u1E92\u1E94\u1E9E\u1EA0\u1EA2\u1EA4\u1EA6\u1EA8\u1EAA\u1EAC\u1EAE\u1EB0\u1EB2\u1EB4\u1EB6\u1EB8\u1EBA\u1EBC\u1EBE\u1EC0\u1EC2\u1EC4\u1EC6\u1EC8\u1ECA\u1ECC\u1ECE\u1ED0\u1ED2\u1ED4\u1ED6\u1ED8\u1EDA\u1EDC\u1EDE\u1EE0\u1EE2\u1EE4\u1EE6\u1EE8\u1EEA\u1EEC\u1EEE\u1EF0\u1EF2\u1EF4\u1EF6\u1EF8\u1EFA\u1EFC\u1EFE\u1F08-\u1F0F\u1F18-\u1F1D\u1F28-\u1F2F\u1F38-\u1F3F\u1F48-\u1F4D\u1F59\u1F5B\u1F5D\u1F5F\u1F68-\u1F6F\u1FB8-\u1FBB\u1FC8-\u1FCB\u1FD8-\u1FDB\u1FE8-\u1FEC\u1FF8-\u1FFB\u2102\u2107\u210B-\u210D\u2110-\u2112\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u2130-\u2133\u213E\u213F\u2145\u2183\u2C00-\u2C2E\u2C60\u2C62-\u2C64\u2C67\u2C69\u2C6B\u2C6D-\u2C70\u2C72\u2C75\u2C7E-\u2C80\u2C82\u2C84\u2C86\u2C88\u2C8A\u2C8C\u2C8E\u2C90\u2C92\u2C94\u2C96\u2C98\u2C9A\u2C9C\u2C9E\u2CA0\u2CA2\u2CA4\u2CA6\u2CA8\u2CAA\u2CAC\u2CAE\u2CB0\u2CB2\u2CB4\u2CB6\u2CB8\u2CBA\u2CBC\u2CBE\u2CC0\u2CC2\u2CC4\u2CC6\u2CC8\u2CCA\u2CCC\u2CCE\u2CD0\u2CD2\u2CD4\u2CD6\u2CD8\u2CDA\u2CDC\u2CDE\u2CE0\u2CE2\u2CEB\u2CED\u2CF2\uA640\uA642\uA644\uA646\uA648\uA64A\uA64C\uA64E\uA650\uA652\uA654\uA656\uA658\uA65A\uA65C\uA65E\uA660\uA662\uA664\uA666\uA668\uA66A\uA66C\uA680\uA682\uA684\uA686\uA688\uA68A\uA68C\uA68E\uA690\uA692\uA694\uA696\uA698\uA69A\uA722\uA724\uA726\uA728\uA72A\uA72C\uA72E\uA732\uA734\uA736\uA738\uA73A\uA73C\uA73E\uA740\uA742\uA744\uA746\uA748\uA74A\uA74C\uA74E\uA750\uA752\uA754\uA756\uA758\uA75A\uA75C\uA75E\uA760\uA762\uA764\uA766\uA768\uA76A\uA76C\uA76E\uA779\uA77B\uA77D\uA77E\uA780\uA782\uA784\uA786\uA78B\uA78D\uA790\uA792\uA796\uA798\uA79A\uA79C\uA79E\uA7A0\uA7A2\uA7A4\uA7A6\uA7A8\uA7AA-\uA7AD\uA7B0-\uA7B4\uA7B6\uFF21-\uFF3A][a-z\xB5\xDF-\xF6\xF8-\xFF\u0101\u0103\u0105\u0107\u0109\u010B\u010D\u010F\u0111\u0113\u0115\u0117\u0119\u011B\u011D\u011F\u0121\u0123\u0125\u0127\u0129\u012B\u012D\u012F\u0131\u0133\u0135\u0137\u0138\u013A\u013C\u013E\u0140\u0142\u0144\u0146\u0148\u0149\u014B\u014D\u014F\u0151\u0153\u0155\u0157\u0159\u015B\u015D\u015F\u0161\u0163\u0165\u0167\u0169\u016B\u016D\u016F\u0171\u0173\u0175\u0177\u017A\u017C\u017E-\u0180\u0183\u0185\u0188\u018C\u018D\u0192\u0195\u0199-\u019B\u019E\u01A1\u01A3\u01A5\u01A8\u01AA\u01AB\u01AD\u01B0\u01B4\u01B6\u01B9\u01BA\u01BD-\u01BF\u01C6\u01C9\u01CC\u01CE\u01D0\u01D2\u01D4\u01D6\u01D8\u01DA\u01DC\u01DD\u01DF\u01E1\u01E3\u01E5\u01E7\u01E9\u01EB\u01ED\u01EF\u01F0\u01F3\u01F5\u01F9\u01FB\u01FD\u01FF\u0201\u0203\u0205\u0207\u0209\u020B\u020D\u020F\u0211\u0213\u0215\u0217\u0219\u021B\u021D\u021F\u0221\u0223\u0225\u0227\u0229\u022B\u022D\u022F\u0231\u0233-\u0239\u023C\u023F\u0240\u0242\u0247\u0249\u024B\u024D\u024F-\u0293\u0295-\u02AF\u0371\u0373\u0377\u037B-\u037D\u0390\u03AC-\u03CE\u03D0\u03D1\u03D5-\u03D7\u03D9\u03DB\u03DD\u03DF\u03E1\u03E3\u03E5\u03E7\u03E9\u03EB\u03ED\u03EF-\u03F3\u03F5\u03F8\u03FB\u03FC\u0430-\u045F\u0461\u0463\u0465\u0467\u0469\u046B\u046D\u046F\u0471\u0473\u0475\u0477\u0479\u047B\u047D\u047F\u0481\u048B\u048D\u048F\u0491\u0493\u0495\u0497\u0499\u049B\u049D\u049F\u04A1\u04A3\u04A5\u04A7\u04A9\u04AB\u04AD\u04AF\u04B1\u04B3\u04B5\u04B7\u04B9\u04BB\u04BD\u04BF\u04C2\u04C4\u04C6\u04C8\u04CA\u04CC\u04CE\u04CF\u04D1\u04D3\u04D5\u04D7\u04D9\u04DB\u04DD\u04DF\u04E1\u04E3\u04E5\u04E7\u04E9\u04EB\u04ED\u04EF\u04F1\u04F3\u04F5\u04F7\u04F9\u04FB\u04FD\u04FF\u0501\u0503\u0505\u0507\u0509\u050B\u050D\u050F\u0511\u0513\u0515\u0517\u0519\u051B\u051D\u051F\u0521\u0523\u0525\u0527\u0529\u052B\u052D\u052F\u0561-\u0587\u13F8-\u13FD\u1D00-\u1D2B\u1D6B-\u1D77\u1D79-\u1D9A\u1E01\u1E03\u1E05\u1E07\u1E09\u1E0B\u1E0D\u1E0F\u1E11\u1E13\u1E15\u1E17\u1E19\u1E1B\u1E1D\u1E1F\u1E21\u1E23\u1E25\u1E27\u1E29\u1E2B\u1E2D\u1E2F\u1E31\u1E33\u1E35\u1E37\u1E39\u1E3B\u1E3D\u1E3F\u1E41\u1E43\u1E45\u1E47\u1E49\u1E4B\u1E4D\u1E4F\u1E51\u1E53\u1E55\u1E57\u1E59\u1E5B\u1E5D\u1E5F\u1E61\u1E63\u1E65\u1E67\u1E69\u1E6B\u1E6D\u1E6F\u1E71\u1E73\u1E75\u1E77\u1E79\u1E7B\u1E7D\u1E7F\u1E81\u1E83\u1E85\u1E87\u1E89\u1E8B\u1E8D\u1E8F\u1E91\u1E93\u1E95-\u1E9D\u1E9F\u1EA1\u1EA3\u1EA5\u1EA7\u1EA9\u1EAB\u1EAD\u1EAF\u1EB1\u1EB3\u1EB5\u1EB7\u1EB9\u1EBB\u1EBD\u1EBF\u1EC1\u1EC3\u1EC5\u1EC7\u1EC9\u1ECB\u1ECD\u1ECF\u1ED1\u1ED3\u1ED5\u1ED7\u1ED9\u1EDB\u1EDD\u1EDF\u1EE1\u1EE3\u1EE5\u1EE7\u1EE9\u1EEB\u1EED\u1EEF\u1EF1\u1EF3\u1EF5\u1EF7\u1EF9\u1EFB\u1EFD\u1EFF-\u1F07\u1F10-\u1F15\u1F20-\u1F27\u1F30-\u1F37\u1F40-\u1F45\u1F50-\u1F57\u1F60-\u1F67\u1F70-\u1F7D\u1F80-\u1F87\u1F90-\u1F97\u1FA0-\u1FA7\u1FB0-\u1FB4\u1FB6\u1FB7\u1FBE\u1FC2-\u1FC4\u1FC6\u1FC7\u1FD0-\u1FD3\u1FD6\u1FD7\u1FE0-\u1FE7\u1FF2-\u1FF4\u1FF6\u1FF7\u210A\u210E\u210F\u2113\u212F\u2134\u2139\u213C\u213D\u2146-\u2149\u214E\u2184\u2C30-\u2C5E\u2C61\u2C65\u2C66\u2C68\u2C6A\u2C6C\u2C71\u2C73\u2C74\u2C76-\u2C7B\u2C81\u2C83\u2C85\u2C87\u2C89\u2C8B\u2C8D\u2C8F\u2C91\u2C93\u2C95\u2C97\u2C99\u2C9B\u2C9D\u2C9F\u2CA1\u2CA3\u2CA5\u2CA7\u2CA9\u2CAB\u2CAD\u2CAF\u2CB1\u2CB3\u2CB5\u2CB7\u2CB9\u2CBB\u2CBD\u2CBF\u2CC1\u2CC3\u2CC5\u2CC7\u2CC9\u2CCB\u2CCD\u2CCF\u2CD1\u2CD3\u2CD5\u2CD7\u2CD9\u2CDB\u2CDD\u2CDF\u2CE1\u2CE3\u2CE4\u2CEC\u2CEE\u2CF3\u2D00-\u2D25\u2D27\u2D2D\uA641\uA643\uA645\uA647\uA649\uA64B\uA64D\uA64F\uA651\uA653\uA655\uA657\uA659\uA65B\uA65D\uA65F\uA661\uA663\uA665\uA667\uA669\uA66B\uA66D\uA681\uA683\uA685\uA687\uA689\uA68B\uA68D\uA68F\uA691\uA693\uA695\uA697\uA699\uA69B\uA723\uA725\uA727\uA729\uA72B\uA72D\uA72F-\uA731\uA733\uA735\uA737\uA739\uA73B\uA73D\uA73F\uA741\uA743\uA745\uA747\uA749\uA74B\uA74D\uA74F\uA751\uA753\uA755\uA757\uA759\uA75B\uA75D\uA75F\uA761\uA763\uA765\uA767\uA769\uA76B\uA76D\uA76F\uA771-\uA778\uA77A\uA77C\uA77F\uA781\uA783\uA785\uA787\uA78C\uA78E\uA791\uA793-\uA795\uA797\uA799\uA79B\uA79D\uA79F\uA7A1\uA7A3\uA7A5\uA7A7\uA7A9\uA7B5\uA7B7\uA7FA\uAB30-\uAB5A\uAB60-\uAB65\uAB70-\uABBF\uFB00-\uFB06\uFB13-\uFB17\uFF41-\uFF5A])/g;
   },
   function(e, t, n) {
-    var r = n(21);
+    var r = n(22);
     e.exports = function(e, t) {
       return r(e, t, '.');
     };
   },
   function(e, t, n) {
-    var r = n(24),
+    var r = n(25),
       o = n(47);
     e.exports = function(e, t) {
       if (null == e) return '';
@@ -45897,14 +46111,14 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(21);
+    var r = n(22);
     e.exports = function(e, t) {
       return r(e, t, '/');
     };
   },
   function(e, t, n) {
-    var r = n(21),
-      o = n(24);
+    var r = n(22),
+      o = n(25);
     e.exports = function(e, t) {
       return r(e, t).replace(/^.| ./g, function(e) {
         return o(e, t);
@@ -45912,14 +46126,14 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(21);
+    var r = n(22);
     e.exports = function(e, t) {
       return r(e, t, '-');
     };
   },
   function(e, t, n) {
-    var r = n(21),
-      o = n(24);
+    var r = n(22),
+      o = n(25);
     e.exports = function(e, t) {
       return r(e, t, '-').replace(/^.|-./g, function(e) {
         return o(e, t);
@@ -45927,28 +46141,28 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(193),
-      o = n(111);
+    var r = n(194),
+      o = n(112);
     e.exports = function(e, t, n) {
       return o(r(e, t, n), t);
     };
   },
   function(e, t, n) {
-    var r = n(24),
-      o = n(194);
+    var r = n(25),
+      o = n(195);
     e.exports = function(e, t) {
       return r(o(e, t), t);
     };
   },
   function(e, t, n) {
-    var r = n(21),
-      o = n(111);
+    var r = n(22),
+      o = n(112);
     e.exports = function(e, t) {
       return o(r(e, t), t);
     };
   },
   function(e, t, n) {
-    var r = n(24);
+    var r = n(25);
     e.exports = function(e, t) {
       return r(e, t) === e;
     };
@@ -46007,21 +46221,23 @@ object-assign
           }
           return e;
         },
-      o = _interopRequireDefault(n(192)),
-      i = _interopRequireDefault(n(110)),
-      a = n(191),
-      s = function Theme(e) {
+      o = _interopRequireDefault(n(193)),
+      i = _interopRequireDefault(n(111)),
+      a = n(192),
+      s = _interopRequireDefault(n(66)),
+      u = _interopRequireDefault(n(0)),
+      c = function Theme(e) {
         var t =
             arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
           n =
             arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
-        if ((_classCallCheck(this, Theme), u.call(this), !e))
+        if ((_classCallCheck(this, Theme), l.call(this), !e))
           throw new Error('namespace is required');
         (this.namespace = e),
           (this.globals = t),
           (this.registeredComponents = n);
       },
-      u = function _initialiseProps() {
+      l = function _initialiseProps() {
         var e = this;
         (this.connect = i.default),
           (this.variant = a.asVariant),
@@ -46090,7 +46306,9 @@ object-assign
                   c = (o.default.isArray(u)
                     ? [].concat(_toConsumableArray(u), ['default'])
                     : [u, 'default']).map(function(e) {
-                    return a[i.namespace].components[t][e] || {};
+                    return (
+                      o.default.clone(a[i.namespace].components[t][e]) || {}
+                    );
                   }),
                   l = o.default.defaultsDeep.apply(
                     o.default,
@@ -46124,14 +46342,17 @@ object-assign
             );
           }),
           (this.extend = function(t) {
-            return new s(
+            return new c(
               e.namespace,
               o.default.defaultsDeep(t, e.globals),
               e.registeredComponents,
             );
+          }),
+          (this.renderDocumentation = function(t) {
+            return u.default.createElement(s.default, { theme: e, name: t });
           });
       };
-    t.default = s;
+    t.default = c;
   },
   function(e, t, n) {
     'use strict';
@@ -46247,7 +46468,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(20),
+      s = n(21),
       u = n.n(s),
       c = n(5),
       l =
@@ -46307,7 +46528,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(603);
+    var r = n(604);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -46334,8 +46555,8 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(604),
-      u = n(613);
+      s = n(605),
+      u = n(614);
     Components.propTypes = {
       components: a.a.array.isRequired,
       depth: a.a.number.isRequired,
@@ -46343,7 +46564,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(605);
+    var r = n(606);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -46383,13 +46604,13 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(189),
-      u = n(195),
-      c = n(108),
-      l = n(23),
-      p = n(112),
-      f = n(608),
-      h = n(83),
+      s = n(190),
+      u = n(196),
+      c = n(109),
+      l = n(24),
+      p = n(113),
+      f = n(609),
+      h = n(84),
       d =
         Object.assign ||
         function(e) {
@@ -46555,8 +46776,8 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(112),
-      u = n(607),
+      s = n(113),
+      u = n(608),
       c = n(65),
       l =
         Object.assign ||
@@ -46618,7 +46839,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(20),
+      s = n(21),
       u = n.n(s),
       c = n(5);
     (SectionHeadingRenderer.propTypes = {
@@ -46690,7 +46911,7 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(609),
+      s = n(610),
       u = n(5);
     (ReactComponentRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -46719,7 +46940,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(610);
+    var r = n(611);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -46751,11 +46972,11 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(611),
+      s = n(612),
       u = n.n(s),
-      c = n(612),
+      c = n(613),
       l = n.n(c),
-      p = n(186),
+      p = n(187),
       f = n(5);
     (PathlineRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -46812,7 +47033,7 @@ object-assign
           return e;
         },
       o = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(109));
+      i = _interopRequireDefault(n(110));
     (t.default = function MdContentCopy(e) {
       return o.default.createElement(
         i.default,
@@ -46871,7 +47092,7 @@ object-assign
       i = n(1),
       a = n.n(i),
       s = n(5),
-      u = n(195);
+      u = n(196);
     (SectionRenderer.propTypes = {
       classes: a.a.object.isRequired,
       name: a.a.string,
@@ -46908,7 +47129,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(617);
+    var r = n(618);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -46939,9 +47160,9 @@ object-assign
       o = n.n(r),
       i = n(1),
       a = n.n(i),
-      s = n(23),
+      s = n(24),
       u = n(5),
-      c = n(196);
+      c = n(197);
     n.n(c);
     (WelcomeRenderer.propTypes = {
       classes: a.a.object.isRequired,
@@ -46956,12 +47177,12 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    n(95), n(619);
+    n(96), n(620);
   },
   function(e, t, n) {
     'use strict';
     var r = { body: { isolate: !1, margin: 0, padding: 0, border: 0 } },
-      o = n(95)
+      o = n(96)
         .a.createStyleSheet(r)
         .attach().classes.body;
     document.body.classList.add(o);
@@ -46982,12 +47203,12 @@ object-assign
       welcomeScreen: !1,
       patterns: void 0,
       sections: [
-        { name: 'Introduction', components: [], sections: [], content: n(621) },
+        { name: 'Introduction', components: [], sections: [], content: n(622) },
         {
           name: 'API Reference',
           components: [],
           sections: [],
-          content: n(622),
+          content: n(623),
         },
         {
           name: 'Example Components',
@@ -46995,40 +47216,40 @@ object-assign
             {
               filepath: 'example\\components\\Anchor.js',
               pathLine: 'example\\components\\Anchor.js',
-              module: n(197),
-              props: n(623),
+              module: n(198),
+              props: n(624),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\Box.js',
               pathLine: 'example\\components\\Box.js',
-              module: n(625),
-              props: n(626),
+              module: n(626),
+              props: n(627),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\Button.js',
               pathLine: 'example\\components\\Button.js',
-              module: n(198),
-              props: n(628),
+              module: n(199),
+              props: n(629),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\ComplexNested.js',
               pathLine: 'example\\components\\ComplexNested.js',
-              module: n(630),
-              props: n(631),
+              module: n(631),
+              props: n(632),
               hasExamples: !0,
               metadata: {},
             },
             {
               filepath: 'example\\components\\Nested.js',
               pathLine: 'example\\components\\Nested.js',
-              module: n(633),
-              props: n(634),
+              module: n(634),
+              props: n(635),
               hasExamples: !0,
               metadata: {},
             },
@@ -47069,19 +47290,27 @@ object-assign
       methods: [],
       displayName: 'Anchor',
       doclets: {},
-      examples: n(624),
+      examples: n(625),
     };
   },
   function(e, t, n) {
-    var r = { 'styled-components': n(16), '../theme': n(28), react: n(0) },
+    var r = { '../theme': n(13), 'styled-components': n(17), react: n(0) },
       o = n(29).bind(null, r),
       i = n(30).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
         content:
-          '[View source](https://github.com/a-type/react-studs/blob/master/example/components/Anchor.js)\n\n_Primary_',
+          '[View source](https://github.com/a-type/react-studs/blob/master/example/components/Anchor.js)',
       },
+      {
+        type: 'code',
+        content:
+          "const theme = require('../theme').default;\ntheme.renderDocumentation('Anchor');",
+        settings: {},
+        evalInContext: i,
+      },
+      { type: 'markdown', content: '_Primary_' },
       {
         type: 'code',
         content: '<Anchor>Primary</Anchor>',
@@ -47175,8 +47404,8 @@ object-assign
         ['\n  padding: ', ';\n  background: ', ';\n'],
       ),
       i = _interopRequireDefault(n(0)),
-      a = _interopRequireDefault(n(16)),
-      s = _interopRequireDefault(n(28)),
+      a = _interopRequireDefault(n(17)),
+      s = _interopRequireDefault(n(13)),
       u = s.default
         .register('Box', function(e) {
           return {
@@ -47235,19 +47464,27 @@ object-assign
       methods: [],
       displayName: 'Box',
       doclets: {},
-      examples: n(627),
+      examples: n(628),
     };
   },
   function(e, t, n) {
-    var r = { react: n(0) },
+    var r = { '../theme': n(13), react: n(0) },
       o = n(29).bind(null, r),
       i = n(30).bind(null, "var React = require('react');", o);
     e.exports = [
       {
         type: 'markdown',
         content:
-          '[View source](https://github.com/a-type/react-studs/blob/master/example/components/Box.js)\n\n_Default_',
+          '[View source](https://github.com/a-type/react-studs/blob/master/example/components/Box.js)',
       },
+      {
+        type: 'code',
+        content:
+          "const theme = require('../theme').default;\ntheme.renderDocumentation('Box');",
+        settings: {},
+        evalInContext: i,
+      },
+      { type: 'markdown', content: '_Default_' },
       { type: 'code', content: '<Box />', settings: {}, evalInContext: i },
       { type: 'markdown', content: '_Inverted_' },
       {
@@ -47264,11 +47501,11 @@ object-assign
       methods: [],
       displayName: 'Button',
       doclets: {},
-      examples: n(629),
+      examples: n(630),
     };
   },
   function(e, t, n) {
-    var r = { react: n(0) },
+    var r = { '../theme': n(13), react: n(0) },
       o = n(29).bind(null, r),
       i = n(30).bind(null, "var React = require('react');", o);
     e.exports = [
@@ -47276,6 +47513,13 @@ object-assign
         type: 'markdown',
         content:
           '[View source](https://github.com/a-type/react-studs/blob/master/example/components/Button.js)',
+      },
+      {
+        type: 'code',
+        content:
+          "const theme = require('../theme').default;\ntheme.renderDocumentation('Button');",
+        settings: {},
+        evalInContext: i,
       },
       {
         type: 'code',
@@ -47344,9 +47588,9 @@ object-assign
         );
       })(['\n  background: ', ';\n'], ['\n  background: ', ';\n']),
       i = _interopRequireDefault(n(0)),
-      a = _interopRequireDefault(n(16)),
-      s = _interopRequireDefault(n(28)),
-      u = _interopRequireDefault(n(198)),
+      a = _interopRequireDefault(n(17)),
+      s = _interopRequireDefault(n(13)),
+      u = _interopRequireDefault(n(199)),
       c = s.default
         .register('ComplexNested', function(e) {
           return { background: e.colors.secondary };
@@ -47355,8 +47599,8 @@ object-assign
           return { background: e.colors.primary };
         })
         .createSelector();
-    s.default.registerVariant('Button', 'complexNested', function() {
-      return { background: 'green' };
+    s.default.registerVariant('Button', 'complexNested', {
+      background: 'white',
     });
     var l = s.default.variant('small', !0)(u.default),
       p = s.default.connect(a.default.div(o, c('background'))),
@@ -47380,17 +47624,18 @@ object-assign
                 return i.default.createElement(
                   p,
                   null,
-                  'Custom variant makes the nested buttons green.',
                   i.default.createElement(
                     u.default,
                     null,
-                    'A default-sized button that takes custom variant styles',
+                    'A default button for reference',
                   ),
                   i.default.createElement('br', null),
+                  i.default.createElement(l, null, 'Composing'),
+                  i.default.createElement('br', null),
                   i.default.createElement(
-                    l,
+                    u.default.Small,
                     null,
-                    'A small button that also takes custom variant styles, but stays small using composition',
+                    'Non-composing',
                   ),
                 );
               },
@@ -47407,14 +47652,31 @@ object-assign
       methods: [],
       displayName: 'ComplexNested',
       doclets: {},
-      examples: n(632),
+      examples: n(633),
     };
   },
   function(e, t, n) {
-    var r = { react: n(0) },
+    var r = { '../theme': n(13), react: n(0) },
       o = n(29).bind(null, r),
       i = n(30).bind(null, "var React = require('react');", o);
     e.exports = [
+      {
+        type: 'markdown',
+        content:
+          '[View source](https://github.com/a-type/react-studs/blob/master/example/components/ComplexNested.js)',
+      },
+      {
+        type: 'code',
+        content:
+          "const theme = require('../theme').default;\ntheme.renderDocumentation('ComplexNested');",
+        settings: {},
+        evalInContext: i,
+      },
+      {
+        type: 'markdown',
+        content:
+          '`ComplexNested` is a demonstration of the usage of the `compose` feature of defining a variant-enabled component.\n\nBelow are two examples of a component which has nested components inside it. One of the components is a composing variant component (the first small button), and another is a non-composing variant component (the second small button).\n\nThis component defines a custom variant for itself (which changes its background color), and also defines the same variant on the button, changing its background color as well.\n\nWithout outer variant applied, inner variant components behave as expected:',
+      },
       {
         type: 'code',
         content: '<ComplexNested/>',
@@ -47422,10 +47684,20 @@ object-assign
         evalInContext: i,
       },
       {
+        type: 'markdown',
+        content:
+          "When an outer variant is applied, we see that the first small button composes its 'small' variant with the custom outer variant. The second small button overrides the outer variant, so it does not receive the custom background color:",
+      },
+      {
         type: 'code',
         content: '<ComplexNested.Custom/>',
         settings: {},
         evalInContext: i,
+      },
+      {
+        type: 'markdown',
+        content:
+          "Using composition is up to the needs of your components. If you want users to be able to customize the styling of internal components using their own variants, you should utilize composition. If you want to ensure that an internal component keeps consistent styling without the possibility of user intervention, don't enable composition.",
       },
     ];
   },
@@ -47488,9 +47760,9 @@ object-assign
         );
       })(['\n  background: ', ';\n'], ['\n  background: ', ';\n']),
       i = _interopRequireDefault(n(0)),
-      a = _interopRequireDefault(n(16)),
-      s = _interopRequireDefault(n(28)),
-      u = _interopRequireDefault(n(197)),
+      a = _interopRequireDefault(n(17)),
+      s = _interopRequireDefault(n(13)),
+      u = _interopRequireDefault(n(198)),
       c = s.default
         .register('Nested', function(e) {
           return { background: e.colors.secondary };
@@ -47546,18 +47818,25 @@ object-assign
       methods: [],
       displayName: 'Nested',
       doclets: {},
-      examples: n(635),
+      examples: n(636),
     };
   },
   function(e, t, n) {
-    var r = { react: n(0) },
+    var r = { '../theme': n(13), react: n(0) },
       o = n(29).bind(null, r),
       i = n(30).bind(null, "var React = require('react');", o);
     e.exports = [
       {
+        type: 'code',
+        content:
+          "const theme = require('../theme').default;\ntheme.renderDocumentation('Nested');",
+        settings: {},
+        evalInContext: i,
+      },
+      {
         type: 'markdown',
         content:
-          '[View source](https://github.com/a-type/react-studs/blob/master/example/components/Nested.js)\n\n_Default_',
+          "This nested component example illustrates a simple example of variants interacting with components which have nested internal components when a variant is applied to the outer component.\n\nThe first anchor is a plain `<Anchor />` component, which has no specified variant. A component with no variant specified will assume the default variant styling, _unless_ a variant is supplied from above. If a parent component has a variant, it will mimic that variant.\n\nThe second anchor uses an explicit `'default'` variant, and is not affected by the parent variant change.\n\n_Default_",
       },
       { type: 'code', content: '<Nested />', settings: {}, evalInContext: i },
       { type: 'markdown', content: '_Inverted_' },
