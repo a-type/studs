@@ -1,5 +1,10 @@
 [View source](https://github.com/a-type/react-studs/blob/master/example/components/Anchor.js)
 
+```
+const theme = require('../theme').default;
+theme.renderDocumentation('Anchor');
+```
+
 _Primary_
 
 ```

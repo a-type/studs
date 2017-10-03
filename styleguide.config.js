@@ -18,7 +18,7 @@ module.exports = {
   ],
   ignore: ['example/components/**/index.js'],
   styleguideDir: 'docs',
-  require: ['styled-components'],
+  require: ['styled-components', path.join(__dirname, 'src/StyleRenderer')],
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'example/Wrapper'),
   },

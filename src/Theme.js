@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import connectVariants from './connectVariants';
 import { asVariant } from './VariantProvider';
+import StyleRenderer from './StyleRenderer';
+import React from 'react';
 
 export default class Theme {
   connect = connectVariants;
@@ -169,4 +171,14 @@ export default class Theme {
       _.defaultsDeep(overrides, this.globals),
       this.registeredComponents,
     );
+
+  /**
+   * Generates documentation you can provide in your own library documentation which
+   * enumerates the possible configurable values for a component.
+   *
+   * @memberof Theme
+   */
+  renderDocumentation = componentName => (
+    <StyleRenderer theme={this} name={componentName} />
+  );
 }

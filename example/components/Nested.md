@@ -1,3 +1,7 @@
+```
+const theme = require('../theme').default;
+theme.renderDocumentation('Nested');
+```
 
 This nested component example illustrates a simple example of variants interacting with components which have nested internal components when a variant is applied to the outer component.
 

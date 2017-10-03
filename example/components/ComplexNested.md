@@ -1,5 +1,10 @@
 [View source](https://github.com/a-type/react-studs/blob/master/example/components/ComplexNested.js)
 
+```
+const theme = require('../theme').default;
+theme.renderDocumentation('ComplexNested');
+```
+
 `ComplexNested` is a demonstration of the usage of the `compose` feature of defining a variant-enabled component.
 
 Below are two examples of a component which has nested components inside it. One of the components is a composing variant component (the first small button), and another is a non-composing variant component (the second small button).
