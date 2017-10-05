@@ -143,6 +143,10 @@ A very simple component wrapper that provides variant definitions from the conte
 
 The connected component will be passed a `variants` prop, which is an array of string variant names which apply to that component.
 
+### `renderDocumentation(componentName: String)`
+
+Renders JSX documentation for a component's available configurable theme values. Useful for including in documentation you provide for components within your project, so users will know what values they can override with variants.
+
 ### `VariantProvider`
 
 ```javascript static
