@@ -6,6 +6,10 @@ import Button from './Button';
 const selector = theme
   .register('ComplexNested', theme => ({
     background: theme.colors.secondary,
+    // purely for testing the documentation renderer
+    nestedValue: {
+      foo: 'bar',
+    },
   }))
   .addVariant('complexNested', theme => ({
     background: theme.colors.primary,

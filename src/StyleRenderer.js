@@ -56,7 +56,11 @@ export default class StyleRenderer extends React.Component {
         </td>
         {variants.map(variantName => (
           <td key={variantName} style={cellStyles}>
-            {selector(key)({ theme: compiled, variant: [variantName] })}
+            {JSON.stringify(
+              selector(key)({ theme: compiled, variant: [variantName] }),
+              null,
+              '  ',
+            )}
           </td>
         ))}
       </tr>
