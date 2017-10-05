@@ -13,7 +13,7 @@ export default class VariantProvider extends React.Component {
   };
 
   static defaultProps = {
-    compose: false,
+    compose: true,
   };
 
   static childContextTypes = {
@@ -31,7 +31,7 @@ export default class VariantProvider extends React.Component {
         : {};
       return {
         [CONTEXT_KEY]: {
-          variants: [...parentVariants, ...this.getVariantArray()],
+          variants: [...this.getVariantArray(), ...parentVariants],
         },
       };
     }
@@ -57,7 +57,7 @@ export default class VariantProvider extends React.Component {
 
 export const asVariant = (
   variants = ['default'],
-  compose = false,
+  compose = true,
 ) => WrappedComponent => props => (
   <VariantProvider variants={variants} compose={compose}>
     <WrappedComponent {...props} />

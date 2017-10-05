@@ -4,5 +4,6 @@ export { default as VariantProvider, asVariant } from './VariantProvider';
 export { default as createThemeProvider } from './createThemeProvider';
 export { default as spreadStyles } from './spreadStyles';
 export { default as StyleRenderer } from './StyleRenderer';
+export { default as DefaultVariant } from './DefaultVariant';
 
 export default Theme;

@@ -8,6 +8,8 @@ const globals = {
   colors: {
     primary: '#133337',
     secondary: '#4ac9e2',
+    black: 'black',
+    white: 'white',
   },
 };
 

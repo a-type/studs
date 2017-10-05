@@ -159,9 +159,15 @@ import { VariantProvider } from 'studs';
 
 A Provider component that sets variant information in the context. Children of this component which are connected via `connectVariants` will receive the defined variant(s) as a prop, `variants`.
 
-`VariantProvider` also supports the `compose` boolean prop. If `compose` is set to `true`, the `VariantProvider` will add its variants to the current context variant list instead of overwriting them. This is primarily designed for components which are used within other components in a component library. If you have a small variant icon nestd within an accordion, for instance, you may want to use the `compose` form of `VariantProvider`, so that if your user decides to apply a variant to the accordion, the icon will receive the applied variant in addition to its small variant, instead of the small variant overriding the user-supplied one.
+If multiple `VariantProviders` are present at different levels in the tree, the provided variants will be merged, with values of lower variants overriding higher ones where applicable.
 
-### `asVariant(variant: String|Array)`
+`VariantProvider` also supports the `compose` boolean prop. If `compose` is set to `false`, the `VariantProvider` will reset the provided variants to only supply those which are specified to this particular provider. This is useful for wrapping children within your components to prevent variant state from 'trickling down', if desired. For instance, if you have an `Accordion` component which supports a `small` variant, you may want to reset the variants before rendering the children, or all content will also be `small`. However, if that's the kind of interaction you want in your library, you may forego resetting the variants.
+
+You can also use `compose = false` to reset to a variant state besides `default` by supplying the variants you want to use.
+
+See the `DefaultVariant` export for a convenient way to reset variants in the tree.
+
+### `asVariant(variant: String|Array, compose: Boolean = true)`
 
 ```javascript static
 import { asVariant } from 'studs';
@@ -170,6 +176,8 @@ const SmallButton = asVariant('small')(Button);
 ```
 
 A higher-order component function which wraps a component with a `VariantProvider` which provides the specified variant(s). Exposed on `Theme` as `Theme.variant`.
+
+`compose` is the same as documented in `VariantProvider`. Defaults to `true`.
 
 ### `createThemeProvider(theme: Theme)`
 
@@ -201,3 +209,7 @@ const ButtonImpl = theme.connect(styled.button`${spreadStyles(select)};`);
 Utility function that uses a component's style selector to quickly and easily generate all style values which correspond to CSS properties.
 
 Simply register style properties for your component which, when converted to `kebab-case`, match a CSS property name. You can then use `spreadStyles` to generate CSS for all these properties within your `styled-components` definition. Properties which do not match a valid CSS property name will be ignored.
+
+### `DefaultVariant`
+
+A convenience component which constructs a `VariantProvider` which provides the `default` variant, blocking composition so that any variants higher in the tree are ignored.
