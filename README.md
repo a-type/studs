@@ -1,4 +1,4 @@
-## [react-studs](https://github.com/a-type/react-studs/)
+## [react-studs](https://github.com/a-type/studs/)
 
 > _Simplify your styling, and make your library more adaptable!_
 
@@ -176,4 +176,4 @@ The extended theme keeps all your component style definitions and default global
 
 ### See it in Action
 
-The [documentation](https://a-type.github.io/react-studs/#example-components) includes a small example styleguide rendered by `react-styleguidist` which demonstrates variants, user variants, and the interaction between nested variants.
+The [documentation](https://a-type.github.io/studs/#example-components) includes a small example styleguide rendered by `react-styleguidist` which demonstrates variants, user variants, and the interaction between nested variants.
