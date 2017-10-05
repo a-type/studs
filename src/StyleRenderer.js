@@ -34,6 +34,9 @@ export default class StyleRenderer extends React.Component {
     const { theme, name } = this.props;
     const compiled = theme.compile();
     const allValues = compiled[theme.namespace].components[name];
+    if (!allValues) {
+      return null;
+    }
     const variants = Object.keys(allValues);
     return variants.map(variantName => (
       <th style={headerStyles} key={variantName}>
@@ -44,9 +47,12 @@ export default class StyleRenderer extends React.Component {
 
   renderRows = () => {
     const { theme, name } = this.props;
-    const selector = theme.createSelector(name);
     const compiled = theme.compile();
     const allValues = compiled[theme.namespace].components[name];
+    if (!allValues) {
+      return null;
+    }
+    const selector = theme.createSelector(name);
     const variants = Object.keys(allValues);
     const baseValues = allValues.default;
     return Object.keys(baseValues).map(key => (
@@ -68,6 +74,24 @@ export default class StyleRenderer extends React.Component {
   };
 
   render() {
+    const headers = this.renderVariantHeaders();
+    const rows = this.renderRows();
+
+    if (!headers || !rows) {
+      return (
+        <div
+          style={{ fontFamily: 'sans-serif' }}
+          className="studs-config-renderer"
+        >
+          This component has no customizable{' '}
+          <a href="https://www.npmjs.com/package/react-studs">
+            react-studs
+          </a>{' '}
+          properties.
+        </div>
+      );
+    }
+
     return (
       <div
         style={{ fontFamily: 'sans-serif' }}
