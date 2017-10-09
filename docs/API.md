@@ -102,6 +102,30 @@ Note that the returned selector function assumes that one of the properties pass
 
 The second parameter of the returned selector function, `mutator`, is meant for modifying the value after it's computed in a deterministic way. This function may be expanded in the future, but be careful with using it. It will be called every time your compontent updates; costly calculations will incur performance drawbacks.
 
+##### `componentName` is not required!
+
+If no `componentName` is provided, this selector will select from the root theme object. Create a selector without a `componentName` to directly access global values or traverse multiple different components and/or variants. For instance, if you had a theme like so:
+
+```javascript static
+{
+  colors: { primary: 'red', secondary: 'blue' },
+  components: {
+    Button: {
+      default: { color: 'red' },
+      secondary: { color: 'blue' },
+    },
+  },
+}
+```
+
+You could use the selector as such:
+
+```javascript static
+select('colors.primary');
+select('components.Button.default.color');
+select('components.Button.secondary.color');
+```
+
 #### `theme.connect(Component: React.Component)`
 
 `connect` accepts a Component and returns a higher-order component which provides it with a `variant` property provided from higher in the DOM tree. Use this to seamlessly supply variant information to complex library components which contain multiple internal `styled-components`. You can also use it to inform any regular React component of the current variant configuration if a higher component is providing one.
@@ -130,6 +154,10 @@ Compiling a theme finalizes all component registrations and variants and prevent
 Creates a clone of a theme with overridden global values. The `overrides` parameter will be recursively merged with the base theme's global values. All component and variant definitions will be persisted during the copy.
 
 When you expose your theme as part of your library, users can use this method to override the base style values to easily make broad modifications, like changing primary colors or font families, without having to change individual components.
+
+#### `theme.renderDocumentation(componentName: String)`
+
+Convenience accessor for `renderDocumentation`, see further down.
 
 ### `connectVariants(Component: React.Component)`
 

@@ -211,4 +211,19 @@ describe('the Theme class', () => {
       },
     });
   });
+
+  test('can create a global selector', () => {
+    const select = theme.createSelector();
+    const compiled = theme.compile();
+    expect(select('colors.primary')({ theme: compiled })).toEqual('#133337');
+  });
+
+  test('can create a global selector which can be used to traverse components', () => {
+    registerButton();
+    const compiled = theme.compile();
+    const select = theme.createSelector();
+    expect(
+      select('components.button.default.color')({ theme: compiled }),
+    ).toEqual('#133337');
+  });
 });

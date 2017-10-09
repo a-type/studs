@@ -99,23 +99,27 @@ export default class Theme {
     // using function keyword here since my syntax highlighting is confused
     return (valueName, mutator = _.identity) =>
       function({ theme, variant = 'default' }) {
-        const variantList = _.isArray(variant)
-          ? [...variant, 'default']
-          : [variant, 'default'];
-        const styles = variantList.map(
-          variantName =>
-            _.clone(
-              theme[this.namespace].components[componentName][variantName],
-            ) || {},
-        );
-        const computedValues = _.defaultsDeep(...styles);
+        if (componentName) {
+          const variantList = _.isArray(variant)
+            ? [...variant, 'default']
+            : [variant, 'default'];
+          const styles = variantList.map(
+            variantName =>
+              _.clone(
+                theme[this.namespace].components[componentName][variantName],
+              ) || {},
+          );
+          const computedValues = _.defaultsDeep(...styles);
 
-        if (valueName) {
-          return mutator(_.get(computedValues, valueName));
+          if (valueName) {
+            return mutator(_.get(computedValues, valueName));
+          }
+
+          // empty valueName string returns the whole set
+          return mutator(computedValues);
+        } else {
+          return mutator(_.get(theme[this.namespace], valueName));
         }
-
-        // empty valueName string returns the whole set
-        return mutator(computedValues);
       }.bind(this);
   };
 
