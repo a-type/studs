@@ -82,6 +82,11 @@ export default class Theme {
     return this;
   };
 
+  globalSelector = (valueName, mutator = _.identity) =>
+    function({ theme }) {
+      return mutator(_.get(theme[this.namespace], valueName));
+    }.bind(this);
+
   /**
    * Creates a value selector which can be used to easily select a component's
    * theme values within a styled-components definition.
@@ -96,30 +101,29 @@ export default class Theme {
    * @memberof Theme
    */
   createSelector = componentName => {
+    if (!componentName) {
+      return this.globalSelector;
+    }
     // using function keyword here since my syntax highlighting is confused
     return (valueName, mutator = _.identity) =>
       function({ theme, variant = 'default' }) {
-        if (componentName) {
-          const variantList = _.isArray(variant)
-            ? [...variant, 'default']
-            : [variant, 'default'];
-          const styles = variantList.map(
-            variantName =>
-              _.clone(
-                theme[this.namespace].components[componentName][variantName],
-              ) || {},
-          );
-          const computedValues = _.defaultsDeep(...styles);
+        const variantList = _.isArray(variant)
+          ? [...variant, 'default']
+          : [variant, 'default'];
+        const styles = variantList.map(
+          variantName =>
+            _.clone(
+              theme[this.namespace].components[componentName][variantName],
+            ) || {},
+        );
+        const computedValues = _.defaultsDeep(...styles);
 
-          if (valueName) {
-            return mutator(_.get(computedValues, valueName));
-          }
-
-          // empty valueName string returns the whole set
-          return mutator(computedValues);
-        } else {
-          return mutator(_.get(theme[this.namespace], valueName));
+        if (valueName) {
+          return mutator(_.get(computedValues, valueName));
         }
+
+        // empty valueName string returns the whole set
+        return mutator(computedValues);
       }.bind(this);
   };
 
@@ -130,28 +134,28 @@ export default class Theme {
    * @memberof Theme
    */
   compile = () => {
-    if (this._compiled) {
+    if (this._compiled && !(module && module.hot)) {
       return this._compiled;
     }
 
-    const compileVariants = componentRegistration =>
-      Object.keys(componentRegistration).reduce(
-        (variants, variantName) => ({
-          ...variants,
-          [variantName]: componentRegistration[variantName](this.globals),
-        }),
-        {},
-      );
+    // Note: mutations appear beyond this point for performance / memory reasons
 
-    const compiledComponents = Object.keys(this.registeredComponents).reduce(
-      (components, componentName) => ({
-        ...components,
-        [componentName]: compileVariants(
-          this.registeredComponents[componentName],
-        ),
-      }),
-      {},
-    );
+    const compileVariants = componentRegistration =>
+      Object.keys(componentRegistration).reduce((variants, variantName) => {
+        variants[variantName] = componentRegistration[variantName](
+          this.globals,
+        );
+        return variants;
+      }, {});
+
+    const compiledComponents = Object.keys(
+      this.registeredComponents,
+    ).reduce((components, componentName) => {
+      components[componentName] = compileVariants(
+        this.registeredComponents[componentName],
+      );
+      return components;
+    }, {});
 
     this._compiled = {
       [this.namespace]: {
