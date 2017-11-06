@@ -1,5 +1,5 @@
 import React from 'react';
-import Theme, { createThemeProvider } from '../src';
+import Theme, { withCompiledTheme } from '../src';
 import styled, { ThemeProvider } from 'styled-components';
 
 const namespace = 'exampleTheme';
@@ -13,7 +13,7 @@ const globals = {
   },
 };
 
-const theme = new Theme(namespace, globals);
+const theme = new Theme(namespace, globals, { enableRecompile: true });
 export default theme;
 
-export const Provider = createThemeProvider(theme);
+export const Provider = withCompiledTheme(theme)(ThemeProvider);
