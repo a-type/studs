@@ -4,16 +4,16 @@ import { asVariant } from './VariantProvider';
 import StyleRenderer from './StyleRenderer';
 import React from 'react';
 
-const recompileWarning = `Studs theme was recompiled (.compile was called more than once).
-This is not advisable in production environments, as it can trigger expensive re-rendering
-of styled components. Please be sure to register all components and variants before rendering
-any components and enable production mode in production enviornments.
-`;
+const recompileWarning =
+  'Studs theme was recompiled (.compile was called more than once).\n' +
+  'This is not advisable in production environments, as it can trigger expensive re-rendering ' +
+  'of styled components. Please be sure to register all components and variants before rendering ' +
+  'any components and enable production mode in production enviornments.';
 
-const lateRegistrationWarning = name => `A Studs component or variant registration ${name} was made after compilation.
-If this was due to a hot reload, everything is fine. If this occurred due to your runtime code,
-it's highly recommended you move this registration to pre-render code.
-`;
+const lateRegistrationWarning = name =>
+  'A Studs component or variant registration ${name} was made after compilation. ' +
+  'If this was due to a hot reload, everything is fine. If this occurred due to your runtime code, ' +
+  "it's highly recommended you move this registration to pre-render code.";
 
 export default class Theme {
   connect = connectVariants;
