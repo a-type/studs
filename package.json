@@ -1,6 +1,6 @@
 {
   "name": "react-studs",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A theme integration library built on top of styled-components targeting shared component library use cases",
   "main": "dist/index.js",
   "scripts": {
