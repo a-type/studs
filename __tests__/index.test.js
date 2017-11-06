@@ -2,7 +2,7 @@ import Theme, {
   connectVariants,
   VariantProvider,
   asVariant,
-  createThemeProvider,
+  withCompiledTheme,
 } from '../src';
 
 describe('the library index', () => {
@@ -22,7 +22,7 @@ describe('the library index', () => {
     expect(asVariant).toBeDefined();
   });
 
-  test('defines createThemeProvider', () => {
-    expect(createThemeProvider).toBeDefined();
+  test('defines withCompiledTheme', () => {
+    expect(withCompiledTheme).toBeDefined();
   });
 });

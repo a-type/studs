@@ -131,13 +131,20 @@ When a user wants to utilize your library, they will provide the theme. You shou
 
 ```javascript static
 /* import ... */
-import { createThemeProvider } from 'react-studs';
+import { withCompiledTheme } from 'react-studs';
 import theme from './theme';
+/*
+  studs is designed to work with styled-components, but you could use
+  any provider that will take a theme as a property here
+*/
+import ThemeProvider from 'styled-components';
 
-export const MyLibraryThemeProvider = createThemeProvider(theme);
+export const MyLibraryThemeProvider = withCompiledTheme(theme)(ThemeProvider);
 ```
 
-The reason this is critical when using `react-studs` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.
+The reason this is critical when using `react-studs` is due to the requirement that a theme made with this library must be compiled on the initial render of the app. Individual components register their own style configurations in the top-level scope of their respective files, and users may also register their own variants to extend your styles. To avoid these changes causing top-level re-renders on load, compilation takes all registered component definitions at render-time and compiles them into a static theme. Once compiled, the theme will not accept new component registrations or variants in production mode. This is intended to simplify the theme creation process and prevent performance gotchas. `compile` is memoized, so subsequent calls after the first will not trigger a re-render.
+
+In development mode, however, `withCompiledTheme` registers a listener for runtime registration changes and updates the theme, allowing hot reloading to still work.
 
 Rather than explain all this to your library users, just tell them to use your custom `ThemeProvider`!
 

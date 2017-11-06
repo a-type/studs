@@ -30,8 +30,42 @@ describe('the Theme class', () => {
       },
     });
 
+    // not memoized in non-production env
+    expect(theme.compile() === theme.compile()).toBeFalsy();
+  });
+
+  test('emits an event on compilation', () => {
+    const cb = jest.fn();
+    theme.subscribe(cb);
+    const compiled = theme.compile();
+    expect(cb).toBeCalledWith({ type: 'COMPILE', theme: compiled });
+    theme.unsubscribe(cb);
+  });
+
+  test('memoizes compile when recompile is disabled', () => {
+    const noRecompileTheme = new Theme(namespace, globals, {
+      enableRecompile: false,
+    });
     // compilation is memoized
-    expect(theme.compile()).toBe(theme.compile());
+    expect(noRecompileTheme.compile()).toBe(noRecompileTheme.compile());
+  });
+
+  describe('in a production environment', () => {
+    let envValue;
+    let prodTheme;
+    beforeAll(() => {
+      envValue = process.env.NODE_ENV;
+      process.env.NODE_ENV = 'production';
+      prodTheme = new Theme(namespace, globals);
+    });
+
+    afterAll(() => {
+      process.env.NODE_ENV = envValue;
+    });
+
+    test('memoizes compile by default', () => {
+      expect(prodTheme.compile()).toBe(prodTheme.compile());
+    });
   });
 
   test('works with no globals', () => {
@@ -71,9 +105,15 @@ describe('the Theme class', () => {
     });
   });
 
-  test('rejects registration after compilation', () => {
-    theme.compile();
-    expect(registerButton).toThrow(/Cannot register component button/);
+  test('emits an event for component registration', () => {
+    const cb = jest.fn();
+    theme.subscribe(cb);
+    theme.register('button', { color: 'red' });
+    expect(cb).toBeCalledWith({
+      type: 'COMPONENT_REGISTRATION',
+      componentName: 'button',
+    });
+    theme.unsubscribe(cb);
   });
 
   test('can select a value for a component', () => {
@@ -137,12 +177,17 @@ describe('the Theme class', () => {
     });
   });
 
-  test('rejects variant registration after compilation', () => {
-    registerButton();
-    theme.compile();
-    expect(() => {
-      theme.registerVariant('button', 'secondary', () => ({}));
-    }).toThrow(/Cannot register variant secondary for button/);
+  test('emits an event for variant registration', () => {
+    theme.register('button', { color: 'red' });
+    const cb = jest.fn();
+    theme.subscribe(cb);
+    theme.registerVariant('button', 'foo', { color: 'red' });
+    expect(cb).toBeCalledWith({
+      type: 'VARIANT_REGISTRATION',
+      componentName: 'button',
+      variantName: 'foo',
+    });
+    theme.unsubscribe(cb);
   });
 
   test('rejects variant registration before component registration', () => {

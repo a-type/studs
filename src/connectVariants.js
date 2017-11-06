@@ -7,7 +7,7 @@ export const contextType = PropTypes.shape({
   variants: PropTypes.arrayOf(PropTypes.string),
 });
 
-export default (WrappedComponent, options) => {
+export default (WrappedComponent, options = {}) => {
   return class VariantWrapper extends React.Component {
     static WrappedComponent = WrappedComponent;
 
@@ -16,7 +16,7 @@ export default (WrappedComponent, options) => {
     };
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-      if (options.pure) {
+      if (_.get(options, 'pure')) {
         return !_.isEqual(this.getVariants(), this.getVariants(nextContext));
       } else {
         return !(

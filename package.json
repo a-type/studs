@@ -7,7 +7,6 @@
     "test": "jest --config jestConfig.json --coverage",
     "styleguide": "styleguidist server",
     "precommit": "lint-staged",
-    "build:clean": "rimraf dist",
     "build:dist": "babel --copy-files --out-dir dist src",
     "build:styleguide": "styleguidist build",
     "build": "run-s build:*",
@@ -39,8 +38,7 @@
     "known-css-properties": "^0.3.0",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "styled-components": "^2.1.2"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -63,6 +61,7 @@
     "react-docgen": "^2.18.0",
     "react-styleguidist": "^6.0.24",
     "rimraf": "^2.6.2",
+    "styled-components": "^2.1.2",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6"
   }

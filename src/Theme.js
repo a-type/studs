@@ -4,19 +4,41 @@ import { asVariant } from './VariantProvider';
 import StyleRenderer from './StyleRenderer';
 import React from 'react';
 
+const recompileWarning = `Studs theme was recompiled (.compile was called more than once).
+This is not advisable in production environments, as it can trigger expensive re-rendering
+of styled components. Please be sure to register all components and variants before rendering
+any components and enable production mode in production enviornments.
+`;
+
+const lateRegistrationWarning = name => `A Studs component or variant registration ${name} was made after compilation.
+If this was due to a hot reload, everything is fine. If this occurred due to your runtime code,
+it's highly recommended you move this registration to pre-render code.
+`;
+
 export default class Theme {
   connect = connectVariants;
   variant = asVariant;
+  eventSubscriptions = [];
 
   _compiled = null;
 
-  constructor(namespace, globals = {}, components = {}) {
+  constructor(namespace, globals = {}, options = {}) {
     if (!namespace) {
       throw new Error('namespace is required');
     }
+    const isDevelopmentMode = !(
+      process &&
+      process.env &&
+      process.env.NODE_ENV === 'production'
+    );
+    this._isDevelopmentMode = isDevelopmentMode;
     this.namespace = namespace;
     this.globals = globals;
-    this.registeredComponents = components;
+    this.enableRecompile =
+      options.enableRecompile === undefined
+        ? isDevelopmentMode
+        : options.enableRecompile;
+    this.registeredComponents = options.registeredComponents || {};
   }
 
   normalizeThemeConfig = themeConfig =>
@@ -32,10 +54,8 @@ export default class Theme {
   register = (componentName, defaultStyling) => {
     // registering components at render time is not allowed; all components
     // should be registered in the top-level scope before compiling the theme.
-    if (this._compiled) {
-      throw new Error(
-        `Cannot register component ${componentName}; you must register all components before calling theme.compile`,
-      );
+    if (this._compiled && this._isDevelopmentMode) {
+      console.warn(lateRegistrationWarning(componentName));
     }
 
     const defaultStyleConfig = this.normalizeThemeConfig(defaultStyling);
@@ -51,6 +71,8 @@ export default class Theme {
       createSelector: _.partial(this.createSelector, componentName),
     };
 
+    this._publish('COMPONENT_REGISTRATION', { componentName });
+
     return chain;
   };
 
@@ -64,10 +86,8 @@ export default class Theme {
   registerVariant = (componentName, variantName, variantStyling) => {
     // registering variants at render time is not allowed; all components
     // should be registered in the top-level scope before compiling the theme.
-    if (this._compiled) {
-      throw new Error(
-        `Cannot register variant ${variantName} for ${componentName}; you must register all variants before calling theme.compile`,
-      );
+    if (this._compiled && this._isDevelopmentMode) {
+      console.warn(lateRegistrationWarning(`${componentName}:${variantName}`));
     }
 
     if (!this.registeredComponents[componentName]) {
@@ -78,6 +98,8 @@ export default class Theme {
 
     this.registeredComponents[componentName][variantName] = themeValues =>
       this.normalizeThemeConfig(variantStyling)(themeValues);
+
+    this._publish('VARIANT_REGISTRATION', { componentName, variantName });
 
     return this;
   };
@@ -134,7 +156,10 @@ export default class Theme {
    * @memberof Theme
    */
   compile = () => {
-    if (this._compiled && !(module && module.hot)) {
+    if (this._compiled && !this.enableRecompile) {
+      if (this._isDevelopmentMode) {
+        console.warn(recompileWarning);
+      }
       return this._compiled;
     }
 
@@ -164,6 +189,8 @@ export default class Theme {
       },
     };
 
+    this._publish('COMPILE', { theme: this._compiled });
+
     return this._compiled;
   };
 
@@ -173,12 +200,12 @@ export default class Theme {
    *
    * @memberof Theme
    */
-  extend = overrides =>
-    new Theme(
-      this.namespace,
-      _.defaultsDeep(overrides, this.globals),
-      this.registeredComponents,
-    );
+  extend = (overrides, options) =>
+    new Theme(this.namespace, _.defaultsDeep(overrides, this.globals), {
+      registeredComponents: this.registeredComponents,
+      enableRecompile: this.renableRecompile,
+      ...options,
+    });
 
   /**
    * Generates documentation you can provide in your own library documentation which
@@ -189,4 +216,43 @@ export default class Theme {
   renderDocumentation = componentName => (
     <StyleRenderer theme={this} name={componentName} />
   );
+
+  _publish = (eventType, data) => {
+    const event = {
+      type: eventType,
+      ...data,
+    };
+
+    this.eventSubscriptions.forEach(callback => {
+      callback(event);
+    });
+  };
+
+  /**
+   * Subscribes a callback to various changes:
+   *   type: 'COMPONENT_REGISTRATION',
+   *   type: 'VARIANT_REGISTRATION',
+   *   type: 'COMPILE'
+   *
+   * Callback will be called with an event object which bears one of these
+   * types and additional data about the event if applicable.
+   *
+   * The primary use for this subscription is internal, to power
+   * re-rendering of all themed components for a runtime registration.
+   *
+   * By default, re-rendering on runtime registrations produces a warning
+   * in development mode and is turned off in production mode.
+   */
+  subscribe = callback => {
+    this.eventSubscriptions.push(callback);
+  };
+
+  /**
+   * Removes a subscription event handler.
+   */
+  unsubscribe = callback => {
+    this.eventSubscriptions = this.eventSubscriptions.filter(
+      cb => cb !== callback,
+    );
+  };
 }

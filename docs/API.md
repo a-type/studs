@@ -155,6 +155,18 @@ Creates a clone of a theme with overridden global values. The `overrides` parame
 
 When you expose your theme as part of your library, users can use this method to override the base style values to easily make broad modifications, like changing primary colors or font families, without having to change individual components.
 
+#### `theme.subscribe(callback: Function)`
+
+Subscribes a callback to theme change events. Theme change events are:
+
+* `{ type: 'COMPILE', theme: Theme }`: Published whenever the theme is compiled successfully (not called when `compile` is called, but a cached copy is used).
+* `{ type: 'COMPONENT_REGISTRATION', componentName: String }`: Published when a new component is registered.
+* `{ type: 'VARIANT_REGISTRATION', componentName: String, variantName: String }`: Published when a new variant is registered.
+
+#### `theme.unsubscribe(callback: Function)`
+
+Removes a subscription callback from theme change events.
+
 #### `theme.renderDocumentation(componentName: String)`
 
 Convenience accessor for `renderDocumentation`, see further down.
@@ -207,15 +219,22 @@ A higher-order component function which wraps a component with a `VariantProvide
 
 `compose` is the same as documented in `VariantProvider`. Defaults to `true`.
 
-### `createThemeProvider(theme: Theme)`
+### `withCompiledTheme(theme: Theme, options: Object)`
 
 ```javascript static
-import { createThemeProvider } from 'studs';
+import { withCompiledTheme } from 'studs';
+/*
+  studs is designed to work with styled-components, but you could use
+  any provider that will take a theme as a property here
+*/
+import { ThemeProvider } from 'styled-components';
 
-const MyThemeProvider = createThemeProvider(myTheme);
+const MyThemeProvider = withCompiledTheme(myTheme)(ThemeProvider);
 ```
 
-Utility function to create a customized `styled-components` `ThemeProvider` which will provide the compiled `theme`.
+A higher-order-component that creates a customized `ThemeProvider`. Calling `withCompiledTheme()` with a `Theme` returns a function which takes a `ThemeProvider` component and wraps it, providing the compiled theme as a prop.
+
+By default, the theme will be provided to your `ThemeProvider` as `theme`. You can customize this behavior by passing a second parameter to `withCompiledTheme`, `{ themePropName: String }`.
 
 ### `spreadStyles(selector: Function)`
 
