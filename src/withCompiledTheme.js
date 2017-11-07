@@ -12,7 +12,11 @@ export default (theme, options = { themePropName: 'theme' }) => ThemeProvider =>
     }
 
     componentDidMount() {
-      theme.subscribe(this.handleEvent);
+      if (theme.enableRecompile) {
+        setImmediate(() => {
+          theme.subscribe(this.handleEvent);
+        });
+      }
     }
 
     componentWillUnmount() {

@@ -11,7 +11,7 @@ const recompileWarning =
   'any components and enable production mode in production enviornments.';
 
 const lateRegistrationWarning = name =>
-  'A Studs component or variant registration ${name} was made after compilation. ' +
+  `A Studs component or variant registration ${name} was made after compilation. ` +
   'If this was due to a hot reload, everything is fine. If this occurred due to your runtime code, ' +
   "it's highly recommended you move this registration to pre-render code.";
 
