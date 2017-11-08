@@ -1,8 +1,8 @@
 import cssProps from 'known-css-properties';
 import { paramCase } from 'change-case';
 
-export default selector => props => {
-  const styles = selector()(props);
+export default (selector, key) => props => {
+  const styles = selector(key)(props);
   return Object.keys(styles)
     .map(key => {
       const propName = paramCase(key);

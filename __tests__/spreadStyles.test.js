@@ -1,24 +1,30 @@
 import spreadStyles from '../src/spreadStyles';
+import Theme from '../src/Theme';
 
 describe('the spreadStyles helper', () => {
-  const mockSelector = () => () => ({
-    color: 'red',
-    background: 'blue',
-    fontSize: '12px',
-    fontFamily: 'Arial',
-    foo: 'bar',
-    fooBar: 'baz',
-    'line-height': '4em',
+  const theme = new Theme('test');
+  const select = theme
+    .register('Foo', {
+      subSection: {
+        fontFamily: 'sans-serif',
+        lineHeight: '1.2',
+      },
+      color: 'red',
+      background: 'blue',
+      foo: 'bar',
+    })
+    .createSelector();
+  const compiled = theme.compile();
+
+  test('converts a root style definition into css', () => {
+    expect(spreadStyles(select)({ theme: compiled })).toEqual(
+      ['color: red;', 'background: blue;', ''].join('\n'),
+    );
   });
 
-  test('converts a style definition into css', () => {
-    expect(spreadStyles(mockSelector)('mock theme')).toEqual(
-      `color: red;
-background: blue;
-font-size: 12px;
-font-family: Arial;
-line-height: 4em;
-`,
+  test('converts a subsection to css', () => {
+    expect(spreadStyles(select, 'subSection')({ theme: compiled })).toEqual(
+      ['font-family: sans-serif;', 'line-height: 1.2;', ''].join('\n'),
     );
   });
 });
