@@ -45433,13 +45433,13 @@ object-assign
         return e && e.__esModule ? e : { default: e };
       })(n(584)),
       o = n(586);
-    t.default = function(e) {
-      return function(t) {
-        var n = e()(t);
-        return Object.keys(n)
+    t.default = function(e, t) {
+      return function(n) {
+        var i = e(t)(n);
+        return Object.keys(i)
           .map(function(e) {
             var t = (0, o.paramCase)(e);
-            return r.default.all.includes(t) ? t + ': ' + n[e] + ';\n' : '';
+            return r.default.all.includes(t) ? t + ': ' + i[e] + ';\n' : '';
           })
           .reduce(function(e, t) {
             return '' + e + t;
